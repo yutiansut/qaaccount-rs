@@ -1,0 +1,9 @@
+[package]
+name = "quantaxis-rs"
+version = "0.1.0"
+authors = ["yutiansut <yutiansut@qq.com>"]
+
+[dependencies]
+
+serde_json = "*"
+serde ="*"
