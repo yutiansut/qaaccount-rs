@@ -1,23 +1,20 @@
 use core::fmt::Debug;
 use core::ops::AddAssign;
 
-extern crate num_traits;
+
+
+use ndarray::array;
 use num_traits::{float::Float, identities::Zero, identities::One, cast::FromPrimitive};
 
 #[macro_use]
-extern crate serde;
-use serde::{Serialize, Deserialize};
 
-/// Stats is an object that calculates continuous min/max/mean/deviation for tracking of time varying statistics
-///
-///
-/// See: https://en.wikipedia.org/wiki/Algorithms_for_calculating_variance#Welford's_Online_algorithm for the algorithm
+use serde::{Serialize, Deserialize};
+use num_traits::real::Real;
+
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct Stats<T: Float + Zero + One + AddAssign + FromPrimitive + PartialEq + Debug> {
-    /// Minimum value
     pub min:     T,
-    /// Maximum value
     pub max:     T,
     /// Mean of sample set
     pub mean:    T,
@@ -69,4 +66,20 @@ impl <T> Stats<T>
             self.std_dev = (self.mean2 / (count - T::one())).sqrt();
         }
     }
+}
+
+
+
+fn main(){
+    let mut s: Stats<f32> = Stats::new();
+
+    let vals: Vec<f32> = vec![1.0, 2.0, 3.0, 4.0, 5.0];
+    for v in &vals {
+        s.update(*v);
+
+        println!("{:?}", s.max);
+        println!("{:?}", s.mean);
+    }
+
+    
 }
