@@ -1,9 +1,13 @@
 
 
 use crate::qaorder;
+use crate::transaction;
+
+
 pub struct QA_Account{
     pub cash: Vec<f64>,
     pub hold: Vec<qaorder::QA_Postions>,
+    pub history: Vec<transaction::QATransaction>,
     pub account_cookie: String,
     pub portfolio_cookie: String,
     pub user_cookie: String,
@@ -12,9 +16,14 @@ pub struct QA_Account{
 
 
 impl QA_Account{
-    pub fn history(&mut self){
+    pub fn positions(&mut self){
         for item in self.hold.iter(){
             qaorder::QA_Postions::message(item);
+        }
+    }
+    pub fn history_table(&mut self){
+        for item in self.history.iter(){
+            println!("{:?}",transaction::QATransaction::to_json(item));
         }
     }
     pub fn send_order(
@@ -26,7 +35,7 @@ impl QA_Account{
         price:f64,
         order_id :&str
     ) {
-        println!("{}", code);
+        //println!("{}", code);
 
         let pos = qaorder::QA_Postions{
             code: code.to_string(),
@@ -68,6 +77,21 @@ impl QA_Account{
             open_cost_short: 0.0
         };
         self.hold.push(pos);
+        self.history.push(transaction::QATransaction{
+            code: code.to_string(),
+            amount,
+            price,
+            datetime: time.to_string(),
+            order_id: order_id.to_string(),
+            trade_id: order_id.to_string(),
+            realorder_id: order_id.to_string(),
+            account_cookie: self.account_cookie.to_string(),
+            commission: 0.0,
+            tax: 0.0,
+            message: "".to_string(),
+            frozen: 0.0,
+            direction: towards
+        })
 
     }
 }

@@ -1,9 +1,19 @@
 [package]
 name = "quantaxis-rs"
 version = "0.1.0"
+description = 'quantaxis in rust'
 authors = ["yutiansut <yutiansut@qq.com>"]
+edition = "2018"
 
 [dependencies]
 
 serde_json = "*"
-serde ="*"
+serde_derive = "1.0"
+serde = { version = "1.0", features = ["derive"] } # 序列化
+csv = "1.1"
+stopwatch = "*"
+num = "0.2.0"
+num-traits = "0.2.6"
+
+[dev-dependencies]
+float-cmp = "0.4.0"
