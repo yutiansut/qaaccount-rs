@@ -5,7 +5,6 @@ extern crate num_traits;
 use num_traits::{float::Float, identities::Zero, identities::One, cast::FromPrimitive};
 
 #[macro_use]
-extern crate serde;
 use serde::{Serialize, Deserialize};
 
 /// Stats is an object that calculates continuous min/max/mean/deviation for tracking of time varying statistics

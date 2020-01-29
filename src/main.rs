@@ -29,8 +29,6 @@ pub fn backtest(){
 
     let mut rdr = csv::Reader::from_reader(io::stdin());
     for result in rdr.deserialize() {
-        // Notice that we need to provide a type hint for automatic
-        // deserialization.
         let bar: qafetch::BAR = result.unwrap() ;
 
         qaaccount::QA_Account::send_order(&mut acc,bar.code.as_ref(), 10.0, bar.datetime.as_ref(), 2, bar.close, "order");
