@@ -24,7 +24,7 @@ num-traits = "0.2.6"
 rayon = "1.1" # 多线程
 ndarray = "0.13.0" # ndarray
 ndarray-csv = "0.4"
-error-chain = "0.11"
+#error-chain = "0.11"
 
 [dev-dependencies]
 float-cmp = "0.4.0"

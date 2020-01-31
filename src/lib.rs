@@ -6,8 +6,8 @@ pub mod qaindicator;
 pub mod transaction;
 pub mod indicators;
 
-#[macro_use]
-extern crate error_chain;
+// #[macro_use]
+// extern crate error_chain;
 
 #[cfg(test)]
 #[macro_use]
