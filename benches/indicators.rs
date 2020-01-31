@@ -69,5 +69,6 @@ bench_indicators!(
     SlowStochastic,
     TrueRange,
     MoneyFlowIndex,
-    OnBalanceVolume,
+    OnBalanceVolume
 );
+
