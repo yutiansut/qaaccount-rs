@@ -1,4 +1,4 @@
-use crate quantaxis-rs;
+use crate quantaxis_rs;
 
 
 fn main(){

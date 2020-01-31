@@ -19,8 +19,13 @@
 //return np.nan
 //
 
-use quantaxis_rs::{qaaccount, qafetch, qaindicator, qadata, qaorder, transaction};
-
+use quantaxis_rs::{qaaccount, qafetch, qaindicator, qadata, qaorder,indicators, transaction};
+use quantaxis_rs::indicators::{
+    BollingerBands, EfficiencyRatio, ExponentialMovingAverage, FastStochastic, Maximum, Minimum,
+    MoneyFlowIndex, MovingAverageConvergenceDivergence, OnBalanceVolume, RateOfChange,
+    RelativeStrengthIndex, SimpleMovingAverage, SlowStochastic, StandardDeviation, TrueRange,
+    LLV, HHV
+};
 extern crate serde;
 extern crate num_traits;
 
@@ -46,6 +51,8 @@ use stopwatch::{Stopwatch};
 
 
 pub fn backtest(){
+
+    let llv_i = LLV::new(3).unwrap();
     let init_data = qafetch::BAR{
         code: "".to_string(),
         datetime: "".to_string(),
@@ -72,10 +79,10 @@ pub fn backtest(){
         // Notice that we need to provide a type hint for automatic
         // deserialization.
         let bar: qafetch::BAR = result.unwrap() ;
-
+        llv_i.next(bar.close);
 //        let bx =  Array::from(bar);
 //        let dh = stack(Axis(1), &[dh.view(), bx.view()]);
-//        println!("{:#?}", dh);
+        println!("{:#?}", llv_i);
 
 
         qaaccount::QA_Account::send_order(&mut acc,bar.code.as_ref(), 10.0, bar.datetime.as_ref(), 2, bar.close, "order");

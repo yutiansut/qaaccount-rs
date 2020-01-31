@@ -11,7 +11,6 @@ extern crate serde;
 extern crate num_traits;
 
 
-extern crate csv;
 extern crate ndarray;
 use ndarray::{array, stack};
 
@@ -52,7 +51,6 @@ pub fn backtest(){
         portfolio_cookie: "x".to_string(),
         user_cookie: "x".to_string()
     };
-
     let mut rdr = csv::Reader::from_reader(io::stdin());
     for result in rdr.deserialize() {
         let bar: qafetch::BAR = result.unwrap() ;
@@ -75,6 +73,8 @@ pub fn backtest(){
 fn main(){
     let sw = Stopwatch::start_new();
     //backtest();
+
+
 
     //let file = File::open("data15.csv").unwrap();
 

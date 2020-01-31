@@ -1,30 +1,7 @@
 use crate::errors::*;
 use crate::traits::{Close, High, Low, Open, Volume};
 
-/// Data item is used as an input for indicators.
-///
-/// # Example
-///
-/// ```
-/// use quantaxis_rs::DataItem;
-/// use quantaxis_rs::{Open, High, Low, Close, Volume};
-///
-/// let item = DataItem::builder()
-///     .open(20.0)
-///     .high(25.0)
-///     .low(15.0)
-///     .close(21.0)
-///     .volume(7500.0)
-///     .build()
-///     .unwrap();
-///
-/// assert_eq!(item.open(), 20.0);
-/// assert_eq!(item.high(), 25.0);
-/// assert_eq!(item.low(), 15.0);
-/// assert_eq!(item.close(), 21.0);
-/// assert_eq!(item.volume(), 7500.0);
-/// ```
-///
+
 #[derive(Debug, Clone)]
 pub struct DataItem {
     open: f64,

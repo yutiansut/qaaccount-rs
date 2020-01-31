@@ -80,6 +80,7 @@ pub fn round(num: f64) -> f64 {
     (num * 1000.0).round() / 1000.00
 }
 
+#[macro_export]
 macro_rules! test_indicator {
     ($i:tt) => {
         #[test]
