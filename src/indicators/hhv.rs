@@ -13,8 +13,8 @@ use crate::errors::*;
 /// # Example
 ///
 /// ```
-/// use ta::indicators::HHV;
-/// use ta::Next;
+/// use quantaxis_rs::indicators::HHV;
+/// use quantaxis_rs::Next;
 ///
 /// let mut max = hhv::new(3).unwrap();
 /// assert_eq!(max.next(7.0), 7.0);

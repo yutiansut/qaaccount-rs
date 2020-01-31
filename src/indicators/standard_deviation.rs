@@ -24,8 +24,8 @@ use crate::{Close, Next, Reset};
 /// # Example
 ///
 /// ```
-/// use ta::indicators::StandardDeviation;
-/// use ta::Next;
+/// use quantaxis_rs::indicators::StandardDeviation;
+/// use quantaxis_rs::Next;
 ///
 /// let mut sd = StandardDeviation::new(3).unwrap();
 /// assert_eq!(sd.next(10.0), 0.0);

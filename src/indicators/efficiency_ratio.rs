@@ -16,8 +16,8 @@ use crate::traits::{Close, Next, Reset};
 /// # Example
 ///
 /// ```
-/// use ta::indicators::EfficiencyRatio;
-/// use ta::Next;
+/// use quantaxis_rs::indicators::EfficiencyRatio;
+/// use quantaxis_rs::Next;
 ///
 /// let mut er = EfficiencyRatio::new(4).unwrap();
 /// assert_eq!(er.next(10.0), 1.0);

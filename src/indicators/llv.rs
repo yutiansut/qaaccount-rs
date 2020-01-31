@@ -13,8 +13,8 @@ use crate::{Low, Next, Reset};
 /// # Example
 ///
 /// ```
-/// use ta::indicators::LLV;
-/// use ta::Next;
+/// use quantaxis_rs::indicators::LLV;
+/// use quantaxis_rs::Next;
 ///
 /// let mut min = llv::new(3).unwrap();
 /// assert_eq!(min.next(10.0), 10.0);

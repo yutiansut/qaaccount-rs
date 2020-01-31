@@ -23,8 +23,8 @@ use crate::traits::{Close, Next, Reset};
 /// # Example
 ///
 /// ```
-/// use ta::indicators::RateOfChange;
-/// use ta::Next;
+/// use quantaxis_rs::indicators::RateOfChange;
+/// use quantaxis_rs::Next;
 ///
 /// let mut roc = RateOfChange::new(2).unwrap();
 /// assert_eq!(roc.next(10.0), 0.0);            //  0

@@ -29,8 +29,8 @@ use crate::{Close, Next, Reset};
 /// # Example
 ///
 /// ```
-/// use ta::indicators::MovingAverageConvergenceDivergence as Macd;
-/// use ta::Next;
+/// use quantaxis_rs::indicators::MovingAverageConvergenceDivergence as Macd;
+/// use quantaxis_rs::Next;
 ///
 /// let mut macd = Macd::new(3, 6, 4).unwrap();
 ///

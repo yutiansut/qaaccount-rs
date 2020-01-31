@@ -33,8 +33,8 @@ use crate::{Close, High, Low, Next, Reset, Volume};
 /// # Example
 ///
 /// ```
-/// use ta::indicators::MoneyFlowIndex;
-/// use ta::{Next, DataItem};
+/// use quantaxis_rs::indicators::MoneyFlowIndex;
+/// use quantaxis_rs::{Next, DataItem};
 ///
 /// let mut mfi = MoneyFlowIndex::new(3).unwrap();
 /// let di = DataItem::builder()

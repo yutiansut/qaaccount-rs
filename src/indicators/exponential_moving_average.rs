@@ -35,8 +35,8 @@ use crate::{Close, Next, Reset};
 /// # Example
 ///
 /// ```
-/// use ta::indicators::ExponentialMovingAverage;
-/// use ta::Next;
+/// use quantaxis_rs::indicators::ExponentialMovingAverage;
+/// use quantaxis_rs::Next;
 ///
 /// let mut ema = ExponentialMovingAverage::new(3).unwrap();
 /// assert_eq!(ema.next(2.0), 2.0);

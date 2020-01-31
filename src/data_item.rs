@@ -6,8 +6,8 @@ use crate::traits::{Close, High, Low, Open, Volume};
 /// # Example
 ///
 /// ```
-/// use ta::DataItem;
-/// use ta::{Open, High, Low, Close, Volume};
+/// use quantaxis_rs::DataItem;
+/// use quantaxis_rs::{Open, High, Low, Close, Volume};
 ///
 /// let item = DataItem::builder()
 ///     .open(20.0)

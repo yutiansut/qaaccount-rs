@@ -26,11 +26,11 @@ use crate::{Close, High, Low, Next, Reset};
 /// # Example
 ///
 /// ```
-/// extern crate ta;
+/// extern crate quantaxis_rs;
 /// #[macro_use] extern crate assert_approx_eq;
 ///
-/// use ta::{Next, DataItem};
-/// use ta::indicators::AverageTrueRange;
+/// use quantaxis_rs::{Next, DataItem};
+/// use quantaxis_rs::indicators::AverageTrueRange;
 ///
 /// fn main() {
 ///     let data = vec![

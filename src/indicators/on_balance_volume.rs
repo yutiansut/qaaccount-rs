@@ -26,8 +26,8 @@ use crate::{Close, Next, Reset, Volume};
 /// # Example
 ///
 /// ```
-/// use ta::indicators::OnBalanceVolume;
-/// use ta::{Next, DataItem};
+/// use quantaxis_rs::indicators::OnBalanceVolume;
+/// use quantaxis_rs::{Next, DataItem};
 ///
 /// let mut obv = OnBalanceVolume::new();
 ///

@@ -52,8 +52,8 @@ use crate::{Close, Next, Reset};
 /// # Example
 ///
 /// ```
-/// use ta::indicators::RelativeStrengthIndex;
-/// use ta::Next;
+/// use quantaxis_rs::indicators::RelativeStrengthIndex;
+/// use quantaxis_rs::Next;
 ///
 /// let mut rsi = RelativeStrengthIndex::new(3).unwrap();
 /// assert_eq!(rsi.next(10.0), 50.0);

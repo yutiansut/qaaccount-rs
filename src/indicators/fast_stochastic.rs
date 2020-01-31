@@ -28,8 +28,8 @@ use crate::{Close, High, Low, Next, Reset};
 /// # Example
 ///
 /// ```
-/// use ta::indicators::FastStochastic;
-/// use ta::Next;
+/// use quantaxis_rs::indicators::FastStochastic;
+/// use quantaxis_rs::Next;
 ///
 /// let mut stoch = FastStochastic::new(5).unwrap();
 /// assert_eq!(stoch.next(20.0), 50.0);

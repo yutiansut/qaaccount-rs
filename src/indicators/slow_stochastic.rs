@@ -16,8 +16,8 @@ use crate::{Close, High, Low, Next, Reset};
 /// # Example
 ///
 /// ```
-/// use ta::indicators::SlowStochastic;
-/// use ta::Next;
+/// use quantaxis_rs::indicators::SlowStochastic;
+/// use quantaxis_rs::Next;
 ///
 /// let mut stoch = SlowStochastic::new(3, 2).unwrap();
 /// assert_eq!(stoch.next(10.0), 50.0);

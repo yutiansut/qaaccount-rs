@@ -78,10 +78,8 @@ fn main(){
     let sw = Stopwatch::start_new();
     //backtest();
 
-    let file = File::open("data15.csv").unwrap();
-    let mut reader = ReaderBuilder::new().has_headers(true).from_reader(file);
-    let array_read: Array2<u64> = reader.deserialize_array2((11303,11)).unwrap();
-    println!("{:#?}", array_read);
+    //let file = File::open("data15.csv").unwrap();
+
 
     println!("It took {0:.8} ms",sw.elapsed_ms());
 }
