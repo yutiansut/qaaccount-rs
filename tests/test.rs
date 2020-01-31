@@ -1,4 +1,4 @@
 extern crate csv;
-extern crate ta;
+extern crate quantaxis_rs;
 
 // TODO: implement some integration tests
