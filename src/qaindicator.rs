@@ -21,31 +21,7 @@ pub fn round_array(array: &mut [f64], decimals: u8) {
 }
 
 
-pub fn LLV(data: T, period: usize) -> Result<Vec<f64>, Err> {
-    let mut llv = Vec::new();
 
-    for i in  period + 1..(data.len()){
-        let u =  data[s![i-period..i]].max();
-
-
-        llv.push(*u);
-    }
-    Ok(llv)
-}
-pub fn HHV(data: T, period: usize) -> Result<Vec<f64>, Err> {
-    let mut llv = Vec::new();
-
-    for i in  period + 1..(data.len()){
-        let u =  data[s![i-period..i]].max();
-
-
-//        let u = data[i-period..i].iter().min().unwrap();
-
-
-        llv.push(*u);
-    }
-    Ok(llv)
-}
 
 //pub fn HHV(data: &[f64], period: usize) -> Result<Vec<f64>, Err> {
 //    if length <= 0 {
@@ -285,9 +261,6 @@ const LOW: &[f64] = &[1934.7, 1921.02, 1793.77, 1887.36, 1919.72, 1868.23, 1991.
 const CLOSE: &[f64] = &[1959.83, 2041.42, 2019.04, 1969.53, 2082.75, 2209.52, 2200.9, 2364.04,
     2543.32, 2423.95, 2483.28, 2604.88, 2393.81, 2231.27, 2420.82, 2544.0,
     2766.67, 2919.62, 2763.25, 2922.14];
-const CLOSEV: vec = vec![1959.83, 2041.42, 2019.04, 1969.53, 2082.75, 2209.52, 2200.9, 2364.04,
-                              2543.32, 2423.95, 2483.28, 2604.88, 2393.81, 2231.27, 2420.82, 2544.0,
-                              2766.67, 2919.62, 2763.25, 2922.14];
 
 
 #[test]
@@ -309,32 +282,7 @@ fn ema_works() {
     round_array(result.as_mut(), 4);
     assert_eq!(result, expected);
 }
-#[test]
-fn llv_works() {
-    let CL = ndarray::Array::from(CLOSEV);
 
-    let mut result = LLV(CL, 4).unwrap();
-    let expected = &[
-        1959.83,
-        1969.53,
-        1969.53,
-        1969.53,
-        2082.75,
-        2200.9,
-        2200.9,
-        2364.04,
-        2423.95,
-        2393.81,
-        2231.27,
-        2231.27,
-        2231.27,
-        2231.27,
-        2420.82,
-        2544.0,
-        2763.25];
-    round_array(result.as_mut(), 4);
-    assert_eq!(result, expected);
-}
 #[test]
 fn psar_works() {
     let mut result = psar(HIGH, LOW, 0.02, 0.2).unwrap();
