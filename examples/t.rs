@@ -1,11 +1,25 @@
+//count1=0
+//HAE=0
+//LAE=0
+//
+//def calc_HHV(self,market_data, n):
+//try:
+//ind = QA.HHV(market_data.iloc[-n-1:]['high'],n)
+//return ind.iloc[-2]
+//except Exception as e:
+//print(e)
+//return np.nan
+//
+//def calc_LLV(self,market_data, n):
+//try:
+//ind = QA.LLV(market_data.iloc[-n-1:]['low'],n)
+//return ind.iloc[-2]
+//except Exception as e:
+//print(e)
+//return np.nan
+//
 
-
-pub mod qaaccount;
-pub mod qadata;
-pub mod qafetch;
-pub mod qaorder;
-pub mod qaindicator;
-pub mod transaction;
+use quantaxis_rs::{qaaccount, qafetch, qaindicator, qadata, qaorder, transaction};
 
 extern crate serde;
 extern crate num_traits;
@@ -55,6 +69,8 @@ pub fn backtest(){
 
     let mut rdr = csv::Reader::from_reader(io::stdin());
     for result in rdr.deserialize() {
+        // Notice that we need to provide a type hint for automatic
+        // deserialization.
         let bar: qafetch::BAR = result.unwrap() ;
 
 //        let bx =  Array::from(bar);
@@ -74,11 +90,10 @@ pub fn backtest(){
 
 fn main(){
     let sw = Stopwatch::start_new();
-    //backtest();
+    backtest();
 
     //let file = File::open("data15.csv").unwrap();
 
 
     println!("It took {0:.8} ms",sw.elapsed_ms());
 }
-

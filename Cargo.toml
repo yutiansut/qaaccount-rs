@@ -4,6 +4,13 @@ version = "0.1.0"
 description = 'quantaxis in rust'
 authors = ["yutiansut <yutiansut@qq.com>"]
 edition = "2018"
+include = [
+    "src/**/*",
+    "Cargo.toml",
+    "README.md"
+]
+readme = "README.md"
+categories = ["science", "algorithms"]
 
 [dependencies]
 
@@ -14,6 +21,19 @@ csv = "1.1"
 stopwatch = "*"
 num = "0.2.0"
 num-traits = "0.2.6"
+rayon = "1.1" # 多线程
+ndarray = "0.13.0" # ndarray
+ndarray-csv = "0.4"
+error-chain = "0.11"
 
 [dev-dependencies]
 float-cmp = "0.4.0"
+assert_approx_eq = "1.0.0"
+csv = "0.15.0"
+bencher = "0.1.5"
+rand = "0.6.5"
+
+[[bench]]
+name = "indicators"
+path = "benches/indicators.rs"
+harness = false

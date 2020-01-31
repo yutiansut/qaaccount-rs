@@ -1,26 +1,25 @@
+
 use core::fmt::Debug;
 use core::ops::AddAssign;
 
-
-
-use ndarray::array;
+extern crate num_traits;
 use num_traits::{float::Float, identities::Zero, identities::One, cast::FromPrimitive};
 
 #[macro_use]
+extern crate serde;
 use serde::{Serialize, Deserialize};
-use num_traits::real::Real;
 
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
-pub struct Stats<T: Float + Zero + One + AddAssign + FromPrimitive + PartialEq + Debug> {
+pub struct Data<T: Float + Zero + One + AddAssign + FromPrimitive + PartialEq + Debug> {
     pub min:     T,
     pub max:     T,
-    /// Mean of sample set
     pub mean:    T,
-    /// Standard deviation of sample
+    
+    /// 
     pub std_dev: T,
 
-    /// Number of values collected
+    /// count 序列号
     #[serde(skip)]
     count: usize,
 
@@ -29,16 +28,14 @@ pub struct Stats<T: Float + Zero + One + AddAssign + FromPrimitive + PartialEq +
     mean2:   T,
 }
 
-impl <T> Stats<T>
+impl <T> Data<T>
     where
         T: Float + Zero + One + AddAssign + FromPrimitive + PartialEq + Debug,
 {
-    /// Create a new rolling-stats object
-    pub fn new() -> Stats<T> {
-        Stats{count: 0, min: T::zero(), max: T::zero(), mean: T::zero(), std_dev: T::zero(), mean2: T::zero()}
+    pub fn new() -> Data<T> {
+        Data{count: 0, min: T::zero(), max: T::zero(), mean: T::zero(), std_dev: T::zero(), mean2: T::zero()}
     }
 
-    /// Update the rolling-stats object
     pub fn update(&mut self, value: T) {
         // Track min and max
         if value > self.max || self.count == 0 {
@@ -48,7 +45,6 @@ impl <T> Stats<T>
             self.min = value;
         }
 
-        // Increment counter
         self.count += 1;
         let count = T::from_usize(self.count).unwrap();
 
@@ -70,14 +66,14 @@ impl <T> Stats<T>
 
 
 fn main(){
-    let mut s: Stats<f32> = Stats::new();
+    let mut s: Data<f32> = Data::new();
 
     let vals: Vec<f32> = vec![1.0, 2.0, 3.0, 4.0, 5.0];
     for v in &vals {
         s.update(*v);
-
-        println!("{:?}", s.max);
-        println!("{:?}", s.mean);
+        println!("update new vals {}", v);
+        println!("max {:?}", s.max);
+        println!("mean {:?}", s.mean);
     }
 
     
