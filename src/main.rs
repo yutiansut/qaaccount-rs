@@ -1,4 +1,18 @@
+extern crate ndarray;
+extern crate ndarray_csv;
+extern crate num_traits;
+extern crate serde;
+extern crate stopwatch;
 
+use std::error::Error;
+use std::io;
+use std::process;
+
+use csv::{ReaderBuilder, WriterBuilder};
+use ndarray::{array, stack};
+use ndarray::prelude::*;
+use serde_json;
+use stopwatch::Stopwatch;
 
 pub mod qaaccount;
 pub mod qadata;
@@ -7,28 +21,10 @@ pub mod qaorder;
 pub mod qaindicator;
 pub mod transaction;
 
-extern crate serde;
-extern crate num_traits;
 
-
-extern crate ndarray;
-use ndarray::{array, stack};
-
-use ndarray::prelude::*;
-extern crate ndarray_csv;
-
-use csv::{ReaderBuilder, WriterBuilder};
 //use ndarray::{Array, Array2};
 //use ndarray_csv::{Array2Reader, Array2Writer};
 //use std::fs::File;
-
-use serde_json;
-use std::error::Error;
-use std::io;
-use std::process;
-extern crate stopwatch;
-use stopwatch::{Stopwatch};
-
 
 pub fn backtest(){
     let init_data = qafetch::BAR{
@@ -40,8 +36,8 @@ pub fn backtest(){
         close: 0.0,
         volume: 0.0
     };
-    let dh =  array!(&init_data);
-    let mut acc  = qaaccount::QA_Account::new();
+    let dh = array!(&init_data);
+    let mut acc = qaaccount::QA_Account::new("mainAcc");
     let mut rdr = csv::Reader::from_reader(io::stdin());
     for result in rdr.deserialize() {
         let bar: qafetch::BAR = result.unwrap() ;

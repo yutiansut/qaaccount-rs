@@ -17,10 +17,8 @@ pub struct QA_Postions {
     //# 持仓量
     pub volume_long_today: f64,
     pub volume_long_his: f64,
-    pub volume_long: f64,
     pub volume_short_today: f64,
     pub volume_short_his: f64,
-    pub volume_short: f64,
     //# 平仓委托冻结(未成交)
     pub volume_long_frozen_today: f64,
     pub volume_long_frozen_his: f64,
@@ -69,10 +67,8 @@ impl QA_Postions{
             lastupdatetime: "".to_string(),
             volume_long_today: 0.0,
             volume_long_his: 0.0,
-            volume_long: 0.0,
             volume_short_today: 0.0,
             volume_short_his: 0.0,
-            volume_short: 0.0,
             volume_long_frozen_today: 0.0,
             volume_long_frozen_his: 0.0,
             volume_long_frozen: 0.0,
@@ -112,22 +108,25 @@ impl QA_Postions{
             }
             3 => {
                 self.volume_short_today -= amount;
+                if (self.volume_short_today == 0.0) {
+                    self.open_price_short = 0 as f64;
+                }
             }
             -3 => {
                 self.volume_long_today -= amount;
+                if (self.volume_long_today == 0.0) {
+                    self.open_price_long = 0 as f64;
+                }
             }
             _ => {}
         }
+    }
 
-
+    pub fn volume_long(&self) -> f64 {
+        self.volume_long_today + self.volume_long_his
+    }
+    pub fn volume_short(&self) -> f64 {
+        self.volume_short_today + self.volume_short_his
     }
 }
-
-
-
-
-pub struct QA_Order {
-
-}
-
 

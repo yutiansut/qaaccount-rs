@@ -32,10 +32,7 @@ use crate::{Close, Next, Reset};
 /// assert_eq!(sd.next(20.0), 5.0);
 /// ```
 ///
-/// # Links
-///
-/// * [Standard Deviation, Wikipedia](https://en.wikipedia.org/wiki/Standard_deviation)
-///
+
 #[derive(Debug, Clone)]
 pub struct StandardDeviation {
     n: u32,
