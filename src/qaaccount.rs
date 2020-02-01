@@ -124,7 +124,6 @@ impl QA_Account{
         time: &str,
         price:f64
     ) {
-        println!("SELLCLOSE!");
         self.send_order(code, amount, time, -3, price, "SELL_CLOSE");
     }
     pub fn send_order(
@@ -136,7 +135,7 @@ impl QA_Account{
         price:f64,
         order_id :&str
     ) {
-        println!("{} - {}", code, towards);
+        //println!("{} - {}", code, towards);
         let mut pos = self.get_position(code).unwrap();
         pos.update_pos( price, amount, towards);
 

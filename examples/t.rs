@@ -22,6 +22,7 @@ use quantaxis_rs::qaaccount::QA_Account;
 use quantaxis_rs::qaorder::QA_Postions;
 
 pub fn backtest() {
+
     let priceoffset = 1;
     let lossP = 1.3;
     let K1 = 20;
@@ -43,7 +44,7 @@ pub fn backtest() {
         volume: 0.0,
     };
     let mut acc = qaaccount::QA_Account::new("BacktestAccount");
-    acc.init_h("RB2005");
+    acc.init_h("RBL8");
     let mut llv_i = LLV::new(3).unwrap();
     let mut hhv_i = HHV::new(3).unwrap();
     let mut ma = MovingAverage::new(n1 as u32).unwrap();
@@ -78,12 +79,15 @@ pub fn backtest() {
             ma.cached[n1 - 4] < ma.cached[n1 - 5];
 
         let code = bar.code.as_ref();
-        if (acc.get_position_long(code) > 0.0 || acc.get_position_short(code) > 0.0) {
+
+        let long_pos = acc.get_position_long(code);
+        let short_pos = acc.get_position_short(code);
+        if (long_pos > 0.0 || short_pos > 0.0) {
             HAE = lastbar.high;
             LAE = lastbar.low;
         }
 
-        if (acc.get_position_long(code) == 0 as f64 && acc.get_position_short(code) == 0 as f64) {
+        if (long_pos == 0 as f64 && short_pos == 0 as f64) {
             if crossOver && cond1 {
                 acc.buy_open(bar.code.as_ref(), 10.0, bar.datetime.as_ref(), bar.close);
             }
@@ -91,8 +95,8 @@ pub fn backtest() {
                 acc.sell_open(bar.code.as_ref(), 10.0, bar.datetime.as_ref(), bar.close);
             }
         }
-        if (acc.get_position_long(code) > 0 as f64 && acc.get_position_short(code) == 0 as f64) {
-            println!("当前多单持仓");
+        if (long_pos > 0.0 && short_pos == 0.0) {
+            //println!("当前多单持仓");
 
             let mut stopLine: f64 = acc.get_open_price_long(code) * (100.0 - lossP) / 100 as f64;
             if (HAE >= (acc.get_open_price_long(code) * (1 + TrailingStart1 / 1000) as f64)) {
@@ -106,8 +110,8 @@ pub fn backtest() {
                 acc.sell_close(code, 10.0, bar.datetime.as_ref(), bar.open);
             }
         }
-        if (acc.get_position_short(code) > 0 as f64 && acc.get_position_long(code) == 0 as f64) {
-            println!("当前空单持仓 {:#?}", acc.get_position_short(code));
+        if (short_pos > 0.0 && long_pos == 0.0) {
+            //println!("当前空单持仓 {:#?}", acc.get_position_short(code));
             let mut stopLine: f64 = acc.get_open_price_short(code) * (100.0 + lossP) / 100 as f64;
 
             if (LAE >= (acc.get_open_price_short(code) * (1 - TrailingStart1 / 1000) as f64)) {
@@ -124,7 +128,7 @@ pub fn backtest() {
 
         lastbar = bar;
     }
-    println!("{:?}", acc.history_table());
+    //println!("{:?}", acc.history_table());
 
     //qaaccount::QA_Account::history_table(&mut acc);
 }

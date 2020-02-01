@@ -1,4 +1,4 @@
-    datetime,code,open,high,low,close,volume,position,price,tradetime,type
+datetime,code,open,high,low,close,volume,position,price,tradetime,type
 2018-01-02 09:15:00,RBL8,3801.0,3809.0,3794.0,3798.0,312684.0,2520510.0,0.0,2018-01-02 09:15,15min
 2018-01-02 09:30:00,RBL8,3799.0,3834.0,3797.0,3830.0,418536.0,2501350.0,0.0,2018-01-02 09:30,15min
 2018-01-02 09:45:00,RBL8,3829.0,3831.0,3819.0,3822.0,137928.0,2498648.0,0.0,2018-01-02 09:45,15min
