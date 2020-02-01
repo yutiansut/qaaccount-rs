@@ -2,29 +2,109 @@
 
 use crate::qaorder;
 use crate::transaction;
+use std::collections::HashMap;
+use crate::qaorder::QA_Postions;
 
-
+#[warn(non_camel_case_types)]
 pub struct QA_Account{
     pub cash: Vec<f64>,
-    pub hold: Vec<qaorder::QA_Postions>,
+    pub hold: HashMap<String, QA_Postions>,
     pub history: Vec<transaction::QATransaction>,
     pub account_cookie: String,
     pub portfolio_cookie: String,
     pub user_cookie: String,
-
 }
 
-
 impl QA_Account{
-    pub fn positions(&mut self){
-        for item in self.hold.iter(){
-            qaorder::QA_Postions::message(item);
-        }
+
+    pub fn new() -> Self {
+        let acc  = Self{
+            cash: vec![],
+            hold: HashMap::new(),
+            history: vec![],
+            account_cookie: "".to_string(),
+            portfolio_cookie: "".to_string(),
+            user_cookie: "".to_string(),
+
+        };
+        acc
     }
-    pub fn history_table(&mut self){
+    pub fn init_h (&mut self, code:&str){
+        let code:String = code.parse().unwrap();
+        self.hold.insert(code.clone(), QA_Postions::new(code.clone(), self.account_cookie.clone(),
+                                                        self.account_cookie.clone(), self.account_cookie.clone(),
+                                                        self.portfolio_cookie.clone()));
+    }
+    pub fn get_position(&mut self, code: &str) -> Option<&mut QA_Postions> {
+
+        let pos = self.hold.get_mut(code);
+        pos
+
+    }
+    pub fn get_position_long(&mut self, code: &str) -> f64 {
+        self.get_position(code).unwrap().volume_long_today
+    }
+    pub fn get_position_short(&mut self, code: &str) -> f64 {
+        self.get_position(code).unwrap().volume_short_today
+    }
+    pub fn history_table(& self){
         for item in self.history.iter(){
             println!("{:?}",transaction::QATransaction::to_json(item));
         }
+    }
+    pub fn buy(
+        &mut self,
+        code: &str,
+        amount: f64,
+        time: &str,
+        price:f64
+    ) {
+        self.send_order(code, amount, time, 1, price, "BUY");
+    }
+    pub fn sell(
+        &mut self,
+        code: &str,
+        amount: f64,
+        time: &str,
+        price:f64
+    ) {
+        self.send_order(code, amount, time, -1, price, "SELL");
+    }
+    pub fn buy_open(
+        &mut self,
+        code: &str,
+        amount: f64,
+        time: &str,
+        price:f64
+    ) {
+        self.send_order(code, amount, time, 2, price, "BUY_OPEN");
+    }
+    pub fn sell_open(
+        &mut self,
+        code: &str,
+        amount: f64,
+        time: &str,
+        price:f64
+    ) {
+        self.send_order(code, amount, time, -2, price, "SELL_OPEN");
+    }
+    pub fn buy_close(
+        &mut self,
+        code: &str,
+        amount: f64,
+        time: &str,
+        price:f64
+    ) {
+        self.send_order(code, amount, time, 3, price, "BUY_CLOSE");
+    }
+    pub fn sell_close(
+        &mut self,
+        code: &str,
+        amount: f64,
+        time: &str,
+        price:f64
+    ) {
+        self.send_order(code, amount, time, -3, price, "SELL_CLOSE");
     }
     pub fn send_order(
         &mut self,
@@ -35,48 +115,12 @@ impl QA_Account{
         price:f64,
         order_id :&str
     ) {
-        //println!("{}", code);
+        println!("{} - {}", code, towards);
+        let mut pos = self.get_position(code).unwrap();
+        pos.update_pos( price, amount, towards);
 
-        let pos = qaorder::QA_Postions{
-            code: code.to_string(),
-            instrument_id: code.to_string(),
-            user_id: self.account_cookie.clone(),
-            portfolio_cookie: self.portfolio_cookie.clone(),
-            username: "".to_string(),
-            position_id: "".to_string(),
-            account_cookie: self.account_cookie.clone(),
-            frozen: 0.0,
-            name: "".to_string(),
-            spms_id: "".to_string(),
-            oms_id: "".to_string(),
-            market_type: "".to_string(),
-            exchange_id: "".to_string(),
-            lastupdatetime: "".to_string(),
-            volume_long_today: 0.0,
-            volume_long_his: 0.0,
-            volume_long: 0.0,
-            volume_short_today: 0.0,
-            volume_short_his: 0.0,
-            volume_short: 0.0,
-            volume_long_frozen_today: 0.0,
-            volume_long_frozen_his: 0.0,
-            volume_long_frozen: 0.0,
-            volume_short_frozen_today: 0.0,
-            volume_short_frozen_his: 0.0,
-            volume_short_frozen: 0.0,
-            margin_long: 0.0,
-            margin_short: 0.0,
-            margin: 0.0,
-            position_price_long: 0.0,
-            position_cost_long: 0.0,
-            position_price_short: 0.0,
-            position_cost_short: 0.0,
-            open_price_long: 0.0,
-            open_cost_long: 0.0,
-            open_price_short: 0.0,
-            open_cost_short: 0.0
-        };
-        self.hold.push(pos);
+
+
         self.history.push(transaction::QATransaction{
             code: code.to_string(),
             amount,
@@ -96,3 +140,27 @@ impl QA_Account{
     }
 }
 
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_new() {
+        let mut acc = QA_Account::new();
+        acc.history_table();
+    }
+    #[test]
+    fn test_pos(){
+        let mut acc = QA_Account::new();
+        acc.init_h("RB2005");
+        acc.get_position("RB2005");
+    }
+    #[test]
+    fn test_init_h(){
+        let mut acc = QA_Account::new();
+
+        acc.init_h("RB2005");
+        println!("{:#?}",acc.get_position("RB2005").unwrap().message());
+    }
+}

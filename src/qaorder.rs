@@ -49,7 +49,82 @@ impl QA_Postions{
     pub(crate) fn message(& self) {
         println!("{}", self.code.clone());
     }
+    pub fn new(code:String, user_id: String,
+                username: String, account_cookie: String,
+                portfolio_cookie:String) -> Self{
+        let pos = Self{
+            code: code.clone(),
+            instrument_id: code.clone(),
+            user_id,
+            portfolio_cookie,
+            username,
+            position_id: "".to_string(),
+            account_cookie,
+            frozen: 0.0,
+            name: "".to_string(),
+            spms_id: "".to_string(),
+            oms_id: "".to_string(),
+            market_type: "".to_string(),
+            exchange_id: "".to_string(),
+            lastupdatetime: "".to_string(),
+            volume_long_today: 0.0,
+            volume_long_his: 0.0,
+            volume_long: 0.0,
+            volume_short_today: 0.0,
+            volume_short_his: 0.0,
+            volume_short: 0.0,
+            volume_long_frozen_today: 0.0,
+            volume_long_frozen_his: 0.0,
+            volume_long_frozen: 0.0,
+            volume_short_frozen_today: 0.0,
+            volume_short_frozen_his: 0.0,
+            volume_short_frozen: 0.0,
+            margin_long: 0.0,
+            margin_short: 0.0,
+            margin: 0.0,
+            position_price_long: 0.0,
+            position_cost_long: 0.0,
+            position_price_short: 0.0,
+            position_cost_short: 0.0,
+            open_price_long: 0.0,
+            open_cost_long: 0.0,
+            open_price_short: 0.0,
+            open_cost_short: 0.0
+        };
+        pos
+    }
+
+    pub fn update_pos(&mut self, price:f64, amount:f64, towards:i32){
+
+        match towards {
+            2 => {
+                // buy open logic
+                self.open_price_long = (self.open_price_long * self.volume_long_today + price* amount)/ (self.volume_long_today+ amount);
+                self.position_price_long = self.open_price_long;
+                self.volume_long_today += amount;
+
+            }
+            -2 => {
+                // sell open logic
+                self.open_price_short = (self.open_price_short * self.volume_short_today + price* amount)/ (self.volume_short_today + amount);
+                self.position_price_short = self.open_price_short;
+                self.volume_short_today += amount;
+            }
+            3 => {
+                self.volume_short_today -= amount;
+            }
+            -3 => {
+                self.volume_long_today -= amount;
+            }
+            _ => {}
+        }
+
+
+    }
 }
+
+
+
 
 pub struct QA_Order {
 

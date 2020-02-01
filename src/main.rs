@@ -18,9 +18,9 @@ use ndarray::prelude::*;
 extern crate ndarray_csv;
 
 use csv::{ReaderBuilder, WriterBuilder};
-use ndarray::{Array, Array2};
-use ndarray_csv::{Array2Reader, Array2Writer};
-use std::fs::File;
+//use ndarray::{Array, Array2};
+//use ndarray_csv::{Array2Reader, Array2Writer};
+//use std::fs::File;
 
 use serde_json;
 use std::error::Error;
@@ -41,43 +41,18 @@ pub fn backtest(){
         volume: 0.0
     };
     let dh =  array!(&init_data);
-
-
-    let mut acc  = qaaccount::QA_Account {
-        cash: vec![],
-        hold: vec![],
-        history: vec![],
-        account_cookie: "x".to_string(),
-        portfolio_cookie: "x".to_string(),
-        user_cookie: "x".to_string()
-    };
+    let mut acc  = qaaccount::QA_Account::new();
     let mut rdr = csv::Reader::from_reader(io::stdin());
     for result in rdr.deserialize() {
         let bar: qafetch::BAR = result.unwrap() ;
-
-//        let bx =  Array::from(bar);
-//        let dh = stack(Axis(1), &[dh.view(), bx.view()]);
-//        println!("{:#?}", dh);
-
-
         qaaccount::QA_Account::send_order(&mut acc,bar.code.as_ref(), 10.0, bar.datetime.as_ref(), 2, bar.close, "order");
-
-        //println!("{:?}", bar);
     }
-    println!("{:?}", acc.history.len())
-
-    //qaaccount::QA_Account::history_table(&mut acc);
+    println!("{:?}", acc.history.len());
 }
 
 
 fn main(){
     let sw = Stopwatch::start_new();
-    //backtest();
-
-
-
-    //let file = File::open("data15.csv").unwrap();
-
 
     println!("It took {0:.8} ms",sw.elapsed_ms());
 }

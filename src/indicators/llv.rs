@@ -28,7 +28,7 @@ pub struct LLV {
     vec: Vec<f64>,
     min_index: usize,
     cur_index: usize,
-    cached: Vec<f64>
+    pub cached: Vec<f64>
 }
 
 impl LLV {
@@ -44,7 +44,7 @@ impl LLV {
             vec: vec![INFINITY; n],
             min_index: 0,
             cur_index: 0,
-            cached: vec![],
+            cached: vec![INFINITY; n],
         };
 
         Ok(indicator)
@@ -56,7 +56,7 @@ impl LLV {
             return Err(Error::from_kind(ErrorKind::InvalidParameter));
         }
 //        let mut u =  vec![INFINITY; n];
-        let len = vec.len();
+//        let len = vec.len();
 //        if len >= n {
 //            println!("pre Enough");
 //
@@ -75,7 +75,7 @@ impl LLV {
             vec: vec![INFINITY; n],
             min_index: 0,
             cur_index: 0,
-            cached: vec![],
+            cached:  vec![INFINITY; n],
         };
         for data in vec{
             indicator.next(data as f64);
@@ -111,6 +111,7 @@ impl Next<f64> for LLV {
             self.min_index = self.find_min_index();
         }
         self.cached.push(self.vec[self.min_index]);
+        self.cached.remove(0);
         self.vec[self.min_index]
     }
 }

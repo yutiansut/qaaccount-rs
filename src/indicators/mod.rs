@@ -4,6 +4,9 @@ pub use self::exponential_moving_average::ExponentialMovingAverage;
 mod simple_moving_average;
 pub use self::simple_moving_average::SimpleMovingAverage;
 
+mod moving_average;
+pub use self::moving_average::MovingAverage;
+
 mod standard_deviation;
 pub use self::standard_deviation::StandardDeviation;
 

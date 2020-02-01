@@ -29,6 +29,7 @@ pub struct HHV {
     vec: Vec<f64>,
     max_index: usize,
     cur_index: usize,
+    pub cached: Vec<f64>
 }
 
 impl HHV {
@@ -44,6 +45,7 @@ impl HHV {
             vec: vec![-INFINITY; n],
             max_index: 0,
             cur_index: 0,
+            cached: vec![-INFINITY; n]
         };
         Ok(indicator)
     }
@@ -75,7 +77,8 @@ impl Next<f64> for HHV {
         } else if self.max_index == self.cur_index {
             self.max_index = self.find_max_index();
         }
-
+        self.cached.push(self.vec[self.max_index]);
+        self.cached.remove(0);
         self.vec[self.max_index]
     }
 }

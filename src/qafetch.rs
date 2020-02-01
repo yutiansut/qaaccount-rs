@@ -15,3 +15,8 @@ pub struct BAR {
     pub volume:f64
 }
 
+impl BAR{
+    pub fn print(&self){
+        println!("{:#?} -{:#?} ", self.datetime, self.open)
+    }
+}
