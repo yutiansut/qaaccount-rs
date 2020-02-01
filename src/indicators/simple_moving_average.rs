@@ -32,10 +32,7 @@ use crate::{Close, Next, Reset};
 /// assert_eq!(sma.next(13.0), 12.0);
 /// ```
 ///
-/// # Links
-///
-/// * [Simple Moving Average, Wikipedia](https://en.wikipedia.org/wiki/Moving_average#Simple_moving_average)
-///
+
 #[derive(Debug, Clone)]
 pub struct SimpleMovingAverage {
     n: u32,
