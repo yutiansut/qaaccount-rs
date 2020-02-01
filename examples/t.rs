@@ -21,12 +21,11 @@ use quantaxis_rs::indicators::{
 use quantaxis_rs::qaaccount::QA_Account;
 use quantaxis_rs::qaorder::QA_Postions;
 
-pub fn backtest() {
-
+pub fn backtest() -> QA_Account {
     let priceoffset = 1;
     let lossP = 1.3;
-    let K1 = 20;
-    let K2 = 20;
+    let K1: usize = 20;
+    let K2: usize = 20;
     let n1: usize = 30;
 
     let count1 = 0;
@@ -45,11 +44,11 @@ pub fn backtest() {
     };
     let mut acc = qaaccount::QA_Account::new("BacktestAccount");
     acc.init_h("RBL8");
-    let mut llv_i = LLV::new(3).unwrap();
-    let mut hhv_i = HHV::new(3).unwrap();
+    let mut llv_i = LLV::new(K1 as u32).unwrap();
+    let mut hhv_i = HHV::new(K2 as u32).unwrap();
     let mut ma = MovingAverage::new(n1 as u32).unwrap();
     let mut rdr = csv::Reader::from_reader(io::stdin());
-    let mut lastbar = qafetch::BAR{
+    let mut lastbar = qafetch::BAR {
         code: "".to_string(),
         datetime: "".to_string(),
         open: 0.0,
@@ -63,9 +62,9 @@ pub fn backtest() {
         let ind_llv = llv_i.next(bar.low);
         let ind_hhv = hhv_i.next(bar.high);
         let ind_ma = ma.next(bar.close);
-        let crossOver = bar.high > hhv_i.cached[1] && lastbar.high < hhv_i.cached[1];
+        let crossOver = bar.high > hhv_i.cached[K1 - 2] && lastbar.high < hhv_i.cached[K1 - 2];
 
-        let crossUnder = bar.low < llv_i.cached[1] && lastbar.low > llv_i.cached[1];
+        let crossUnder = bar.low < llv_i.cached[K2 - 2] && lastbar.low > llv_i.cached[K2 - 2];
 
         let cond1 = ma.cached[n1 -1]> ma.cached[n1 -2] &&
                         ma.cached[n1 -2]> ma.cached[n1 -3] &&
@@ -131,12 +130,15 @@ pub fn backtest() {
     //println!("{:?}", acc.history_table());
 
     //qaaccount::QA_Account::history_table(&mut acc);
+
+    acc
 }
 
 
 fn main(){
     let sw = Stopwatch::start_new();
-    backtest();
+    let acc = backtest();
     //let file = File::open("data15.csv").unwrap();
-    println!("It took {0:.8} ms",sw.elapsed_ms());
+    println!("It took {0:.8} ms", sw.elapsed_ms());
+    println!("{:?}", acc.history_table());
 }
