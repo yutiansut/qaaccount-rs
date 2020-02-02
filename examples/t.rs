@@ -20,6 +20,26 @@ use quantaxis_rs::indicators::{
 };
 use quantaxis_rs::qaaccount::QA_Account;
 use quantaxis_rs::qaorder::QA_Postions;
+use std::cmp::{max, min};
+
+
+use std::f64;
+
+trait FloatIterExt {
+    fn float_min(&mut self) -> f64;
+    fn float_max(&mut self) -> f64;
+}
+
+impl<T> FloatIterExt for T where T: Iterator<Item=f64> {
+    fn float_max(&mut self) -> f64 {
+        self.fold(f64::NAN, f64::max)
+    }
+
+    fn float_min(&mut self) -> f64 {
+        self.fold(f64::NAN, f64::min)
+    }
+}
+
 
 pub fn backtest() -> QA_Account {
     let priceoffset = 1;
@@ -82,11 +102,26 @@ pub fn backtest() -> QA_Account {
         let long_pos = acc.get_position_long(code);
         let short_pos = acc.get_position_short(code);
         if (long_pos > 0.0 || short_pos > 0.0) {
-            HAE = lastbar.high;
-            LAE = lastbar.low;
+
+            if (HAE == 0.0){
+                HAE = lastbar.high;
+                LAE = lastbar.low;
+            }else{
+                if (HAE>= lastbar.high){
+                    HAE = HAE
+                }else{
+                    HAE = lastbar.high
+                }
+
+                if (LAE <= lastbar.low){
+                    LAE = LAE
+                } else{
+                    LAE = lastbar.low
+                }
+            }
         }
 
-        if (long_pos == 0 as f64 && short_pos == 0 as f64) {
+        if (long_pos == 0.0 && short_pos == 0.0) {
             if crossOver && cond1 {
                 acc.buy_open(bar.code.as_ref(), 10.0, bar.datetime.as_ref(), bar.close);
             }
@@ -139,6 +174,8 @@ fn main(){
     let sw = Stopwatch::start_new();
     let acc = backtest();
     //let file = File::open("data15.csv").unwrap();
-    println!("It took {0:.8} ms", sw.elapsed_ms());
+    
     println!("{:?}", acc.history_table());
+
+    println!("It took {0:.8} ms", sw.elapsed_ms());
 }
