@@ -53,15 +53,6 @@ pub fn backtest() -> QA_Account {
     let mut LAE: f64 = 0 as f64;
     let TrailingStart1 = 90;
     let TrailingStop1 = 10;
-    let init_data = qafetch::BAR {
-        code: "".to_string(),
-        datetime: "".to_string(),
-        open: 0.0,
-        high: 0.0,
-        low: 0.0,
-        close: 0.0,
-        volume: 0.0,
-    };
     let mut acc = qaaccount::QA_Account::new("BacktestAccount");
     acc.init_h("RBL8");
     let mut llv_i = LLV::new(K1 as u32).unwrap();
