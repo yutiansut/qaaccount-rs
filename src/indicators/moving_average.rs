@@ -1,7 +1,8 @@
+use std::f64::NAN;
 use std::fmt;
 
-use crate::errors::*;
 use crate::{Close, Next, Reset};
+use crate::errors::*;
 
 /// moving average (ma).
 ///
@@ -69,13 +70,16 @@ impl Next<f64> for MovingAverage {
 
         let old_val = self.vec[self.index];
         self.vec[self.index] = input;
+        let mut res = 0.0;
 
         if self.count < self.n {
             self.count += 1;
+            self.sum = self.sum - old_val + input;
+        } else {
+            self.sum = self.sum - old_val + input;
+            res = self.sum / (self.count as f64);
         }
 
-        self.sum = self.sum - old_val + input;
-        let res = self.sum / (self.count as f64);
         self.cached.push(res);
         self.cached.remove(0);
         res
@@ -117,8 +121,10 @@ impl fmt::Display for MovingAverage {
 
 #[cfg(test)]
 mod tests {
-    use super::*;
     use crate::test_helper::*;
+
+    use super::*;
+
     macro_rules! test_indicator {
         ($i:tt) => {
             #[test]
