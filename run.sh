@@ -1,0 +1,1 @@
+cargo run --example t01b2 < data15.csv >  acc.csv

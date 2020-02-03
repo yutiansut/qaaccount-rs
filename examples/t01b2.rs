@@ -6,6 +6,8 @@ extern crate serde;
 extern crate stopwatch;
 
 use std::borrow::BorrowMut;
+use std::cmp::{max, min};
+use std::f64;
 use std::io;
 
 use ndarray::{array, stack};
@@ -20,10 +22,6 @@ use quantaxis_rs::indicators::{
 };
 use quantaxis_rs::qaaccount::QA_Account;
 use quantaxis_rs::qaorder::QA_Postions;
-use std::cmp::{max, min};
-
-
-use std::f64;
 
 trait FloatIterExt {
     fn float_min(&mut self) -> f64;
@@ -161,12 +159,12 @@ pub fn backtest() -> QA_Account {
 }
 
 
-fn main(){
+fn main() {
     let sw = Stopwatch::start_new();
     let acc = backtest();
     //let file = File::open("data15.csv").unwrap();
-    
-    println!("{:?}", acc.history_table());
 
-    println!("It took {0:.8} ms", sw.elapsed_ms());
+    //println!("{:?}", acc.history_table());
+    acc.to_csv();
+    //println!("It took {0:.8} ms", sw.elapsed_ms());
 }

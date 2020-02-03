@@ -22,9 +22,6 @@ pub mod qaindicator;
 pub mod transaction;
 
 
-//use ndarray::{Array, Array2};
-//use ndarray_csv::{Array2Reader, Array2Writer};
-//use std::fs::File;
 
 pub fn backtest(){
     let init_data = qafetch::BAR{

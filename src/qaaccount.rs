@@ -1,8 +1,13 @@
 use std::collections::HashMap;
+use std::error::Error;
+use std::io;
+
+use csv;
 
 use crate::qaorder;
 use crate::qaorder::QA_Postions;
 use crate::transaction;
+use crate::transaction::QATransaction;
 
 #[warn(non_camel_case_types)]
 pub struct QA_Account {
@@ -67,6 +72,15 @@ impl QA_Account{
         for item in self.history.iter() {
             println!("{:?}", transaction::QATransaction::to_json(item));
         }
+    }
+    pub fn to_csv(&self) -> Result<(), Box<dyn Error>> {
+        let mut wtr = csv::Writer::from_writer(io::stdout());
+        for item in self.history.iter() {
+            wtr.serialize(item)?;
+            wtr.flush()?;
+        }
+
+        Ok(())
     }
 
     /// order about
