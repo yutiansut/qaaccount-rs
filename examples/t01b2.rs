@@ -38,6 +38,21 @@ impl<T> FloatIterExt for T where T: Iterator<Item=f64> {
     }
 }
 
+fn compare_max(a: f64, b: f64) -> f64 {
+    if (a >= b) {
+        a
+    } else {
+        b
+    }
+}
+
+fn compare_min(a: f64, b: f64) -> f64 {
+    if (a >= b) {
+        b
+    } else {
+        a
+    }
+}
 
 pub fn backtest() -> QA_Account {
     let priceoffset = 1;
@@ -51,7 +66,7 @@ pub fn backtest() -> QA_Account {
     let mut LAE: f64 = 0 as f64;
     let TrailingStart1 = 90;
     let TrailingStop1 = 10;
-    let mut acc = qaaccount::QA_Account::new("BacktestAccount");
+    let mut acc = qaaccount::QA_Account::new("RustT01B2_RBL8");
     acc.init_h("RBL8");
     let mut llv_i = LLV::new(K1 as u32).unwrap();
     let mut hhv_i = HHV::new(K2 as u32).unwrap();
@@ -95,27 +110,18 @@ pub fn backtest() -> QA_Account {
             if (HAE == 0.0){
                 HAE = lastbar.high;
                 LAE = lastbar.low;
-            }else{
-                if (HAE>= lastbar.high){
-                    HAE = HAE
-                }else{
-                    HAE = lastbar.high
-                }
-
-                if (LAE <= lastbar.low){
-                    LAE = LAE
-                } else{
-                    LAE = lastbar.low
-                }
+            }else {
+                HAE = compare_max(HAE, lastbar.high);
+                LAE = compare_min(LAE, lastbar.low);
             }
         }
 
         if (long_pos == 0.0 && short_pos == 0.0) {
             if crossOver && cond1 {
-                acc.buy_open(bar.code.as_ref(), 10.0, bar.datetime.as_ref(), bar.close);
+                acc.buy_open(bar.code.as_ref(), 10.0, bar.datetime.as_ref(), compare_max(bar.open, hhv_i.cached[K1 - 2]));
             }
             if crossUnder && cond2 {
-                acc.sell_open(bar.code.as_ref(), 10.0, bar.datetime.as_ref(), bar.close);
+                acc.sell_open(bar.code.as_ref(), 10.0, bar.datetime.as_ref(), compare_min(bar.open, llv_i.cached[K2 - 2]));
             }
         }
         if (long_pos > 0.0 && short_pos == 0.0) {
@@ -127,10 +133,10 @@ pub fn backtest() -> QA_Account {
             }
 
             if (crossUnder && cond2) {
-                acc.sell_close(code, 10.0, bar.datetime.as_ref(), bar.open);
+                acc.sell_close(code, 10.0, bar.datetime.as_ref(), compare_min(bar.open, llv_i.cached[K2 - 2]));
             }
             if (bar.low < stopLine) {
-                acc.sell_close(code, 10.0, bar.datetime.as_ref(), bar.open);
+                acc.sell_close(code, 10.0, bar.datetime.as_ref(), compare_min(bar.open, stopLine));
             }
         }
         if (short_pos > 0.0 && long_pos == 0.0) {
@@ -141,10 +147,10 @@ pub fn backtest() -> QA_Account {
                 stopLine = (LAE * (1 + TrailingStop1 / 1000) as f64) as f64;
             }
             if (crossOver && cond1) {
-                acc.buy_close(code, 10.0, bar.datetime.as_ref(), bar.open);
+                acc.buy_close(code, 10.0, bar.datetime.as_ref(), compare_max(bar.open, hhv_i.cached[K1 - 2]));
             }
             if (bar.high < stopLine) {
-                acc.buy_close(code, 10.0, bar.datetime.as_ref(), bar.open);
+                acc.buy_close(code, 10.0, bar.datetime.as_ref(), compare_max(bar.open, stopLine));
             }
         }
 

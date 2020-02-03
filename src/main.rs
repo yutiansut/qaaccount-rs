@@ -22,31 +22,23 @@ pub mod qaindicator;
 pub mod transaction;
 
 
+pub struct QABacktest {}
 
-pub fn backtest(){
-    let init_data = qafetch::BAR{
-        code: "".to_string(),
-        datetime: "".to_string(),
-        open: 0.0,
-        high: 0.0,
-        low: 0.0,
-        close: 0.0,
-        volume: 0.0
-    };
-    let dh = array!(&init_data);
-    let mut acc = qaaccount::QA_Account::new("mainAcc");
-    let mut rdr = csv::Reader::from_reader(io::stdin());
-    for result in rdr.deserialize() {
-        let bar: qafetch::BAR = result.unwrap() ;
-        qaaccount::QA_Account::send_order(&mut acc,bar.code.as_ref(), 10.0, bar.datetime.as_ref(), 2, bar.close, "order");
+impl QABacktest {
+    fn create() -> Self {
+        let backtest = QABacktest {};
+        backtest
     }
-    println!("{:?}", acc.history.len());
+
+    fn init(&mut self) {}
+
+    fn on_bar(&mut self, bar: qafetch::BAR) {}
+
+    fn run(&mut self) {}
+
+    fn day_open(&mut self) {}
+
+    fn day_close(&mut self) {}
+
+    fn on_backtest_close(&mut self) {}
 }
-
-
-fn main(){
-    let sw = Stopwatch::start_new();
-
-    println!("It took {0:.8} ms",sw.elapsed_ms());
-}
-
