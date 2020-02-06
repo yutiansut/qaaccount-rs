@@ -22,6 +22,7 @@ use crate::{Low, Next, Reset};
 /// assert_eq!(min.next(12.0), 10.0);
 /// assert_eq!(min.next(13.0), 11.0);
 /// ```
+
 #[derive(Debug, Clone)]
 pub struct LLV {
     n: usize,
@@ -55,20 +56,6 @@ impl LLV {
         if n <= 0 {
             return Err(Error::from_kind(ErrorKind::InvalidParameter));
         }
-//        let mut u =  vec![INFINITY; n];
-//        let len = vec.len();
-//        if len >= n {
-//            println!("pre Enough");
-//
-//            for data in vec[len- n..len].iter(){
-//                u.push(*data);
-//            }
-//        } else {
-//            println!("pre not Enough");
-//            for data in vec {
-//                u.push(data);
-//            }
-//        }
 
         let mut indicator = Self {
             n: n,

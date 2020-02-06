@@ -42,3 +42,6 @@ impl QABacktest {
 
     fn on_backtest_close(&mut self) {}
 }
+pub fn main() {
+
+}
