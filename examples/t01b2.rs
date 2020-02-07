@@ -152,7 +152,7 @@ pub fn backtest() -> QA_Account {
             if (crossOver && cond1) {
                 acc.buy_close(code, 10.0, bar.datetime.as_ref(), compare_max(bar.open, hhv_i.cached[K1 - 2]));
             }
-            if (bar.high < stopLine) {
+            if (bar.high >= stopLine) {
                 acc.buy_close(code, 10.0, bar.datetime.as_ref(), compare_max(bar.open, stopLine));
             }
         }
@@ -174,6 +174,6 @@ fn main() {
     //let file = File::open("data15.csv").unwrap();
 
     //println!("{:?}", acc.history_table());
-    //acc.to_csv();
+    acc.to_csv();
     println!("It took {0:.8} ms", sw.elapsed_ms());
 }

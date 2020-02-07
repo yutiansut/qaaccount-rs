@@ -167,14 +167,18 @@ pub fn backtest() -> QA_Account {
         if (short_pos > 0.0 && long_pos == 0.0) {
             //println!("当前空单持仓 {:#?}", acc.get_position_short(code));
             let mut stopLine: f64 = acc.get_open_price_short(code) * (100.0 + lossP) / 100 as f64;
-
+            println!("STOPLINE BUYCLOSE {:#?}", stopLine);
             if (LAE >= (acc.get_open_price_short(code) * (1.0 - TrailingStart1 / 1000.0) as f64)) {
                 stopLine = (LAE * (1.0 + TrailingStop1 / 1000.0) as f64) as f64;
             }
+            println!("STOPLINE NEW BUYCLOSE {:#?}", stopLine);
             if (crossOver && cond1) {
                 acc.buy_close(code, 10.0, bar.datetime.as_ref(), compare_max(bar.open, hhv_i.cached[K1 - 2]));
             }
+
+
             if (bar.high < stopLine) {
+                println!("BUYCLOSE FORCE {:#?} {:#?}", stopLine, bar.high);
                 acc.buy_close(code, 10.0, bar.datetime.as_ref(), compare_max(bar.open, stopLine));
             }
         }

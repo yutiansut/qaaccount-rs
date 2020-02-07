@@ -10091,6 +10091,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-02-13 10:15:00"
 LLV 3711.0002441406
@@ -10106,6 +10108,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-02-13 10:45:00"
 LLV 3711.0002441406
@@ -10121,6 +10125,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-02-13 11:00:00"
 LLV 3711.0002441406
@@ -10136,6 +10142,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-02-13 11:15:00"
 LLV 3711.0002441406
@@ -10151,6 +10159,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-02-13 11:30:00"
 LLV 3711.0002441406
@@ -10166,6 +10176,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "13"
  this is datetime "2019-02-13 13:45:00"
 LLV 3711.0002441406
@@ -10181,6 +10193,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-02-13 14:00:00"
 LLV 3711.0002441406
@@ -10196,6 +10210,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-02-13 14:15:00"
 LLV 3693.0002441406
@@ -10211,6 +10227,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-02-13 14:30:00"
 LLV 3693.0002441406
@@ -10226,6 +10244,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-02-13 14:45:00"
 LLV 3693.0002441406
@@ -10241,6 +10261,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "15"
  this is datetime "2019-02-13 15:00:00"
 LLV 3693.0002441406
@@ -10256,6 +10278,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-02-13 21:15:00"
 LLV 3693.0002441406
@@ -10271,6 +10295,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-02-13 21:30:00"
 LLV 3693.0002441406
@@ -10286,6 +10312,8 @@ CrossOVER: false
 CrossUNDER: true
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-02-13 21:45:00"
 LLV 3684.0002441406
@@ -10301,6 +10329,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-02-13 22:00:00"
 LLV 3675.0002441406
@@ -10316,6 +10346,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-02-13 22:15:00"
 LLV 3672.0002441406
@@ -10331,6 +10363,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-02-13 22:30:00"
 LLV 3672.0002441406
@@ -10346,6 +10380,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-02-13 22:45:00"
 LLV 3672.0002441406
@@ -10361,6 +10397,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "23"
  this is datetime "2019-02-13 23:00:00"
 LLV 3672.0002441406
@@ -10376,6 +10414,8 @@ CrossOVER: false
 CrossUNDER: true
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-02-14 09:15:00"
 LLV 3669.0002441406
@@ -10391,6 +10431,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-02-14 09:30:00"
 LLV 3669.0002441406
@@ -10406,6 +10448,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-02-14 09:45:00"
 LLV 3669.0002441406
@@ -10421,6 +10465,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-02-14 10:00:00"
 LLV 3669.0002441406
@@ -10436,6 +10482,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-02-14 10:15:00"
 LLV 3669.0002441406
@@ -10451,6 +10499,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-02-14 10:45:00"
 LLV 3669.0002441406
@@ -10466,6 +10516,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-02-14 11:00:00"
 LLV 3669.0002441406
@@ -10481,6 +10533,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-02-14 11:15:00"
 LLV 3669.0002441406
@@ -10496,6 +10550,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-02-14 11:30:00"
 LLV 3669.0002441406
@@ -10511,6 +10567,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "13"
  this is datetime "2019-02-14 13:45:00"
 LLV 3669.0002441406
@@ -10526,6 +10584,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-02-14 14:00:00"
 LLV 3669.0002441406
@@ -10541,6 +10601,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-02-14 14:15:00"
 LLV 3669.0002441406
@@ -10556,6 +10618,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-02-14 14:30:00"
 LLV 3669.0002441406
@@ -10571,6 +10635,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-02-14 14:45:00"
 LLV 3669.0002441406
@@ -10586,6 +10652,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "15"
  this is datetime "2019-02-14 15:00:00"
 LLV 3669.0002441406
@@ -10601,6 +10669,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-02-14 21:15:00"
 LLV 3669.0002441406
@@ -10616,6 +10686,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-02-14 21:30:00"
 LLV 3669.0002441406
@@ -10631,6 +10703,8 @@ CrossOVER: false
 CrossUNDER: true
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-02-14 21:45:00"
 LLV 3658.0002441406
@@ -10646,6 +10720,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-02-14 22:00:00"
 LLV 3658.0002441406
@@ -10661,6 +10737,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-02-14 22:15:00"
 LLV 3658.0002441406
@@ -10676,6 +10754,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-02-14 22:30:00"
 LLV 3658.0002441406
@@ -10691,6 +10771,8 @@ CrossOVER: false
 CrossUNDER: true
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-02-14 22:45:00"
 LLV 3649.0002441406
@@ -10706,6 +10788,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "23"
  this is datetime "2019-02-14 23:00:00"
 LLV 3625.0002441406
@@ -10721,6 +10805,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-02-15 09:15:00"
 LLV 3625.0002441406
@@ -10736,6 +10822,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-02-15 09:30:00"
 LLV 3625.0002441406
@@ -10751,6 +10839,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-02-15 09:45:00"
 LLV 3625.0002441406
@@ -10766,6 +10856,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-02-15 10:00:00"
 LLV 3625.0002441406
@@ -10781,6 +10873,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-02-15 10:15:00"
 LLV 3625.0002441406
@@ -10796,6 +10890,8 @@ CrossOVER: false
 CrossUNDER: true
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-02-15 10:45:00"
 LLV 3618.0002441406
@@ -10811,6 +10907,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-02-15 11:00:00"
 LLV 3612.0002441406
@@ -10826,6 +10924,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-02-15 11:15:00"
 LLV 3612.0002441406
@@ -10841,6 +10941,8 @@ CrossOVER: false
 CrossUNDER: true
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-02-15 11:30:00"
 LLV 3610.0002441406
@@ -10856,6 +10958,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "13"
  this is datetime "2019-02-15 13:45:00"
 LLV 3607.0002441406
@@ -10871,6 +10975,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-02-15 14:00:00"
 LLV 3602.0002441406
@@ -10886,6 +10992,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-02-15 14:15:00"
 LLV 3595.0002441406
@@ -10901,6 +11009,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-02-15 14:30:00"
 LLV 3595.0002441406
@@ -10916,6 +11026,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-02-15 14:45:00"
 LLV 3593.0002441406
@@ -10931,6 +11043,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "15"
  this is datetime "2019-02-15 15:00:00"
 LLV 3593.0002441406
@@ -10946,6 +11060,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-02-15 21:15:00"
 LLV 3593.0002441406
@@ -10961,6 +11077,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-02-15 21:30:00"
 LLV 3593.0002441406
@@ -10976,6 +11094,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-02-15 21:45:00"
 LLV 3593.0002441406
@@ -10991,6 +11111,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-02-15 22:00:00"
 LLV 3593.0002441406
@@ -11006,6 +11128,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-02-15 22:15:00"
 LLV 3593.0002441406
@@ -11021,6 +11145,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-02-15 22:30:00"
 LLV 3593.0002441406
@@ -11036,6 +11162,8 @@ CrossOVER: true
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-02-15 22:45:00"
 LLV 3593.0002441406
@@ -11051,6 +11179,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "23"
  this is datetime "2019-02-15 23:00:00"
 LLV 3593.0002441406
@@ -11066,6 +11196,8 @@ CrossOVER: true
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-02-18 09:15:00"
 LLV 3593.0002441406
@@ -11081,6 +11213,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-02-18 09:30:00"
 LLV 3593.0002441406
@@ -11096,6 +11230,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-02-18 09:45:00"
 LLV 3593.0002441406
@@ -11111,6 +11247,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-02-18 10:00:00"
 LLV 3593.0002441406
@@ -11126,6 +11264,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-02-18 10:15:00"
 LLV 3593.0002441406
@@ -11141,6 +11281,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-02-18 10:45:00"
 LLV 3593.0002441406
@@ -11156,6 +11298,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-02-18 11:00:00"
 LLV 3593.0002441406
@@ -11171,6 +11315,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-02-18 11:15:00"
 LLV 3593.0002441406
@@ -11186,6 +11332,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-02-18 11:30:00"
 LLV 3593.0002441406
@@ -11201,6 +11349,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "13"
  this is datetime "2019-02-18 13:45:00"
 LLV 3593.0002441406
@@ -11216,6 +11366,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-02-18 14:00:00"
 LLV 3598.0002441406
@@ -11231,6 +11383,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-02-18 14:15:00"
 LLV 3598.0002441406
@@ -11246,6 +11400,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-02-18 14:30:00"
 LLV 3613.0002441406
@@ -11261,6 +11417,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-02-18 14:45:00"
 LLV 3626.0002441406
@@ -11276,6 +11434,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "15"
  this is datetime "2019-02-18 15:00:00"
 LLV 3626.0002441406
@@ -11291,6 +11451,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-02-18 21:15:00"
 LLV 3626.0002441406
@@ -11306,6 +11468,8 @@ CrossOVER: true
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3782.542247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-02-18 21:30:00"
 LLV 3626.0002441406
@@ -11786,6 +11950,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3678.2032473144277
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-02-20 09:45:00"
 LLV 3589.0002441406
@@ -11801,6 +11967,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3678.2032473144277
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-02-20 10:00:00"
 LLV 3582.0002441406
@@ -11816,6 +11984,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3678.2032473144277
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-02-20 10:15:00"
 LLV 3578.0002441406
@@ -11831,6 +12001,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3678.2032473144277
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-02-20 10:45:00"
 LLV 3578.0002441406
@@ -11846,6 +12018,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3678.2032473144277
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-02-20 11:00:00"
 LLV 3578.0002441406
@@ -11861,6 +12035,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3678.2032473144277
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-02-20 11:15:00"
 LLV 3578.0002441406
@@ -11876,6 +12052,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3678.2032473144277
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-02-20 11:30:00"
 LLV 3578.0002441406
@@ -11891,6 +12069,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3678.2032473144277
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "13"
  this is datetime "2019-02-20 13:45:00"
 LLV 3578.0002441406
@@ -11906,6 +12086,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3678.2032473144277
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-02-20 14:00:00"
 LLV 3578.0002441406
@@ -11921,6 +12103,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3678.2032473144277
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-02-20 14:15:00"
 LLV 3578.0002441406
@@ -11936,6 +12120,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3678.2032473144277
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-02-20 14:30:00"
 LLV 3578.0002441406
@@ -11951,6 +12137,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3678.2032473144277
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-02-20 14:45:00"
 LLV 3578.0002441406
@@ -11966,6 +12154,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3678.2032473144277
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "15"
  this is datetime "2019-02-20 15:00:00"
 LLV 3578.0002441406
@@ -11981,6 +12171,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3678.2032473144277
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-02-20 21:15:00"
 LLV 3578.0002441406
@@ -11996,6 +12188,8 @@ CrossOVER: true
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3678.2032473144277
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-02-20 21:30:00"
 LLV 3578.0002441406
@@ -12011,6 +12205,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3678.2032473144277
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-02-20 21:45:00"
 LLV 3578.0002441406
@@ -12026,6 +12222,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3678.2032473144277
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-02-20 22:00:00"
 LLV 3578.0002441406
@@ -12041,6 +12239,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3678.2032473144277
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-02-20 22:15:00"
 LLV 3578.0002441406
@@ -12056,6 +12256,8 @@ CrossOVER: true
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3678.2032473144277
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-02-20 22:30:00"
 LLV 3578.0002441406
@@ -12071,6 +12273,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3678.2032473144277
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-02-20 22:45:00"
 LLV 3578.0002441406
@@ -12086,6 +12290,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3678.2032473144277
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "23"
  this is datetime "2019-02-20 23:00:00"
 LLV 3578.0002441406
@@ -12101,6 +12307,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3678.2032473144277
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-02-21 09:15:00"
 LLV 3578.0002441406
@@ -12116,6 +12324,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3678.2032473144277
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-02-21 09:30:00"
 LLV 3579.0002441406
@@ -12131,6 +12341,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3678.2032473144277
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-02-21 09:45:00"
 LLV 3586.0002441406
@@ -12146,6 +12358,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3678.2032473144277
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-02-21 10:00:00"
 LLV 3586.0002441406
@@ -12161,6 +12375,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3678.2032473144277
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-02-21 10:15:00"
 LLV 3586.0002441406
@@ -12176,6 +12392,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3678.2032473144277
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-02-21 10:45:00"
 LLV 3586.0002441406
@@ -12191,6 +12409,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3678.2032473144277
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-02-21 11:00:00"
 LLV 3590.0002441406
@@ -12206,6 +12426,8 @@ CrossOVER: true
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3678.2032473144277
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-02-21 11:15:00"
 LLV 3597.0002441406
@@ -13172,6 +13394,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3739.9962473144283
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-02-25 21:30:00"
 LLV 3672.0002441406
@@ -13187,6 +13411,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3739.9962473144283
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-02-25 21:45:00"
 LLV 3672.0002441406
@@ -13202,6 +13428,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3739.9962473144283
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-02-25 22:00:00"
 LLV 3672.0002441406
@@ -13217,6 +13445,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3739.9962473144283
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-02-25 22:15:00"
 LLV 3672.0002441406
@@ -13232,6 +13462,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3739.9962473144283
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-02-25 22:30:00"
 LLV 3672.0002441406
@@ -13247,6 +13479,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3739.9962473144283
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-02-25 22:45:00"
 LLV 3672.0002441406
@@ -13262,6 +13496,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3739.9962473144283
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "23"
  this is datetime "2019-02-25 23:00:00"
 LLV 3672.0002441406
@@ -13277,6 +13513,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3739.9962473144283
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-02-26 09:15:00"
 LLV 3672.0002441406
@@ -13292,6 +13530,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3739.9962473144283
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-02-26 09:30:00"
 LLV 3672.0002441406
@@ -13307,6 +13547,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3739.9962473144283
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-02-26 09:45:00"
 LLV 3672.0002441406
@@ -13322,6 +13564,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3739.9962473144283
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-02-26 10:00:00"
 LLV 3672.0002441406
@@ -13337,6 +13581,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3739.9962473144283
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-02-26 10:15:00"
 LLV 3672.0002441406
@@ -13352,6 +13598,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3739.9962473144283
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-02-26 10:45:00"
 LLV 3672.0002441406
@@ -13367,6 +13615,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3739.9962473144283
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-02-26 11:00:00"
 LLV 3672.0002441406
@@ -13382,6 +13632,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3739.9962473144283
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-02-26 11:15:00"
 LLV 3672.0002441406
@@ -13397,6 +13649,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3739.9962473144283
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-02-26 11:30:00"
 LLV 3672.0002441406
@@ -13412,6 +13666,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3739.9962473144283
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "13"
  this is datetime "2019-02-26 13:45:00"
 LLV 3672.0002441406
@@ -13427,6 +13683,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3739.9962473144283
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-02-26 14:00:00"
 LLV 3672.0002441406
@@ -13442,6 +13700,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3739.9962473144283
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-02-26 14:15:00"
 LLV 3672.0002441406
@@ -13457,6 +13717,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3739.9962473144283
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-02-26 14:30:00"
 LLV 3672.0002441406
@@ -13472,6 +13734,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3739.9962473144283
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-02-26 14:45:00"
 LLV 3673.0002441406
@@ -13487,6 +13751,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3739.9962473144283
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "15"
  this is datetime "2019-02-26 15:00:00"
 LLV 3674.0002441406
@@ -13502,6 +13768,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3739.9962473144283
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-02-26 21:15:00"
 LLV 3674.0002441406
@@ -13517,6 +13785,8 @@ CrossOVER: true
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3739.9962473144283
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-02-26 21:30:00"
 LLV 3677.0002441406
@@ -15305,6 +15575,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-05 14:00:00"
 LLV 3755.0002441406
@@ -15320,6 +15592,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-05 14:15:00"
 LLV 3755.0002441406
@@ -15335,6 +15609,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-05 14:30:00"
 LLV 3755.0002441406
@@ -15350,6 +15626,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-05 14:45:00"
 LLV 3755.0002441406
@@ -15365,6 +15643,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "15"
  this is datetime "2019-03-05 15:00:00"
 LLV 3755.0002441406
@@ -15380,6 +15660,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-05 21:15:00"
 LLV 3755.0002441406
@@ -15395,6 +15677,8 @@ CrossOVER: true
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-05 21:30:00"
 LLV 3755.0002441406
@@ -15410,6 +15694,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-05 21:45:00"
 LLV 3755.0002441406
@@ -15425,6 +15711,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-05 22:00:00"
 LLV 3755.0002441406
@@ -15440,6 +15728,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-05 22:15:00"
 LLV 3755.0002441406
@@ -15455,6 +15745,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-05 22:30:00"
 LLV 3755.0002441406
@@ -15470,6 +15762,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-05 22:45:00"
 LLV 3755.0002441406
@@ -15485,6 +15779,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "23"
  this is datetime "2019-03-05 23:00:00"
 LLV 3755.0002441406
@@ -15500,6 +15796,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-03-06 09:15:00"
 LLV 3755.0002441406
@@ -15515,6 +15813,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-03-06 09:30:00"
 LLV 3755.0002441406
@@ -15530,6 +15830,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-03-06 09:45:00"
 LLV 3755.0002441406
@@ -15545,6 +15847,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-03-06 10:00:00"
 LLV 3755.0002441406
@@ -15560,6 +15864,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-03-06 10:15:00"
 LLV 3755.0002441406
@@ -15575,6 +15881,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-03-06 10:45:00"
 LLV 3755.0002441406
@@ -15590,6 +15898,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-03-06 11:00:00"
 LLV 3755.0002441406
@@ -15605,6 +15915,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-03-06 11:15:00"
 LLV 3761.0002441406
@@ -15620,6 +15932,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-03-06 11:30:00"
 LLV 3761.0002441406
@@ -15635,6 +15949,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "13"
  this is datetime "2019-03-06 13:45:00"
 LLV 3761.0002441406
@@ -15650,6 +15966,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-06 14:00:00"
 LLV 3761.0002441406
@@ -15665,6 +15983,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-06 14:15:00"
 LLV 3761.0002441406
@@ -15680,6 +16000,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-06 14:30:00"
 LLV 3761.0002441406
@@ -15695,6 +16017,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-06 14:45:00"
 LLV 3761.0002441406
@@ -15710,6 +16034,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "15"
  this is datetime "2019-03-06 15:00:00"
 LLV 3761.0002441406
@@ -15725,6 +16051,8 @@ CrossOVER: false
 CrossUNDER: true
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-06 21:15:00"
 LLV 3737.0002441406
@@ -15740,6 +16068,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-06 21:30:00"
 LLV 3737.0002441406
@@ -15755,6 +16085,8 @@ CrossOVER: false
 CrossUNDER: true
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-06 21:45:00"
 LLV 3734.0002441406
@@ -15770,6 +16102,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-06 22:00:00"
 LLV 3734.0002441406
@@ -15785,6 +16119,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-06 22:15:00"
 LLV 3734.0002441406
@@ -15800,6 +16136,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-06 22:30:00"
 LLV 3734.0002441406
@@ -15815,6 +16153,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-06 22:45:00"
 LLV 3734.0002441406
@@ -15830,6 +16170,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "23"
  this is datetime "2019-03-06 23:00:00"
 LLV 3734.0002441406
@@ -15845,6 +16187,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-03-07 09:15:00"
 LLV 3734.0002441406
@@ -15860,6 +16204,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-03-07 09:30:00"
 LLV 3734.0002441406
@@ -15875,6 +16221,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-03-07 09:45:00"
 LLV 3734.0002441406
@@ -15890,6 +16238,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-03-07 10:00:00"
 LLV 3734.0002441406
@@ -15905,6 +16255,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-03-07 10:15:00"
 LLV 3734.0002441406
@@ -15920,6 +16272,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-03-07 10:45:00"
 LLV 3734.0002441406
@@ -15935,6 +16289,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-03-07 11:00:00"
 LLV 3734.0002441406
@@ -15950,6 +16306,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-03-07 11:15:00"
 LLV 3734.0002441406
@@ -15965,6 +16323,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-03-07 11:30:00"
 LLV 3734.0002441406
@@ -15980,6 +16340,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "13"
  this is datetime "2019-03-07 13:45:00"
 LLV 3734.0002441406
@@ -15995,6 +16357,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-07 14:00:00"
 LLV 3734.0002441406
@@ -16010,6 +16374,8 @@ CrossOVER: true
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-07 14:15:00"
 LLV 3734.0002441406
@@ -16025,6 +16391,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-07 14:30:00"
 LLV 3734.0002441406
@@ -16040,6 +16408,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-07 14:45:00"
 LLV 3734.0002441406
@@ -16055,6 +16425,8 @@ CrossOVER: true
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "15"
  this is datetime "2019-03-07 15:00:00"
 LLV 3740.0002441406
@@ -16070,6 +16442,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-07 21:15:00"
 LLV 3740.0002441406
@@ -16085,6 +16459,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-07 21:30:00"
 LLV 3740.0002441406
@@ -16100,6 +16476,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-07 21:45:00"
 LLV 3740.0002441406
@@ -16115,6 +16493,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-07 22:00:00"
 LLV 3740.0002441406
@@ -16130,6 +16510,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-07 22:15:00"
 LLV 3740.0002441406
@@ -16145,6 +16527,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-07 22:30:00"
 LLV 3740.0002441406
@@ -16160,6 +16544,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-07 22:45:00"
 LLV 3740.0002441406
@@ -16175,6 +16561,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "23"
  this is datetime "2019-03-07 23:00:00"
 LLV 3740.0002441406
@@ -16190,6 +16578,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-03-08 09:15:00"
 LLV 3740.0002441406
@@ -16205,6 +16595,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-03-08 09:30:00"
 LLV 3740.0002441406
@@ -16220,6 +16612,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-03-08 09:45:00"
 LLV 3740.0002441406
@@ -16235,6 +16629,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-03-08 10:00:00"
 LLV 3740.0002441406
@@ -16250,6 +16646,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-03-08 10:15:00"
 LLV 3740.0002441406
@@ -16265,6 +16663,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-03-08 10:45:00"
 LLV 3741.0002441406
@@ -16280,6 +16680,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-03-08 11:00:00"
 LLV 3757.0002441406
@@ -16295,6 +16697,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-03-08 11:15:00"
 LLV 3765.0002441406
@@ -16310,6 +16714,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-03-08 11:30:00"
 LLV 3765.0002441406
@@ -16325,6 +16731,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "13"
  this is datetime "2019-03-08 13:45:00"
 LLV 3765.0002441406
@@ -16340,6 +16748,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-08 14:00:00"
 LLV 3765.0002441406
@@ -16355,6 +16765,8 @@ CrossOVER: false
 CrossUNDER: true
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-08 14:15:00"
 LLV 3756.0002441406
@@ -16370,6 +16782,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-08 14:30:00"
 LLV 3756.0002441406
@@ -16385,6 +16799,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-08 14:45:00"
 LLV 3756.0002441406
@@ -16400,6 +16816,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "15"
  this is datetime "2019-03-08 15:00:00"
 LLV 3756.0002441406
@@ -16415,6 +16833,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-08 21:15:00"
 LLV 3756.0002441406
@@ -16430,6 +16850,8 @@ CrossOVER: false
 CrossUNDER: true
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-08 21:30:00"
 LLV 3689.0002441406
@@ -16445,6 +16867,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-08 21:45:00"
 LLV 3689.0002441406
@@ -16460,6 +16884,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-08 22:00:00"
 LLV 3689.0002441406
@@ -16475,6 +16901,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-08 22:15:00"
 LLV 3689.0002441406
@@ -16490,6 +16918,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-08 22:30:00"
 LLV 3689.0002441406
@@ -16505,6 +16935,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-08 22:45:00"
 LLV 3689.0002441406
@@ -16520,6 +16952,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "23"
  this is datetime "2019-03-08 23:00:00"
 LLV 3689.0002441406
@@ -16535,6 +16969,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-03-11 09:15:00"
 LLV 3689.0002441406
@@ -16550,6 +16986,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-03-11 09:30:00"
 LLV 3689.0002441406
@@ -16565,6 +17003,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-03-11 09:45:00"
 LLV 3689.0002441406
@@ -16580,6 +17020,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-03-11 10:00:00"
 LLV 3689.0002441406
@@ -16595,6 +17037,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-03-11 10:15:00"
 LLV 3689.0002441406
@@ -16610,6 +17054,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-03-11 10:45:00"
 LLV 3689.0002441406
@@ -16625,6 +17071,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-03-11 11:00:00"
 LLV 3689.0002441406
@@ -16640,6 +17088,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-03-11 11:15:00"
 LLV 3689.0002441406
@@ -16655,6 +17105,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-03-11 11:30:00"
 LLV 3689.0002441406
@@ -16670,6 +17122,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "13"
  this is datetime "2019-03-11 13:45:00"
 LLV 3689.0002441406
@@ -16685,6 +17139,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-11 14:00:00"
 LLV 3689.0002441406
@@ -16700,6 +17156,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-11 14:15:00"
 LLV 3689.0002441406
@@ -16715,6 +17173,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-11 14:30:00"
 LLV 3689.0002441406
@@ -16730,6 +17190,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-11 14:45:00"
 LLV 3706.0002441406
@@ -16745,6 +17207,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "15"
  this is datetime "2019-03-11 15:00:00"
 LLV 3706.0002441406
@@ -16760,6 +17224,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-11 21:15:00"
 LLV 3706.0002441406
@@ -16775,6 +17241,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-11 21:30:00"
 LLV 3706.0002441406
@@ -16790,6 +17258,8 @@ CrossOVER: true
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-11 21:45:00"
 LLV 3706.0002441406
@@ -16805,6 +17275,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-11 22:00:00"
 LLV 3706.0002441406
@@ -16820,6 +17292,8 @@ CrossOVER: true
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-11 22:15:00"
 LLV 3706.0002441406
@@ -16835,6 +17309,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-11 22:30:00"
 LLV 3709.0002441406
@@ -16850,6 +17326,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-11 22:45:00"
 LLV 3709.0002441406
@@ -16865,6 +17343,8 @@ CrossOVER: true
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "23"
  this is datetime "2019-03-11 23:00:00"
 LLV 3709.0002441406
@@ -16880,6 +17360,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-03-12 09:15:00"
 LLV 3709.0002441406
@@ -16895,6 +17377,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-03-12 09:30:00"
 LLV 3709.0002441406
@@ -16910,6 +17394,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-03-12 09:45:00"
 LLV 3709.0002441406
@@ -16925,6 +17411,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-03-12 10:00:00"
 LLV 3709.0002441406
@@ -16940,6 +17428,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-03-12 10:15:00"
 LLV 3709.0002441406
@@ -16955,6 +17445,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-03-12 10:45:00"
 LLV 3715.0002441406
@@ -16970,6 +17462,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-03-12 11:00:00"
 LLV 3715.0002441406
@@ -16985,6 +17479,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-03-12 11:15:00"
 LLV 3715.0002441406
@@ -17000,6 +17496,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-03-12 11:30:00"
 LLV 3715.0002441406
@@ -17015,6 +17513,8 @@ CrossOVER: true
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3812.932247314428
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "13"
  this is datetime "2019-03-12 13:45:00"
 LLV 3715.0002441406
@@ -18080,6 +18580,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3799.7632473144276
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-15 14:15:00"
 LLV 3745.0002441406
@@ -18095,6 +18597,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3799.7632473144276
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-15 14:30:00"
 LLV 3745.0002441406
@@ -18110,6 +18614,8 @@ CrossOVER: false
 CrossUNDER: true
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3799.7632473144276
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-15 14:45:00"
 LLV 3744.0002441406
@@ -18125,6 +18631,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3799.7632473144276
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "15"
  this is datetime "2019-03-15 15:00:00"
 LLV 3738.0002441406
@@ -18140,6 +18648,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3799.7632473144276
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-15 21:15:00"
 LLV 3738.0002441406
@@ -18155,6 +18665,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3799.7632473144276
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-15 21:30:00"
 LLV 3738.0002441406
@@ -18170,6 +18682,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3799.7632473144276
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-15 21:45:00"
 LLV 3738.0002441406
@@ -18185,6 +18699,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3799.7632473144276
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-15 22:00:00"
 LLV 3738.0002441406
@@ -18200,6 +18716,8 @@ CrossOVER: true
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3799.7632473144276
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-15 22:15:00"
 LLV 3738.0002441406
@@ -18215,6 +18733,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3799.7632473144276
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-15 22:30:00"
 LLV 3738.0002441406
@@ -18230,6 +18750,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3799.7632473144276
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-15 22:45:00"
 LLV 3738.0002441406
@@ -18245,6 +18767,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3799.7632473144276
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "23"
  this is datetime "2019-03-15 23:00:00"
 LLV 3738.0002441406
@@ -18260,6 +18784,8 @@ CrossOVER: true
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3799.7632473144276
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-03-18 09:15:00"
 LLV 3738.0002441406
@@ -18275,6 +18801,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3799.7632473144276
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-03-18 09:30:00"
 LLV 3738.0002441406
@@ -18290,6 +18818,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3799.7632473144276
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-03-18 09:45:00"
 LLV 3738.0002441406
@@ -18305,6 +18835,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3799.7632473144276
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-03-18 10:00:00"
 LLV 3738.0002441406
@@ -18320,6 +18852,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3799.7632473144276
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-03-18 10:15:00"
 LLV 3738.0002441406
@@ -18335,6 +18869,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3799.7632473144276
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-03-18 10:45:00"
 LLV 3738.0002441406
@@ -18350,6 +18886,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3799.7632473144276
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-03-18 11:00:00"
 LLV 3738.0002441406
@@ -18365,6 +18903,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3799.7632473144276
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-03-18 11:15:00"
 LLV 3738.0002441406
@@ -18380,6 +18920,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3799.7632473144276
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-03-18 11:30:00"
 LLV 3738.0002441406
@@ -18395,6 +18937,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3799.7632473144276
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "13"
  this is datetime "2019-03-18 13:45:00"
 LLV 3738.0002441406
@@ -18410,6 +18954,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3799.7632473144276
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-18 14:00:00"
 LLV 3738.0002441406
@@ -18425,6 +18971,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3799.7632473144276
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-18 14:15:00"
 LLV 3744.0002441406
@@ -18440,6 +18988,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3799.7632473144276
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-18 14:30:00"
 LLV 3754.0002441406
@@ -18455,6 +19005,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3799.7632473144276
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-18 14:45:00"
 LLV 3755.0002441406
@@ -18470,6 +19022,8 @@ CrossOVER: true
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3799.7632473144276
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "15"
  this is datetime "2019-03-18 15:00:00"
 LLV 3755.0002441406
@@ -18485,6 +19039,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3799.7632473144276
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-18 21:15:00"
 LLV 3755.0002441406
@@ -18500,6 +19056,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3799.7632473144276
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-18 21:30:00"
 LLV 3755.0002441406
@@ -18515,6 +19073,8 @@ CrossOVER: true
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3799.7632473144276
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-18 21:45:00"
 LLV 3755.0002441406
@@ -19715,6 +20275,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-03-22 10:45:00"
 LLV 3742.0002441406
@@ -19730,6 +20292,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-03-22 11:00:00"
 LLV 3742.0002441406
@@ -19745,6 +20309,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-03-22 11:15:00"
 LLV 3742.0002441406
@@ -19760,6 +20326,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-03-22 11:30:00"
 LLV 3742.0002441406
@@ -19775,6 +20343,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "13"
  this is datetime "2019-03-22 13:45:00"
 LLV 3742.0002441406
@@ -19790,6 +20360,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-22 14:00:00"
 LLV 3742.0002441406
@@ -19805,6 +20377,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-22 14:15:00"
 LLV 3742.0002441406
@@ -19820,6 +20394,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-22 14:30:00"
 LLV 3742.0002441406
@@ -19835,6 +20411,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-22 14:45:00"
 LLV 3742.0002441406
@@ -19850,6 +20428,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "15"
  this is datetime "2019-03-22 15:00:00"
 LLV 3742.0002441406
@@ -19865,6 +20445,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-22 21:15:00"
 LLV 3742.0002441406
@@ -19880,6 +20462,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-22 21:30:00"
 LLV 3742.0002441406
@@ -19895,6 +20479,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-22 21:45:00"
 LLV 3742.0002441406
@@ -19910,6 +20496,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-22 22:00:00"
 LLV 3742.0002441406
@@ -19925,6 +20513,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-22 22:15:00"
 LLV 3742.0002441406
@@ -19940,6 +20530,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-22 22:30:00"
 LLV 3742.0002441406
@@ -19955,6 +20547,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-22 22:45:00"
 LLV 3742.0002441406
@@ -19970,6 +20564,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "23"
  this is datetime "2019-03-22 23:00:00"
 LLV 3742.0002441406
@@ -19985,6 +20581,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-03-25 09:15:00"
 LLV 3742.0002441406
@@ -20000,6 +20598,8 @@ CrossOVER: false
 CrossUNDER: true
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-03-25 09:30:00"
 LLV 3731.0002441406
@@ -20015,6 +20615,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-03-25 09:45:00"
 LLV 3723.0002441406
@@ -20030,6 +20632,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-03-25 10:00:00"
 LLV 3714.0002441406
@@ -20045,6 +20649,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-03-25 10:15:00"
 LLV 3714.0002441406
@@ -20060,6 +20666,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-03-25 10:45:00"
 LLV 3714.0002441406
@@ -20075,6 +20683,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-03-25 11:00:00"
 LLV 3714.0002441406
@@ -20090,6 +20700,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-03-25 11:15:00"
 LLV 3714.0002441406
@@ -20105,6 +20717,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-03-25 11:30:00"
 LLV 3714.0002441406
@@ -20120,6 +20734,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "13"
  this is datetime "2019-03-25 13:45:00"
 LLV 3714.0002441406
@@ -20135,6 +20751,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-25 14:00:00"
 LLV 3714.0002441406
@@ -20150,6 +20768,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-25 14:15:00"
 LLV 3714.0002441406
@@ -20165,6 +20785,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-25 14:30:00"
 LLV 3714.0002441406
@@ -20180,6 +20802,8 @@ CrossOVER: false
 CrossUNDER: true
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-25 14:45:00"
 LLV 3713.0002441406
@@ -20195,6 +20819,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "15"
  this is datetime "2019-03-25 15:00:00"
 LLV 3703.0002441406
@@ -20210,6 +20836,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-25 21:15:00"
 LLV 3692.0002441406
@@ -20225,6 +20853,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-25 21:30:00"
 LLV 3692.0002441406
@@ -20240,6 +20870,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-25 21:45:00"
 LLV 3692.0002441406
@@ -20255,6 +20887,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-25 22:00:00"
 LLV 3692.0002441406
@@ -20270,6 +20904,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-25 22:15:00"
 LLV 3692.0002441406
@@ -20285,6 +20921,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-25 22:30:00"
 LLV 3692.0002441406
@@ -20300,6 +20938,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-25 22:45:00"
 LLV 3692.0002441406
@@ -20315,6 +20955,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "23"
  this is datetime "2019-03-25 23:00:00"
 LLV 3692.0002441406
@@ -20330,6 +20972,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-03-26 09:15:00"
 LLV 3692.0002441406
@@ -20345,6 +20989,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-03-26 09:30:00"
 LLV 3692.0002441406
@@ -20360,6 +21006,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-03-26 09:45:00"
 LLV 3692.0002441406
@@ -20375,6 +21023,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-03-26 10:00:00"
 LLV 3692.0002441406
@@ -20390,6 +21040,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-03-26 10:15:00"
 LLV 3692.0002441406
@@ -20405,6 +21057,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-03-26 10:45:00"
 LLV 3692.0002441406
@@ -20420,6 +21074,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-03-26 11:00:00"
 LLV 3692.0002441406
@@ -20435,6 +21091,8 @@ CrossOVER: false
 CrossUNDER: true
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-03-26 11:15:00"
 LLV 3691.0002441406
@@ -20450,6 +21108,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-03-26 11:30:00"
 LLV 3687.0002441406
@@ -20465,6 +21125,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "13"
  this is datetime "2019-03-26 13:45:00"
 LLV 3687.0002441406
@@ -20480,6 +21142,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-26 14:00:00"
 LLV 3687.0002441406
@@ -20495,6 +21159,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-26 14:15:00"
 LLV 3687.0002441406
@@ -20510,6 +21176,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-26 14:30:00"
 LLV 3682.0002441406
@@ -20525,6 +21193,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-26 14:45:00"
 LLV 3682.0002441406
@@ -20540,6 +21210,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "15"
  this is datetime "2019-03-26 15:00:00"
 LLV 3682.0002441406
@@ -20555,6 +21227,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-26 21:15:00"
 LLV 3682.0002441406
@@ -20570,6 +21244,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-26 21:30:00"
 LLV 3682.0002441406
@@ -20585,6 +21261,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-26 21:45:00"
 LLV 3682.0002441406
@@ -20600,6 +21278,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-26 22:00:00"
 LLV 3682.0002441406
@@ -20615,6 +21295,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-26 22:15:00"
 LLV 3682.0002441406
@@ -20630,6 +21312,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-26 22:30:00"
 LLV 3682.0002441406
@@ -20645,6 +21329,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-26 22:45:00"
 LLV 3682.0002441406
@@ -20660,6 +21346,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "23"
  this is datetime "2019-03-26 23:00:00"
 LLV 3682.0002441406
@@ -20675,6 +21363,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-03-27 09:15:00"
 LLV 3682.0002441406
@@ -20690,6 +21380,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-03-27 09:30:00"
 LLV 3682.0002441406
@@ -20705,6 +21397,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-03-27 09:45:00"
 LLV 3682.0002441406
@@ -20720,6 +21414,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-03-27 10:00:00"
 LLV 3682.0002441406
@@ -20735,6 +21431,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-03-27 10:15:00"
 LLV 3682.0002441406
@@ -20750,6 +21448,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-03-27 10:45:00"
 LLV 3682.0002441406
@@ -20765,6 +21465,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-03-27 11:00:00"
 LLV 3682.0002441406
@@ -20780,6 +21482,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-03-27 11:15:00"
 LLV 3682.0002441406
@@ -20795,6 +21499,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-03-27 11:30:00"
 LLV 3682.0002441406
@@ -20810,6 +21516,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "13"
  this is datetime "2019-03-27 13:45:00"
 LLV 3683.0002441406
@@ -20825,6 +21533,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-27 14:00:00"
 LLV 3686.0002441406
@@ -20840,6 +21550,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-27 14:15:00"
 LLV 3686.0002441406
@@ -20855,6 +21567,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-27 14:30:00"
 LLV 3697.0002441406
@@ -20870,6 +21584,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-27 14:45:00"
 LLV 3697.0002441406
@@ -20885,6 +21601,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "15"
  this is datetime "2019-03-27 15:00:00"
 LLV 3697.0002441406
@@ -20900,6 +21618,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-27 21:15:00"
 LLV 3697.0002441406
@@ -20915,6 +21635,8 @@ CrossOVER: false
 CrossUNDER: true
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-27 21:30:00"
 LLV 3696.0002441406
@@ -20930,6 +21652,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-27 21:45:00"
 LLV 3689.0002441406
@@ -20945,6 +21669,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-27 22:00:00"
 LLV 3689.0002441406
@@ -20960,6 +21686,8 @@ CrossOVER: false
 CrossUNDER: true
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-27 22:15:00"
 LLV 3685.0002441406
@@ -20975,6 +21703,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-27 22:30:00"
 LLV 3685.0002441406
@@ -20990,6 +21720,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-27 22:45:00"
 LLV 3685.0002441406
@@ -21005,6 +21737,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "23"
  this is datetime "2019-03-27 23:00:00"
 LLV 3685.0002441406
@@ -21020,6 +21754,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-03-28 09:15:00"
 LLV 3685.0002441406
@@ -21035,6 +21771,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-03-28 09:30:00"
 LLV 3685.0002441406
@@ -21050,6 +21788,8 @@ CrossOVER: true
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-03-28 09:45:00"
 LLV 3685.0002441406
@@ -21065,6 +21805,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-03-28 10:00:00"
 LLV 3685.0002441406
@@ -21080,6 +21822,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-03-28 10:15:00"
 LLV 3685.0002441406
@@ -21095,6 +21839,8 @@ CrossOVER: true
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-03-28 10:45:00"
 LLV 3685.0002441406
@@ -21110,6 +21856,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-03-28 11:00:00"
 LLV 3685.0002441406
@@ -21125,6 +21873,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-03-28 11:15:00"
 LLV 3685.0002441406
@@ -21140,6 +21890,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-03-28 11:30:00"
 LLV 3685.0002441406
@@ -21155,6 +21907,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "13"
  this is datetime "2019-03-28 13:45:00"
 LLV 3685.0002441406
@@ -21170,6 +21924,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-28 14:00:00"
 LLV 3685.0002441406
@@ -21185,6 +21941,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-28 14:15:00"
 LLV 3685.0002441406
@@ -21200,6 +21958,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-28 14:30:00"
 LLV 3685.0002441406
@@ -21215,6 +21975,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-28 14:45:00"
 LLV 3685.0002441406
@@ -21230,6 +21992,8 @@ CrossOVER: false
 CrossUNDER: true
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "15"
  this is datetime "2019-03-28 15:00:00"
 LLV 3678.0002441406
@@ -21245,6 +22009,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-28 21:15:00"
 LLV 3678.0002441406
@@ -21260,6 +22026,8 @@ CrossOVER: false
 CrossUNDER: true
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-28 21:30:00"
 LLV 3675.0002441406
@@ -21275,6 +22043,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-28 21:45:00"
 LLV 3675.0002441406
@@ -21290,6 +22060,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-28 22:00:00"
 LLV 3675.0002441406
@@ -21305,6 +22077,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-28 22:15:00"
 LLV 3675.0002441406
@@ -21320,6 +22094,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-28 22:30:00"
 LLV 3675.0002441406
@@ -21335,6 +22111,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "22"
  this is datetime "2019-03-28 22:45:00"
 LLV 3675.0002441406
@@ -21350,6 +22128,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "23"
  this is datetime "2019-03-28 23:00:00"
 LLV 3675.0002441406
@@ -21365,6 +22145,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-03-29 09:15:00"
 LLV 3675.0002441406
@@ -21380,6 +22162,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-03-29 09:30:00"
 LLV 3675.0002441406
@@ -21395,6 +22179,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "09"
  this is datetime "2019-03-29 09:45:00"
 LLV 3675.0002441406
@@ -21410,6 +22196,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-03-29 10:00:00"
 LLV 3675.0002441406
@@ -21425,6 +22213,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-03-29 10:15:00"
 LLV 3675.0002441406
@@ -21440,6 +22230,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "10"
  this is datetime "2019-03-29 10:45:00"
 LLV 3675.0002441406
@@ -21455,6 +22247,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-03-29 11:00:00"
 LLV 3675.0002441406
@@ -21470,6 +22264,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-03-29 11:15:00"
 LLV 3675.0002441406
@@ -21485,6 +22281,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "11"
  this is datetime "2019-03-29 11:30:00"
 LLV 3675.0002441406
@@ -21500,6 +22298,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "13"
  this is datetime "2019-03-29 13:45:00"
 LLV 3675.0002441406
@@ -21515,6 +22315,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-29 14:00:00"
 LLV 3675.0002441406
@@ -21530,6 +22332,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-29 14:15:00"
 LLV 3675.0002441406
@@ -21545,6 +22349,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-29 14:30:00"
 LLV 3675.0002441406
@@ -21560,6 +22366,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "14"
  this is datetime "2019-03-29 14:45:00"
 LLV 3686.0002441406
@@ -21575,6 +22383,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "15"
  this is datetime "2019-03-29 15:00:00"
 LLV 3688.0002441406
@@ -21590,6 +22400,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-29 21:15:00"
 LLV 3688.0002441406
@@ -21605,6 +22417,8 @@ CrossOVER: false
 CrossUNDER: true
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3488.54
 hour ==== "21"
  this is datetime "2019-03-29 21:30:00"
 LLV 3452.0002441406
@@ -21620,6 +22434,9 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3800.7762473144285
+STOPLINE NEW BUYCLOSE 3486.520246582006
+BUYCLOSE FORCE 3486.520246582006 3463.0002441406
 hour ==== "21"
  this is datetime "2019-03-29 21:45:00"
 LLV 3452.0002441406
@@ -26042,6 +26859,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "09"
  this is datetime "2019-04-17 09:45:00"
 LLV 3758.0002441406
@@ -26057,6 +26876,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "10"
  this is datetime "2019-04-17 10:00:00"
 LLV 3758.0002441406
@@ -26072,6 +26893,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "10"
  this is datetime "2019-04-17 10:15:00"
 LLV 3758.0002441406
@@ -26087,6 +26910,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "10"
  this is datetime "2019-04-17 10:45:00"
 LLV 3758.0002441406
@@ -26102,6 +26927,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "11"
  this is datetime "2019-04-17 11:00:00"
 LLV 3758.0002441406
@@ -26117,6 +26944,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "11"
  this is datetime "2019-04-17 11:15:00"
 LLV 3758.0002441406
@@ -26132,6 +26961,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "11"
  this is datetime "2019-04-17 11:30:00"
 LLV 3758.0002441406
@@ -26147,6 +26978,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "13"
  this is datetime "2019-04-17 13:45:00"
 LLV 3758.0002441406
@@ -26162,6 +26995,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "14"
  this is datetime "2019-04-17 14:00:00"
 LLV 3758.0002441406
@@ -26177,6 +27012,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "14"
  this is datetime "2019-04-17 14:15:00"
 LLV 3758.0002441406
@@ -26192,6 +27029,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "14"
  this is datetime "2019-04-17 14:30:00"
 LLV 3758.0002441406
@@ -26207,6 +27046,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "14"
  this is datetime "2019-04-17 14:45:00"
 LLV 3758.0002441406
@@ -26222,6 +27063,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "15"
  this is datetime "2019-04-17 15:00:00"
 LLV 3758.0002441406
@@ -26237,6 +27080,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "21"
  this is datetime "2019-04-17 21:15:00"
 LLV 3758.0002441406
@@ -26252,6 +27097,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "21"
  this is datetime "2019-04-17 21:30:00"
 LLV 3758.0002441406
@@ -26267,6 +27114,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "21"
  this is datetime "2019-04-17 21:45:00"
 LLV 3758.0002441406
@@ -26282,6 +27131,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "22"
  this is datetime "2019-04-17 22:00:00"
 LLV 3758.0002441406
@@ -26297,6 +27148,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "22"
  this is datetime "2019-04-17 22:15:00"
 LLV 3758.0002441406
@@ -26312,6 +27165,8 @@ CrossOVER: false
 CrossUNDER: true
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "22"
  this is datetime "2019-04-17 22:30:00"
 LLV 3755.0002441406
@@ -26327,6 +27182,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "22"
  this is datetime "2019-04-17 22:45:00"
 LLV 3755.0002441406
@@ -26342,6 +27199,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "23"
  this is datetime "2019-04-17 23:00:00"
 LLV 3755.0002441406
@@ -26357,6 +27216,8 @@ CrossOVER: false
 CrossUNDER: true
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "09"
  this is datetime "2019-04-18 09:15:00"
 LLV 3743.0002441406
@@ -26372,6 +27233,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "09"
  this is datetime "2019-04-18 09:30:00"
 LLV 3734.0002441406
@@ -26387,6 +27250,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "09"
  this is datetime "2019-04-18 09:45:00"
 LLV 3729.0002441406
@@ -26402,6 +27267,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "10"
  this is datetime "2019-04-18 10:00:00"
 LLV 3724.0002441406
@@ -26417,6 +27284,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "10"
  this is datetime "2019-04-18 10:15:00"
 LLV 3724.0002441406
@@ -26432,6 +27301,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "10"
  this is datetime "2019-04-18 10:45:00"
 LLV 3724.0002441406
@@ -26447,6 +27318,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "11"
  this is datetime "2019-04-18 11:00:00"
 LLV 3724.0002441406
@@ -26462,6 +27335,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "11"
  this is datetime "2019-04-18 11:15:00"
 LLV 3724.0002441406
@@ -26477,6 +27352,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "11"
  this is datetime "2019-04-18 11:30:00"
 LLV 3724.0002441406
@@ -26492,6 +27369,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "13"
  this is datetime "2019-04-18 13:45:00"
 LLV 3724.0002441406
@@ -26507,6 +27386,8 @@ CrossOVER: false
 CrossUNDER: true
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "14"
  this is datetime "2019-04-18 14:00:00"
 LLV 3707.0002441406
@@ -26522,6 +27403,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "14"
  this is datetime "2019-04-18 14:15:00"
 LLV 3707.0002441406
@@ -26537,6 +27420,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "14"
  this is datetime "2019-04-18 14:30:00"
 LLV 3707.0002441406
@@ -26552,6 +27437,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "14"
  this is datetime "2019-04-18 14:45:00"
 LLV 3707.0002441406
@@ -26567,6 +27454,8 @@ CrossOVER: false
 CrossUNDER: true
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "15"
  this is datetime "2019-04-18 15:00:00"
 LLV 3706.0002441406
@@ -26582,6 +27471,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "21"
  this is datetime "2019-04-18 21:15:00"
 LLV 3706.0002441406
@@ -26597,6 +27488,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "21"
  this is datetime "2019-04-18 21:30:00"
 LLV 3682.0002441406
@@ -26612,6 +27505,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "21"
  this is datetime "2019-04-18 21:45:00"
 LLV 3682.0002441406
@@ -26627,6 +27522,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "22"
  this is datetime "2019-04-18 22:00:00"
 LLV 3682.0002441406
@@ -26642,6 +27539,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "22"
  this is datetime "2019-04-18 22:15:00"
 LLV 3682.0002441406
@@ -26657,6 +27556,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "22"
  this is datetime "2019-04-18 22:30:00"
 LLV 3682.0002441406
@@ -26672,6 +27573,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "22"
  this is datetime "2019-04-18 22:45:00"
 LLV 3682.0002441406
@@ -26687,6 +27590,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "23"
  this is datetime "2019-04-18 23:00:00"
 LLV 3682.0002441406
@@ -26702,6 +27607,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "09"
  this is datetime "2019-04-19 09:15:00"
 LLV 3682.0002441406
@@ -26717,6 +27624,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "09"
  this is datetime "2019-04-19 09:30:00"
 LLV 3682.0002441406
@@ -26732,6 +27641,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "09"
  this is datetime "2019-04-19 09:45:00"
 LLV 3682.0002441406
@@ -26747,6 +27658,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "10"
  this is datetime "2019-04-19 10:00:00"
 LLV 3682.0002441406
@@ -26762,6 +27675,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "10"
  this is datetime "2019-04-19 10:15:00"
 LLV 3682.0002441406
@@ -26777,6 +27692,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "10"
  this is datetime "2019-04-19 10:45:00"
 LLV 3682.0002441406
@@ -26792,6 +27709,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "11"
  this is datetime "2019-04-19 11:00:00"
 LLV 3682.0002441406
@@ -26807,6 +27726,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "11"
  this is datetime "2019-04-19 11:15:00"
 LLV 3682.0002441406
@@ -26822,6 +27743,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "11"
  this is datetime "2019-04-19 11:30:00"
 LLV 3682.0002441406
@@ -26837,6 +27760,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "13"
  this is datetime "2019-04-19 13:45:00"
 LLV 3682.0002441406
@@ -26852,6 +27777,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "14"
  this is datetime "2019-04-19 14:00:00"
 LLV 3682.0002441406
@@ -26867,6 +27794,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "14"
  this is datetime "2019-04-19 14:15:00"
 LLV 3682.0002441406
@@ -26882,6 +27811,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "14"
  this is datetime "2019-04-19 14:30:00"
 LLV 3682.0002441406
@@ -26897,6 +27828,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "14"
  this is datetime "2019-04-19 14:45:00"
 LLV 3685.0002441406
@@ -26912,6 +27845,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "15"
  this is datetime "2019-04-19 15:00:00"
 LLV 3692.0002441406
@@ -26927,6 +27862,8 @@ CrossOVER: true
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "21"
  this is datetime "2019-04-19 21:15:00"
 LLV 3692.0002441406
@@ -26942,6 +27879,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "21"
  this is datetime "2019-04-19 21:30:00"
 LLV 3692.0002441406
@@ -26957,6 +27896,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "21"
  this is datetime "2019-04-19 21:45:00"
 LLV 3692.0002441406
@@ -26972,6 +27913,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "22"
  this is datetime "2019-04-19 22:00:00"
 LLV 3692.0002441406
@@ -26987,6 +27930,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "22"
  this is datetime "2019-04-19 22:15:00"
 LLV 3692.0002441406
@@ -27002,6 +27947,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "22"
  this is datetime "2019-04-19 22:30:00"
 LLV 3700.0002441406
@@ -27017,6 +27964,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "22"
  this is datetime "2019-04-19 22:45:00"
 LLV 3706.0002441406
@@ -27032,6 +27981,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "23"
  this is datetime "2019-04-19 23:00:00"
 LLV 3706.0002441406
@@ -27047,6 +27998,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "09"
  this is datetime "2019-04-22 09:15:00"
 LLV 3706.0002441406
@@ -27062,6 +28015,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "09"
  this is datetime "2019-04-22 09:30:00"
 LLV 3706.0002441406
@@ -27077,6 +28032,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "09"
  this is datetime "2019-04-22 09:45:00"
 LLV 3706.0002441406
@@ -27092,6 +28049,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "10"
  this is datetime "2019-04-22 10:00:00"
 LLV 3714.0002441406
@@ -27107,6 +28066,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "10"
  this is datetime "2019-04-22 10:15:00"
 LLV 3715.0002441406
@@ -27122,6 +28083,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "10"
  this is datetime "2019-04-22 10:45:00"
 LLV 3718.0002441406
@@ -27137,6 +28100,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "11"
  this is datetime "2019-04-22 11:00:00"
 LLV 3718.0002441406
@@ -27152,6 +28117,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "11"
  this is datetime "2019-04-22 11:15:00"
 LLV 3718.0002441406
@@ -27167,6 +28134,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "11"
  this is datetime "2019-04-22 11:30:00"
 LLV 3718.0002441406
@@ -27182,6 +28151,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "13"
  this is datetime "2019-04-22 13:45:00"
 LLV 3718.0002441406
@@ -27197,6 +28168,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "14"
  this is datetime "2019-04-22 14:00:00"
 LLV 3723.0002441406
@@ -27212,6 +28185,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "14"
  this is datetime "2019-04-22 14:15:00"
 LLV 3730.0002441406
@@ -27227,6 +28202,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "14"
  this is datetime "2019-04-22 14:30:00"
 LLV 3739.0002441406
@@ -27242,6 +28219,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "14"
  this is datetime "2019-04-22 14:45:00"
 LLV 3744.0002441406
@@ -27257,6 +28236,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "15"
  this is datetime "2019-04-22 15:00:00"
 LLV 3759.0002441406
@@ -27272,6 +28253,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "21"
  this is datetime "2019-04-22 21:15:00"
 LLV 3753.0002441406
@@ -27287,6 +28270,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "21"
  this is datetime "2019-04-22 21:30:00"
 LLV 3753.0002441406
@@ -27302,6 +28287,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "21"
  this is datetime "2019-04-22 21:45:00"
 LLV 3753.0002441406
@@ -27317,6 +28304,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "22"
  this is datetime "2019-04-22 22:00:00"
 LLV 3753.0002441406
@@ -27332,6 +28321,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "22"
  this is datetime "2019-04-22 22:15:00"
 LLV 3753.0002441406
@@ -27347,6 +28338,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "22"
  this is datetime "2019-04-22 22:30:00"
 LLV 3753.0002441406
@@ -27362,6 +28355,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "22"
  this is datetime "2019-04-22 22:45:00"
 LLV 3753.0002441406
@@ -27377,6 +28372,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "23"
  this is datetime "2019-04-22 23:00:00"
 LLV 3753.0002441406
@@ -27392,6 +28389,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "09"
  this is datetime "2019-04-23 09:15:00"
 LLV 3753.0002441406
@@ -27407,6 +28406,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "09"
  this is datetime "2019-04-23 09:30:00"
 LLV 3753.0002441406
@@ -27422,6 +28423,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "09"
  this is datetime "2019-04-23 09:45:00"
 LLV 3753.0002441406
@@ -27437,6 +28440,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "10"
  this is datetime "2019-04-23 10:00:00"
 LLV 3753.0002441406
@@ -27452,6 +28457,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "10"
  this is datetime "2019-04-23 10:15:00"
 LLV 3753.0002441406
@@ -27467,6 +28474,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "10"
  this is datetime "2019-04-23 10:45:00"
 LLV 3753.0002441406
@@ -27482,6 +28491,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "11"
  this is datetime "2019-04-23 11:00:00"
 LLV 3753.0002441406
@@ -27497,6 +28508,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "11"
  this is datetime "2019-04-23 11:15:00"
 LLV 3753.0002441406
@@ -27512,6 +28525,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "11"
  this is datetime "2019-04-23 11:30:00"
 LLV 3753.0002441406
@@ -27527,6 +28542,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "13"
  this is datetime "2019-04-23 13:45:00"
 LLV 3753.0002441406
@@ -27542,6 +28559,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "14"
  this is datetime "2019-04-23 14:00:00"
 LLV 3753.0002441406
@@ -27557,6 +28576,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "14"
  this is datetime "2019-04-23 14:15:00"
 LLV 3753.0002441406
@@ -27572,6 +28593,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "14"
  this is datetime "2019-04-23 14:30:00"
 LLV 3763.0002441406
@@ -27587,6 +28610,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "14"
  this is datetime "2019-04-23 14:45:00"
 LLV 3763.0002441406
@@ -27602,6 +28627,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "15"
  this is datetime "2019-04-23 15:00:00"
 LLV 3763.0002441406
@@ -27617,6 +28644,8 @@ CrossOVER: false
 CrossUNDER: true
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "21"
  this is datetime "2019-04-23 21:15:00"
 LLV 3755.0002441406
@@ -27632,6 +28661,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "21"
  this is datetime "2019-04-23 21:30:00"
 LLV 3733.0002441406
@@ -27647,6 +28678,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "21"
  this is datetime "2019-04-23 21:45:00"
 LLV 3730.0002441406
@@ -27662,6 +28695,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "22"
  this is datetime "2019-04-23 22:00:00"
 LLV 3727.0002441406
@@ -27677,6 +28712,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "22"
  this is datetime "2019-04-23 22:15:00"
 LLV 3723.0002441406
@@ -27692,6 +28729,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "22"
  this is datetime "2019-04-23 22:30:00"
 LLV 3718.0002441406
@@ -27707,6 +28746,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "22"
  this is datetime "2019-04-23 22:45:00"
 LLV 3718.0002441406
@@ -27722,6 +28763,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "23"
  this is datetime "2019-04-23 23:00:00"
 LLV 3718.0002441406
@@ -27737,6 +28780,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "09"
  this is datetime "2019-04-24 09:15:00"
 LLV 3718.0002441406
@@ -27752,6 +28797,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "09"
  this is datetime "2019-04-24 09:30:00"
 LLV 3718.0002441406
@@ -27767,6 +28814,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "09"
  this is datetime "2019-04-24 09:45:00"
 LLV 3718.0002441406
@@ -27782,6 +28831,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "10"
  this is datetime "2019-04-24 10:00:00"
 LLV 3718.0002441406
@@ -27797,6 +28848,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "10"
  this is datetime "2019-04-24 10:15:00"
 LLV 3718.0002441406
@@ -27812,6 +28865,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "10"
  this is datetime "2019-04-24 10:45:00"
 LLV 3718.0002441406
@@ -27827,6 +28882,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "11"
  this is datetime "2019-04-24 11:00:00"
 LLV 3718.0002441406
@@ -27842,6 +28899,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "11"
  this is datetime "2019-04-24 11:15:00"
 LLV 3718.0002441406
@@ -27857,6 +28916,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "11"
  this is datetime "2019-04-24 11:30:00"
 LLV 3718.0002441406
@@ -27872,6 +28933,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "13"
  this is datetime "2019-04-24 13:45:00"
 LLV 3718.0002441406
@@ -27887,6 +28950,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "14"
  this is datetime "2019-04-24 14:00:00"
 LLV 3718.0002441406
@@ -27902,6 +28967,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "14"
  this is datetime "2019-04-24 14:15:00"
 LLV 3718.0002441406
@@ -27917,6 +28984,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "14"
  this is datetime "2019-04-24 14:30:00"
 LLV 3718.0002441406
@@ -27932,6 +29001,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "14"
  this is datetime "2019-04-24 14:45:00"
 LLV 3718.0002441406
@@ -27947,6 +29018,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "15"
  this is datetime "2019-04-24 15:00:00"
 LLV 3718.0002441406
@@ -27962,6 +29035,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "21"
  this is datetime "2019-04-24 21:15:00"
 LLV 3718.0002441406
@@ -27977,6 +29052,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "21"
  this is datetime "2019-04-24 21:30:00"
 LLV 3718.0002441406
@@ -27992,6 +29069,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "21"
  this is datetime "2019-04-24 21:45:00"
 LLV 3718.0002441406
@@ -28007,6 +29086,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "22"
  this is datetime "2019-04-24 22:00:00"
 LLV 3718.0002441406
@@ -28022,6 +29103,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "22"
  this is datetime "2019-04-24 22:15:00"
 LLV 3718.0002441406
@@ -28037,6 +29120,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "22"
  this is datetime "2019-04-24 22:30:00"
 LLV 3718.0002441406
@@ -28052,6 +29137,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "22"
  this is datetime "2019-04-24 22:45:00"
 LLV 3718.0002441406
@@ -28067,6 +29154,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "23"
  this is datetime "2019-04-24 23:00:00"
 LLV 3718.0002441406
@@ -28082,6 +29171,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "09"
  this is datetime "2019-04-25 09:15:00"
 LLV 3718.0002441406
@@ -28097,6 +29188,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "09"
  this is datetime "2019-04-25 09:30:00"
 LLV 3718.0002441406
@@ -28112,6 +29205,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "09"
  this is datetime "2019-04-25 09:45:00"
 LLV 3718.0002441406
@@ -28127,6 +29222,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "10"
  this is datetime "2019-04-25 10:00:00"
 LLV 3718.0002441406
@@ -28142,6 +29239,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "10"
  this is datetime "2019-04-25 10:15:00"
 LLV 3718.0002441406
@@ -28157,6 +29256,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "10"
  this is datetime "2019-04-25 10:45:00"
 LLV 3718.0002441406
@@ -28172,6 +29273,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "11"
  this is datetime "2019-04-25 11:00:00"
 LLV 3718.0002441406
@@ -28187,6 +29290,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "11"
  this is datetime "2019-04-25 11:15:00"
 LLV 3720.0002441406
@@ -28202,6 +29307,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "11"
  this is datetime "2019-04-25 11:30:00"
 LLV 3720.0002441406
@@ -28217,6 +29324,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "13"
  this is datetime "2019-04-25 13:45:00"
 LLV 3720.0002441406
@@ -28232,6 +29341,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "14"
  this is datetime "2019-04-25 14:00:00"
 LLV 3720.0002441406
@@ -28247,6 +29358,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "14"
  this is datetime "2019-04-25 14:15:00"
 LLV 3720.0002441406
@@ -28262,6 +29375,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "14"
  this is datetime "2019-04-25 14:30:00"
 LLV 3725.0002441406
@@ -28277,6 +29392,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "14"
  this is datetime "2019-04-25 14:45:00"
 LLV 3725.0002441406
@@ -28292,6 +29409,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "15"
  this is datetime "2019-04-25 15:00:00"
 LLV 3725.0002441406
@@ -28307,6 +29426,8 @@ CrossOVER: false
 CrossUNDER: true
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "21"
  this is datetime "2019-04-25 21:15:00"
 LLV 3712.0002441406
@@ -28322,6 +29443,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "21"
  this is datetime "2019-04-25 21:30:00"
 LLV 3712.0
@@ -28337,6 +29460,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "21"
  this is datetime "2019-04-25 21:45:00"
 LLV 3712.0
@@ -28352,6 +29477,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "22"
  this is datetime "2019-04-25 22:00:00"
 LLV 3712.0
@@ -28367,6 +29494,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "22"
  this is datetime "2019-04-25 22:15:00"
 LLV 3712.0
@@ -28382,6 +29511,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "22"
  this is datetime "2019-04-25 22:30:00"
 LLV 3712.0
@@ -28397,6 +29528,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "22"
  this is datetime "2019-04-25 22:45:00"
 LLV 3712.0
@@ -28412,6 +29545,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "23"
  this is datetime "2019-04-25 23:00:00"
 LLV 3712.0
@@ -28427,6 +29562,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "09"
  this is datetime "2019-04-26 09:15:00"
 LLV 3712.0
@@ -28442,6 +29579,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "09"
  this is datetime "2019-04-26 09:30:00"
 LLV 3712.0
@@ -28457,6 +29596,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "09"
  this is datetime "2019-04-26 09:45:00"
 LLV 3712.0
@@ -28472,6 +29613,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "10"
  this is datetime "2019-04-26 10:00:00"
 LLV 3712.0
@@ -28487,6 +29630,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "10"
  this is datetime "2019-04-26 10:15:00"
 LLV 3712.0
@@ -28502,6 +29647,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "10"
  this is datetime "2019-04-26 10:45:00"
 LLV 3712.0
@@ -28517,6 +29664,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "11"
  this is datetime "2019-04-26 11:00:00"
 LLV 3712.0
@@ -28532,6 +29681,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "11"
  this is datetime "2019-04-26 11:15:00"
 LLV 3712.0
@@ -28547,6 +29698,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "11"
  this is datetime "2019-04-26 11:30:00"
 LLV 3712.0
@@ -28562,6 +29715,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "13"
  this is datetime "2019-04-26 13:45:00"
 LLV 3712.0
@@ -28577,6 +29732,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "14"
  this is datetime "2019-04-26 14:00:00"
 LLV 3712.0
@@ -28592,6 +29749,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "14"
  this is datetime "2019-04-26 14:15:00"
 LLV 3712.0
@@ -28607,6 +29766,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "14"
  this is datetime "2019-04-26 14:30:00"
 LLV 3712.0
@@ -28622,6 +29783,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "14"
  this is datetime "2019-04-26 14:45:00"
 LLV 3715.0002441406
@@ -28637,6 +29800,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "15"
  this is datetime "2019-04-26 15:00:00"
 LLV 3715.0002441406
@@ -28652,6 +29817,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "21"
  this is datetime "2019-04-26 21:15:00"
 LLV 3715.0002441406
@@ -28667,6 +29834,8 @@ CrossOVER: true
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "21"
  this is datetime "2019-04-26 21:30:00"
 LLV 3715.0002441406
@@ -28682,6 +29851,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "21"
  this is datetime "2019-04-26 21:45:00"
 LLV 3715.0002441406
@@ -28697,6 +29868,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 true
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "22"
  this is datetime "2019-04-26 22:00:00"
 LLV 3715.0002441406
@@ -28712,6 +29885,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "22"
  this is datetime "2019-04-26 22:15:00"
 LLV 3715.0002441406
@@ -28727,6 +29902,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "22"
  this is datetime "2019-04-26 22:30:00"
 LLV 3715.0002441406
@@ -28742,6 +29919,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "22"
  this is datetime "2019-04-26 22:45:00"
 LLV 3715.0002441406
@@ -28757,6 +29936,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "23"
  this is datetime "2019-04-26 23:00:00"
 LLV 3715.0002441406
@@ -28772,6 +29953,8 @@ CrossOVER: true
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "09"
  this is datetime "2019-04-29 09:15:00"
 LLV 3715.0002441406
@@ -28787,6 +29970,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "09"
  this is datetime "2019-04-29 09:30:00"
 LLV 3715.0002441406
@@ -28802,6 +29987,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 false
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "09"
  this is datetime "2019-04-29 09:45:00"
 LLV 3715.0002441406
@@ -28817,6 +30004,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "10"
  this is datetime "2019-04-29 10:00:00"
 LLV 3715.0002441406
@@ -28832,6 +30021,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "10"
  this is datetime "2019-04-29 10:15:00"
 LLV 3715.0002441406
@@ -28847,6 +30038,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "10"
  this is datetime "2019-04-29 10:45:00"
 LLV 3715.0002441406
@@ -28862,6 +30055,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "11"
  this is datetime "2019-04-29 11:00:00"
 LLV 3715.0002441406
@@ -28877,6 +30072,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "11"
  this is datetime "2019-04-29 11:15:00"
 LLV 3715.0002441406
@@ -28892,6 +30089,8 @@ CrossOVER: false
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "11"
  this is datetime "2019-04-29 11:30:00"
 LLV 3715.0002441406
@@ -28907,6 +30106,8 @@ CrossOVER: true
 CrossUNDER: false
 cond1 true
 cond2 false
+STOPLINE BUYCLOSE 3813.945247314428
+STOPLINE NEW BUYCLOSE 3486.520246582006
 hour ==== "13"
  this is datetime "2019-04-29 13:45:00"
 LLV 3732.0002441406
