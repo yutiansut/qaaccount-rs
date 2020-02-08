@@ -4,7 +4,7 @@ use std::process;
 
 use serde::Deserialize;
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, Clone)]
 pub struct BAR {
     pub code: String,
     pub datetime: String,

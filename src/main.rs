@@ -30,7 +30,9 @@ impl QABacktest {
         backtest
     }
 
-    fn init(&mut self) {}
+    fn init(&mut self) {
+        
+    }
 
     fn on_bar(&mut self, bar: qafetch::BAR) {}
 
