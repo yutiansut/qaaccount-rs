@@ -4,32 +4,58 @@ use std::io;
 
 use csv;
 
-use crate::qaorder;
-use crate::qaorder::QA_Postions;
+use crate::market_preset::{CodePreset, MarketPreset};
+use crate::qaposition;
+use crate::qaposition::QA_Postions;
 use crate::transaction;
 use crate::transaction::QATransaction;
 
 #[warn(non_camel_case_types)]
 pub struct QA_Account {
+    init_cash: f64,
+    init_hold: HashMap<String, QA_Postions>,
+
+    allow_t0: bool,
+    allow_sellopen: bool,
+    allow_margin: bool,
+
+    auto_reload: bool,
+    market_preset: MarketPreset,
+
     pub cash: Vec<f64>,
     pub hold: HashMap<String, QA_Postions>,
+
     pub history: Vec<transaction::QATransaction>,
     pub account_cookie: String,
     pub portfolio_cookie: String,
     pub user_cookie: String,
 }
 
-impl QA_Account{
-    pub fn new(account_cookie: &str) -> Self {
-        let acc = Self {
+impl QA_Account {
+    pub fn new(account_cookie: &str,
+               portfolio_cookie: &str,
+               user_cookie: &str,
+               init_cash: f64,
+               auto_reload: bool, ) -> Self {
+        let mut acc = Self {
+            init_cash,
+            init_hold: HashMap::new(),
+            allow_t0: false,
+            allow_sellopen: false,
+            allow_margin: false,
+            market_preset: MarketPreset::new(),
+            auto_reload,
             cash: vec![],
             hold: HashMap::new(),
             history: vec![],
             account_cookie: account_cookie.parse().unwrap(),
-            portfolio_cookie: "".to_string(),
-            user_cookie: "".to_string(),
-
+            portfolio_cookie: portfolio_cookie.parse().unwrap(),
+            user_cookie: user_cookie.parse().unwrap(),
         };
+
+        if auto_reload {
+            acc.reload()
+        }
         acc
     }
     pub fn init_h(&mut self, code: &str) {
@@ -39,6 +65,8 @@ impl QA_Account{
                                                         self.portfolio_cookie.clone()));
     }
 
+    pub fn reload(&mut self) {}
+
     /// positions about
     ///
     /// a fast way to get the realtime price/cost/volume/history
@@ -46,13 +74,13 @@ impl QA_Account{
         let pos = self.hold.get_mut(code);
         pos
     }
-    pub fn get_position_long(&mut self, code: &str) -> f64 {
+    pub fn get_volume_long(&mut self, code: &str) -> f64 {
         let pos = self.get_position(code).unwrap();
-        pos.volume_long_today + pos.volume_long_his
+        pos.volume_long()
     }
-    pub fn get_position_short(&mut self, code: &str) -> f64 {
+    pub fn get_volume_short(&mut self, code: &str) -> f64 {
         let pos = self.get_position(code).unwrap();
-        pos.volume_short_today + pos.volume_short_his
+        pos.volume_short()
     }
     pub fn get_open_price_long(&mut self, code: &str) -> f64 {
         self.get_position(code).unwrap().open_price_long
@@ -79,7 +107,6 @@ impl QA_Account{
             wtr.serialize(item)?;
             wtr.flush()?;
         }
-
         Ok(())
     }
 
@@ -150,12 +177,12 @@ impl QA_Account{
         order_id :&str
     ) {
         //println!("{} - {}", code, towards);
-        let mut pos = self.get_position(code).unwrap();
-        pos.update_pos( price, amount, towards);
+        let pos = self.get_position(code).unwrap();
+        let (mv, pro) = pos.update_pos(price, amount, towards);
+        println!("MARGIN VALUE {:#?} profit {:#?}", mv, pro);
 
 
-
-        self.history.push(transaction::QATransaction{
+        self.history.push(transaction::QATransaction {
             code: code.to_string(),
             amount,
             price,
@@ -181,20 +208,22 @@ mod tests {
 
     #[test]
     fn test_new() {
-        let mut acc = QA_Account::new("test");
+        let mut acc = QA_Account::new("RustT01B2_RBL8", "test", "admin",
+                                      100000.0, false);
         acc.history_table();
     }
     #[test]
-    fn test_pos(){
-        let mut acc = QA_Account::new("test");
+    fn test_pos() {
+        let mut acc = QA_Account::new("RustT01B2_RBL8", "test", "admin",
+                                      100000.0, false);
         acc.init_h("RB2005");
         acc.get_position("RB2005");
     }
 
     #[test]
     fn test_init_h() {
-        let mut acc = QA_Account::new("test");
-
+        let mut acc = QA_Account::new("RustT01B2_RBL8", "test", "admin",
+                                      100000.0, false);
         acc.init_h("RB2005");
         println!("{:#?}", acc.get_position("RB2005").unwrap().message());
     }
@@ -203,12 +232,13 @@ mod tests {
     fn test_buy_open() {
         println!("test buy open");
         let code = "RB2005";
-        let mut acc = QA_Account::new("test");
 
+        let mut acc = QA_Account::new("RustT01B2_RBL8", "test", "admin",
+                                      100000.0, false);
         acc.init_h(code);
         acc.buy_open(code, 10.0, "2020-01-20", 3500.0);
 
-        assert_eq!(acc.get_position_long(code), 10.0);
+        assert_eq!(acc.get_volume_long(code), 10.0);
         //println!("{:#?}", )
         acc.history_table();
     }
@@ -217,12 +247,13 @@ mod tests {
     fn test_sell_open() {
         println!("test sell open");
         let code = "RB2005";
-        let mut acc = QA_Account::new("test");
 
+        let mut acc = QA_Account::new("RustT01B2_RBL8", "test", "admin",
+                                      100000.0, false);
         acc.init_h(code);
         acc.sell_open(code, 10.0, "2020-01-20", 3500.0);
 
-        assert_eq!(acc.get_position_short(code), 10.0);
+        assert_eq!(acc.get_volume_short(code), 10.0);
 
         //assert_eq!(acc.)
         //println!("{:#?}", )
@@ -234,14 +265,15 @@ mod tests {
     fn test_buy_close() {
         println!("test buy close");
         let code = "RB2005";
-        let mut acc = QA_Account::new("test");
 
+        let mut acc = QA_Account::new("RustT01B2_RBL8", "test", "admin",
+                                      100000.0, false);
         acc.init_h(code);
         acc.sell_open(code, 10.0, "2020-01-20", 3500.0);
 
-        assert_eq!(acc.get_position_short(code), 10.0);
+        assert_eq!(acc.get_volume_short(code), 10.0);
         acc.buy_close(code, 10.0, "2020-01-20", 3600.0);
-        assert_eq!(acc.get_position_short(code), 0.0);
+        assert_eq!(acc.get_volume_short(code), 0.0);
 
         //println!("{:#?}", )
         acc.history_table();
@@ -251,14 +283,15 @@ mod tests {
     fn test_sell_close() {
         println!("test sell close");
         let code = "RB2005";
-        let mut acc = QA_Account::new("test");
 
+        let mut acc = QA_Account::new("RustT01B2_RBL8", "test", "admin",
+                                      100000.0, false);
         acc.init_h(code);
         acc.buy_open(code, 10.0, "2020-01-20", 3500.0);
-        assert_eq!(acc.get_position_long(code), 10.0);
+        assert_eq!(acc.get_volume_long(code), 10.0);
         acc.sell_close(code, 10.0, "2020-01-20", 3600.0);
 
-        assert_eq!(acc.get_position_long(code), 0.0);
+        assert_eq!(acc.get_volume_long(code), 0.0);
         //println!("{:#?}", )
         acc.history_table();
     }

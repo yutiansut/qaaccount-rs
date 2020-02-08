@@ -1,13 +1,17 @@
+#[macro_use]
+extern crate error_chain;
+
+pub use crate::data_item::DataItem;
+pub use crate::traits::*;
+
 pub mod qaaccount;
 pub mod qadata;
-pub mod qaorder;
+pub mod qaposition;
 pub mod qafetch;
 pub mod qaindicator;
 pub mod transaction;
 pub mod indicators;
-
-#[macro_use]
-extern crate error_chain;
+pub mod market_preset;
 
 #[cfg(test)]
 #[macro_use]
@@ -19,7 +23,4 @@ pub mod errors;
 
 
 mod traits;
-pub use crate::traits::*;
-
 mod data_item;
-pub use crate::data_item::DataItem;

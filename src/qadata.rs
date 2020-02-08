@@ -1,22 +1,19 @@
 use core::fmt::Debug;
 use core::ops::AddAssign;
 
-
-
 use ndarray::array;
-use num_traits::{float::Float, identities::Zero, identities::One, cast::FromPrimitive};
+use num_traits::{cast::FromPrimitive, float::Float, identities::One, identities::Zero};
+use serde::{Deserialize, Serialize};
 
-#[macro_use]
-use serde::{Serialize, Deserialize};
 //use num_traits::real::Real;
 
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct Stats<T: Float + Zero + One + AddAssign + FromPrimitive + PartialEq + Debug> {
-    pub min:     T,
-    pub max:     T,
+    pub min: T,
+    pub max: T,
     /// Mean of sample set
-    pub mean:    T,
+    pub mean: T,
     /// Standard deviation of sample
     pub std_dev: T,
 

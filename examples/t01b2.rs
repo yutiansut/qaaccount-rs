@@ -13,7 +13,7 @@ use std::io;
 use ndarray::{array, stack};
 use stopwatch::Stopwatch;
 
-use quantaxis_rs::{indicators, Next, qaaccount, qadata, qafetch, qaindicator, qaorder, transaction};
+use quantaxis_rs::{indicators, Next, qaaccount, qadata, qafetch, qaindicator, qaposition, transaction};
 use quantaxis_rs::indicators::{
     BollingerBands, EfficiencyRatio, ExponentialMovingAverage, FastStochastic, HHV, LLV,
     Maximum, Minimum, MoneyFlowIndex, MovingAverage,
@@ -21,7 +21,7 @@ use quantaxis_rs::indicators::{
     SlowStochastic, StandardDeviation, TrueRange,
 };
 use quantaxis_rs::qaaccount::QA_Account;
-use quantaxis_rs::qaorder::QA_Postions;
+use quantaxis_rs::qaposition::QA_Postions;
 
 trait FloatIterExt {
     fn float_min(&mut self) -> f64;
@@ -66,7 +66,8 @@ pub fn backtest() -> QA_Account {
     let mut LAE: f64 = 0 as f64;
     let TrailingStart1 = 90.0;
     let TrailingStop1 = 10.0;
-    let mut acc = qaaccount::QA_Account::new("RustT01B2_RBL8");
+    let mut acc = qaaccount::QA_Account::new("RustT01B2_RBL8", "test", "admin",
+                                             100000.0, false);
     acc.init_h("RBL8");
     let mut llv_i = LLV::new(K1 as u32).unwrap();
     let mut hhv_i = HHV::new(K2 as u32).unwrap();

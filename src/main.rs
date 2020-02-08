@@ -17,9 +17,10 @@ use stopwatch::Stopwatch;
 pub mod qaaccount;
 pub mod qadata;
 pub mod qafetch;
-pub mod qaorder;
+pub mod qaposition;
 pub mod qaindicator;
 pub mod transaction;
+pub mod market_preset;
 
 
 pub struct QABacktest {}
@@ -30,7 +31,9 @@ impl QABacktest {
         backtest
     }
 
-    fn init(&mut self) {}
+    fn init(&mut self) {
+        
+    }
 
     fn on_bar(&mut self, bar: qafetch::BAR) {}
 
