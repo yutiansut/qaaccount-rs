@@ -1,6 +1,7 @@
 use crate::market_preset::{CodePreset, MarketPreset};
 use crate::qaorder::QAOrder;
 
+#[derive(Debug, Clone)]
 pub struct QA_Frozen {
     pub amount: f64,
     pub coeff: f64,
@@ -13,6 +14,7 @@ impl QA_Frozen {
     }
 }
 
+#[derive(Debug, Clone)]
 pub struct QA_Postions {
     pub preset: CodePreset,
     pub code: String,

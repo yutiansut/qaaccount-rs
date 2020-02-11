@@ -105,6 +105,7 @@ impl QA_Account {
         self.get_position(code).unwrap().frozen
     }
 
+    pub fn settle(&mut self) {}
     /// history about
 
     pub fn history_table(&self) {
