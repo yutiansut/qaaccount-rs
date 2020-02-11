@@ -35,6 +35,9 @@ impl CodePreset {
         self.commission_coeff_today_pervol * volume +
             self.commission_coeff_today_peramount * self.calc_marketvalue(price, volume)
     }
+    pub fn calc_coeff(&mut self) -> f64 {
+        self.buy_frozen_coeff * self.unit_table as f64
+    }
 }
 
 pub struct MarketPreset {
@@ -179,8 +182,8 @@ impl MarketPreset {
                 name: "螺纹钢".to_string(),
                 unit_table: 10,
                 price_tick: 1.0,
-                buy_frozen_coeff: 1.0,
-                sell_frozen_coeff: 1.0,
+                buy_frozen_coeff: 0.09,
+                sell_frozen_coeff: 0.09,
                 exchange: "SHFE".to_string(),
                 commission_coeff_peramount: 0.0001,
                 commission_coeff_pervol: 0.0,
@@ -192,8 +195,8 @@ impl MarketPreset {
                 name: "天然橡胶".to_string(),
                 unit_table: 10,
                 price_tick: 5.0,
-                buy_frozen_coeff: 5.0,
-                sell_frozen_coeff: 5.0,
+                buy_frozen_coeff: 0.09,
+                sell_frozen_coeff: 0.09,
                 exchange: "SHFE".to_string(),
                 commission_coeff_peramount: 4.5e-05,
                 commission_coeff_pervol: 0.0,

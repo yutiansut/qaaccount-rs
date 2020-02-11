@@ -3,10 +3,12 @@ use std::error::Error;
 use std::io;
 
 use csv;
+use uuid::Uuid;
 
 use crate::market_preset::{CodePreset, MarketPreset};
+use crate::qaorder::QAOrder;
 use crate::qaposition;
-use crate::qaposition::QA_Postions;
+use crate::qaposition::{QA_Frozen, QA_Postions};
 use crate::transaction;
 use crate::transaction::QATransaction;
 
@@ -23,8 +25,9 @@ pub struct QA_Account {
     market_preset: MarketPreset,
 
     pub cash: Vec<f64>,
+    pub money: f64,
     pub hold: HashMap<String, QA_Postions>,
-
+    pub frozen: HashMap<String, QA_Frozen>,
     pub history: Vec<transaction::QATransaction>,
     pub account_cookie: String,
     pub portfolio_cookie: String,
@@ -45,8 +48,10 @@ impl QA_Account {
             allow_margin: false,
             market_preset: MarketPreset::new(),
             auto_reload,
-            cash: vec![],
+            cash: vec![init_cash],
+            money: init_cash,
             hold: HashMap::new(),
+            frozen: HashMap::new(),
             history: vec![],
             account_cookie: account_cookie.parse().unwrap(),
             portfolio_cookie: portfolio_cookie.parse().unwrap(),
@@ -163,41 +168,132 @@ impl QA_Account {
         code: &str,
         amount: f64,
         time: &str,
-        price:f64
+        price: f64,
     ) {
         self.send_order(code, amount, time, -3, price, "SELL_CLOSE");
     }
+
+
+    fn order_check(&mut self, code: &str, amount: f64, price: f64, towards: i32, order_id: String) -> bool {
+        let mut res = false;
+
+        let qapos = self.get_position(code).unwrap();
+
+        match towards {
+            3 => {
+                if (qapos.volume_short() - qapos.volume_short_frozen()) >= amount {
+                    qapos.volume_short_frozen_today += amount;
+                    qapos.volume_short_today -= amount;
+                    res = true;
+                } else {
+                    println!("仓位不足");
+                }
+            }
+            4 => {
+                if (qapos.volume_short_today - qapos.volume_short_frozen_today) >= amount {
+                    qapos.volume_short_frozen_today += amount;
+                    qapos.volume_short_today -= amount;
+                    res = true;
+                } else {
+                    println!("今日仓位不足");
+                }
+            }
+
+            -3 => {
+                if (qapos.volume_long() - qapos.volume_long_frozen()) >= amount {
+                    qapos.volume_long_frozen_today += amount;
+                    qapos.volume_long_today -= amount;
+                    res = true;
+                } else {
+                    println!("SELL CLOSE 仓位不足");
+                }
+            }
+
+            -4 => {
+                if (qapos.volume_long_today - qapos.volume_short_frozen_today) >= amount {
+                    qapos.volume_long_frozen_today += amount;
+                    qapos.volume_long_today -= amount;
+                    res = true;
+                } else {
+                    println!("SELL CLOSETODAY 仓位不足");
+                }
+            }
+
+            1 | 2 | -2 => {
+                let coeff = qapos.preset.calc_coeff() * price;
+                println!("{:#?}", coeff);
+                let frozen = coeff * amount;
+                if self.money > frozen {
+                    self.money -= frozen;
+                    self.frozen.insert(order_id, QA_Frozen {
+                        amount,
+                        coeff,
+                        money: frozen,
+                    });
+                    res = true
+                } else {
+                    println!("余额不足");
+                }
+            }
+            _ => {}
+        }
+        res
+    }
+
+    pub fn available(&mut self) -> f64 {
+        0.0
+    }
+
+//
+//
+//
+//    else:
+//    self.log("开仓保证金不足 TOWARDS{} Need{} HAVE{}".format(
+//    towards, moneyneed, self.available))
+//
+//    return res
+
+
+
+
     pub fn send_order(
         &mut self,
         code: &str,
         amount: f64,
         time: &str,
         towards: i32,
-        price:f64,
-        order_id :&str
+        price: f64,
+        order_id: &str,
+    ) -> Result<QAOrder, ()> {
+        let order_id: String = Uuid::new_v4().to_string();
+        if self.order_check(code, amount, price, towards, order_id.clone()) {
+            let order = QAOrder::new(self.account_cookie.clone(), code.to_string(),
+                                     towards, "".to_string(), "".to_string(),
+                                     amount, price, order_id);
+            Ok(order.clone())
+        } else {
+            Err(())
+        }
+    }
+
+    fn receive_deal(&mut self, code: String, amount: f64, price: f64, datetime: String,
+                    order_id: String, trade_id: String, realorder_id: String, towards: i32,
     ) {
-        //println!("{} - {}", code, towards);
-        let pos = self.get_position(code).unwrap();
-        let (mv, pro) = pos.update_pos(price, amount, towards);
-        println!("MARGIN VALUE {:#?} profit {:#?}", mv, pro);
-
-
         self.history.push(transaction::QATransaction {
-            code: code.to_string(),
+            code,
             amount,
             price,
-            datetime: time.to_string(),
-            order_id: order_id.to_string(),
-            trade_id: order_id.to_string(),
-            realorder_id: order_id.to_string(),
-            account_cookie: self.account_cookie.to_string(),
+            datetime,
+            order_id,
+            trade_id,
+            realorder_id,
+            account_cookie: self.account_cookie.clone(),
             commission: 0.0,
             tax: 0.0,
             message: "".to_string(),
             frozen: 0.0,
-            direction: towards
-        })
-
+            direction: towards,
+        });
     }
 }
 
@@ -234,11 +330,11 @@ mod tests {
         let code = "RB2005";
 
         let mut acc = QA_Account::new("RustT01B2_RBL8", "test", "admin",
-                                      100000.0, false);
+                                      1000000.0, false);
         acc.init_h(code);
         acc.buy_open(code, 10.0, "2020-01-20", 3500.0);
-
-        assert_eq!(acc.get_volume_long(code), 10.0);
+        println!("MONEY LEFT{:#?}", acc.money);
+        //assert_eq!(acc.get_volume_long(code), 10.0);
         //println!("{:#?}", )
         acc.history_table();
     }

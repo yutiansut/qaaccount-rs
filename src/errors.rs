@@ -3,5 +3,6 @@ error_chain! {
         InvalidParameter { description("invalid parameter") }
         DataItemIncomplete { description("data item is incomplete") }
         DataItemInvalid { description("data item is invalid") }
+        OrderInvalid { description("order is invalid") }
     }
 }

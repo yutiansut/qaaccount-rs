@@ -1,7 +1,15 @@
 use crate::market_preset::{CodePreset, MarketPreset};
+use crate::qaorder::QAOrder;
+
+pub struct QA_Frozen {
+    pub amount: f64,
+    pub coeff: f64,
+    pub money: f64,
+}
+
 
 pub struct QA_Postions {
-    preset: CodePreset,
+    pub preset: CodePreset,
     pub code: String,
     pub instrument_id: String,
     pub user_id: String,
@@ -121,7 +129,7 @@ impl QA_Postions{
 
     pub fn update_pos(&mut self, price: f64, amount: f64, towards: i32) -> (f64, f64) {
         let temp_cost = self.preset.calc_marketvalue(price, amount);
-        let mut marginValue = temp_cost * self.preset.buy_frozen_coeff;
+        let mut margin_value = temp_cost * self.preset.buy_frozen_coeff;
 
 
         let mut profit = 0.0;
@@ -129,7 +137,7 @@ impl QA_Postions{
             2 => {
                 // buy open logic
 
-                self.margin_long += marginValue;
+                self.margin_long += margin_value;
                 self.open_price_long = (self.open_price_long * self.volume_long_today +
                     price * amount) / (self.volume_long_today + amount);
                 self.position_price_long = self.open_price_long;
@@ -140,7 +148,7 @@ impl QA_Postions{
             -2 => {
                 // sell open logic
 
-                self.margin_short += marginValue;
+                self.margin_short += margin_value;
 
                 self.open_cost_short += temp_cost;
                 self.position_cost_short += temp_cost;
@@ -163,12 +171,12 @@ impl QA_Postions{
 
                 self.volume_short_frozen_today -= amount;
 
-                marginValue = -1.0 * (self.position_price_short * amount *
+                margin_value = -1.0 * (self.position_price_short * amount *
                     self.preset.sell_frozen_coeff *
                     self.preset.unit_table as f64);
 
                 profit = (self.position_price_short - price) * amount * self.preset.unit_table as f64;
-                self.margin_short += marginValue;
+                self.margin_short += margin_value;
             }
             -3 => {
                 //self.volume_long_today -= amount;
@@ -181,11 +189,11 @@ impl QA_Postions{
                     (volume_long - amount) / volume_long;
 
                 self.volume_long_frozen_today -= amount;
-                marginValue = -1.0 * (self.position_price_long * amount * self.preset.unit_table as f64 *
+                margin_value = -1.0 * (self.position_price_long * amount * self.preset.unit_table as f64 *
                     self.preset.buy_frozen_coeff);
                 profit = (price - self.position_price_long) *
                     amount * self.preset.unit_table as f64;
-                self.margin_long += marginValue;
+                self.margin_long += margin_value;
             }
             _ => {}
         }

@@ -99,24 +99,23 @@ pub fn backtest() -> QA_Account {
         let cond1 = ma.cached[n1 -2]> ma.cached[n1 -3] &&
             ma.cached[n1 - 3] > ma.cached[n1 - 4] &&
             ma.cached[n1 - 4] > ma.cached[n1 - 5] &&
-            ma.cached[n1 - 5]> ma.cached[n1 - 6] ;
+            ma.cached[n1 - 5] > ma.cached[n1 - 6];
 
 
         let cond2 = ma.cached[n1 - 2] < ma.cached[n1 - 3] &&
             ma.cached[n1 - 3] < ma.cached[n1 - 4] &&
             ma.cached[n1 - 4] < ma.cached[n1 - 5] &&
-            ma.cached[n1 - 5] < ma.cached[n1 - 6] ;
+            ma.cached[n1 - 5] < ma.cached[n1 - 6];
 
         let code = bar.code.as_ref();
 
-        let long_pos = acc.get_position_long(code);
-        let short_pos = acc.get_position_short(code);
+        let long_pos = acc.get_volume_long(code);
+        let short_pos = acc.get_volume_short(code);
         if (long_pos > 0.0 || short_pos > 0.0) {
-
-            if (HAE == 0.0){
+            if (HAE == 0.0) {
                 HAE = lastbar.high;
                 LAE = lastbar.low;
-            }else {
+            } else {
                 HAE = compare_max(HAE, lastbar.high);
                 LAE = compare_min(LAE, lastbar.low);
             }

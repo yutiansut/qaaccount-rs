@@ -12,6 +12,7 @@ pub mod qaindicator;
 pub mod transaction;
 pub mod indicators;
 pub mod market_preset;
+pub mod qaorder;
 
 #[cfg(test)]
 #[macro_use]
