@@ -1,4 +1,5 @@
 use crate::market_preset::{CodePreset, MarketPreset};
+use crate::qaorder::QAOrder;
 
 pub struct QA_Postions {
     preset: CodePreset,

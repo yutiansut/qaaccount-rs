@@ -3,8 +3,10 @@ use std::error::Error;
 use std::io;
 
 use csv;
+use uuid::Uuid;
 
 use crate::market_preset::{CodePreset, MarketPreset};
+use crate::qaorder::QAOrder;
 use crate::qaposition;
 use crate::qaposition::QA_Postions;
 use crate::transaction;
@@ -163,41 +165,129 @@ impl QA_Account {
         code: &str,
         amount: f64,
         time: &str,
-        price:f64
+        price: f64,
     ) {
         self.send_order(code, amount, time, -3, price, "SELL_CLOSE");
     }
+//
+//    def order_check(self, code: str, amount: float, price: float, towards: int, order_id: str) -> bool:
+//    res = False
+//    qapos = self.get_position(code)
+//
+//    self.log(qapos.curpos)
+//    self.log(qapos.close_available)
+//    if towards == ORDER_DIRECTION.BUY_CLOSE:
+//    # self.log("buyclose")
+//    # self.log(self.volume_short - self.volume_short_frozen)
+//    # self.log(amount)
+//    if (qapos.volume_short - qapos.volume_short_frozen) >= amount:
+//    # check
+//    qapos.volume_short_frozen_today += amount
+//    qapos.volume_short_today -= amount
+//    res = True
+//    else:
+//    self.log("BUYCLOSE 仓位不足")
+//
+//    elif towards == ORDER_DIRECTION.BUY_CLOSETODAY:
+//    if (qapos.volume_short_today - qapos.volume_short_frozen_today) >= amount:
+//    qapos.volume_short_frozen_today += amount
+//    qapos.volume_short_today -= amount
+//    res = True
+//    else:
+//    self.log("BUYCLOSETODAY 今日仓位不足")
+//    elif towards == ORDER_DIRECTION.SELL_CLOSE:
+//    # self.log("sellclose")
+//    # self.log(self.volume_long - self.volume_long_frozen)
+//    # self.log(amount)
+//    if (qapos.volume_long - qapos.volume_long_frozen) >= amount:
+//    qapos.volume_long_frozen_today += amount
+//    qapos.volume_long_today -= amount
+//    res = True
+//    else:
+//    self.log("SELL CLOSE 仓位不足")
+//
+//    elif towards == ORDER_DIRECTION.SELL_CLOSETODAY:
+//    if (qapos.volume_long_today - qapos.volume_short_frozen_today) >= amount:
+//    # self.log("sellclosetoday")
+//    # self.log(self.volume_long_today - self.volume_long_frozen)
+//    # self.log(amount)
+//    qapos.volume_long_frozen_today += amount
+//    qapos.volume_long_today -= amount
+//    return True
+//    else:
+//    self.log("SELLCLOSETODAY 今日仓位不足")
+//    elif towards in [ORDER_DIRECTION.BUY_OPEN,
+//    ORDER_DIRECTION.SELL_OPEN,
+//    ORDER_DIRECTION.BUY]:
+//    """
+//            冻结的保证金
+//            """
+//    coeff = float(price) * float(
+//    self.market_preset.get_code(code).get("unit_table",
+//    1)
+//    ) * float(self.market_preset.get_code(code).get("buy_frozen_coeff",
+//    1))
+//    moneyneed = coeff * amount
+//    if self.available > moneyneed:
+//    self.money -= moneyneed
+//    self.frozen[order_id] = {
+//    'amount': amount,
+//    'coeff': coeff,
+//    'money': moneyneed
+//    }
+//    res = True
+//    else:
+//    self.log("开仓保证金不足 TOWARDS{} Need{} HAVE{}".format(
+//    towards, moneyneed, self.available))
+//
+//    return res
+
+
+    fn order_check(&mut self, code: &str, amount: f64, price: f64, towards: i32) -> bool {
+        let pos = self.get_position(code).unwrap();
+        let (mv, pro) = pos.update_pos(price, amount, towards);
+        println!("MARGIN VALUE {:#?} profit {:#?}", mv, pro);
+        true
+    }
+
+
     pub fn send_order(
         &mut self,
         code: &str,
         amount: f64,
         time: &str,
         towards: i32,
-        price:f64,
-        order_id :&str
+        price: f64,
+        order_id: &str,
+    ) -> Result<QAOrder, ()> {
+        if self.order_check(code, amount, price, towards) {
+            let order = QAOrder::new(self.account_cookie.clone(), code.to_string(),
+                                     towards, "".to_string(), "".to_string(),
+                                     amount, price);
+            Ok(order.clone())
+        } else {
+            Err(())
+        }
+    }
+
+    fn receive_deal(&mut self, code: String, amount: f64, price: f64, datetime: String,
+                    order_id: String, trade_id: String, realorder_id: String, towards: i32,
     ) {
-        //println!("{} - {}", code, towards);
-        let pos = self.get_position(code).unwrap();
-        let (mv, pro) = pos.update_pos(price, amount, towards);
-        println!("MARGIN VALUE {:#?} profit {:#?}", mv, pro);
-
-
         self.history.push(transaction::QATransaction {
-            code: code.to_string(),
+            code,
             amount,
             price,
-            datetime: time.to_string(),
-            order_id: order_id.to_string(),
-            trade_id: order_id.to_string(),
-            realorder_id: order_id.to_string(),
-            account_cookie: self.account_cookie.to_string(),
+            datetime,
+            order_id,
+            trade_id,
+            realorder_id,
+            account_cookie: self.account_cookie.clone(),
             commission: 0.0,
             tax: 0.0,
             message: "".to_string(),
             frozen: 0.0,
-            direction: towards
-        })
-
+            direction: towards,
+        });
     }
 }
 
