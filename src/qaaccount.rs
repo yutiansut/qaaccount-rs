@@ -1,3 +1,4 @@
+use std::borrow::Borrow;
 use std::collections::HashMap;
 use std::error::Error;
 use std::io;
@@ -32,6 +33,8 @@ pub struct QA_Account {
     pub account_cookie: String,
     pub portfolio_cookie: String,
     pub user_cookie: String,
+    environment: String,
+    close_profit: f64,
 }
 
 impl QA_Account {
@@ -39,7 +42,8 @@ impl QA_Account {
                portfolio_cookie: &str,
                user_cookie: &str,
                init_cash: f64,
-               auto_reload: bool, ) -> Self {
+               auto_reload: bool,
+               environment: &str) -> Self {
         let mut acc = Self {
             init_cash,
             init_hold: HashMap::new(),
@@ -56,6 +60,8 @@ impl QA_Account {
             account_cookie: account_cookie.parse().unwrap(),
             portfolio_cookie: portfolio_cookie.parse().unwrap(),
             user_cookie: user_cookie.parse().unwrap(),
+            environment: environment.to_string(),
+            close_profit: 0.0,
         };
 
         if auto_reload {
@@ -240,22 +246,6 @@ impl QA_Account {
         res
     }
 
-    pub fn available(&mut self) -> f64 {
-        0.0
-    }
-
-//
-//
-//
-//    else:
-//    self.log("开仓保证金不足 TOWARDS{} Need{} HAVE{}".format(
-//    towards, moneyneed, self.available))
-//
-//    return res
-
-
-
-
     pub fn send_order(
         &mut self,
         code: &str,
@@ -269,16 +259,56 @@ impl QA_Account {
         if self.order_check(code, amount, price, towards, order_id.clone()) {
             let order = QAOrder::new(self.account_cookie.clone(), code.to_string(),
                                      towards, "".to_string(), "".to_string(),
-                                     amount, price, order_id);
+                                     amount, price, order_id.clone());
+
+            if self.environment == "backtest" {
+                self.receive_deal(code.parse().unwrap(), amount, price, time.parse().unwrap(),
+                                  order_id.clone(), order_id.clone(), order_id.clone(),
+                                  towards)
+            }
             Ok(order.clone())
         } else {
             Err(())
         }
     }
 
+
     fn receive_deal(&mut self, code: String, amount: f64, price: f64, datetime: String,
                     order_id: String, trade_id: String, realorder_id: String, towards: i32,
     ) {
+
+        //            self.trades[trade_id] = {
+        //                "seqno": self.event_id,
+        //                "user_id":  self.user_id,
+        //                "trade_id": trade_id,
+        //                "exchange_id": od['exchange_id'],
+        //                "instrument_id": od['instrument_id'],
+        //                "order_id": order_id,
+        //                "exchange_trade_id": trade_id,
+        //                "direction": od['direction'],
+        //                "offset": od['offset'],
+        //                "volume": trade_amount,
+        //                "price": trade_price,
+        //                "trade_time": trade_time,
+        //                "trade_date_time": self.transform_dt(trade_time)}
+
+
+        if self.frozen.contains_key(&order_id) {
+            let frozen = self.frozen.get_mut(&order_id).unwrap();
+            self.money += frozen.money;
+            self.frozen.insert(order_id.clone(), QA_Frozen {
+                amount: 0.0,
+                coeff: 0.0,
+                money: 0.0,
+            });
+        }
+
+
+        let qapos = self.get_position(code.as_ref()).unwrap();
+        let (margin, close_profit) = qapos.update_pos(price, amount, towards);
+        self.money -= (margin - close_profit);
+        self.close_profit += close_profit;
+        self.cash.push(self.money);
         self.history.push(transaction::QATransaction {
             code,
             amount,
@@ -305,13 +335,13 @@ mod tests {
     #[test]
     fn test_new() {
         let mut acc = QA_Account::new("RustT01B2_RBL8", "test", "admin",
-                                      100000.0, false);
+                                      100000.0, false, "backtest");
         acc.history_table();
     }
     #[test]
     fn test_pos() {
         let mut acc = QA_Account::new("RustT01B2_RBL8", "test", "admin",
-                                      100000.0, false);
+                                      100000.0, false, "backtest");
         acc.init_h("RB2005");
         acc.get_position("RB2005");
     }
@@ -319,7 +349,7 @@ mod tests {
     #[test]
     fn test_init_h() {
         let mut acc = QA_Account::new("RustT01B2_RBL8", "test", "admin",
-                                      100000.0, false);
+                                      100000.0, false, "backtest");
         acc.init_h("RB2005");
         println!("{:#?}", acc.get_position("RB2005").unwrap().message());
     }
@@ -330,11 +360,11 @@ mod tests {
         let code = "RB2005";
 
         let mut acc = QA_Account::new("RustT01B2_RBL8", "test", "admin",
-                                      1000000.0, false);
+                                      1000000.0, false, "backtest");
         acc.init_h(code);
         acc.buy_open(code, 10.0, "2020-01-20", 3500.0);
         println!("MONEY LEFT{:#?}", acc.money);
-        //assert_eq!(acc.get_volume_long(code), 10.0);
+        assert_eq!(acc.get_volume_long(code), 10.0);
         //println!("{:#?}", )
         acc.history_table();
     }
@@ -345,7 +375,7 @@ mod tests {
         let code = "RB2005";
 
         let mut acc = QA_Account::new("RustT01B2_RBL8", "test", "admin",
-                                      100000.0, false);
+                                      100000.0, false, "backtest");
         acc.init_h(code);
         acc.sell_open(code, 10.0, "2020-01-20", 3500.0);
 
@@ -363,7 +393,7 @@ mod tests {
         let code = "RB2005";
 
         let mut acc = QA_Account::new("RustT01B2_RBL8", "test", "admin",
-                                      100000.0, false);
+                                      100000.0, false, "backtest");
         acc.init_h(code);
         acc.sell_open(code, 10.0, "2020-01-20", 3500.0);
 
@@ -371,7 +401,7 @@ mod tests {
         acc.buy_close(code, 10.0, "2020-01-20", 3600.0);
         assert_eq!(acc.get_volume_short(code), 0.0);
 
-        //println!("{:#?}", )
+        println!("after all {:#?}", acc.money);
         acc.history_table();
     }
 
@@ -381,7 +411,7 @@ mod tests {
         let code = "RB2005";
 
         let mut acc = QA_Account::new("RustT01B2_RBL8", "test", "admin",
-                                      100000.0, false);
+                                      100000.0, false, "backtest");
         acc.init_h(code);
         acc.buy_open(code, 10.0, "2020-01-20", 3500.0);
         assert_eq!(acc.get_volume_long(code), 10.0);
@@ -389,6 +419,7 @@ mod tests {
 
         assert_eq!(acc.get_volume_long(code), 0.0);
         //println!("{:#?}", )
+        println!("{:#?}", acc.money);
         acc.history_table();
     }
 }

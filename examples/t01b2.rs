@@ -67,7 +67,7 @@ pub fn backtest() -> QA_Account {
     let TrailingStart1 = 90.0;
     let TrailingStop1 = 10.0;
     let mut acc = qaaccount::QA_Account::new("RustT01B2_RBL8", "test", "admin",
-                                             100000.0, false);
+                                             100000.0, false, "backtest");
     acc.init_h("RBL8");
     let mut llv_i = LLV::new(K1 as u32).unwrap();
     let mut hhv_i = HHV::new(K2 as u32).unwrap();

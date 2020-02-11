@@ -6,7 +6,12 @@ pub struct QA_Frozen {
     pub coeff: f64,
     pub money: f64,
 }
-
+impl QA_Frozen {
+    pub fn reset(&mut self) {
+        self.amount = 0.0;
+        self.money = 0.0;
+    }
+}
 
 pub struct QA_Postions {
     pub preset: CodePreset,
@@ -197,7 +202,7 @@ impl QA_Postions{
             }
             _ => {}
         }
-        (marginValue, profit)
+        (margin_value, profit)
     }
 }
 
