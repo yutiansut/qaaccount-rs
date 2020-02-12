@@ -160,9 +160,7 @@ pub fn backtest() -> QA_Account {
 
         lastbar = bar;
     }
-    println!("LAST MONEY {:?}", acc.money);
-    println!("{:?}", acc.cash);
-    println!("{:?}", acc.frozen);
+
     //qaaccount::QA_Account::history_table(&mut acc);
 
     acc
@@ -172,6 +170,9 @@ pub fn backtest() -> QA_Account {
 fn main() {
     let sw = Stopwatch::start_new();
     let acc = backtest();
-    acc.to_csv();
+    println!("LAST MONEY {:?}", acc.money);
+    println!("{:?}", acc.cash);
+    println!("{:?}", acc.frozen);
+    //acc.to_csv();
     println!("It took {0:.8} ms", sw.elapsed_ms());
 }
