@@ -4,6 +4,7 @@ use std::error::Error;
 use std::io;
 
 use csv;
+use serde::Serialize;
 use uuid::Uuid;
 
 use crate::market_preset::{CodePreset, MarketPreset};
@@ -114,7 +115,7 @@ impl QA_Account {
         }
     }
     pub fn to_csv(&self) -> Result<(), Box<dyn Error>> {
-        let mut wtr = csv::Writer::from_writer(io::stdout());
+        let mut wtr = csv::Writer::from_path(format!("{}.csv", self.account_cookie)).unwrap();
         for item in self.history.iter() {
             wtr.serialize(item)?;
             wtr.flush()?;
@@ -422,5 +423,24 @@ mod tests {
         //println!("{:#?}", )
         println!("{:#?}", acc.money);
         acc.history_table();
+    }
+
+    #[test]
+    fn test_to_csv() {
+        println!("test sell close");
+        let code = "RB2005";
+
+        let mut acc = QA_Account::new("RustT01B2_RBL8", "test", "admin",
+                                      100000.0, false, "backtest");
+        acc.init_h(code);
+        acc.buy_open(code, 10.0, "2020-01-20", 3500.0);
+        assert_eq!(acc.get_volume_long(code), 10.0);
+        acc.sell_close(code, 10.0, "2020-01-20", 3600.0);
+
+        assert_eq!(acc.get_volume_long(code), 0.0);
+        //println!("{:#?}", )
+        println!("{:#?}", acc.money);
+        acc.to_csv();
+        //acc.history_table();
     }
 }
