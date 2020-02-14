@@ -67,7 +67,7 @@ pub fn backtest() -> QA_Account {
     let TrailingStart1 = 90.0;
     let TrailingStop1 = 10.0;
     let mut acc = qaaccount::QA_Account::new("RustT01B2_RBL8", "test", "admin",
-                                             10000000.0, false, "backtest");
+                                             1000000.0, false, "backtest");
     acc.init_h("RBL8");
     let mut llv_i = LLV::new(K1 as u32).unwrap();
     let mut hhv_i = HHV::new(K2 as u32).unwrap();
@@ -121,11 +121,13 @@ pub fn backtest() -> QA_Account {
 
         if (long_pos == 0.0 && short_pos == 0.0 && hour_i32 < 21 && hour_i32 >= 9) {
             if crossOver && cond1 {
+                println!("BUY OPEN");
                 acc.buy_open(bar.code.as_ref(), 90.0, bar.datetime.as_ref(), compare_max(bar.open, hhv_i.cached[K1 - 2]));
                 count1 = bar_id;
                 HAE = 0.0;
                 LAE = 0.0;
             } else if crossUnder && cond2 {
+                println!("SELL OPEN");
                 acc.sell_open(bar.code.as_ref(), 90.0, bar.datetime.as_ref(), compare_min(bar.open, llv_i.cached[K2 - 2]));
                 count1 = bar_id;
                 HAE = 0.0;
@@ -143,9 +145,11 @@ pub fn backtest() -> QA_Account {
 
             if (crossUnder && cond2) {
                 //println!("CORSSUNDER_SELLCLOSE");
+                println!("SELL CLOSE");
                 acc.sell_close(code, 90.0, bar.datetime.as_ref(), compare_min(bar.open, llv_i.cached[K2 - 2]));
             }else if (bar.low < stopLine) {
                 //println!("LOW UNDER_SELLCLOSE");
+                println!("SELL CLOSE FORCE");
                 acc.sell_close(code, 90.0, bar.datetime.as_ref(), compare_min(bar.open, stopLine));
             }
         }
@@ -157,9 +161,10 @@ pub fn backtest() -> QA_Account {
                 stopLine = (LAE * (1.0 + TrailingStop1 / 1000.0));
             }
             if (crossOver && cond1) {
+                println!("BUY CLOSE");
                 acc.buy_close(code, 90.0, bar.datetime.as_ref(), compare_max(bar.open, hhv_i.cached[K1 - 2]));
-            }
-            if (bar.high >= stopLine) {
+            } else if (bar.high >= stopLine) {
+                println!("BUY CLOSE Force");
                 acc.buy_close(code, 90.0, bar.datetime.as_ref(), compare_max(bar.open, stopLine));
             }
         }
@@ -184,7 +189,7 @@ fn main() {
     let acc = backtest();
     println!("LAST MONEY {:?}", acc.money);
     println!("{:?}", acc.cash);
-    println!("{:?}", acc.frozen);
+    //println!("{:?}", acc.frozen);
     acc.to_csv();
     println!("It took {0:.8} ms", sw.elapsed_ms());
 }

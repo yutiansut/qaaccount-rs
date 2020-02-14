@@ -143,10 +143,9 @@ impl QA_Postions{
         match towards {
             2 => {
                 // buy open logic
-
                 self.margin_long += margin_value;
-                self.open_price_long = (self.open_price_long * self.volume_long_today +
-                    price * amount) / (self.volume_long_today + amount);
+                self.open_price_long = (self.open_price_long * self.volume_long() +
+                    price * amount) / (self.volume_long() + amount);
                 self.position_price_long = self.open_price_long;
                 self.volume_long_today += amount;
                 self.open_cost_long += temp_cost;
@@ -154,22 +153,17 @@ impl QA_Postions{
             }
             -2 => {
                 // sell open logic
-
                 self.margin_short += margin_value;
-
-                self.open_cost_short += temp_cost;
-                self.position_cost_short += temp_cost;
-
-                self.open_price_short = (self.open_price_short * self.volume_short_today +
-                    price * amount) / (self.volume_short_today + amount);
+                self.open_price_short = (self.open_price_short * self.volume_short() +
+                    price * amount) / (self.volume_short() + amount);
                 self.position_price_short = self.open_price_short;
                 self.volume_short_today += amount;
+                self.open_cost_short += temp_cost;
+                self.position_cost_short += temp_cost;
             }
             3 => {
                 //self.volume_short_today -= amount;
-                if self.volume_short_today == 0.0 {
-                    self.open_price_short = 0 as f64;
-                }
+
                 // 有昨仓先平昨仓
 
                 let volume_short = self.volume_short();
@@ -178,18 +172,22 @@ impl QA_Postions{
 
                 self.volume_short_frozen_today -= amount;
 
+                println!("amount  {},position_price_short {}", amount, self.position_price_short);
+
+                self.preset.print();
+
                 margin_value = -1.0 * (self.position_price_short * amount *
                     self.preset.sell_frozen_coeff *
                     self.preset.unit_table as f64);
+
+                println!("BUY CLOSE XX MV{:#?}", margin_value);
 
                 profit = (self.position_price_short - price) * amount * self.preset.unit_table as f64;
                 self.margin_short += margin_value;
             }
             -3 => {
                 //self.volume_long_today -= amount;
-                if (self.volume_long_today == 0.0) {
-                    self.open_price_long = 0 as f64;
-                }
+
                 let volume_long = self.volume_long();
                 self.position_cost_long = self.position_cost_long * (volume_long - amount) / volume_long;
                 self.open_cost_long = self.open_cost_long *

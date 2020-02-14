@@ -229,15 +229,19 @@ impl QA_Account {
 
             1 | 2 | -2 => {
                 let coeff = qapos.preset.calc_coeff() * price;
-                println!("{:#?}", coeff);
+
                 let frozen = coeff * amount;
+                println!("OPEN FROZEN{:#?}", frozen);
+                println!("ORDER ID {:#?}", order_id);
                 if self.money > frozen {
                     self.money -= frozen;
+
                     self.frozen.insert(order_id, QA_Frozen {
                         amount,
                         coeff,
                         money: frozen,
                     });
+
                     res = true
                 } else {
                     println!("余额不足");
@@ -303,11 +307,16 @@ impl QA_Account {
                 coeff: 0.0,
                 money: 0.0,
             });
+        } else {
+            println!("ERROR NO THAT ORDER")
         }
 
 
         let qapos = self.get_position(code.as_ref()).unwrap();
         let (margin, close_profit) = qapos.update_pos(price, amount, towards);
+
+        println!("MARGIN RELEASE {:#?}", margin.clone());
+        println!("CLOSE PROFIT RELEASE {:#?}", close_profit.clone());
         self.money -= (margin - close_profit);
         self.close_profit += close_profit;
         self.cash.push(self.money);
@@ -402,8 +411,8 @@ mod tests {
         assert_eq!(acc.get_volume_short(code), 10.0);
         acc.buy_close(code, 10.0, "2020-01-20", 3600.0);
         assert_eq!(acc.get_volume_short(code), 0.0);
-
-        println!("after all {:#?}", acc.money);
+        println!("LATEST MONEY {:#?}", acc.money);
+        println!("CLOSE PROFIT {:#?}", acc.close_profit);
         acc.history_table();
     }
 
@@ -421,7 +430,9 @@ mod tests {
 
         assert_eq!(acc.get_volume_long(code), 0.0);
         //println!("{:#?}", )
-        println!("{:#?}", acc.money);
+        println!("LATEST MONEY {:#?}", acc.money);
+        println!("CLOSE PROFIT {:#?}", acc.close_profit);
+
         acc.history_table();
     }
 

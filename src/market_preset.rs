@@ -38,6 +38,10 @@ impl CodePreset {
     pub fn calc_coeff(&mut self) -> f64 {
         self.buy_frozen_coeff.clone() * self.unit_table.clone() as f64
     }
+
+    pub fn print(&mut self) {
+        println!("name {} / buy_frozen {} / sell_frozen {}", self.name, self.buy_frozen_coeff, self.sell_frozen_coeff)
+    }
 }
 
 pub struct MarketPreset {
@@ -876,15 +880,24 @@ impl MarketPreset {
 
 
         let re = Regex::new(r"[a-zA-z]+").unwrap();
+        if code.ends_with("L8") || code.ends_with("L9") {
+            let lens = code.len();
+            let codename = code.to_string();
 
-        let rcode = re.find(code);
-        if rcode.is_some() {
-            let codename = rcode.unwrap().as_str();
+            if self.preset.contains_key(&codename[0..lens - 2]) {
+                preset = self.preset.get_mut(&codename[0..lens - 2]).unwrap().to_owned();
+            }
+        } else {
+            let rcode = re.find(code);
+            if rcode.is_some() {
+                let codename = rcode.unwrap().as_str();
 
-            if self.preset.contains_key(codename) {
-                preset = self.preset.get_mut(codename).unwrap().to_owned();
+                if self.preset.contains_key(codename) {
+                    preset = self.preset.get_mut(codename).unwrap().to_owned();
+                }
             }
         }
+
 
         preset
     }
