@@ -1,1 +1,1 @@
-cargo run --example t01b2 < data15.csv >  acc.csv
+cargo run --example t01b2 < ./data/RBL8_15min_2019.csv  --release
