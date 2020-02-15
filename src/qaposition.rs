@@ -172,7 +172,7 @@ impl QA_Postions{
 
                 self.volume_short_frozen_today -= amount;
 
-                println!("amount  {},position_price_short {}", amount, self.position_price_short);
+                //println!("amount  {},position_price_short {}", amount, self.position_price_short);
 
                 self.preset.print();
 
@@ -180,7 +180,7 @@ impl QA_Postions{
                     self.preset.sell_frozen_coeff *
                     self.preset.unit_table as f64);
 
-                println!("BUY CLOSE XX MV{:#?}", margin_value);
+                //println!("BUY CLOSE XX MV{:#?}", margin_value);
 
                 profit = (self.position_price_short - price) * amount * self.preset.unit_table as f64;
                 self.margin_short += margin_value;

@@ -315,8 +315,8 @@ impl QA_Account {
         let qapos = self.get_position(code.as_ref()).unwrap();
         let (margin, close_profit) = qapos.update_pos(price, amount, towards);
 
-        println!("MARGIN RELEASE {:#?}", margin.clone());
-        println!("CLOSE PROFIT RELEASE {:#?}", close_profit.clone());
+        //println!("MARGIN RELEASE {:#?}", margin.clone());
+        //println!("CLOSE PROFIT RELEASE {:#?}", close_profit.clone());
         self.money -= (margin - close_profit);
         self.close_profit += close_profit;
         self.cash.push(self.money);

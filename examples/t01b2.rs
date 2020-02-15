@@ -55,7 +55,7 @@ fn compare_min(a: f64, b: f64) -> f64 {
 }
 
 pub fn backtest() -> QA_Account {
-    let priceoffset = 1;
+    let priceoffset = 2;
     let lossP = 1.3;
     let K1: usize = 20;
     let K2: usize = 20;
