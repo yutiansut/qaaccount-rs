@@ -20,6 +20,12 @@ pub trait Next<T> {
     fn next(&mut self, input: T) -> Self::Output;
 }
 
+pub trait Update<T> {
+    type Output;
+    fn update(&mut self, input: T) -> Self::Output;
+}
+
+
 /// Open price of a particular period.
 pub trait Open {
     fn open(&self) -> f64;
