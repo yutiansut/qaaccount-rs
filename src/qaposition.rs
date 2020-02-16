@@ -174,7 +174,7 @@ impl QA_Postions{
 
                 //println!("amount  {},position_price_short {}", amount, self.position_price_short);
 
-                self.preset.print();
+                //self.preset.print();
 
                 margin_value = -1.0 * (self.position_price_short * amount *
                     self.preset.sell_frozen_coeff *
