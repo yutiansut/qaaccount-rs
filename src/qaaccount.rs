@@ -235,12 +235,12 @@ impl QA_Account {
 //                println!("ORDER ID {:#?}", order_id);
                 if self.money > frozen {
                     self.money -= frozen;
-//
-//                    self.frozen.insert(order_id, QA_Frozen {
-//                        amount,
-//                        coeff,
-//                        money: frozen,
-//                    });
+
+                    self.frozen.insert(order_id, QA_Frozen {
+                        amount,
+                        coeff,
+                        money: frozen,
+                    });
 
                     res = true
                 } else {
@@ -299,18 +299,18 @@ impl QA_Account {
         //                "trade_date_time": self.transform_dt(trade_time)}
 
 
-//        if self.frozen.contains_key(&order_id) {
-//            let frozen = self.frozen.get_mut(&order_id).unwrap();
-//            self.money += frozen.money;
-//            self.frozen.insert(order_id.clone(), QA_Frozen {
-//                amount: 0.0,
-//                coeff: 0.0,
-//                money: 0.0,
-//            });
-//        } else {
-//            println!("ERROR NO THAT ORDER")
-//        }
-//
+        if self.frozen.contains_key(&order_id) {
+            let frozen = self.frozen.get_mut(&order_id).unwrap();
+            self.money += frozen.money;
+            self.frozen.insert(order_id.clone(), QA_Frozen {
+                amount: 0.0,
+                coeff: 0.0,
+                money: 0.0,
+            });
+        } else {
+            println!("ERROR NO THAT ORDER")
+        }
+
 
         let qapos = self.get_position(code.as_ref()).unwrap();
         let (margin, close_profit) = qapos.update_pos(price, amount, towards);
