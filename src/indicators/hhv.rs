@@ -16,7 +16,7 @@ use crate::errors::*;
 /// use quantaxis_rs::indicators::HHV;
 /// use quantaxis_rs::Next;
 ///
-/// let mut max = hhv::new(3).unwrap();
+/// let mut max = HHV::new(3).unwrap();
 /// assert_eq!(max.next(7.0), 7.0);
 /// assert_eq!(max.next(5.0), 7.0);
 /// assert_eq!(max.next(4.0), 7.0);
@@ -116,6 +116,7 @@ mod tests {
     use crate::test_helper::*;
 
     use super::*;
+
     macro_rules! test_indicator {
         ($i:tt) => {
             #[test]

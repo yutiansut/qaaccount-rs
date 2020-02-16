@@ -27,8 +27,8 @@ use crate::errors::*;
 /// use quantaxis_rs::Next;
 ///
 /// let mut ma = MovingAverage::new(3).unwrap();
-/// assert_eq!(ma.next(10.0), 10.0);
-/// assert_eq!(ma.next(11.0), 10.5);
+/// assert_eq!(ma.next(10.0), 0.0);
+/// assert_eq!(ma.next(11.0), 0.0);
 /// assert_eq!(ma.next(12.0), 11.0);
 /// assert_eq!(ma.next(13.0), 12.0);
 /// ```

@@ -1,8 +1,8 @@
 use std::f64::INFINITY;
 use std::fmt;
 
-use crate::errors::*;
 use crate::{Low, Next, Reset};
+use crate::errors::*;
 
 /// Returns the lowest value in a given time frame.
 ///
@@ -16,7 +16,7 @@ use crate::{Low, Next, Reset};
 /// use quantaxis_rs::indicators::LLV;
 /// use quantaxis_rs::Next;
 ///
-/// let mut min = llv::new(3).unwrap();
+/// let mut min = LLV::new(3).unwrap();
 /// assert_eq!(min.next(10.0), 10.0);
 /// assert_eq!(min.next(11.0), 10.0);
 /// assert_eq!(min.next(12.0), 10.0);
@@ -133,8 +133,10 @@ impl fmt::Display for LLV {
 
 #[cfg(test)]
 mod tests {
-    use super::*;
     use crate::test_helper::*;
+
+    use super::*;
+
     macro_rules! test_indicator {
         ($i:tt) => {
             #[test]

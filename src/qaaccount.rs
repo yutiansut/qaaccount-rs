@@ -308,7 +308,7 @@ impl QA_Account {
                 money: 0.0,
             });
         } else {
-            println!("ERROR NO THAT ORDER")
+            println!("ERROR NO THAT ORDER {}", order_id)
         }
 
 
