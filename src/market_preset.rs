@@ -882,7 +882,7 @@ impl MarketPreset {
         let re = Regex::new(r"[a-zA-z]+").unwrap();
         if code.ends_with("L8") || code.ends_with("L9") {
             let lens = code.len();
-            let codename = code.to_string();
+            let codename = code.to_string().to_uppercase();
 
             if self.preset.contains_key(&codename[0..lens - 2]) {
                 preset = self.preset.get_mut(&codename[0..lens - 2]).unwrap().to_owned();
@@ -890,10 +890,10 @@ impl MarketPreset {
         } else {
             let rcode = re.find(code);
             if rcode.is_some() {
-                let codename = rcode.unwrap().as_str();
+                let codename = rcode.unwrap().as_str().to_uppercase();
 
-                if self.preset.contains_key(codename) {
-                    preset = self.preset.get_mut(codename).unwrap().to_owned();
+                if self.preset.contains_key(&codename) {
+                    preset = self.preset.get_mut(&codename).unwrap().to_owned();
                 }
             }
         }

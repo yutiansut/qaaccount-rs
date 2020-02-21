@@ -77,7 +77,12 @@ impl QA_Account {
                                                         self.portfolio_cookie.clone()));
     }
 
+
     pub fn reload(&mut self) {}
+
+    pub fn get_cash(&mut self) -> f64 {
+        self.cash.last().unwrap().to_owned()
+    }
 
     /// positions about
     ///
@@ -86,6 +91,8 @@ impl QA_Account {
         let pos = self.hold.get_mut(code);
         pos
     }
+
+
     pub fn get_volume_long(&mut self, code: &str) -> f64 {
         let pos = self.get_position(code).unwrap();
         pos.volume_long()
