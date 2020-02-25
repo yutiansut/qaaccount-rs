@@ -167,6 +167,9 @@ impl QA_Account {
     pub fn get_cash(&mut self) -> f64 {
         self.cash.last().unwrap().to_owned()
     }
+    pub fn get_riskratio(&mut self) -> f64 {
+        0.0
+    }
 
     pub fn get_accontmessage(&mut self) -> account {
         account {
@@ -187,8 +190,8 @@ impl QA_Account {
             frozen_margin: 0.0,
             frozen_commission: 0.0,
             frozen_premium: 0.0,
-            available: 0.0,
-            risk_ratio: 0.0,
+            available: self.money,
+            risk_ratio: self.get_riskratio(),
         }
     }
     /// positions about
@@ -236,7 +239,7 @@ impl QA_Account {
     }
     pub fn get_balance(&mut self) -> f64 {
         let fp = self.get_floatprofit();
-        println!("{} {} {} {} {}", self.accounts.static_balance, self.accounts.deposit, self.accounts.withdraw, fp, self.accounts.close_profit);
+        //println!("{} {} {} {} {}", self.accounts.static_balance, self.accounts.deposit, self.accounts.withdraw, fp, self.accounts.close_profit);
         self.accounts.static_balance + self.accounts.deposit - self.accounts.withdraw + fp + self.accounts.close_profit
     }
 

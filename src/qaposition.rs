@@ -172,8 +172,8 @@ impl QA_Postions{
     pub fn update_pos(&mut self, price: f64, amount: f64, towards: i32) -> (f64, f64) {
         let temp_cost = self.preset.calc_marketvalue(price, amount);
         let mut margin_value = temp_cost * self.preset.buy_frozen_coeff;
-
-
+        self.lastest_price = price;
+        //self.on_price_change(price.clone());
         let mut profit = 0.0;
         match towards {
             2 => {
@@ -240,3 +240,61 @@ impl QA_Postions{
     }
 }
 
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_new() {
+        // create a new account
+        let mut pos = QA_Postions::new("rb2005".to_string(), "test".to_string(), "test_username".to_string(),
+                                       "test_accountcookie".to_string(), "test_portfolio".to_string());
+        pos.message()
+    }
+
+
+    #[test]
+    fn test_receivedeal() {
+        // create a new account
+        let mut pos = QA_Postions::new("rb2005".to_string(), "test".to_string(), "test_username".to_string(),
+                                       "test_accountcookie".to_string(), "test_portfolio".to_string());
+        pos.update_pos(3600.0, 10.0, 2); //buy open
+
+        assert_eq!(10.0, pos.volume_long());
+    }
+
+
+    #[test]
+    fn test_onpricechange() {
+        // create a new account
+        let mut pos = QA_Postions::new("rb2005".to_string(), "test".to_string(), "test_username".to_string(),
+                                       "test_accountcookie".to_string(), "test_portfolio".to_string());
+        pos.update_pos(3600.0, 10.0, 2); //buy open
+
+        assert_eq!(10.0, pos.volume_long());
+        pos.on_price_change(3605.0, "2020-02-20 09:55:00".to_string());
+        println!("float profit{}", pos.float_profit());
+
+        assert_eq!(500.0, pos.float_profit_long());
+        assert_eq!(500.0, pos.float_profit());
+        pos.on_price_change(3589.0, "2020-02-20 13:55:00".to_string());
+        println!("float profit{}", pos.float_profit());
+        assert_eq!(-1100.0, pos.float_profit_long());
+        pos.update_pos(3585.0, 10.0, -2); //sell open
+
+        assert_eq!(-1500.0, pos.float_profit_long());
+        assert_eq!(0.0, pos.float_profit_short());
+
+        pos.on_price_change(3605.0, "2020-02-20 09:55:00".to_string());
+        println!("float profit{}", pos.float_profit());
+
+        assert_eq!(-2000.0, pos.float_profit_short());
+        assert_eq!(500.0, pos.float_profit_long());
+
+        pos.on_price_change(3589.0, "2020-02-20 13:55:00".to_string());
+        println!("float profit{}", pos.float_profit());
+
+        assert_eq!(-400.0, pos.float_profit_short());
+        assert_eq!(-1100.0, pos.float_profit_long());
+    }
+}
