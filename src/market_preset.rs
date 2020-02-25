@@ -1,9 +1,9 @@
 use std::collections::HashMap;
 
 use regex::Regex;
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Deserialize, Serialize, Clone)]
 pub struct CodePreset {
     pub name: String,
     pub unit_table: i32,
@@ -44,6 +44,7 @@ impl CodePreset {
     }
 }
 
+#[derive(Debug, Deserialize, Serialize, Clone)]
 pub struct MarketPreset {
     preset: HashMap<String, CodePreset>
 }

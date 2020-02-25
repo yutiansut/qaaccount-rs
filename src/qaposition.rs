@@ -1,7 +1,9 @@
+use serde::{Deserialize, Serialize};
+
 use crate::market_preset::{CodePreset, MarketPreset};
 use crate::qaorder::QAOrder;
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct QA_Frozen {
     pub amount: f64,
     pub coeff: f64,
@@ -14,7 +16,7 @@ impl QA_Frozen {
     }
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct QA_Postions {
     pub preset: CodePreset,
     pub code: String,
@@ -57,6 +59,8 @@ pub struct QA_Postions {
     pub open_price_short: f64,
     pub open_cost_short: f64,
 
+    pub lastest_price: f64,
+    pub lastest_datetime: String
 }
 
 impl QA_Postions{
@@ -109,13 +113,44 @@ impl QA_Postions{
             open_cost_long: 0.0,
 
             open_price_short: 0.0,
-            open_cost_short: 0.0
+            open_cost_short: 0.0,
+            lastest_price: 0.0,
+            lastest_datetime: "".to_string()
         };
         pos
     }
 
     pub fn margin(&mut self) -> f64 {
         self.margin_long + self.margin_short
+    }
+
+
+    pub fn on_price_change(&mut self, price: f64, datetime: String) {
+        // 当行情变化时候 要更新计算持仓
+        self.lastest_price = price;
+        self.lastest_datetime = datetime;
+    }
+
+    pub fn float_profit_long(&mut self) -> f64 {
+        self.lastest_price * self.volume_long() * self.preset.unit_table as f64 - self.open_cost_long
+    }
+
+    pub fn float_profit_short(&mut self) -> f64 {
+        self.open_cost_short - self.lastest_price * self.volume_short() * self.preset.unit_table as f64
+    }
+
+
+    pub fn float_profit(&mut self) -> f64 {
+        self.float_profit_long() + self.float_profit_short()
+    }
+
+
+    pub fn position_profit_long(&mut self) -> f64 {
+        self.lastest_price * self.volume_long() * self.preset.unit_table as f64 - self.position_cost_long
+    }
+
+    pub fn position_profit_short(&mut self) -> f64 {
+        self.position_cost_short - self.lastest_price * self.volume_short() * self.preset.unit_table as f64
     }
 
 
@@ -163,7 +198,6 @@ impl QA_Postions{
             }
             3 => {
                 //self.volume_short_today -= amount;
-
                 // 有昨仓先平昨仓
 
                 let volume_short = self.volume_short();

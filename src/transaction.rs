@@ -1,7 +1,7 @@
 use serde::{Deserialize, Serialize};
 use serde_json::to_string;
 
-#[derive(Deserialize, Serialize)]
+#[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct QATransaction{
     pub code: String,
     pub amount: f64,
