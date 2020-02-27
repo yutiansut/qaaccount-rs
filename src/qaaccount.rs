@@ -484,7 +484,7 @@ impl QA_Account {
     }
 
 
-    fn on_price_change(&mut self, code: String, price: f64, datetime: String) {
+    pub fn on_price_change(&mut self, code: String, price: f64, datetime: String) {
         // 当行情变化时候 要更新计算持仓
         let pos = self.get_position(code.as_ref()).unwrap();
         pos.on_price_change(price, datetime);
@@ -677,6 +677,7 @@ mod tests {
                                       100000.0, false, "backtest");
         acc.init_h(code);
         acc.buy_open(code, 10.0, "2020-01-20", 3500.0);
+
         let slice = acc.get_accontmessage();
         println!("account Slice  {:#?}", slice);
         assert_eq!(acc.get_volume_long(code), 10.0);
