@@ -715,6 +715,54 @@ mod tests {
         acc.history_table();
     }
 
+    #[test]
+    fn test_settle() {
+        println!("test account slice");
+        let code = "RB2005";
+
+        let mut acc = QA_Account::new("RustT01B2_RBL8", "test", "admin",
+                                      100000.0, false, "backtest");
+        acc.init_h(code);
+        acc.buy_open(code, 10.0, "2020-01-20", 3500.0);
+
+        let slice = acc.get_accontmessage();
+        println!("before settle");
+        println!("account Slice  {:#?}", slice);
+        assert_eq!(acc.get_volume_long(code), 10.0);
+
+        acc.sell_close(code, 10.0, "2020-01-20", 3600.0);
+
+        assert_eq!(acc.get_volume_long(code), 0.0);
+        //println!("{:#?}", )
+        println!("LATEST MONEY {:#?}", acc.money);
+        println!("CLOSE PROFIT {:#?}", acc.accounts.close_profit);
+
+        let slice = acc.get_accontmessage();
+
+        println!("account Slice  {:#?}", slice);
+
+        acc.settle();
+        println!("after settle");
+
+        let slice = acc.get_accontmessage();
+        println!("account Slice  {:#?}", slice);
+
+        acc.buy_open(code, 10.0, "2020-01-22", 3500.0);
+
+        acc.on_price_change(code.to_string(), 3523.0, "2020-01-22".to_string());
+        let slice = acc.get_accontmessage();
+        println!("before settle");
+        println!("account Slice  {:#?}", slice);
+        acc.settle();
+        println!("after settle");
+
+        let slice = acc.get_accontmessage();
+        println!("account Slice  {:#?}", slice);
+
+
+        acc.history_table();
+    }
+
 
     #[test]
     fn test_to_csv() {
