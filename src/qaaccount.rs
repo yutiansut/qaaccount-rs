@@ -180,10 +180,10 @@ impl QA_Account {
             withdraw: self.accounts.withdraw,
             WithdrawQuota: self.accounts.WithdrawQuota,
             close_profit: self.accounts.close_profit,
-            commission: 0.0,
-            premium: 0.0,
+            commission: self.accounts.commission,
+            premium: self.accounts.premium,
             static_balance: self.accounts.static_balance,
-            position_profit: 0.0,
+            position_profit: self.get_positionprofit(),
             float_profit: self.get_floatprofit(),
             balance: self.get_balance(),
             margin: self.get_margin(),
@@ -218,7 +218,7 @@ impl QA_Account {
         self.get_position(code).unwrap().open_price_short
     }
 
-
+    /// frozen & margin
     pub fn get_frozen(&mut self, code: &str) -> f64 {
         self.get_position(code).unwrap().frozen
     }
@@ -230,6 +230,8 @@ impl QA_Account {
         margin
     }
 
+
+    /// profit
     pub fn get_floatprofit(&mut self) -> f64 {
         let mut fp = 0.0;
         for pos in self.hold.values_mut() {
@@ -237,6 +239,15 @@ impl QA_Account {
         }
         fp
     }
+    pub fn get_positionprofit(&mut self) -> f64 {
+        let mut pp = 0.0;
+        for pos in self.hold.values_mut() {
+            pp += pos.float_profit();
+        }
+        pp
+    }
+
+    /// balance
     pub fn get_balance(&mut self) -> f64 {
         let fp = self.get_floatprofit();
         //println!("{} {} {} {} {}", self.accounts.static_balance, self.accounts.deposit, self.accounts.withdraw, fp, self.accounts.close_profit);
