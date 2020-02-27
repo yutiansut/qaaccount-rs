@@ -269,8 +269,28 @@ impl QA_Account {
         self.events = HashMap::new();
 
         // init the next day cash
-        self.accounts.pre_balance = self.money;
-        self.accounts.static_balance = self.money;
+        let balance_settle = self.accounts.pre_balance + self.accounts.close_profit;
+        self.accounts = account {
+            user_id: account_cookie.to_string(),
+            currency: "CNY".to_string(),
+            pre_balance: balance_settle.clone(),
+            deposit: 0.0,
+            withdraw: 0.0,
+            WithdrawQuota: balance_settle.clone(),
+            close_profit: 0.0,
+            commission: 0.0,
+            premium: 0.0,
+            static_balance: balance_settle.clone(),
+            position_profit: 0.0,
+            float_profit: 0.0,
+            balance: balance_settle.clone(),
+            margin: self.accounts.margin,
+            frozen_margin: 0.0,
+            frozen_commission: 0.0,
+            frozen_premium: 0.0,
+            available: balance_settle.clone(),
+            risk_ratio: self.get_riskratio(),
+        }
     }
 
 
