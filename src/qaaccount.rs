@@ -271,7 +271,7 @@ impl QA_Account {
         // init the next day cash
         let balance_settle = self.accounts.pre_balance + self.accounts.close_profit;
         self.accounts = account {
-            user_id: account_cookie.to_string(),
+            user_id: self.account_cookie.to_string(),
             currency: "CNY".to_string(),
             pre_balance: balance_settle.clone(),
             deposit: 0.0,
