@@ -1,0 +1,4 @@
+steps:
+- name: 'rust:1.41'
+  entrypoint: cargo
+  args: ['build', '--example', 't01b2', '--release', '-j', '20']
