@@ -763,6 +763,30 @@ mod tests {
         acc.history_table();
     }
 
+    #[test]
+    fn test_on_pricechange() {
+        println!("test on price change");
+        let code = "RB2005";
+
+        let mut acc = QA_Account::new("RustT01B2_RBL8", "test", "admin",
+                                      100000.0, false, "backtest");
+        acc.init_h(code);
+        acc.buy_open(code, 10.0, "2020-01-20", 3500.0);
+        assert_eq!(acc.get_volume_long(code), 10.0);
+
+
+        acc.on_price_change(code.to_string(), 3520.0, "2020-01-20".to_string());
+        assert_eq!(2000.0,acc.get_floatprofit());
+
+        acc.sell_close(code, 10.0, "2020-01-20", 3600.0);
+
+        assert_eq!(acc.get_volume_long(code), 0.0);
+        //println!("{:#?}", )
+        println!("LATEST MONEY {:#?}", acc.money);
+        println!("CLOSE PROFIT {:#?}", acc.accounts.close_profit);
+
+        acc.history_table();
+    }
 
     #[test]
     fn test_to_csv() {
