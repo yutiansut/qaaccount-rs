@@ -1,6 +1,8 @@
 # QUANTAXIS-RS 这是你没有见过的QUANTAXIS的全新版本
 
 
+![Rust](https://github.com/yutiansut/quantaxis-rs/workflows/Rust/badge.svg)
+
 ## 特性
 - 完整的quantaxis Account/Data/Indicator功能 支持快速的回测
 - 单票分钟线2年回测在500ms
