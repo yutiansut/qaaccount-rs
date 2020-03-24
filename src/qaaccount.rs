@@ -1,10 +1,9 @@
+use csv;
+use serde::{Deserialize, Serialize};
 use std::borrow::Borrow;
 use std::collections::HashMap;
 use std::error::Error;
 use std::io;
-
-use csv;
-use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 
 use crate::market_preset::{CodePreset, MarketPreset};
@@ -27,43 +26,43 @@ pub struct QAAccountSlice {
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct account {
-    user_id: String,
+    pub user_id: String,
     // 用户号 兼容diff协议, ==> 实盘则为具体账户号
-    currency: String,
+    pub currency: String,
     // 货币属性 兼容diff协议
-    pre_balance: f64,
+    pub pre_balance: f64,
     // 上一个交易日的结算权益
-    deposit: f64,
+    pub deposit: f64,
     // 今日转入资金
-    withdraw: f64,
+    pub withdraw: f64,
     // 今日转出资金
-    WithdrawQuota: f64,
+    pub WithdrawQuota: f64,
     // 当前可取字段(QIFI 独有)
-    close_profit: f64,
+    pub close_profit: f64,
     // 平仓盈亏
-    commission: f64,
+    pub commission: f64,
     // 手续费
-    premium: f64,
+    pub premium: f64,
     // 附加费
-    static_balance: f64,
+    pub static_balance: f64,
     // 静态权益(一般= pre_balance)
-    position_profit: f64,
+    pub position_profit: f64,
     // 持仓盈亏
-    float_profit: f64,
+    pub float_profit: f64,
     // 浮动盈亏
-    balance: f64,
+    pub balance: f64,
     // 当前权益
-    margin: f64,
+    pub margin: f64,
     // 保证金
-    frozen_margin: f64,
+    pub frozen_margin: f64,
     // 冻结保证金
-    frozen_commission: f64,
+    pub frozen_commission: f64,
     // 冻结手续费
-    frozen_premium: f64,
+    pub frozen_premium: f64,
     // 冻结附加费用
-    available: f64,
+    pub available: f64,
     // 可用资金
-    risk_ratio: f64,   // 风险度
+    pub risk_ratio: f64,   // 风险度
 }
 
 
