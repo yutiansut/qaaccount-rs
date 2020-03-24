@@ -33,11 +33,10 @@ impl QAOrder {
         let mut offset = "OPEN".to_string();
 
         match towards {
-            1 => {}
+            1 | 2 => {}
             -1 => {
                 direction = "SELL".to_string();
             }
-            2 => {}
             -2 => {
                 direction = "SELL".to_string();
             }

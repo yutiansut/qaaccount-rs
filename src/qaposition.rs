@@ -1,3 +1,4 @@
+use regex::Regex;
 use serde::{Deserialize, Serialize};
 
 use crate::market_preset::{CodePreset, MarketPreset};
@@ -63,12 +64,25 @@ pub struct QA_Postions {
     pub lastest_datetime: String
 }
 
-impl QA_Postions{
-    pub(crate) fn message(& self) {
-        println!("{}", self.code.clone());
+pub fn adjust_market(code: &str) -> String {
+    let re = Regex::new(r"[a-zA-z]+").unwrap();
+    let res = re.captures(code);
+    if res.is_some() {
+        "future_cn".to_string()
+    } else {
+        "stock_cn".to_string()
     }
-    pub fn new(code:String, user_id: String,
-                username: String, account_cookie: String,
+}
+
+
+impl QA_Postions {
+    pub(crate) fn message(&self) {
+        println!("{}", self.code.clone());
+        let u = serde_json::to_string(self).unwrap();
+        println!("{:#?}", u);
+    }
+    pub fn new(code: String, user_id: String,
+               username: String, account_cookie: String,
                 portfolio_cookie:String) -> Self {
         let mut preset: CodePreset = MarketPreset::new().get(code.as_ref());
 
@@ -85,7 +99,7 @@ impl QA_Postions{
             name: "".to_string(),
             spms_id: "".to_string(),
             oms_id: "".to_string(),
-            market_type: "".to_string(),
+            market_type: adjust_market(&code),
             exchange_id: "".to_string(),
             lastupdatetime: "".to_string(),
             volume_long_today: 0.0,
@@ -120,8 +134,91 @@ impl QA_Postions{
         pos
     }
 
+    pub fn new_with_inithold(code: String, user_id: String,
+                             username: String, account_cookie: String,
+                             portfolio_cookie: String,
+                             volume_long_today: f64,
+                             volume_long_his: f64,
+                             volume_short_today: f64,
+                             volume_short_his: f64,
+                             open_price_long: f64,
+                             open_price_short: f64) -> Self {
+        let mut preset: CodePreset = MarketPreset::new().get(code.as_ref());
+
+        let mut pos = Self {
+            preset,
+            code: code.clone(),
+            instrument_id: code.clone(),
+            user_id,
+            portfolio_cookie,
+            username,
+            position_id: "".to_string(),
+            account_cookie,
+            frozen: 0.0,
+            name: "".to_string(),
+            spms_id: "".to_string(),
+            oms_id: "".to_string(),
+            market_type: adjust_market(&code),
+            exchange_id: "".to_string(),
+            lastupdatetime: "".to_string(),
+            volume_long_today: 0.0,
+            volume_long_his: 0.0,
+
+            volume_short_today: 0.0,
+            volume_short_his: 0.0,
+
+            volume_long_frozen_today: 0.0,
+            volume_long_frozen_his: 0.0,
+
+            volume_short_frozen_today: 0.0,
+            volume_short_frozen_his: 0.0,
+
+            margin_long: 0.0,
+            margin_short: 0.0,
+
+            position_price_long: 0.0,
+            position_cost_long: 0.0,
+
+            position_price_short: 0.0,
+            position_cost_short: 0.0,
+
+            open_price_long: 0.0,
+            open_cost_long: 0.0,
+
+            open_price_short: 0.0,
+            open_cost_short: 0.0,
+            lastest_price: 0.0,
+            lastest_datetime: "".to_string(),
+        };
+        if volume_long_his > 0.0 {
+            pos.update_pos(open_price_long, volume_long_his, 1);
+            pos.settle();
+        }
+        if volume_short_his > 0.0 {
+            pos.update_pos(open_price_short, volume_short_his, -2);
+            pos.settle();
+        }
+
+        if volume_long_today > 0.0 {
+            pos.update_pos(open_price_long, volume_long_today, 1);
+        }
+        if volume_short_today > 0.0 {
+            pos.update_pos(open_price_long, volume_long_today, -2);
+        }
+        pos
+    }
+
     pub fn margin(&mut self) -> f64 {
         self.margin_long + self.margin_short
+    }
+
+    pub fn settle(&mut self) {
+        self.volume_long_his += self.volume_long_today;
+        self.volume_long_today = 0.0;
+        self.volume_long_frozen_today = 0.0;
+        self.volume_short_his += self.volume_short_today;
+        self.volume_short_today = 0.0;
+        self.volume_short_frozen_today = 0.0;
     }
 
 
@@ -176,7 +273,7 @@ impl QA_Postions{
         //self.on_price_change(price.clone());
         let mut profit = 0.0;
         match towards {
-            2 => {
+            1 | 2 => {
                 // buy open logic
                 self.margin_long += margin_value;
                 self.open_price_long = (self.open_price_long * self.volume_long() +
@@ -219,6 +316,23 @@ impl QA_Postions{
                 profit = (self.position_price_short - price) * amount * self.preset.unit_table as f64;
                 self.margin_short += margin_value;
             }
+            -1 => {
+                // sell open logic
+                if amount <= self.volume_long_his {
+                    let volume_long = self.volume_long();
+
+                    self.position_cost_long = self.position_cost_long * (volume_long - amount) / volume_long;
+                    self.open_cost_long = self.open_cost_long *
+                        (volume_long - amount) / volume_long;
+
+                    self.volume_long_frozen_today -= amount;
+                    margin_value = -1.0 * (self.position_price_long * amount * self.preset.unit_table as f64 *
+                        self.preset.buy_frozen_coeff);
+                    profit = (price - self.position_price_long) *
+                        amount * self.preset.unit_table as f64;
+                    self.margin_long += margin_value;
+                } else {}
+            }
             -3 => {
                 //self.volume_long_today -= amount;
 
@@ -252,6 +366,22 @@ mod tests {
         pos.message()
     }
 
+    #[test]
+    fn test_new_stock() {
+        // create a new account
+        let mut pos = QA_Postions::new("000001".to_string(), "test".to_string(), "test_username".to_string(),
+                                       "test_accountcookie".to_string(), "test_portfolio".to_string());
+        pos.message()
+    }
+
+    #[test]
+    fn test_re() {
+        let a = adjust_market("000001");
+        assert_eq!("stock_cn", &a);
+
+        let b = adjust_market("RB2005");
+        assert_eq!("future_cn", &b);
+    }
 
     #[test]
     fn test_receivedeal() {
