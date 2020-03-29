@@ -12,6 +12,11 @@ use crate::qaposition;
 use crate::qaposition::{QA_Frozen, QA_Postions};
 use crate::transaction;
 use crate::transaction::QATransaction;
+use qifi_rs::{QIFI, Trade};
+use qifi_rs::Account;
+
+use chrono::{DateTime, NaiveDate, NaiveDateTime, NaiveTime};
+use chrono::format::ParseError;
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct QAAccountSlice {
@@ -91,6 +96,7 @@ pub struct QA_Account {
     pub account_cookie: String,
     pub portfolio_cookie: String,
     pub user_cookie: String,
+    pub trades_real: HashMap<String, Trade>,
 
     environment: String,
 
@@ -103,7 +109,6 @@ impl QA_Account {
                init_cash: f64,
                auto_reload: bool,
                environment: &str) -> Self {
-
         let mut acc = Self {
             init_cash,
             init_hold: HashMap::new(),
@@ -145,6 +150,7 @@ impl QA_Account {
             portfolio_cookie: portfolio_cookie.parse().unwrap(),
             user_cookie: user_cookie.parse().unwrap(),
             environment: environment.to_string(),
+            trades_real: Default::default(),
             dailyassets: HashMap::new(),
         };
 
@@ -170,8 +176,41 @@ impl QA_Account {
         0.0
     }
 
-    pub fn get_accontmessage(&mut self) -> account {
-        account {
+    /// 创建QIFI的账户切片， 注意他是一个结构体
+    pub fn get_qifi_slice(&mut self) -> QIFI {
+        QIFI {
+            databaseip: "".to_string(),
+            account_cookie: self.account_cookie.clone(),
+            password: "".to_string(),
+            portfolio: self.portfolio_cookie.clone(),
+            broker_name: "".to_string(),
+            capital_password: "".to_string(),
+            bank_password: "".to_string(),
+            bankid: "".to_string(),
+            investor_name: "".to_string(),
+            money: self.money.clone(),
+            pub_host: "".to_string(),
+            settlement: Default::default(),
+            taskid: "".to_string(),
+            trade_host: "".to_string(),
+            updatetime: "".to_string(),
+            wsuri: "".to_string(),
+            bankname: "".to_string(),
+            trading_day: "".to_string(),
+            status: 200,
+            accounts: self.get_accountmessage(),
+            banks: Default::default(),
+            event: Default::default(),
+            orders: Default::default(),
+            positions: Default::default(),
+            trades: self.trades_real.clone(),
+            transfers: Default::default(),
+            ping_gap: 0,
+        }
+    }
+
+    pub fn get_accountmessage(&mut self) -> Account {
+        Account {
             user_id: self.account_cookie.clone(),
             currency: "CNY".to_string(),
             pre_balance: self.accounts.pre_balance,
@@ -179,8 +218,8 @@ impl QA_Account {
             withdraw: self.accounts.withdraw,
             WithdrawQuota: self.accounts.WithdrawQuota,
             close_profit: self.accounts.close_profit,
-            commission: self.accounts.commission,
-            premium: self.accounts.premium,
+            commission: self.accounts.commission as f32,
+            premium: self.accounts.premium as f32,
             static_balance: self.accounts.static_balance,
             position_profit: self.get_positionprofit(),
             float_profit: self.get_floatprofit(),
@@ -190,7 +229,7 @@ impl QA_Account {
             frozen_commission: 0.0,
             frozen_premium: 0.0,
             available: self.money,
-            risk_ratio: self.get_riskratio(),
+            risk_ratio: self.get_riskratio() as f32,
         }
     }
     /// positions about
@@ -356,7 +395,7 @@ impl QA_Account {
         code: &str,
         amount: f64,
         time: &str,
-        price:f64
+        price: f64,
     ) {
         self.send_order(code, amount, time, -1, price, "SELL");
     }
@@ -365,7 +404,7 @@ impl QA_Account {
         code: &str,
         amount: f64,
         time: &str,
-        price:f64
+        price: f64,
     ) {
         self.send_order(code, amount, time, 2, price, "BUY_OPEN");
     }
@@ -374,7 +413,7 @@ impl QA_Account {
         code: &str,
         amount: f64,
         time: &str,
-        price:f64
+        price: f64,
     ) {
         self.send_order(code, amount, time, -2, price, "SELL_OPEN");
     }
@@ -383,7 +422,7 @@ impl QA_Account {
         code: &str,
         amount: f64,
         time: &str,
-        price:f64
+        price: f64,
     ) {
         self.send_order(code, amount, time, 3, price, "BUY_CLOSE");
     }
@@ -489,7 +528,8 @@ impl QA_Account {
                                       towards);
                 }
                 "real" => {
-                    self.events.insert(self.time.clone(), "order insert".to_string());
+                    self.receive_deal_real()
+                    // self.events.insert(self.time.clone(), "order insert".to_string());
                 }
                 _ => {
                     self.events.insert(self.time.clone(), "order insert".to_string());
@@ -499,7 +539,6 @@ impl QA_Account {
         } else {
             Err(())
         }
-
     }
 
 
@@ -508,7 +547,75 @@ impl QA_Account {
         let pos = self.get_position(code.as_ref()).unwrap();
         pos.on_price_change(price, datetime);
     }
-
+    /// 获取成交单方向信息的API， 支持股票与期货
+    pub fn get_direction_or_offset(&mut self, toward: i32) -> (String, String) {
+        let rt = match towards {
+            1 => {
+                (String::from(""), String::from(""))
+            }
+            2 => {
+                (String::from(""), String::from(""))
+            }
+            3 => {
+                (String::from(""), String::from(""))
+            }
+            4 => {
+                (String::from(""), String::from(""))
+            }
+            -2 => {
+                (String::from(""), String::from(""))
+            }
+            -3 => {
+                (String::from(""), String::from(""))
+            }
+            -4 => {
+                (String::from(""), String::from(""))
+            }
+            _ => { (String::from(""), String::from("")) }
+        };
+        rt
+    }
+    fn receive_deal_real(&mut self, code: String, amount: f64, price: f64, datetime: String,
+                         order_id: String, trade_id: String, realorder_id: String, towards: i32,
+    ) {
+    ) {
+        self.time = datetime.clone();
+        if self.frozen.contains_key(&order_id) {
+            let frozen = self.frozen.get_mut(&order_id).unwrap();
+            self.money += frozen.money;
+            self.frozen.remove(&order_id);
+            // self.frozen.insert(order_id.clone(), QA_Frozen {
+            //     amount: 0.0,
+            //     coeff: 0.0,
+            //     money: 0.0,
+            // });
+        } else {
+            println!("ERROR NO THAT ORDER {}", order_id)
+        }
+        let qapos = self.get_position(code.as_ref()).unwrap();
+        qapos.on_price_change(price.clone(), datetime.clone());
+        let (margin, close_profit) = qapos.update_pos(price, amount, towards);
+        let (direction, offset) = self.get_direction_or_offset(towards);
+        self.money -= (margin - close_profit);
+        self.accounts.close_profit += close_profit;
+        self.cash.push(self.money);
+        let trade = Trade {
+            seqno: 0,
+            user_id: self.user_cookie.clone(),
+            price: price,
+            order_id: order_id,
+            trade_id: trade_id.clone(),
+            exchange_id: "".to_string(),
+            commission: 0.0,
+            direction: direction,
+            offset: offset,
+            instrument_id: "".to_string(),
+            exchange_trade_id: "".to_string(),
+            volume: amount as i32,
+            trade_date_time: datetime.parse::<i64>().unwrap(),
+        };
+        self.trades_real.insert(trade_id, trade.clone());
+    }
 
     fn receive_deal(&mut self, code: String, amount: f64, price: f64, datetime: String,
                     order_id: String, trade_id: String, realorder_id: String, towards: i32,
@@ -572,6 +679,7 @@ mod tests {
                                       100000.0, false, "backtest");
         acc.history_table();
     }
+
     #[test]
     fn test_pos() {
         // test get position function
@@ -697,7 +805,7 @@ mod tests {
         acc.init_h(code);
         acc.buy_open(code, 10.0, "2020-01-20", 3500.0);
 
-        let slice = acc.get_accontmessage();
+        let slice = acc.get_accountmessage();
         println!("account Slice  {:#?}", slice);
         assert_eq!(acc.get_volume_long(code), 10.0);
         acc.sell_close(code, 10.0, "2020-01-20", 3600.0);
@@ -707,7 +815,7 @@ mod tests {
         println!("LATEST MONEY {:#?}", acc.money);
         println!("CLOSE PROFIT {:#?}", acc.accounts.close_profit);
 
-        let slice = acc.get_accontmessage();
+        let slice = acc.get_accountmessage();
 
         println!("account Slice  {:#?}", slice);
 
@@ -724,7 +832,7 @@ mod tests {
         acc.init_h(code);
         acc.buy_open(code, 10.0, "2020-01-20", 3500.0);
 
-        let slice = acc.get_accontmessage();
+        let slice = acc.get_accountmessage();
         println!("before settle");
         println!("account Slice  {:#?}", slice);
         assert_eq!(acc.get_volume_long(code), 10.0);
@@ -736,26 +844,26 @@ mod tests {
         println!("LATEST MONEY {:#?}", acc.money);
         println!("CLOSE PROFIT {:#?}", acc.accounts.close_profit);
 
-        let slice = acc.get_accontmessage();
+        let slice = acc.get_accountmessage();
 
         println!("account Slice  {:#?}", slice);
 
         acc.settle();
         println!("after settle");
 
-        let slice = acc.get_accontmessage();
+        let slice = acc.get_accountmessage();
         println!("account Slice  {:#?}", slice);
 
         acc.buy_open(code, 10.0, "2020-01-22", 3500.0);
 
         acc.on_price_change(code.to_string(), 3523.0, "2020-01-22".to_string());
-        let slice = acc.get_accontmessage();
+        let slice = acc.get_accountmessage();
         println!("before settle");
         println!("account Slice  {:#?}", slice);
         acc.settle();
         println!("after settle");
 
-        let slice = acc.get_accontmessage();
+        let slice = acc.get_accountmessage();
         println!("account Slice  {:#?}", slice);
 
 
@@ -775,7 +883,7 @@ mod tests {
 
 
         acc.on_price_change(code.to_string(), 3520.0, "2020-01-20".to_string());
-        assert_eq!(2000.0,acc.get_floatprofit());
+        assert_eq!(2000.0, acc.get_floatprofit());
 
         acc.sell_close(code, 10.0, "2020-01-20", 3600.0);
 
