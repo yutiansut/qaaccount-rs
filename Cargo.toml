@@ -13,7 +13,6 @@ readme = "README.md"
 categories = ["science", "algorithms"]
 
 [dependencies]
-
 serde_json = "*"
 serde_derive = "1.0"
 serde = { version = "1.0", features = ["derive"] } # 序列化
@@ -33,6 +32,8 @@ assert_approx_eq = "1.0.0"
 #csv = "0.15.0"
 bencher = "0.1.5"
 rand = "0.6.5"
+qifi-rs = {version="0.1.0", git="https://github.com/QUANTAXIS/qifi-rs"}
+chrono = "0.4"
 
 [[bench]]
 name = "indicators"
