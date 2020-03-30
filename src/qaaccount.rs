@@ -1,9 +1,14 @@
-use csv;
-use serde::{Deserialize, Serialize};
 use std::borrow::Borrow;
 use std::collections::HashMap;
 use std::error::Error;
 use std::io;
+
+use chrono::{DateTime, NaiveDate, NaiveDateTime, NaiveTime, TimeZone, Utc};
+use chrono::format::ParseError;
+use csv;
+use qifi_rs::{QIFI, Trade};
+use qifi_rs::Account;
+use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 
 use crate::market_preset::{CodePreset, MarketPreset};
@@ -12,11 +17,6 @@ use crate::qaposition;
 use crate::qaposition::{QA_Frozen, QA_Postions};
 use crate::transaction;
 use crate::transaction::QATransaction;
-use qifi_rs::{QIFI, Trade};
-use qifi_rs::Account;
-
-use chrono::{DateTime, NaiveDate, NaiveDateTime, NaiveTime};
-use chrono::format::ParseError;
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct QAAccountSlice {
@@ -528,7 +528,9 @@ impl QA_Account {
                                       towards);
                 }
                 "real" => {
-                    self.receive_deal_real()
+                    self.receive_deal_real(code.parse().unwrap(), amount, price, time.parse().unwrap(),
+                                           order_id.clone(), order_id.clone(), order_id.clone(),
+                                           towards)
                     // self.events.insert(self.time.clone(), "order insert".to_string());
                 }
                 _ => {
@@ -548,7 +550,7 @@ impl QA_Account {
         pos.on_price_change(price, datetime);
     }
     /// 获取成交单方向信息的API， 支持股票与期货
-    pub fn get_direction_or_offset(&mut self, toward: i32) -> (String, String) {
+    pub fn get_direction_or_offset(&mut self, towards: i32) -> (String, String) {
         let rt = match towards {
             1 => {
                 (String::from(""), String::from(""))
@@ -578,17 +580,11 @@ impl QA_Account {
     fn receive_deal_real(&mut self, code: String, amount: f64, price: f64, datetime: String,
                          order_id: String, trade_id: String, realorder_id: String, towards: i32,
     ) {
-    ) {
         self.time = datetime.clone();
         if self.frozen.contains_key(&order_id) {
             let frozen = self.frozen.get_mut(&order_id).unwrap();
             self.money += frozen.money;
             self.frozen.remove(&order_id);
-            // self.frozen.insert(order_id.clone(), QA_Frozen {
-            //     amount: 0.0,
-            //     coeff: 0.0,
-            //     money: 0.0,
-            // });
         } else {
             println!("ERROR NO THAT ORDER {}", order_id)
         }
@@ -599,20 +595,25 @@ impl QA_Account {
         self.money -= (margin - close_profit);
         self.accounts.close_profit += close_profit;
         self.cash.push(self.money);
+
+        println!("{:#?}", datetime);
+
+
+        let td = Utc.datetime_from_str(datetime.as_ref(), "%Y-%m-%d %H:%M:%S").unwrap().timestamp_nanos();
         let trade = Trade {
             seqno: 0,
             user_id: self.user_cookie.clone(),
-            price: price,
-            order_id: order_id,
+            price,
+            order_id,
             trade_id: trade_id.clone(),
             exchange_id: "".to_string(),
             commission: 0.0,
-            direction: direction,
-            offset: offset,
+            direction,
+            offset,
             instrument_id: "".to_string(),
             exchange_trade_id: "".to_string(),
             volume: amount as i32,
-            trade_date_time: datetime.parse::<i64>().unwrap(),
+            trade_date_time: td,
         };
         self.trades_real.insert(trade_id, trade.clone());
     }
@@ -796,29 +797,45 @@ mod tests {
     }
 
     #[test]
-    fn test_getaccountmessage() {
+    fn test_accountSlice_for_qifi() {
         println!("test account slice");
         let code = "RB2005";
-
         let mut acc = QA_Account::new("RustT01B2_RBL8", "test", "admin",
-                                      100000.0, false, "backtest");
+                                      100000.0, false, "real");
         acc.init_h(code);
-        acc.buy_open(code, 10.0, "2020-01-20", 3500.0);
-
-        let slice = acc.get_accountmessage();
+        acc.buy_open(code, 10.0, "2020-01-20 22:10:00", 3500.0);
+        let slice = acc.get_qifi_slice();
         println!("account Slice  {:#?}", slice);
         assert_eq!(acc.get_volume_long(code), 10.0);
-        acc.sell_close(code, 10.0, "2020-01-20", 3600.0);
-
+        acc.sell_close(code, 10.0, "2020-01-20 22:10:00", 3600.0);
         assert_eq!(acc.get_volume_long(code), 0.0);
         //println!("{:#?}", )
         println!("LATEST MONEY {:#?}", acc.money);
         println!("CLOSE PROFIT {:#?}", acc.accounts.close_profit);
 
+        let slice = acc.get_qifi_slice();
+        let slicestr = serde_json::to_string(&slice).unwrap();
+        println!("{:#?}", slicestr);
+    }
+
+
+    #[test]
+    fn test_getaccountmessage() {
+        println!("test account slice");
+        let code = "RB2005";
+        let mut acc = QA_Account::new("RustT01B2_RBL8", "test", "admin",
+                                      100000.0, false, "backtest");
+        acc.init_h(code);
+        acc.buy_open(code, 10.0, "2020-01-20", 3500.0);
         let slice = acc.get_accountmessage();
-
         println!("account Slice  {:#?}", slice);
-
+        assert_eq!(acc.get_volume_long(code), 10.0);
+        acc.sell_close(code, 10.0, "2020-01-20", 3600.0);
+        assert_eq!(acc.get_volume_long(code), 0.0);
+        println!("LATEST MONEY {:#?}", acc.money);
+        println!("CLOSE PROFIT {:#?}", acc.accounts.close_profit);
+        let slice = acc.get_accountmessage();
+        println!("account Slice  {:#?}", slice);
         acc.history_table();
     }
 
