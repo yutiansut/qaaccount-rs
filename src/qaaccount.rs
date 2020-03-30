@@ -6,8 +6,7 @@ use std::io;
 use chrono::{DateTime, NaiveDate, NaiveDateTime, NaiveTime, TimeZone, Utc};
 use chrono::format::ParseError;
 use csv;
-use qifi_rs::{QIFI, Trade};
-use qifi_rs::Account;
+use qifi_rs::{Account, Order, Position, QIFI, Trade};
 use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 
@@ -96,8 +95,8 @@ pub struct QA_Account {
     pub account_cookie: String,
     pub portfolio_cookie: String,
     pub user_cookie: String,
-    pub trades_real: HashMap<String, Trade>,
-
+    pub dailytrades: HashMap<String, Trade>,
+    pub dailyorders: HashMap<String, Order>,
     environment: String,
 
 }
@@ -150,7 +149,8 @@ impl QA_Account {
             portfolio_cookie: portfolio_cookie.parse().unwrap(),
             user_cookie: user_cookie.parse().unwrap(),
             environment: environment.to_string(),
-            trades_real: Default::default(),
+            dailyorders: Default::default(),
+            dailytrades: Default::default(),
             dailyassets: HashMap::new(),
         };
 
@@ -178,6 +178,12 @@ impl QA_Account {
 
     /// 创建QIFI的账户切片， 注意他是一个结构体
     pub fn get_qifi_slice(&mut self) -> QIFI {
+        let mut pos: HashMap<String, Position> = HashMap::new();
+        for posx in self.hold.values_mut() {
+            pos.insert(posx.instrument_id.clone(), posx.get_qifi_position());
+        }
+
+
         QIFI {
             databaseip: "".to_string(),
             account_cookie: self.account_cookie.clone(),
@@ -201,9 +207,9 @@ impl QA_Account {
             accounts: self.get_accountmessage(),
             banks: Default::default(),
             event: Default::default(),
-            orders: Default::default(),
-            positions: Default::default(),
-            trades: self.trades_real.clone(),
+            orders: self.dailyorders.clone(),
+            positions: pos,
+            trades: self.dailytrades.clone(),
             transfers: Default::default(),
             ping_gap: 0,
         }
@@ -229,7 +235,7 @@ impl QA_Account {
             frozen_commission: 0.0,
             frozen_premium: 0.0,
             available: self.money,
-            risk_ratio: self.get_riskratio() as f32,
+            risk_ratio: self.get_riskratio(),
         }
     }
     /// positions about
@@ -304,6 +310,8 @@ impl QA_Account {
             trades: self.trades.clone(),
         });
         self.trades = HashMap::new();
+        self.dailyorders = HashMap::new();
+        self.dailytrades = HashMap::new();
         self.events = HashMap::new();
 
         // init the next day cash
@@ -518,16 +526,38 @@ impl QA_Account {
     ) -> Result<QAOrder, ()> {
         let order_id: String = Uuid::new_v4().to_string();
         if self.order_check(code, amount, price, towards, order_id.clone()) {
-            let order = QAOrder::new(self.account_cookie.clone(), code.to_string(),
+            let order = QAOrder::new(self.account_cookie.clone(), code.clone().to_string(),
                                      towards, "".to_string(), "".to_string(),
                                      amount, price, order_id.clone());
             match self.environment.as_ref() {
                 "backtest" => {
+
                     self.receive_deal(code.parse().unwrap(), amount, price, time.parse().unwrap(),
                                       order_id.clone(), order_id.clone(), order_id.clone(),
                                       towards);
                 }
                 "real" => {
+                    let (direction, offset) = self.get_direction_or_offset(towards);
+                    self.dailyorders.insert(order_id.clone(), Order {
+                        seqno: 0,
+                        user_id: self.account_cookie.clone(),
+                        order_id: order_id.clone(),
+                        exchange_id: "".to_string(),
+                        instrument_id: code.clone().to_string(),
+                        direction,
+                        offset,
+                        volume_orign: amount,
+                        price_type: "LIMIT".to_string(),
+                        limit_price: price,
+                        time_condition: "AND".to_string(),
+                        volume_condition: "GFD".to_string(),
+                        insert_date_time: Utc.datetime_from_str(time, "%Y-%m-%d %H:%M:%S").unwrap().timestamp_nanos(),
+                        exchange_order_id: Uuid::new_v4().to_string(),
+                        status: "FINISHED".to_string(),
+                        volume_left: 0.0,
+                        last_msg: "".to_string(),
+                    });
+
                     self.receive_deal_real(code.parse().unwrap(), amount, price, time.parse().unwrap(),
                                            order_id.clone(), order_id.clone(), order_id.clone(),
                                            towards)
@@ -612,10 +642,10 @@ impl QA_Account {
             offset,
             instrument_id: "".to_string(),
             exchange_trade_id: "".to_string(),
-            volume: amount as i32,
+            volume: amount,
             trade_date_time: td,
         };
-        self.trades_real.insert(trade_id, trade.clone());
+        self.dailytrades.insert(trade_id, trade.clone());
     }
 
     fn receive_deal(&mut self, code: String, amount: f64, price: f64, datetime: String,

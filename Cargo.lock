@@ -483,9 +483,9 @@ dependencies = [
 
 [[package]]
 name = "hermit-abi"
-version = "0.1.9"
+version = "0.1.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0ebe6e23502442c4c9cd80fcb8bdf867dc5f4a9e9f1d882499fa49c5ed83e559"
+checksum = "725cf19794cf90aa94e65050cb4191ff5d8fa87a498383774c47b332e3af952e"
 dependencies = [
  "libc",
 ]
@@ -1038,8 +1038,8 @@ dependencies = [
 
 [[package]]
 name = "qifi-rs"
-version = "0.1.0"
-source = "git+https://github.com/QUANTAXIS/qifi-rs.git#1cfc461d44a21d6bca04187f56acd30818749528"
+version = "0.2.0"
+source = "git+https://github.com/QUANTAXIS/qifi-rs.git#32726ddc3724f3141de8e1eeb075f16656099af4"
 dependencies = [
  "bson",
  "mongodb",

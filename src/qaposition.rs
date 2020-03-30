@@ -1,3 +1,4 @@
+use qifi_rs::Position;
 use regex::Regex;
 use serde::{Deserialize, Serialize};
 
@@ -62,6 +63,7 @@ pub struct QA_Postions {
 
     pub lastest_price: f64,
     pub lastest_datetime: String
+
 }
 
 pub fn adjust_market(code: &str) -> String {
@@ -242,6 +244,50 @@ impl QA_Postions {
     }
 
 
+    pub fn get_qifi_position(&mut self) -> Position {
+        Position {
+            user_id: self.user_id.clone(),
+            exchange_id: self.exchange_id.clone(),
+            instrument_id: self.instrument_id.clone(),
+            volume_long_today: self.volume_long_today.clone(),
+            volume_long_his: self.volume_long_his.clone(),
+            volume_long: self.volume_long(),
+            volume_long_frozen_today: self.volume_long_frozen_today.clone(),
+            volume_long_frozen_his: self.volume_long_frozen_his.clone(),
+            volume_long_frozen: self.volume_long_frozen(),
+            volume_short_today: self.volume_short_today.clone(),
+            volume_short_his: self.volume_short_his.clone(),
+            volume_short: self.volume_short(),
+            volume_short_frozen_today: self.volume_short_frozen_today.clone(),
+            volume_short_frozen_his: self.volume_short_frozen_his.clone(),
+            volume_short_frozen: self.volume_short_frozen(),
+            volume_long_yd: 0.0,
+            volume_short_yd: 0.0,
+            pos_long_his: self.volume_long_his.clone(),
+            pos_long_today: self.volume_long_today.clone(),
+            pos_short_his: self.volume_short_his.clone(),
+            pos_short_today: self.volume_short_today.clone(),
+            open_price_long: self.open_price_long.clone(),
+            open_price_short: self.open_price_short.clone(),
+            open_cost_long: self.open_cost_long.clone(),
+            open_cost_short: self.open_cost_short.clone(),
+            position_price_long: self.position_price_long.clone(),
+            position_price_short: self.position_price_short.clone(),
+            position_cost_long: self.position_cost_long.clone(),
+            position_cost_short: self.position_cost_short.clone(),
+            last_price: self.lastest_price.clone(),
+            float_profit_long: self.float_profit_long(),
+            float_profit_short: self.float_profit_short(),
+            float_profit: self.float_profit(),
+            position_profit_long: self.position_profit_long(),
+            position_profit_short: self.position_profit_short(),
+            position_profit: self.position_profit(),
+            margin_long: self.margin_long.clone(),
+            margin_short: self.margin_short.clone(),
+            margin: self.margin(),
+        }
+    }
+
     pub fn position_profit_long(&mut self) -> f64 {
         self.lastest_price * self.volume_long() * self.preset.unit_table as f64 - self.position_cost_long
     }
@@ -249,7 +295,9 @@ impl QA_Postions {
     pub fn position_profit_short(&mut self) -> f64 {
         self.position_cost_short - self.lastest_price * self.volume_short() * self.preset.unit_table as f64
     }
-
+    pub fn position_profit(&mut self) -> f64 {
+        self.position_profit_long() + self.position_profit_short()
+    }
 
     pub fn volume_long(&mut self) -> f64 {
         self.volume_long_today + self.volume_long_his + self.volume_long_frozen()
