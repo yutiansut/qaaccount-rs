@@ -581,27 +581,31 @@ impl QA_Account {
     }
     /// 获取成交单方向信息的API， 支持股票与期货
     pub fn get_direction_or_offset(&mut self, towards: i32) -> (String, String) {
+
         let rt = match towards {
             1 => {
-                (String::from(""), String::from(""))
+                (String::from("BUY"), String::from("OPEN"))
             }
             2 => {
-                (String::from(""), String::from(""))
+                (String::from("BUY"), String::from("OPEN"))
             }
             3 => {
-                (String::from(""), String::from(""))
+                (String::from("BUY"), String::from("CLOSE"))
             }
             4 => {
-                (String::from(""), String::from(""))
+                (String::from("BUY"), String::from("CLOSETODAY"))
+            }
+            -1 => {
+                (String::from("SELL"), String::from("CLOSE"))
             }
             -2 => {
-                (String::from(""), String::from(""))
+                (String::from("SELL"), String::from("OPEN"))
             }
             -3 => {
-                (String::from(""), String::from(""))
+                (String::from("SELL"), String::from("CLOSE"))
             }
             -4 => {
-                (String::from(""), String::from(""))
+                (String::from("SELL"), String::from("CLOSETODAY"))
             }
             _ => { (String::from(""), String::from("")) }
         };

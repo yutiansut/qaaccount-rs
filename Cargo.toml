@@ -1,6 +1,6 @@
 [package]
 name = "quantaxis-rs"
-version = "0.2.0"
+version = "0.3.0"
 description = 'quantaxis in rust'
 authors = ["yutiansut <yutiansut@qq.com>"]
 edition = "2018"

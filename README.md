@@ -16,6 +16,6 @@
 - 兼容基于QIFI协议的所有项目
 
 
-power by yutiansut
+power by yutiansut/somewheve
 
 2020
