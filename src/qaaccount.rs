@@ -523,7 +523,7 @@ impl QA_Account {
                 }
             }
 
-            -3 => {
+            -3 | -1 => {
                 if (qapos.volume_long() - qapos.volume_long_frozen()) >= amount {
                     qapos.volume_long_frozen_today += amount;
                     qapos.volume_long_today -= amount;
@@ -697,7 +697,7 @@ impl QA_Account {
             commission: 0.0,
             direction,
             offset,
-            instrument_id: "".to_string(),
+            instrument_id: code,
             exchange_trade_id: "".to_string(),
             volume: amount,
             trade_date_time: td,
