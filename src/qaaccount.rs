@@ -159,6 +159,58 @@ impl QA_Account {
         }
         acc
     }
+
+
+    pub fn new_from_qifi(message: QIFI) -> Self {
+        let mut acc = Self {
+            init_cash: message.accounts.available,
+            init_hold: HashMap::new(),
+            allow_t0: false,
+            allow_sellopen: false,
+            allow_margin: false,
+            market_preset: MarketPreset::new(),
+            auto_reload: false,
+            time: message.updatetime.clone(),
+            events: HashMap::new(),
+            accounts: account {
+                user_id: message.accounts.user_id.clone(),
+                currency: "CNY".to_string(),
+                pre_balance: message.accounts.pre_balance.clone(),
+                deposit: message.accounts.deposit.clone(),
+                withdraw: message.accounts.withdraw.clone(),
+                WithdrawQuota: message.accounts.WithdrawQuota.clone(),
+                close_profit: message.accounts.close_profit.clone(),
+                commission: message.accounts.commission.clone() as f64,
+                premium: message.accounts.premium.clone() as f64,
+                static_balance: message.accounts.static_balance.clone(),
+                position_profit: message.accounts.position_profit.clone(),
+                float_profit: message.accounts.float_profit.clone(),
+                balance: message.accounts.balance.clone(),
+                margin: message.accounts.margin.clone(),
+                frozen_margin: message.accounts.frozen_margin.clone(),
+                frozen_commission: message.accounts.frozen_commission.clone(),
+                frozen_premium: message.accounts.frozen_premium.clone(),
+                available: message.accounts.available.clone(),
+                risk_ratio: message.accounts.risk_ratio.clone(),
+            },
+            cash: vec![message.accounts.available],
+            money: message.money.clone(),
+            hold: HashMap::new(),
+            trades: HashMap::new(),
+            frozen: HashMap::new(),
+            history: vec![],
+            account_cookie: message.account_cookie.clone(),
+            portfolio_cookie: message.portfolio.clone(),
+            user_cookie: message.account_cookie.clone(),
+            environment: "real".to_string(),
+            dailyorders: Default::default(),
+            dailytrades: Default::default(),
+            dailyassets: HashMap::new(),
+        };
+        acc
+    }
+
+
     pub fn init_h(&mut self, code: &str) {
         let code: String = code.parse().unwrap();
         self.hold.insert(code.clone(), QA_Postions::new(code.clone(), self.account_cookie.clone(),
@@ -338,6 +390,7 @@ impl QA_Account {
             risk_ratio: self.get_riskratio(),
         }
     }
+
 
 
     pub fn get_codeSubscribed(&mut self) -> Vec<String> {
@@ -852,6 +905,29 @@ mod tests {
         println!("{:#?}", slicestr);
     }
 
+    #[test]
+    fn test_qifi_reload() {
+        println!("test account slice");
+        let code = "RB2005";
+        let mut acc = QA_Account::new("RustT01B2_RBL8", "test", "admin",
+                                      100000.0, false, "real");
+        acc.init_h(code);
+        acc.buy_open(code, 10.0, "2020-01-20 22:10:00", 3500.0);
+        let slice = acc.get_qifi_slice();
+        //println!("account Slice  {:#?}", slice);
+        assert_eq!(acc.get_volume_long(code), 10.0);
+        acc.sell_close(code, 10.0, "2020-01-20 22:10:00", 3600.0);
+        // assert_eq!(acc.get_volume_long(code), 0.0);
+        // //println!("{:#?}", )
+        // println!("LATEST MONEY {:#?}", acc.money);
+        // println!("CLOSE PROFIT {:#?}", acc.accounts.close_profit);
+
+        let slice = acc.get_qifi_slice();
+
+
+        let mut new_acc = QA_Account::new_from_qifi(slice);
+        println!("{:#?}", new_acc.get_qifi_slice());
+    }
 
     #[test]
     fn test_getaccountmessage() {
