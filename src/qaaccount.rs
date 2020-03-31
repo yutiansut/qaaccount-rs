@@ -604,7 +604,7 @@ impl QA_Account {
                         limit_price: price,
                         time_condition: "AND".to_string(),
                         volume_condition: "GFD".to_string(),
-                        insert_date_time: Utc.datetime_from_str(time, "%Y-%m-%d %H:%M:%S").unwrap().timestamp_nanos() - 28800000,
+                        insert_date_time: Utc.datetime_from_str(time, "%Y-%m-%d %H:%M:%S").unwrap().timestamp_nanos() - 28800000000000,
                         exchange_order_id: Uuid::new_v4().to_string(),
                         status: "FINISHED".to_string(),
                         volume_left: 0.0,
@@ -686,7 +686,7 @@ impl QA_Account {
         println!("{:#?}", datetime);
 
 
-        let td = Utc.datetime_from_str(datetime.as_ref(), "%Y-%m-%d %H:%M:%S").unwrap().timestamp_nanos() - 28800000;
+        let td = Utc.datetime_from_str(datetime.as_ref(), "%Y-%m-%d %H:%M:%S").unwrap().timestamp_nanos() - 28800000000000;
         let trade = Trade {
             seqno: 0,
             user_id: self.user_cookie.clone(),
