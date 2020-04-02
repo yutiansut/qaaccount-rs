@@ -419,23 +419,29 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_new() {
+    fn test_new_future() {
         // create a new account
+        // 一个期货合约
         let mut pos = QA_Postions::new("rb2005".to_string(), "test".to_string(), "test_username".to_string(),
                                        "test_accountcookie".to_string(), "test_portfolio".to_string());
-        pos.message()
+        pos.message();
+        assert_eq!(pos.market_type, "future_cn")
     }
 
     #[test]
     fn test_new_stock() {
         // create a new account
+        // 一个股票合约
         let mut pos = QA_Postions::new("000001".to_string(), "test".to_string(), "test_username".to_string(),
                                        "test_accountcookie".to_string(), "test_portfolio".to_string());
-        pos.message()
+        pos.message();
+
+        assert_eq!(pos.market_type, "stock_cn")
     }
 
     #[test]
     fn test_re() {
+        // 基于re模块自动识别  adjust_market 函数
         let a = adjust_market("000001");
         assert_eq!("stock_cn", &a);
 
@@ -446,6 +452,7 @@ mod tests {
     #[test]
     fn test_receivedeal() {
         // create a new account
+        // 测试接受到一个成交单的情况
         let mut pos = QA_Postions::new("rb2005".to_string(), "test".to_string(), "test_username".to_string(),
                                        "test_accountcookie".to_string(), "test_portfolio".to_string());
         pos.update_pos(3600.0, 10.0, 2); //buy open
@@ -453,10 +460,39 @@ mod tests {
         assert_eq!(10.0, pos.volume_long());
     }
 
+    #[test]
+    fn test_stock_receivedeal() {
+        // create a new account
+        // 股票成交单
+        let mut pos = QA_Postions::new("000001".to_string(), "test".to_string(), "test_username".to_string(),
+                                       "test_accountcookie".to_string(), "test_portfolio".to_string());
+        pos.update_pos(36.0, 10000.0, 1); //buy open
+
+        assert_eq!(10000.0, pos.volume_long());
+    }
+
+    #[test]
+    fn test_settle() {
+        // create a new account
+        // 股票成交单
+        let mut pos = QA_Postions::new("000001".to_string(), "test".to_string(), "test_username".to_string(),
+                                       "test_accountcookie".to_string(), "test_portfolio".to_string());
+        pos.update_pos(36.0, 10000.0, 1); //buy open
+
+        assert_eq!(0.0, pos.volume_long_his);
+        assert_eq!(10000.0, pos.volume_long_today);
+
+        pos.settle();
+
+        assert_eq!(10000.0, pos.volume_long());
+        assert_eq!(10000.0, pos.volume_long_his);
+    }
+
 
     #[test]
     fn test_onpricechange() {
         // create a new account
+        // 测试收到一条新的行情的时候的计算
         let mut pos = QA_Postions::new("rb2005".to_string(), "test".to_string(), "test_username".to_string(),
                                        "test_accountcookie".to_string(), "test_portfolio".to_string());
         pos.update_pos(3600.0, 10.0, 2); //buy open

@@ -406,8 +406,6 @@ impl QA_Account {
         }
     }
 
-
-
     pub fn get_codeSubscribed(&mut self) -> Vec<String> {
         // if a QAAccount trades a packages, then it need the get_codeSubscribed to update the price
         // some examples like below
@@ -515,7 +513,9 @@ impl QA_Account {
 
     fn order_check(&mut self, code: &str, amount: f64, price: f64, towards: i32, order_id: String) -> bool {
         let mut res = false;
-
+        if self.hold.contains_key(code) {} else {
+            self.init_h(code);
+        }
         let qapos = self.get_position(code).unwrap();
 
         match towards {
@@ -574,6 +574,7 @@ impl QA_Account {
                 let frozen = coeff * amount;
 //                println!("OPEN FROZEN{:#?}", frozen);
 //                println!("ORDER ID {:#?}", order_id);
+
                 if self.money > frozen {
                     self.money -= frozen;
 
@@ -792,18 +793,28 @@ mod tests {
     #[test]
     fn test_new() {
         // create a new account
+        // 可以正确的创建一个账户
         let mut acc = QA_Account::new("RustT01B2_RBL8", "test", "admin",
                                       100000.0, false, "backtest");
         acc.history_table();
+
+        let mut acc = QA_Account::new("RustT01B2_RBL8", "test", "admin",
+                                      100000.0, false, "real");
     }
 
     #[test]
     fn test_pos() {
         // test get position function
+        // 可以正确初始化一个/多个持仓
         let mut acc = QA_Account::new("RustT01B2_RBL8", "test", "admin",
                                       100000.0, false, "backtest");
         acc.init_h("RB2005");
         acc.get_position("RB2005");
+
+
+        acc.init_h("000001");
+
+        println!("{:#?}", acc.get_codeSubscribed());
     }
 
     #[test]
@@ -821,7 +832,7 @@ mod tests {
         let code = "RB2005";
         let mut acc = QA_Account::new("RustT01B2_RBL8", "test", "admin",
                                       1000000.0, false, "backtest");
-        acc.init_h(code);
+
         acc.buy_open(code, 10.0, "2020-01-20", 3500.0);
         println!("MONEY LEFT{:#?}", acc.money);
         assert_eq!(acc.get_volume_long(code), 10.0);
@@ -834,7 +845,6 @@ mod tests {
         let code = "RB2005";
         let mut acc = QA_Account::new("RustT01B2_RBL8", "test", "admin",
                                       100000.0, false, "backtest");
-        acc.init_h(code);
         acc.sell_open(code, 10.0, "2020-01-20", 3500.0);
         assert_eq!(acc.get_volume_short(code), 10.0);
         acc.history_table();
@@ -872,6 +882,18 @@ mod tests {
         println!("CLOSE PROFIT {:#?}", acc.accounts.close_profit);
         acc.history_table();
     }
+
+    #[test]
+    fn test_stock_buy() {
+        println!("test account slice");
+        let code = "000001";
+        let mut acc = QA_Account::new("rust_test_stock", "test", "admin",
+                                      100000.0, false, "backtest");
+
+        acc.buy(code, 10.0, "2020-01-20 22:10:00", 3500.0);
+        assert_eq!(acc.get_volume_long(code), 10.0);
+    }
+
 
     #[test]
     fn test_stocksell() {
