@@ -1,7 +1,6 @@
 use crate::errors::*;
 use crate::traits::{Close, High, Low, Open, Volume};
 
-
 #[derive(Debug, Clone)]
 pub struct DataItem {
     open: f64,

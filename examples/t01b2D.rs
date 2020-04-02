@@ -13,7 +13,9 @@ use std::io;
 use ndarray::{array, stack};
 use stopwatch::Stopwatch;
 
-use quantaxis_rs::{indicators, Next, qaaccount, qadata, qafetch, qaindicator, qaposition, transaction};
+use quantaxis_rs::{
+    indicators, Next, qaaccount, qadata, qafetch, qaindicator, qaposition, transaction,
+};
 use quantaxis_rs::indicators::{
     BollingerBands, EfficiencyRatio, ExponentialMovingAverage, FastStochastic, HHV, LLV,
     Maximum, Minimum, MoneyFlowIndex, MovingAverage,
@@ -28,7 +30,10 @@ trait FloatIterExt {
     fn float_max(&mut self) -> f64;
 }
 
-impl<T> FloatIterExt for T where T: Iterator<Item=f64> {
+impl<T> FloatIterExt for T
+    where
+        T: Iterator<Item=f64>,
+{
     fn float_max(&mut self) -> f64 {
         self.fold(f64::NAN, f64::max)
     }
@@ -66,8 +71,14 @@ pub fn backtest() -> QA_Account {
     let mut LAE: f64 = 0 as f64;
     let TrailingStart1 = 90.0;
     let TrailingStop1 = 10.0;
-    let mut acc = qaaccount::QA_Account::new("RustT01B2_RBL8", "test", "admin",
-                                             100000.0, false, "backtest");
+    let mut acc = qaaccount::QA_Account::new(
+        "RustT01B2_RBL8",
+        "test",
+        "admin",
+        100000.0,
+        false,
+        "backtest",
+    );
     acc.init_h("RBL8");
     let mut llv_i = LLV::new(K1 as u32).unwrap();
     let mut hhv_i = HHV::new(K2 as u32).unwrap();
@@ -80,10 +91,10 @@ pub fn backtest() -> QA_Account {
         high: 0.0,
         low: 0.0,
         close: 0.0,
-        volume: 0.0
+        volume: 0.0,
     };
     for result in rdr.deserialize() {
-        let bar: qafetch::BAR = result.unwrap() ;
+        let bar: qafetch::BAR = result.unwrap();
         let hour = &bar.datetime[11..13];
 
         let hour_i32 = hour.parse::<i32>().unwrap();
@@ -96,16 +107,15 @@ pub fn backtest() -> QA_Account {
         println!("CrossOVER: {:#?}", crossOver);
         let crossUnder = bar.low < llv_i.cached[K2 - 2] && lastbar.low > llv_i.cached[K2 - 2];
         println!("CrossUnder: {:#?}", crossUnder);
-        let cond1 = ma.cached[n1 -2]> ma.cached[n1 -3] &&
-            ma.cached[n1 - 3] > ma.cached[n1 - 4] &&
-            ma.cached[n1 - 4] > ma.cached[n1 - 5] &&
-            ma.cached[n1 - 5] > ma.cached[n1 - 6];
+        let cond1 = ma.cached[n1 - 2] > ma.cached[n1 - 3]
+            && ma.cached[n1 - 3] > ma.cached[n1 - 4]
+            && ma.cached[n1 - 4] > ma.cached[n1 - 5]
+            && ma.cached[n1 - 5] > ma.cached[n1 - 6];
 
-
-        let cond2 = ma.cached[n1 - 2] < ma.cached[n1 - 3] &&
-            ma.cached[n1 - 3] < ma.cached[n1 - 4] &&
-            ma.cached[n1 - 4] < ma.cached[n1 - 5] &&
-            ma.cached[n1 - 5] < ma.cached[n1 - 6];
+        let cond2 = ma.cached[n1 - 2] < ma.cached[n1 - 3]
+            && ma.cached[n1 - 3] < ma.cached[n1 - 4]
+            && ma.cached[n1 - 4] < ma.cached[n1 - 5]
+            && ma.cached[n1 - 5] < ma.cached[n1 - 6];
 
         let code = bar.code.as_ref();
 
@@ -121,11 +131,21 @@ pub fn backtest() -> QA_Account {
             }
         }
 
-        if (long_pos == 0.0 && short_pos == 0.0  && hour_i32< 21 && hour_i32>=9) {
+        if (long_pos == 0.0 && short_pos == 0.0 && hour_i32 < 21 && hour_i32 >= 9) {
             if crossOver && cond1 {
-                acc.buy_open(bar.code.as_ref(), 10.0, bar.datetime.as_ref(), compare_max(bar.open, hhv_i.cached[K1 - 2]));
+                acc.buy_open(
+                    bar.code.as_ref(),
+                    10.0,
+                    bar.datetime.as_ref(),
+                    compare_max(bar.open, hhv_i.cached[K1 - 2]),
+                );
             } else if crossUnder && cond2 {
-                acc.sell_open(bar.code.as_ref(), 10.0, bar.datetime.as_ref(), compare_min(bar.open, llv_i.cached[K2 - 2]));
+                acc.sell_open(
+                    bar.code.as_ref(),
+                    10.0,
+                    bar.datetime.as_ref(),
+                    compare_min(bar.open, llv_i.cached[K2 - 2]),
+                );
             }
         }
         if (long_pos > 0.0 && short_pos == 0.0) {
@@ -133,8 +153,8 @@ pub fn backtest() -> QA_Account {
 
             let mut stopLine: f64 = acc.get_open_price_long(code) * (100.0 - lossP) / 100.0;
             println!("RAW STOPLINE {:#?}", stopLine);
-            println!("openprice {:#?}", acc.get_open_price_long(code) );
-            println!("HAE {:#?}",HAE);
+            println!("openprice {:#?}", acc.get_open_price_long(code));
+            println!("HAE {:#?}", HAE);
             if (HAE >= (acc.get_open_price_long(code) * (1.0 + TrailingStart1 / 1000.0))) {
                 //println!("CHANGE STOPLINE");
                 stopLine = (HAE * (1.0 - TrailingStop1 / 1000.0));
@@ -142,32 +162,51 @@ pub fn backtest() -> QA_Account {
             println!("NEW STOPLINE {:#?}", stopLine);
             if (crossUnder && cond2) {
                 //println!("CORSSUNDER_SELLCLOSE");
-                acc.sell_close(code, 10.0, bar.datetime.as_ref(), compare_min(bar.open, llv_i.cached[K2 - 2]));
-            }else if (bar.low < stopLine) {
+                acc.sell_close(
+                    code,
+                    10.0,
+                    bar.datetime.as_ref(),
+                    compare_min(bar.open, llv_i.cached[K2 - 2]),
+                );
+            } else if (bar.low < stopLine) {
                 //println!("LOW UNDER_SELLCLOSE");
-                acc.sell_close(code, 10.0, bar.datetime.as_ref(), compare_min(bar.open, stopLine));
+                acc.sell_close(
+                    code,
+                    10.0,
+                    bar.datetime.as_ref(),
+                    compare_min(bar.open, stopLine),
+                );
             }
         }
         if (short_pos > 0.0 && long_pos == 0.0) {
             //println!("当前空单持仓 {:#?}", acc.get_position_short(code));
             let mut stopLine: f64 = acc.get_open_price_short(code) * (100.0 + lossP) / 100.0;
             println!("RAW STOPLINE {:#?}", stopLine);
-            println!("openprice {:#?}", acc.get_open_price_short(code) );
-            println!("LAE {:#?}",LAE);
+            println!("openprice {:#?}", acc.get_open_price_short(code));
+            println!("LAE {:#?}", LAE);
             if (LAE >= (acc.get_open_price_short(code) * (1.0 - TrailingStart1 / 1000.0) as f64)) {
                 stopLine = (LAE * (1.0 + TrailingStop1 / 1000.0));
             }
             println!("NEW STOPLINE {:#?}", stopLine);
             if (crossOver && cond1) {
-                acc.buy_close(code, 10.0, bar.datetime.as_ref(), compare_max(bar.open, hhv_i.cached[K1 - 2]));
+                acc.buy_close(
+                    code,
+                    10.0,
+                    bar.datetime.as_ref(),
+                    compare_max(bar.open, hhv_i.cached[K1 - 2]),
+                );
             }
             if (bar.high >= stopLine) {
                 println!("BUYCLOSE FORCE {:#?} {:#?}", stopLine, bar.high);
                 println!("CurrentBar {:#?}", bar);
-                acc.buy_close(code, 10.0, bar.datetime.as_ref(), compare_max(bar.open, stopLine));
+                acc.buy_close(
+                    code,
+                    10.0,
+                    bar.datetime.as_ref(),
+                    compare_max(bar.open, stopLine),
+                );
             }
         }
-
 
         lastbar = bar;
     }
@@ -177,7 +216,6 @@ pub fn backtest() -> QA_Account {
 
     acc
 }
-
 
 fn main() {
     let sw = Stopwatch::start_new();

@@ -12,11 +12,11 @@ pub struct BAR {
     pub high: f64,
     pub low: f64,
     pub close: f64,
-    pub volume:f64
+    pub volume: f64,
 }
 
-impl BAR{
-    pub fn print(&self){
+impl BAR {
+    pub fn print(&self) {
         println!("{:#?} -{:#?} ", self.datetime, self.open)
     }
 }

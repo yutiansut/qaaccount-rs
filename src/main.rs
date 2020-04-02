@@ -14,14 +14,14 @@ use ndarray::prelude::*;
 use serde_json;
 use stopwatch::Stopwatch;
 
+pub mod market_preset;
 pub mod qaaccount;
 pub mod qadata;
 pub mod qafetch;
-pub mod qaposition;
 pub mod qaindicator;
-pub mod transaction;
-pub mod market_preset;
 pub mod qaorder;
+pub mod qaposition;
+pub mod transaction;
 
 pub struct QABacktest {}
 
@@ -31,9 +31,7 @@ impl QABacktest {
         backtest
     }
 
-    fn init(&mut self) {
-        
-    }
+    fn init(&mut self) {}
 
     fn on_bar(&mut self, bar: qafetch::BAR) {}
 
@@ -45,6 +43,5 @@ impl QABacktest {
 
     fn on_backtest_close(&mut self) {}
 }
-pub fn main() {
 
-}
+pub fn main() {}

@@ -1,22 +1,20 @@
+extern crate num_traits;
+#[macro_use]
+extern crate serde;
 
 use core::fmt::Debug;
 use core::ops::AddAssign;
 
-extern crate num_traits;
-use num_traits::{float::Float, identities::Zero, identities::One, cast::FromPrimitive};
-
-#[macro_use]
-extern crate serde;
-use serde::{Serialize, Deserialize};
-
+use num_traits::{cast::FromPrimitive, float::Float, identities::One, identities::Zero};
+use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct Data<T: Float + Zero + One + AddAssign + FromPrimitive + PartialEq + Debug> {
-    pub min:     T,
-    pub max:     T,
-    pub mean:    T,
-    
-    /// 
+    pub min: T,
+    pub max: T,
+    pub mean: T,
+
+    ///
     pub std_dev: T,
 
     /// count 序列号
@@ -25,15 +23,22 @@ pub struct Data<T: Float + Zero + One + AddAssign + FromPrimitive + PartialEq + 
 
     /// Internal mean squared for algo
     #[serde(skip)]
-    mean2:   T,
+    mean2: T,
 }
 
-impl <T> Data<T>
+impl<T> Data<T>
     where
         T: Float + Zero + One + AddAssign + FromPrimitive + PartialEq + Debug,
 {
     pub fn new() -> Data<T> {
-        Data{count: 0, min: T::zero(), max: T::zero(), mean: T::zero(), std_dev: T::zero(), mean2: T::zero()}
+        Data {
+            count: 0,
+            min: T::zero(),
+            max: T::zero(),
+            mean: T::zero(),
+            std_dev: T::zero(),
+            mean2: T::zero(),
+        }
     }
 
     pub fn update(&mut self, value: T) {
@@ -63,9 +68,7 @@ impl <T> Data<T>
     }
 }
 
-
-
-fn main(){
+fn main() {
     let mut s: Data<f32> = Data::new();
 
     let vals: Vec<f32> = vec![1.0, 2.0, 3.0, 4.0, 5.0];
@@ -75,6 +78,4 @@ fn main(){
         println!("max {:?}", s.max);
         println!("mean {:?}", s.mean);
     }
-
-    
 }

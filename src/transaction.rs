@@ -2,7 +2,7 @@ use serde::{Deserialize, Serialize};
 use serde_json::to_string;
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
-pub struct QATransaction{
+pub struct QATransaction {
     pub code: String,
     pub amount: f64,
     pub price: f64,
@@ -15,12 +15,12 @@ pub struct QATransaction{
     pub tax: f64,
     pub message: String,
     pub frozen: f64,
-    pub direction: i32
+    pub direction: i32,
 }
 
-impl QATransaction{
-    pub fn to_json(&self) -> String{
-        let jdata= serde_json::to_string(&self).unwrap();
+impl QATransaction {
+    pub fn to_json(&self) -> String {
+        let jdata = serde_json::to_string(&self).unwrap();
         jdata
     }
 }

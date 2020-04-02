@@ -27,8 +27,16 @@ pub struct QAOrder {
 }
 
 impl QAOrder {
-    pub fn new(account: String, code: String, towards: i32, exchange_id: String, order_time: String,
-               volume: f64, price: f64, order_id: String) -> Self {
+    pub fn new(
+        account: String,
+        code: String,
+        towards: i32,
+        exchange_id: String,
+        order_time: String,
+        volume: f64,
+        price: f64,
+        order_id: String,
+    ) -> Self {
         let mut direction = "BUY".to_string();
         let mut offset = "OPEN".to_string();
 
@@ -49,7 +57,6 @@ impl QAOrder {
             }
             _ => {}
         }
-
 
         Self {
             account_cookie: account.clone(),

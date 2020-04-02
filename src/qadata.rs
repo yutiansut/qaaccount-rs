@@ -7,7 +7,6 @@ use serde::{Deserialize, Serialize};
 
 //use num_traits::real::Real;
 
-
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct Stats<T: Float + Zero + One + AddAssign + FromPrimitive + PartialEq + Debug> {
     pub min: T,
@@ -23,16 +22,23 @@ pub struct Stats<T: Float + Zero + One + AddAssign + FromPrimitive + PartialEq +
 
     /// Internal mean squared for algo
     #[serde(skip)]
-    mean2:   T,
+    mean2: T,
 }
 
-impl <T> Stats<T>
+impl<T> Stats<T>
     where
         T: Float + Zero + One + AddAssign + FromPrimitive + PartialEq + Debug,
 {
     /// Create a new rolling-stats object
     pub fn new() -> Stats<T> {
-        Stats{count: 0, min: T::zero(), max: T::zero(), mean: T::zero(), std_dev: T::zero(), mean2: T::zero()}
+        Stats {
+            count: 0,
+            min: T::zero(),
+            max: T::zero(),
+            mean: T::zero(),
+            std_dev: T::zero(),
+            mean2: T::zero(),
+        }
     }
 
     /// Update the rolling-stats object
@@ -64,9 +70,7 @@ impl <T> Stats<T>
     }
 }
 
-
-
-fn main(){
+fn main() {
     let mut s: Stats<f32> = Stats::new();
 
     let vals: Vec<f32> = vec![1.0, 2.0, 3.0, 4.0, 5.0];
@@ -76,6 +80,4 @@ fn main(){
         println!("{:?}", s.max);
         println!("{:?}", s.mean);
     }
-
-    
 }

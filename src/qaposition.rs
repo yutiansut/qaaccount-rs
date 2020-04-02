@@ -62,8 +62,7 @@ pub struct QA_Postions {
     pub open_cost_short: f64,
 
     pub lastest_price: f64,
-    pub lastest_datetime: String
-
+    pub lastest_datetime: String,
 }
 
 pub fn adjust_market(code: &str) -> String {
@@ -76,16 +75,19 @@ pub fn adjust_market(code: &str) -> String {
     }
 }
 
-
 impl QA_Postions {
     pub(crate) fn message(&self) {
         println!("{}", self.code.clone());
         let u = serde_json::to_string(self).unwrap();
         println!("{:#?}", u);
     }
-    pub fn new(code: String, user_id: String,
-               username: String, account_cookie: String,
-                portfolio_cookie:String) -> Self {
+    pub fn new(
+        code: String,
+        user_id: String,
+        username: String,
+        account_cookie: String,
+        portfolio_cookie: String,
+    ) -> Self {
         let mut preset: CodePreset = MarketPreset::new().get(code.as_ref());
 
         let pos = Self {
@@ -131,20 +133,24 @@ impl QA_Postions {
             open_price_short: 0.0,
             open_cost_short: 0.0,
             lastest_price: 0.0,
-            lastest_datetime: "".to_string()
+            lastest_datetime: "".to_string(),
         };
         pos
     }
 
-    pub fn new_with_inithold(code: String, user_id: String,
-                             username: String, account_cookie: String,
-                             portfolio_cookie: String,
-                             volume_long_today: f64,
-                             volume_long_his: f64,
-                             volume_short_today: f64,
-                             volume_short_his: f64,
-                             open_price_long: f64,
-                             open_price_short: f64) -> Self {
+    pub fn new_with_inithold(
+        code: String,
+        user_id: String,
+        username: String,
+        account_cookie: String,
+        portfolio_cookie: String,
+        volume_long_today: f64,
+        volume_long_his: f64,
+        volume_short_today: f64,
+        volume_short_his: f64,
+        open_price_long: f64,
+        open_price_short: f64,
+    ) -> Self {
         let mut preset: CodePreset = MarketPreset::new().get(code.as_ref());
 
         let mut pos = Self {
@@ -223,7 +229,6 @@ impl QA_Postions {
         self.volume_short_frozen_today = 0.0;
     }
 
-
     pub fn on_price_change(&mut self, price: f64, datetime: String) {
         // 当行情变化时候 要更新计算持仓
         self.lastest_price = price;
@@ -231,18 +236,18 @@ impl QA_Postions {
     }
 
     pub fn float_profit_long(&mut self) -> f64 {
-        self.lastest_price * self.volume_long() * self.preset.unit_table as f64 - self.open_cost_long
+        self.lastest_price * self.volume_long() * self.preset.unit_table as f64
+            - self.open_cost_long
     }
 
     pub fn float_profit_short(&mut self) -> f64 {
-        self.open_cost_short - self.lastest_price * self.volume_short() * self.preset.unit_table as f64
+        self.open_cost_short
+            - self.lastest_price * self.volume_short() * self.preset.unit_table as f64
     }
-
 
     pub fn float_profit(&mut self) -> f64 {
         self.float_profit_long() + self.float_profit_short()
     }
-
 
     pub fn get_qifi_position(&mut self) -> Position {
         Position {
@@ -289,11 +294,13 @@ impl QA_Postions {
     }
 
     pub fn position_profit_long(&mut self) -> f64 {
-        self.lastest_price * self.volume_long() * self.preset.unit_table as f64 - self.position_cost_long
+        self.lastest_price * self.volume_long() * self.preset.unit_table as f64
+            - self.position_cost_long
     }
 
     pub fn position_profit_short(&mut self) -> f64 {
-        self.position_cost_short - self.lastest_price * self.volume_short() * self.preset.unit_table as f64
+        self.position_cost_short
+            - self.lastest_price * self.volume_short() * self.preset.unit_table as f64
     }
     pub fn position_profit(&mut self) -> f64 {
         self.position_profit_long() + self.position_profit_short()
@@ -313,7 +320,6 @@ impl QA_Postions {
         self.volume_short_frozen_his + self.volume_short_frozen_today
     }
 
-
     pub fn update_pos(&mut self, price: f64, amount: f64, towards: i32) -> (f64, f64) {
         let temp_cost = self.preset.calc_marketvalue(price, amount);
         let mut margin_value = temp_cost * self.preset.buy_frozen_coeff;
@@ -322,12 +328,11 @@ impl QA_Postions {
         let mut profit = 0.0;
         match towards {
             // 当日买入计入volume long frozen
-
             1 => {
                 // buy open logic
                 self.margin_long += margin_value;
-                self.open_price_long = (self.open_price_long * self.volume_long() +
-                    price * amount) / (self.volume_long() + amount);
+                self.open_price_long = (self.open_price_long * self.volume_long() + price * amount)
+                    / (self.volume_long() + amount);
                 self.position_price_long = self.open_price_long;
                 self.volume_long_today += amount;
                 self.open_cost_long += temp_cost;
@@ -336,8 +341,8 @@ impl QA_Postions {
             2 => {
                 // buy open logic
                 self.margin_long += margin_value;
-                self.open_price_long = (self.open_price_long * self.volume_long() +
-                    price * amount) / (self.volume_long() + amount);
+                self.open_price_long = (self.open_price_long * self.volume_long() + price * amount)
+                    / (self.volume_long() + amount);
                 self.position_price_long = self.open_price_long;
                 self.volume_long_today += amount;
                 self.open_cost_long += temp_cost;
@@ -346,8 +351,9 @@ impl QA_Postions {
             -2 => {
                 // sell open logic
                 self.margin_short += margin_value;
-                self.open_price_short = (self.open_price_short * self.volume_short() +
-                    price * amount) / (self.volume_short() + amount);
+                self.open_price_short = (self.open_price_short * self.volume_short()
+                    + price * amount)
+                    / (self.volume_short() + amount);
                 self.position_price_short = self.open_price_short;
                 self.volume_short_today += amount;
                 self.open_cost_short += temp_cost;
@@ -358,8 +364,10 @@ impl QA_Postions {
                 // 有昨仓先平昨仓
 
                 let volume_short = self.volume_short();
-                self.position_cost_short = self.position_cost_short * (volume_short - amount) / volume_short;
-                self.open_cost_short = self.open_cost_short * (volume_short - amount) / volume_short;
+                self.position_cost_short =
+                    self.position_cost_short * (volume_short - amount) / volume_short;
+                self.open_cost_short =
+                    self.open_cost_short * (volume_short - amount) / volume_short;
 
                 self.volume_short_frozen_today -= amount;
 
@@ -367,13 +375,16 @@ impl QA_Postions {
 
                 //self.preset.print();
 
-                margin_value = -1.0 * (self.position_price_short * amount *
-                    self.preset.sell_frozen_coeff *
-                    self.preset.unit_table as f64);
+                margin_value = -1.0
+                    * (self.position_price_short
+                    * amount
+                    * self.preset.sell_frozen_coeff
+                    * self.preset.unit_table as f64);
 
                 //println!("BUY CLOSE XX MV{:#?}", margin_value);
 
-                profit = (self.position_price_short - price) * amount * self.preset.unit_table as f64;
+                profit =
+                    (self.position_price_short - price) * amount * self.preset.unit_table as f64;
                 self.margin_short += margin_value;
             }
             -1 => {
@@ -381,15 +392,19 @@ impl QA_Postions {
                 if amount <= self.volume_long_his {
                     let volume_long = self.volume_long();
 
-                    self.position_cost_long = self.position_cost_long * (volume_long - amount) / volume_long;
-                    self.open_cost_long = self.open_cost_long *
-                        (volume_long - amount) / volume_long;
+                    self.position_cost_long =
+                        self.position_cost_long * (volume_long - amount) / volume_long;
+                    self.open_cost_long =
+                        self.open_cost_long * (volume_long - amount) / volume_long;
 
                     self.volume_long_frozen_today -= amount;
-                    margin_value = -1.0 * (self.position_price_long * amount * self.preset.unit_table as f64 *
-                        self.preset.buy_frozen_coeff);
-                    profit = (price - self.position_price_long) *
-                        amount * self.preset.unit_table as f64;
+                    margin_value = -1.0
+                        * (self.position_price_long
+                        * amount
+                        * self.preset.unit_table as f64
+                        * self.preset.buy_frozen_coeff);
+                    profit =
+                        (price - self.position_price_long) * amount * self.preset.unit_table as f64;
                     self.margin_long += margin_value;
                 } else {}
             }
@@ -397,15 +412,18 @@ impl QA_Postions {
                 //self.volume_long_today -= amount;
 
                 let volume_long = self.volume_long();
-                self.position_cost_long = self.position_cost_long * (volume_long - amount) / volume_long;
-                self.open_cost_long = self.open_cost_long *
-                    (volume_long - amount) / volume_long;
+                self.position_cost_long =
+                    self.position_cost_long * (volume_long - amount) / volume_long;
+                self.open_cost_long = self.open_cost_long * (volume_long - amount) / volume_long;
 
                 self.volume_long_frozen_today -= amount;
-                margin_value = -1.0 * (self.position_price_long * amount * self.preset.unit_table as f64 *
-                    self.preset.buy_frozen_coeff);
-                profit = (price - self.position_price_long) *
-                    amount * self.preset.unit_table as f64;
+                margin_value = -1.0
+                    * (self.position_price_long
+                    * amount
+                    * self.preset.unit_table as f64
+                    * self.preset.buy_frozen_coeff);
+                profit =
+                    (price - self.position_price_long) * amount * self.preset.unit_table as f64;
                 self.margin_long += margin_value;
             }
             _ => {}
@@ -422,8 +440,13 @@ mod tests {
     fn test_new_future() {
         // create a new account
         // 一个期货合约
-        let mut pos = QA_Postions::new("rb2005".to_string(), "test".to_string(), "test_username".to_string(),
-                                       "test_accountcookie".to_string(), "test_portfolio".to_string());
+        let mut pos = QA_Postions::new(
+            "rb2005".to_string(),
+            "test".to_string(),
+            "test_username".to_string(),
+            "test_accountcookie".to_string(),
+            "test_portfolio".to_string(),
+        );
         pos.message();
         assert_eq!(pos.market_type, "future_cn")
     }
@@ -432,8 +455,13 @@ mod tests {
     fn test_new_stock() {
         // create a new account
         // 一个股票合约
-        let mut pos = QA_Postions::new("000001".to_string(), "test".to_string(), "test_username".to_string(),
-                                       "test_accountcookie".to_string(), "test_portfolio".to_string());
+        let mut pos = QA_Postions::new(
+            "000001".to_string(),
+            "test".to_string(),
+            "test_username".to_string(),
+            "test_accountcookie".to_string(),
+            "test_portfolio".to_string(),
+        );
         pos.message();
 
         assert_eq!(pos.market_type, "stock_cn")
@@ -453,8 +481,13 @@ mod tests {
     fn test_receivedeal() {
         // create a new account
         // 测试接受到一个成交单的情况
-        let mut pos = QA_Postions::new("rb2005".to_string(), "test".to_string(), "test_username".to_string(),
-                                       "test_accountcookie".to_string(), "test_portfolio".to_string());
+        let mut pos = QA_Postions::new(
+            "rb2005".to_string(),
+            "test".to_string(),
+            "test_username".to_string(),
+            "test_accountcookie".to_string(),
+            "test_portfolio".to_string(),
+        );
         pos.update_pos(3600.0, 10.0, 2); //buy open
 
         assert_eq!(10.0, pos.volume_long());
@@ -464,8 +497,13 @@ mod tests {
     fn test_stock_receivedeal() {
         // create a new account
         // 股票成交单
-        let mut pos = QA_Postions::new("000001".to_string(), "test".to_string(), "test_username".to_string(),
-                                       "test_accountcookie".to_string(), "test_portfolio".to_string());
+        let mut pos = QA_Postions::new(
+            "000001".to_string(),
+            "test".to_string(),
+            "test_username".to_string(),
+            "test_accountcookie".to_string(),
+            "test_portfolio".to_string(),
+        );
         pos.update_pos(36.0, 10000.0, 1); //buy open
 
         assert_eq!(10000.0, pos.volume_long());
@@ -475,8 +513,13 @@ mod tests {
     fn test_settle() {
         // create a new account
         // 股票成交单
-        let mut pos = QA_Postions::new("000001".to_string(), "test".to_string(), "test_username".to_string(),
-                                       "test_accountcookie".to_string(), "test_portfolio".to_string());
+        let mut pos = QA_Postions::new(
+            "000001".to_string(),
+            "test".to_string(),
+            "test_username".to_string(),
+            "test_accountcookie".to_string(),
+            "test_portfolio".to_string(),
+        );
         pos.update_pos(36.0, 10000.0, 1); //buy open
 
         assert_eq!(0.0, pos.volume_long_his);
@@ -488,13 +531,17 @@ mod tests {
         assert_eq!(10000.0, pos.volume_long_his);
     }
 
-
     #[test]
     fn test_onpricechange() {
         // create a new account
         // 测试收到一条新的行情的时候的计算
-        let mut pos = QA_Postions::new("rb2005".to_string(), "test".to_string(), "test_username".to_string(),
-                                       "test_accountcookie".to_string(), "test_portfolio".to_string());
+        let mut pos = QA_Postions::new(
+            "rb2005".to_string(),
+            "test".to_string(),
+            "test_username".to_string(),
+            "test_accountcookie".to_string(),
+            "test_portfolio".to_string(),
+        );
         pos.update_pos(3600.0, 10.0, 2); //buy open
 
         assert_eq!(10.0, pos.volume_long());
