@@ -162,6 +162,18 @@ impl QA_Account {
 
 
     pub fn new_from_qifi(message: QIFI) -> Self {
+        let mut pos = message.positions;
+        let mut accpos: HashMap<String, QA_Postions> = HashMap::new();
+        for pos_i in pos.values_mut() {
+            accpos.insert(pos_i.instrument_id.to_string(), QA_Postions::new_with_inithold(
+                pos_i.instrument_id.to_string(), pos_i.user_id.to_string(),
+                message.account_cookie.to_string().clone(), message.account_cookie.to_string().clone(),
+                message.account_cookie.to_string(), pos_i.volume_long_today, pos_i.volume_long_his,
+                pos_i.volume_short_today, pos_i.volume_short_his, pos_i.open_price_long, pos_i.open_price_short,
+            ));
+        }
+
+
         let mut acc = Self {
             init_cash: message.accounts.available,
             init_hold: HashMap::new(),
@@ -195,7 +207,7 @@ impl QA_Account {
             },
             cash: vec![message.accounts.available],
             money: message.money.clone(),
-            hold: HashMap::new(),
+            hold: accpos,
             trades: HashMap::new(),
             frozen: HashMap::new(),
             history: vec![],
@@ -366,6 +378,9 @@ impl QA_Account {
         self.dailytrades = HashMap::new();
         self.events = HashMap::new();
 
+        for pos in self.hold.values_mut() {
+            pos.settle();
+        }
         // init the next day cash
         let balance_settle = self.accounts.pre_balance + self.accounts.close_profit;
         self.accounts = account {
@@ -523,7 +538,17 @@ impl QA_Account {
                 }
             }
 
-            -3 | -1 => {
+            -1 => {
+                if (qapos.volume_long_his - qapos.volume_long_frozen()) >= amount {
+                    qapos.volume_long_frozen_today += amount;
+                    qapos.volume_long_today -= amount;
+                    res = true;
+                } else {
+                    println!("SELL CLOSE 仓位不足");
+                }
+            }
+
+            -3 => {
                 if (qapos.volume_long() - qapos.volume_long_frozen()) >= amount {
                     qapos.volume_long_frozen_today += amount;
                     qapos.volume_long_today -= amount;
@@ -673,7 +698,9 @@ impl QA_Account {
             self.money += frozen.money;
             self.frozen.remove(&order_id);
         } else {
-            println!("ERROR NO THAT ORDER {}", order_id)
+            if towards == -1 | 1 | 2 | -2 {
+                println!("ERROR NO THAT ORDER {}", order_id)
+            }
         }
         let qapos = self.get_position(code.as_ref()).unwrap();
         qapos.on_price_change(price.clone(), datetime.clone());
@@ -720,7 +747,9 @@ impl QA_Account {
             //     money: 0.0,
             // });
         } else {
-            println!("ERROR NO THAT ORDER {}", order_id)
+            if towards == -1 | 1 | 2 | -2 {
+                println!("ERROR NO THAT ORDER {}", order_id)
+            }
         }
 
 
@@ -790,14 +819,12 @@ mod tests {
     fn test_buy_open() {
         println!("test buy open");
         let code = "RB2005";
-
         let mut acc = QA_Account::new("RustT01B2_RBL8", "test", "admin",
                                       1000000.0, false, "backtest");
         acc.init_h(code);
         acc.buy_open(code, 10.0, "2020-01-20", 3500.0);
         println!("MONEY LEFT{:#?}", acc.money);
         assert_eq!(acc.get_volume_long(code), 10.0);
-        //println!("{:#?}", )
         acc.history_table();
     }
 
@@ -805,16 +832,11 @@ mod tests {
     fn test_sell_open() {
         println!("test sell open");
         let code = "RB2005";
-
         let mut acc = QA_Account::new("RustT01B2_RBL8", "test", "admin",
                                       100000.0, false, "backtest");
         acc.init_h(code);
         acc.sell_open(code, 10.0, "2020-01-20", 3500.0);
-
         assert_eq!(acc.get_volume_short(code), 10.0);
-
-        //assert_eq!(acc.)
-        //println!("{:#?}", )
         acc.history_table();
     }
 
@@ -823,12 +845,10 @@ mod tests {
     fn test_buy_close() {
         println!("test buy close");
         let code = "RB2005";
-
         let mut acc = QA_Account::new("RustT01B2_RBL8", "test", "admin",
                                       100000.0, false, "backtest");
         acc.init_h(code);
         acc.sell_open(code, 10.0, "2020-01-20", 3500.0);
-
         assert_eq!(acc.get_volume_short(code), 10.0);
         acc.buy_close(code, 10.0, "2020-01-20", 3600.0);
         assert_eq!(acc.get_volume_short(code), 0.0);
@@ -841,20 +861,43 @@ mod tests {
     fn test_sell_close() {
         println!("test sell close");
         let code = "RB2005";
-
         let mut acc = QA_Account::new("RustT01B2_RBL8", "test", "admin",
                                       100000.0, false, "backtest");
         acc.init_h(code);
         acc.buy_open(code, 10.0, "2020-01-20", 3500.0);
         assert_eq!(acc.get_volume_long(code), 10.0);
         acc.sell_close(code, 10.0, "2020-01-20", 3600.0);
-
         assert_eq!(acc.get_volume_long(code), 0.0);
-        //println!("{:#?}", )
         println!("LATEST MONEY {:#?}", acc.money);
         println!("CLOSE PROFIT {:#?}", acc.accounts.close_profit);
-
         acc.history_table();
+    }
+
+    #[test]
+    fn test_stocksell() {
+        println!("test account slice");
+        let code = "000001";
+        let mut acc = QA_Account::new("rust_test_stock", "test", "admin",
+                                      100000.0, false, "real");
+        acc.init_h(code);
+        acc.buy(code, 10.0, "2020-01-20 22:10:00", 3500.0);
+        assert_eq!(acc.get_volume_long(code), 10.0);
+        acc.sell(code, 10.0, "2020-01-20 22:10:00", 3600.0);
+        println!("{:#?}", acc.dailytrades);
+    }
+
+    #[test]
+    fn test_stocksell_with_settle() {
+        println!("test account slice");
+        let code = "000001";
+        let mut acc = QA_Account::new("rust_test_stock", "test", "admin",
+                                      100000.0, false, "real");
+        acc.init_h(code);
+        acc.buy(code, 10.0, "2020-01-20 22:10:00", 3500.0);
+        assert_eq!(acc.get_volume_long(code), 10.0);
+        acc.settle();
+        acc.sell(code, 10.0, "2020-01-20 22:10:00", 3600.0);
+        println!("{:#?}", acc.dailytrades);
     }
 
     #[test]
@@ -870,16 +913,11 @@ mod tests {
         println!("account Slice  {:#?}", slice);
         assert_eq!(acc.get_volume_long(code), 10.0);
         acc.sell_close(code, 10.0, "2020-01-20", 3600.0);
-
         assert_eq!(acc.get_volume_long(code), 0.0);
-        //println!("{:#?}", )
         println!("LATEST MONEY {:#?}", acc.money);
         println!("CLOSE PROFIT {:#?}", acc.accounts.close_profit);
-
         let slice = acc.get_slice();
-
         println!("account Slice  {:#?}", slice);
-
         acc.history_table();
     }
 
@@ -896,10 +934,8 @@ mod tests {
         assert_eq!(acc.get_volume_long(code), 10.0);
         acc.sell_close(code, 10.0, "2020-01-20 22:10:00", 3600.0);
         assert_eq!(acc.get_volume_long(code), 0.0);
-        //println!("{:#?}", )
         println!("LATEST MONEY {:#?}", acc.money);
         println!("CLOSE PROFIT {:#?}", acc.accounts.close_profit);
-
         let slice = acc.get_qifi_slice();
         let slicestr = serde_json::to_string(&slice).unwrap();
         println!("{:#?}", slicestr);
@@ -914,19 +950,34 @@ mod tests {
         acc.init_h(code);
         acc.buy_open(code, 10.0, "2020-01-20 22:10:00", 3500.0);
         let slice = acc.get_qifi_slice();
-        //println!("account Slice  {:#?}", slice);
         assert_eq!(acc.get_volume_long(code), 10.0);
-        acc.sell_close(code, 10.0, "2020-01-20 22:10:00", 3600.0);
-        // assert_eq!(acc.get_volume_long(code), 0.0);
-        // //println!("{:#?}", )
-        // println!("LATEST MONEY {:#?}", acc.money);
-        // println!("CLOSE PROFIT {:#?}", acc.accounts.close_profit);
-
         let slice = acc.get_qifi_slice();
-
-
         let mut new_acc = QA_Account::new_from_qifi(slice);
-        println!("{:#?}", new_acc.get_qifi_slice());
+        assert_eq!(new_acc.get_volume_long(code), 10.0);
+        new_acc.sell_close(code, 10.0, "2020-01-20 22:10:00", 3600.0);
+
+        println!("{:#?}", new_acc.trades);
+
+        println!("{:#?}", new_acc.dailytrades);
+    }
+
+
+    #[test]
+    fn test_stock_qifi_reload() {
+        println!("test account slice");
+        let code = "000001";
+        let mut acc = QA_Account::new("rust_test_stock", "test", "admin",
+                                      100000.0, false, "real");
+        acc.init_h(code);
+        acc.buy_open(code, 10.0, "2020-01-20 22:10:00", 3500.0);
+        let slice = acc.get_qifi_slice();
+        assert_eq!(acc.get_volume_long(code), 10.0);
+        let slice = acc.get_qifi_slice();
+        let mut new_acc = QA_Account::new_from_qifi(slice);
+        assert_eq!(new_acc.get_volume_long(code), 10.0);
+        new_acc.sell_close(code, 10.0, "2020-01-20 22:10:00", 3600.0);
+        println!("{:#?}", new_acc.trades);
+        println!("{:#?}", new_acc.dailytrades);
     }
 
     #[test]

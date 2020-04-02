@@ -215,10 +215,10 @@ impl QA_Postions {
     }
 
     pub fn settle(&mut self) {
-        self.volume_long_his += self.volume_long_today;
+        self.volume_long_his += (self.volume_long_today + self.volume_long_frozen_today);
         self.volume_long_today = 0.0;
         self.volume_long_frozen_today = 0.0;
-        self.volume_short_his += self.volume_short_today;
+        self.volume_short_his += (self.volume_short_today + self.volume_short_frozen_today);
         self.volume_short_today = 0.0;
         self.volume_short_frozen_today = 0.0;
     }
@@ -321,7 +321,19 @@ impl QA_Postions {
         //self.on_price_change(price.clone());
         let mut profit = 0.0;
         match towards {
-            1 | 2 => {
+            // 当日买入计入volume long frozen
+
+            1 => {
+                // buy open logic
+                self.margin_long += margin_value;
+                self.open_price_long = (self.open_price_long * self.volume_long() +
+                    price * amount) / (self.volume_long() + amount);
+                self.position_price_long = self.open_price_long;
+                self.volume_long_today += amount;
+                self.open_cost_long += temp_cost;
+                self.position_cost_long += temp_cost;
+            }
+            2 => {
                 // buy open logic
                 self.margin_long += margin_value;
                 self.open_price_long = (self.open_price_long * self.volume_long() +
