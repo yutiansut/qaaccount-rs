@@ -8,6 +8,7 @@ use chrono::format::ParseError;
 use csv;
 use qifi_rs::{Account, Order, Position, QIFI, Trade};
 use serde::{Deserialize, Serialize};
+use serde_json::to_string;
 use uuid::Uuid;
 
 use crate::market_preset::{CodePreset, MarketPreset};
@@ -265,7 +266,7 @@ impl QA_Account {
             account_cookie: self.account_cookie.clone(),
             password: "".to_string(),
             portfolio: self.portfolio_cookie.clone(),
-            broker_name: "".to_string(),
+            broker_name: "QASIM".to_string(),
             capital_password: "".to_string(),
             bank_password: "".to_string(),
             bankid: "".to_string(),
@@ -275,10 +276,10 @@ impl QA_Account {
             settlement: Default::default(),
             taskid: "".to_string(),
             trade_host: "".to_string(),
-            updatetime: "".to_string(),
+            updatetime: self.time.clone(),
             wsuri: "".to_string(),
-            bankname: "".to_string(),
-            trading_day: "".to_string(),
+            bankname: "QASIM".to_string(),
+            trading_day: self.get_tradingday(),
             status: 200,
             accounts: self.get_accountmessage(),
             banks: Default::default(),
@@ -487,6 +488,10 @@ impl QA_Account {
         self.send_order(code, amount, time, -3, price, "SELL_CLOSE");
     }
 
+    pub fn get_tradingday(&mut self) -> String {
+        (&self.time[0..10]).to_string()
+    }
+
     fn order_check(
         &mut self,
         code: &str,
@@ -669,7 +674,8 @@ impl QA_Account {
     pub fn on_price_change(&mut self, code: String, price: f64, datetime: String) {
         // 当行情变化时候 要更新计算持仓
         let pos = self.get_position(code.as_ref()).unwrap();
-        pos.on_price_change(price, datetime);
+        pos.on_price_change(price, datetime.clone());
+        self.time = datetime;
     }
     /// 获取成交单方向信息的API， 支持股票与期货
     pub fn get_direction_or_offset(&mut self, towards: i32) -> (String, String) {
