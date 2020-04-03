@@ -880,6 +880,26 @@ mod tests {
         acc.history_table();
     }
 
+
+    #[test]
+    fn test_buy_open_for_stock() {
+        println!("test buy open");
+        let code = "000001";
+        let mut acc = QA_Account::new(
+            "RustT01B2_RBL8",
+            "test",
+            "admin",
+            1000000.0,
+            false,
+            "backtest",
+        );
+
+        acc.buy_open(code, 1000.0, "2020-01-20", 35.0);
+        println!("MONEY LEFT{:#?}", acc.money);
+        assert_eq!(acc.get_volume_long(code), 1000.0);
+        acc.history_table();
+    }
+
     #[test]
     fn test_sell_open() {
         println!("test sell open");
@@ -940,6 +960,29 @@ mod tests {
         println!("CLOSE PROFIT {:#?}", acc.accounts.close_profit);
         acc.history_table();
     }
+
+    #[test]
+    fn test_sellclose_for_stock_rzrq() {
+        println!("test buy open");
+        let code = "000001";
+        let mut acc = QA_Account::new(
+            "RustT01B2_RBL8",
+            "test",
+            "admin",
+            1000000.0,
+            false,
+            "backtest",
+        );
+
+        acc.buy_open(code, 1000.0, "2020-01-20", 35.0);
+        println!("MONEY LEFT{:#?}", acc.money);
+        assert_eq!(acc.get_volume_long(code), 1000.0);
+
+
+        acc.sell_close(code, 1000.0, "2020-01-20", 36.0);
+        acc.history_table();
+    }
+
 
     #[test]
     fn test_stock_buy() {
