@@ -137,9 +137,13 @@ mod tests {
         assert_eq!(acc.get_volume_long(code), 10.0);
         acc.buy_close(code, 10.0, "2020-01-20 10:22:00", 3600.0);
         acc.buy_open(code, 10.0, "2020-01-20 13:54:00", 3500.0);
-        acc.sell_open(code, 10.0, "2020-01-20 13:55:00", 3510.0);
-        acc.buy_close(code, 10.0, "2020-01-20 13:56:00", 3514.0);
-        acc.sell_close(code, 10.0, "2020-01-20 14:52:00", 3620.0);
+        acc.buy_open(code, 10.0, "2020-01-20 13:55:00", 3510.0);
+
+        acc.sell_close(code, 20.0, "2020-01-20 14:52:00", 3620.0);
+        acc.buy_open(code, 20.0, "2020-01-21 13:54:00", 3500.0);
+        acc.sell_close(code, 15.0, "2020-01-21 13:55:00", 3510.0);
+
+        acc.sell_close(code, 5.0, "2020-01-21 14:52:00", 3620.0);
         println!("{:#?}", acc.dailytrades);
         for (_, i) in acc.dailytrades.iter_mut() {
             println!("{:#?}", i);
