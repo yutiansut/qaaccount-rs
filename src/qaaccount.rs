@@ -106,6 +106,7 @@ pub struct QA_Account {
     pub dailytrades: HashMap<String, Trade>,
     pub dailyorders: HashMap<String, Order>,
     environment: String,
+    event_id: i32
 }
 
 impl QA_Account {
@@ -161,6 +162,7 @@ impl QA_Account {
             dailyorders: Default::default(),
             dailytrades: Default::default(),
             dailyassets: HashMap::new(),
+            event_id: 0
         };
 
         if auto_reload {
@@ -235,6 +237,7 @@ impl QA_Account {
             dailyorders: message.orders.clone(),
             dailytrades: message.trades.clone(),
             dailyassets: HashMap::new(),
+            event_id: 0
         };
         acc
     }
@@ -400,6 +403,7 @@ impl QA_Account {
         self.dailyorders = HashMap::new();
         self.dailytrades = HashMap::new();
         self.events = HashMap::new();
+        self.event_id = 0;
 
         for pos in self.hold.values_mut() {
             pos.settle();
@@ -614,6 +618,7 @@ impl QA_Account {
         order_id: &str,
     ) -> Result<QAOrder, ()> {
         let order_id: String = Uuid::new_v4().to_string();
+        self.event_id += 1;
         if self.order_check(code, amount, price, towards, order_id.clone()) {
             let order = QAOrder::new(
                 self.account_cookie.clone(),
@@ -643,7 +648,7 @@ impl QA_Account {
                     self.dailyorders.insert(
                         order_id.clone(),
                         Order {
-                            seqno: 0,
+                            seqno: self.event_id.clone(),
                             user_id: self.account_cookie.clone(),
                             order_id: order_id.clone(),
                             exchange_id: "".to_string(),
@@ -676,6 +681,7 @@ impl QA_Account {
                         order_id.clone(),
                         order_id.clone(),
                         towards,
+                        self.event_id.clone(),
                     )
                     // self.events.insert(self.time.clone(), "order insert".to_string());
                 }
@@ -721,6 +727,7 @@ impl QA_Account {
         trade_id: String,
         realorder_id: String,
         towards: i32,
+        event_id: i32,
     ) {
         self.time = datetime.clone();
         if self.frozen.contains_key(&order_id) {
@@ -748,7 +755,7 @@ impl QA_Account {
             .timestamp_nanos()
             - 28800000000000;
         let trade = Trade {
-            seqno: 0,
+            seqno: event_id,
             user_id: self.user_cookie.clone(),
             price,
             order_id,
