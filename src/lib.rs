@@ -14,6 +14,7 @@ pub mod qaorder;
 pub mod qaposition;
 pub mod transaction;
 pub mod qaperformance;
+pub mod trade_date;
 
 
 #[cfg(test)]
