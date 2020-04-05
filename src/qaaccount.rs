@@ -1,5 +1,5 @@
 use std::borrow::Borrow;
-use std::collections::HashMap;
+use std::collections::{BTreeMap, HashMap};
 use std::error::Error;
 use std::io;
 
@@ -10,6 +10,7 @@ use qifi_rs::{Account, Order, Position, QIFI, Trade};
 use serde::{Deserialize, Serialize};
 use serde_json::to_string;
 use uuid::Uuid;
+use uuid::v1::{Context, Timestamp};
 
 use crate::market_preset::{CodePreset, MarketPreset};
 use crate::qaorder::QAOrder;
@@ -103,8 +104,8 @@ pub struct QA_Account {
     pub account_cookie: String,
     pub portfolio_cookie: String,
     pub user_cookie: String,
-    pub dailytrades: HashMap<String, Trade>,
-    pub dailyorders: HashMap<String, Order>,
+    pub dailytrades: BTreeMap<String, Trade>,
+    pub dailyorders: BTreeMap<String, Order>,
     environment: String,
     event_id: i32
 }
@@ -400,8 +401,8 @@ impl QA_Account {
             },
         );
         self.trades = HashMap::new();
-        self.dailyorders = HashMap::new();
-        self.dailytrades = HashMap::new();
+        self.dailyorders = BTreeMap::new();
+        self.dailytrades = BTreeMap::new();
         self.events = HashMap::new();
         self.event_id = 0;
 
@@ -617,8 +618,13 @@ impl QA_Account {
         price: f64,
         order_id: &str,
     ) -> Result<QAOrder, ()> {
-        let order_id: String = Uuid::new_v4().to_string();
         self.event_id += 1;
+        let context = Context::new(self.event_id as u16);
+        let ts = Timestamp::from_unix(&context, 1497624119, 1234);
+        let uuid = Uuid::new_v1(ts, &[1, 2, 3, 4, 5, 6]).expect("failed to generate UUID");
+
+        let order_id: String = uuid.to_string();
+
         if self.order_check(code, amount, price, towards, order_id.clone()) {
             let order = QAOrder::new(
                 self.account_cookie.clone(),

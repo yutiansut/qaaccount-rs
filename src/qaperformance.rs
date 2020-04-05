@@ -61,6 +61,7 @@ impl QAPerformance {
                     _ => { ("", false) }
                 };
                 let u = self.temp.get_mut(raw_direction).unwrap();
+                println!("{:#?}", u);
                 let f = u.get_mut(0).unwrap();
                 if trade.volume > f.amount {
                     // close> raw ==> 注销继续loop
@@ -119,13 +120,13 @@ mod tests {
 
     #[test]
     fn test_to_qifi() {
-        let code = "RB2005";
+        let code = "rb2005";
         let mut p = QAPerformance::new();
         let mut acc = QA_Account::new(
             "RustT01B2_RBL8",
             "test",
             "admin",
-            100000.0,
+            10000000.0,
             false,
             "real",
         );
@@ -133,15 +134,17 @@ mod tests {
         acc.sell_open(code, 10.0, "2020-01-20 09:30:22", 3500.0);
         acc.buy_open(code, 10.0, "2020-01-20 09:52:00", 3500.0);
         assert_eq!(acc.get_volume_short(code), 10.0);
+        assert_eq!(acc.get_volume_long(code), 10.0);
         acc.buy_close(code, 10.0, "2020-01-20 10:22:00", 3600.0);
-
-        acc.sell_close(code, 10.0, "2020-01-20 13:52:00", 3620.0);
-
-
-        for i in acc.dailytrades.values_mut() {
+        acc.buy_open(code, 10.0, "2020-01-20 13:54:00", 3500.0);
+        acc.sell_open(code, 10.0, "2020-01-20 13:55:00", 3510.0);
+        acc.buy_close(code, 10.0, "2020-01-20 13:56:00", 3514.0);
+        acc.sell_close(code, 10.0, "2020-01-20 14:52:00", 3620.0);
+        println!("{:#?}", acc.dailytrades);
+        for (_, i) in acc.dailytrades.iter_mut() {
+            println!("{:#?}", i);
             p.insert_trade(i.to_owned());
         }
-
         println!("{:#?}", p.pair);
     }
 }

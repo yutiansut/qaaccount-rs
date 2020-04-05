@@ -25,7 +25,7 @@ ndarray = "0.13.0" # ndarray
 ndarray-csv = "0.4"
 error-chain = "0.12.1"
 regex = "1"
-uuid = { version = "0.8", features = ["serde", "v4"] }
+uuid = { version = "0.8", features = ["serde", "v1", "v4"] }
 float-cmp = "0.4.0"
 assert_approx_eq = "1.0.0"
 bencher = "0.1.5"
