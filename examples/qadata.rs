@@ -6,6 +6,7 @@ use core::fmt::Debug;
 use core::ops::AddAssign;
 
 use num_traits::{cast::FromPrimitive, float::Float, identities::One, identities::Zero};
+use num_traits::real::Real;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Debug, Serialize, Deserialize)]

@@ -29,6 +29,14 @@ pub struct QAAccountSlice {
     pub trades: HashMap<String, QATransaction>,
 }
 
+
+#[derive(Debug, Clone, Deserialize, Serialize)]
+pub struct account_info {
+    pub datetime: String,
+    pub balance: f64,
+    pub account_cookie: String,
+}
+
 #[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct account {
     pub user_id: String,
@@ -447,6 +455,17 @@ impl QA_Account {
             frozen: self.frozen.clone(),
             trades: self.trades.clone(),
         }
+    }
+
+
+    pub fn get_latest_info(&mut self) -> String {
+        let info = account_info {
+            datetime: self.time.clone(),
+            balance: self.get_balance(),
+            account_cookie: self.account_cookie.clone(),
+        };
+
+        serde_json::to_string(&info).unwrap()
     }
 
     /// history about
@@ -1239,5 +1258,25 @@ mod tests {
         println!("{:#?}", acc.money);
         acc.to_csv();
         //acc.history_table();
+    }
+
+    #[test]
+    fn test_get_info() {
+        let mut acc = QA_Account::new(
+            "RustT01B2_RBL8",
+            "test",
+            "admin",
+            100000.0,
+            false,
+            "backtest",
+        );
+        acc.buy_open("rb2005", 10.0, "2020-01-20", 3500.0);
+        let r = acc.get_latest_info();
+        println!("{:#?}", r);
+        assert_eq!(100000.0, acc.get_balance());
+        acc.on_price_change("rb2005".to_string(), 3600.0, "2020-01-21".to_string());
+        let r = acc.get_latest_info();
+        println!("{:#?}", r);
+        assert_eq!(110000.0, acc.get_balance());
     }
 }
