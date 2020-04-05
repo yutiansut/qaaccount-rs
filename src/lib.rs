@@ -13,6 +13,8 @@ pub mod qaindicator;
 pub mod qaorder;
 pub mod qaposition;
 pub mod transaction;
+pub mod qaperformance;
+
 
 #[cfg(test)]
 #[macro_use]
