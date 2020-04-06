@@ -67,7 +67,7 @@ impl QAPerformance {
                     _ => { ("", false) }
                 };
                 let u = self.temp.get_mut(raw_direction).unwrap();
-                println!("{:#?}", u);
+                // println!("{:#?}", u);
 
                 let mut codeset = self.market_set.get(trade.instrument_id.as_ref());
 
