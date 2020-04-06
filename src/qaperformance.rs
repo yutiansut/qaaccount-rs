@@ -1,10 +1,9 @@
 use std::collections::HashMap;
-
 use qifi_rs::account::Trade;
-
+use serde::{Deserialize, Serialize};
 use crate::market_preset::MarketPreset;
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct QATradePair {
     pub open_datetiem: i64,
     pub close_datetime: i64,
@@ -16,8 +15,7 @@ pub struct QATradePair {
     pub pnl_ratio: f64,
     pub pnl_money: f64,
 }
-
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct Temp {
     pub amount: f64,
     pub direction: String,
@@ -27,7 +25,7 @@ pub struct Temp {
     pub price: f64,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct QAPerformance {
     pub market_set: MarketPreset,
     pub pair: Vec<QATradePair>,
