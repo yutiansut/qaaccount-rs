@@ -1,6 +1,8 @@
 use std::collections::HashMap;
+
 use qifi_rs::account::Trade;
 use serde::{Deserialize, Serialize};
+
 use crate::market_preset::MarketPreset;
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
@@ -12,6 +14,8 @@ pub struct QATradePair {
     pub amount: f64,
     pub open_price: f64,
     pub close_price: f64,
+    pub open_trade_id: String,
+    pub close_trade_id: String,
     pub pnl_ratio: f64,
     pub pnl_money: f64,
 }
@@ -23,6 +27,7 @@ pub struct Temp {
     pub datetime: i64,
     pub code: String,
     pub price: f64,
+    pub trade_id: String
 }
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
@@ -52,6 +57,7 @@ impl QAPerformance {
                     datetime: trade.trade_date_time.clone(),
                     code: trade.instrument_id.clone(),
                     price: trade.price.clone(),
+                    trade_id: trade.trade_id.clone()
                 });
             }
             "CLOSE" => {
@@ -79,6 +85,8 @@ impl QAPerformance {
                         amount: f.amount.clone(),
                         open_price: f.price.clone(),
                         close_price: trade.price.clone(),
+                        open_trade_id: f.trade_id.clone(),
+                        close_trade_id: trade.trade_id.clone(),
                         pnl_ratio,
                         pnl_money,
                     });
@@ -96,6 +104,8 @@ impl QAPerformance {
                         amount: trade.volume.clone(),
                         open_price: f.price.clone(),
                         close_price: trade.price.clone(),
+                        open_trade_id: f.trade_id.clone(),
+                        close_trade_id: trade.trade_id.clone(),
                         pnl_ratio,
                         pnl_money,
                     });
@@ -112,6 +122,8 @@ impl QAPerformance {
                         amount: f.amount.clone(),
                         open_price: f.price.clone(),
                         close_price: trade.price.clone(),
+                        open_trade_id: f.trade_id.clone(),
+                        close_trade_id: trade.trade_id.clone(),
                         pnl_ratio,
                         pnl_money,
                     });
