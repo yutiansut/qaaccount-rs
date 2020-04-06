@@ -67,11 +67,12 @@ impl QAPerformance {
                     _ => { ("", false) }
                 };
                 let u = self.temp.get_mut(raw_direction).unwrap();
-                // println!("{:#?}", u);
+                //println!("{:#?}", u);
 
                 let mut codeset = self.market_set.get(trade.instrument_id.as_ref());
 
                 let f = u.get_mut(0).unwrap();
+
                 if trade.volume > f.amount {
                     // close> raw ==> 注销继续loop
 
@@ -91,7 +92,9 @@ impl QAPerformance {
                         pnl_money,
                     });
                     let mut new_t = trade.clone();
+
                     new_t.volume -= f.amount;
+                    u.remove(0);
                     self.insert_trade(new_t)
                 } else if trade.volume < f.amount {
                     let pnl_money = codeset.unit_table as f64 * (trade.price.clone() - f.price.clone()) * trade.volume.clone();
@@ -110,6 +113,7 @@ impl QAPerformance {
                         pnl_money,
                     });
                     f.amount -= trade.volume.clone();
+
                     //u.insert(0, f.clone());
                 } else {
                     let pnl_money = codeset.unit_table as f64 * (trade.price.clone() - f.price.clone()) * f.amount.clone();
@@ -127,6 +131,7 @@ impl QAPerformance {
                         pnl_ratio,
                         pnl_money,
                     });
+                    u.remove(0);
                 }
             }
             _ => {}
@@ -212,6 +217,39 @@ mod tests {
         }
         println!("{:#?}", p.pair);
         println!("{}", p.get_totalprofit())
+    }
+
+    #[test]
+    fn test_pair() {
+        let mut acc = QA_Account::new(
+            "test",
+            "test",
+            "admin",
+            1000000.0,
+            false,
+            "real",
+        );
+        let code = "Z$002352";
+        let mut p = QAPerformance::new();
+        acc.sell_open(code, 1000.0, "2020-04-03 09:30:22", 46.33);
+        acc.buy_open(code, 1000.0, "2020-04-03 09:52:00", 46.86);
+
+        acc.buy_close(code, 1000.0, "2020-04-03 10:22:00", 47.34);
+        acc.sell_close(code, 1000.0, "2020-04-03 10:22:00", 47.34);
+        acc.buy_open(code, 1000.0, "2020-04-03 13:54:00", 47.1);
+        acc.buy_open(code, 1000.0, "2020-04-03 13:55:00", 47.11);
+
+        acc.sell_close(code, 2000.0, "2020-04-03 14:52:00", 47.17);
+
+        // acc.buy_open(code, 2000.0, "2020-04-03 13:54:00", 47.1);
+        // acc.sell_close(code, 1000.0, "2020-04-03 13:55:00", 47.11);
+        //
+        // acc.sell_close(code, 1000.0, "2020-04-03 14:52:00", 47.17);
+        for (_, i) in acc.dailytrades.iter_mut() {
+            println!("{:#?}", i);
+            p.insert_trade(i.to_owned());
+        }
+        println!("{:#?}", p.pair);
     }
 }
 
