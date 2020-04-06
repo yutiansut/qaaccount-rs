@@ -7,7 +7,7 @@ use crate::market_preset::MarketPreset;
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct QATradePair {
-    pub open_datetiem: i64,
+    pub open_datetime: i64,
     pub close_datetime: i64,
     pub is_buy: bool,
     pub code: String,
@@ -79,7 +79,7 @@ impl QAPerformance {
                     let pnl_money = codeset.unit_table as f64 * (trade.price.clone() - f.price.clone()) * f.amount.clone();
                     let pnl_ratio = pnl_money / (f.price.clone() * f.amount.clone() * codeset.calc_coeff());
                     self.pair.push(QATradePair {
-                        open_datetiem: f.datetime.clone(),
+                        open_datetime: f.datetime.clone(),
                         close_datetime: trade.trade_date_time.clone(),
                         is_buy,
                         code: f.code.clone(),
@@ -100,7 +100,7 @@ impl QAPerformance {
                     let pnl_money = codeset.unit_table as f64 * (trade.price.clone() - f.price.clone()) * trade.volume.clone();
                     let pnl_ratio = pnl_money / (f.price.clone() * trade.volume.clone() * codeset.calc_coeff());
                     self.pair.push(QATradePair {
-                        open_datetiem: f.datetime.clone(),
+                        open_datetime: f.datetime.clone(),
                         close_datetime: trade.trade_date_time.clone(),
                         is_buy,
                         code: f.code.clone(),
@@ -119,7 +119,7 @@ impl QAPerformance {
                     let pnl_money = codeset.unit_table as f64 * (trade.price.clone() - f.price.clone()) * f.amount.clone();
                     let pnl_ratio = pnl_money / (f.price.clone() * f.amount.clone() * codeset.calc_coeff());
                     self.pair.push(QATradePair {
-                        open_datetiem: f.datetime.clone(),
+                        open_datetime: f.datetime.clone(),
                         close_datetime: trade.trade_date_time.clone(),
                         is_buy,
                         code: f.code.clone(),
