@@ -5,44 +5,44 @@ use qifi_rs::account::Trade;
 use crate::market_preset::MarketPreset;
 
 #[derive(Debug, Clone)]
-struct QATradePair {
-    open_datetiem: i64,
-    close_datetime: i64,
-    is_buy: bool,
-    code: String,
-    amount: f64,
-    open_price: f64,
-    close_price: f64,
-    pnl_ratio: f64,
-    pnl_money: f64,
+pub struct QATradePair {
+    pub open_datetiem: i64,
+    pub close_datetime: i64,
+    pub is_buy: bool,
+    pub code: String,
+    pub amount: f64,
+    pub open_price: f64,
+    pub close_price: f64,
+    pub pnl_ratio: f64,
+    pub pnl_money: f64,
 }
 
 #[derive(Debug, Clone)]
-struct Temp {
-    amount: f64,
-    direction: String,
-    offset: String,
-    datetime: i64,
-    code: String,
-    price: f64,
+pub struct Temp {
+    pub amount: f64,
+    pub direction: String,
+    pub offset: String,
+    pub datetime: i64,
+    pub code: String,
+    pub price: f64,
 }
 
 #[derive(Debug, Clone)]
-struct QAPerformance {
-    market_set: MarketPreset,
-    pair: Vec<QATradePair>,
-    temp: HashMap<String, Vec<Temp>>,
+pub struct QAPerformance {
+    pub market_set: MarketPreset,
+    pub pair: Vec<QATradePair>,
+    pub temp: HashMap<String, Vec<Temp>>,
 }
 
 
 impl QAPerformance {
-    fn new() -> Self {
+    pub fn new() -> Self {
         let mut temp = HashMap::new();
         temp.insert("BUY".to_string(), vec![]);
         temp.insert("SELL".to_string(), vec![]);
         QAPerformance { market_set: MarketPreset::new(), pair: vec![], temp }
     }
-    fn insert_trade(&mut self, trade: Trade) {
+    pub fn insert_trade(&mut self, trade: Trade) {
         match trade.offset.as_str() {
             "OPEN" => {
                 let direction = trade.direction.as_str();
@@ -122,7 +122,7 @@ impl QAPerformance {
             _ => {}
         }
     }
-    fn get_totalprofit(&mut self) -> f64 {
+    pub fn get_totalprofit(&mut self) -> f64 {
         let mut profit = 0.0;
         let _: Vec<_> = self.pair.iter_mut().map(|a| { profit += a.pnl_money }).collect();
         profit
