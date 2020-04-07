@@ -30,7 +30,6 @@ pub struct QAAccountSlice {
     pub trades: HashMap<String, QATransaction>,
 }
 
-
 #[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct account_info {
     pub datetime: String,
@@ -107,7 +106,7 @@ pub struct QA_Account {
     pub dailytrades: BTreeMap<String, Trade>,
     pub dailyorders: BTreeMap<String, Order>,
     environment: String,
-    event_id: i32
+    event_id: i32,
 }
 
 impl QA_Account {
@@ -163,7 +162,7 @@ impl QA_Account {
             dailyorders: Default::default(),
             dailytrades: Default::default(),
             dailyassets: HashMap::new(),
-            event_id: 0
+            event_id: 0,
         };
 
         if auto_reload {
@@ -238,7 +237,7 @@ impl QA_Account {
             dailyorders: message.orders.clone(),
             dailytrades: message.trades.clone(),
             dailyassets: HashMap::new(),
-            event_id: 0
+            event_id: 0,
         };
         acc
     }
@@ -461,7 +460,6 @@ impl QA_Account {
             trades: self.trades.clone(),
         }
     }
-
 
     pub fn get_latest_info(&mut self) -> String {
         let info = account_info {
@@ -912,7 +910,6 @@ mod tests {
         acc.history_table();
     }
 
-
     #[test]
     fn test_buy_open_for_stock() {
         println!("test buy open");
@@ -1010,11 +1007,9 @@ mod tests {
         println!("MONEY LEFT{:#?}", acc.money);
         assert_eq!(acc.get_volume_long(code), 1000.0);
 
-
         acc.sell_close(code, 1000.0, "2020-01-20", 36.0);
         acc.history_table();
     }
-
 
     #[test]
     fn test_stock_buy() {
