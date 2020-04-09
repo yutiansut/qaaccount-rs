@@ -1,7 +1,7 @@
 use std::f64::INFINITY;
 use std::fmt;
 
-use crate::{Low, Next, Reset};
+use crate::{Low, Next, Reset, Update};
 use crate::errors::*;
 
 /// Returns the lowest value in a given time frame.
@@ -103,6 +103,25 @@ impl Next<f64> for LLV {
     }
 }
 
+
+impl Update<f64> for LLV {
+    type Output = f64;
+
+    fn update(&mut self, input: f64) -> Self::Output {
+        self.vec[self.cur_index] = input;
+
+        if input < self.vec[self.min_index] {
+            self.min_index = self.cur_index;
+        } else if self.min_index == self.cur_index {
+            self.min_index = self.find_min_index();
+        }
+        self.cached.remove(self.n - 1);
+        self.cached.push(self.vec[self.min_index]);
+
+        self.vec[self.min_index]
+    }
+}
+
 impl<'a, T: Low> Next<&'a T> for LLV {
     type Output = f64;
 
@@ -184,6 +203,20 @@ mod tests {
         assert_eq!(min.next(-9.0), -9.0);
         assert_eq!(min.next(0.0), -9.0);
     }
+
+    #[test]
+    fn test_update() {
+        let mut min = LLV::new(3).unwrap();
+
+        assert_eq!(min.next(4.0), 4.0);
+        assert_eq!(min.next(1.2), 1.2);
+        assert_eq!(min.next(5.0), 1.2);
+        assert_eq!(min.next(3.0), 1.2);
+        assert_eq!(min.next(2.0), 2.0);
+        assert_eq!(min.update(2.5), 2.5);
+        assert_eq!(min.next(2.2), 2.2);
+    }
+
 
     #[test]
     fn test_next_with_bars() {

@@ -1,7 +1,7 @@
 use std::f64::INFINITY;
 use std::fmt;
 
-use crate::{High, Next, Reset};
+use crate::{High, Next, Reset, Update};
 use crate::errors::*;
 
 /// Returns the highest value in a given time frame.
@@ -79,6 +79,24 @@ impl Next<f64> for HHV {
         }
         self.cached.push(self.vec[self.max_index]);
         self.cached.remove(0);
+        self.vec[self.max_index]
+    }
+}
+
+impl Update<f64> for HHV {
+    type Output = f64;
+
+    fn update(&mut self, input: f64) -> Self::Output {
+        self.vec[self.cur_index] = input;
+
+        if input > self.vec[self.max_index] {
+            self.max_index = self.cur_index;
+        } else if self.max_index == self.cur_index {
+            self.max_index = self.find_max_index();
+        }
+        self.cached.remove(self.n - 1);
+        self.cached.push(self.vec[self.max_index]);
+
         self.vec[self.max_index]
     }
 }
@@ -162,6 +180,17 @@ mod tests {
         assert_eq!(max.next(-1.0), 4.0);
         assert_eq!(max.next(-2.0), 0.0);
         assert_eq!(max.next(-1.5), -1.0);
+    }
+
+    #[test]
+    fn test_update() {
+        let mut max = HHV::new(3).unwrap();
+
+        assert_eq!(max.next(4.0), 4.0);
+        assert_eq!(max.next(1.2), 4.0);
+        assert_eq!(max.next(5.0), 5.0);
+        assert_eq!(max.update(3.0), 4.0);
+        assert_eq!(max.next(3.0), 3.0);
     }
 
     #[test]
