@@ -198,6 +198,9 @@ impl QA_Postions {
             lastest_price: 0.0,
             lastest_datetime: "".to_string(),
         };
+        println!("his {:#?}/ today {:#?}/ openprice {:#?}", volume_long_his, volume_long_today, open_price_long);
+        println!("his {:#?}/ today {:#?}/ openprice {:#?}", volume_long_short, volume_long_short, open_price_short);
+
         if volume_long_his > 0.0 {
             pos.update_pos(open_price_long, volume_long_his, 1);
             pos.settle();
