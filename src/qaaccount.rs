@@ -650,6 +650,16 @@ impl QA_Account {
         res
     }
 
+    pub async fn send_order_async(&mut self,
+                                  code: &str,
+                                  amount: f64,
+                                  time: &str,
+                                  towards: i32,
+                                  price: f64,
+                                  order_id: &str) {
+        self.send_order(code, amount, time, towards, price, order_id);
+    }
+
     pub fn send_order(
         &mut self,
         code: &str,

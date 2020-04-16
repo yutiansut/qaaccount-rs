@@ -32,7 +32,8 @@ bencher = "0.1.5"
 rand = "0.6.5"
 qifi-rs = { git="https://github.com/QUANTAXIS/qifi-rs.git" }
 chrono = "0.4.11"
-
+tokio = { version = "0.2.18", features = ["full"] }
+tokio-util = { version = "0.3.0", features = ["full"] }
 [dev-dependencies]
 
 
