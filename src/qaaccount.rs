@@ -656,8 +656,8 @@ impl QA_Account {
                                   time: &str,
                                   towards: i32,
                                   price: f64,
-                                  order_id: &str) {
-        self.send_order(code, amount, time, towards, price, order_id);
+                                  order_id: &str) -> Result<QAOrder, ()> {
+        self.send_order(code, amount, time, towards, price, order_id)
     }
 
     pub fn send_order(
