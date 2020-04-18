@@ -657,7 +657,6 @@ impl QA_Account {
                                   towards: i32,
                                   price: f64,
                                   order_id: &str) -> Option<QAOrder> {
-        println!("111");
         let order = self.send_order(code, amount, time, towards, price, order_id);
         let result = if order.is_ok() {
             Some(order.unwrap())
