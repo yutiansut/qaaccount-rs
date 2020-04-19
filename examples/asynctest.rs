@@ -24,11 +24,5 @@ async fn main() {
     let order = acc.send_order_async(&code, 10.0, "2020-01-20 22:10:00", 2, 3500.0, "BUY_OPEN").await;
     println!("{:#?}", order.unwrap());
 
-    //
-    // let join  =  task::spawn(async {task::spawn_blocking(move||{
-    //
-    //
-    // })});
-    //
-    // println!("{:#?}", join.await.unwrap());
+
 }
