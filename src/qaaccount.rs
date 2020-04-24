@@ -24,10 +24,8 @@ pub struct QAAccountSlice {
     pub datetime: String,
     pub cash: f64,
     pub accounts: account,
-    pub events: HashMap<String, String>,
     pub positions: HashMap<String, QA_Postions>,
-    pub frozen: HashMap<String, QA_Frozen>,
-    pub trades: HashMap<String, QATransaction>,
+
 }
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
@@ -429,6 +427,11 @@ impl QA_Account {
             + self.accounts.close_profit
     }
 
+    pub async fn settle_async(&mut self) {
+        self.settle();
+    }
+
+
     pub fn settle(&mut self) {
         self.dailyassets.insert(
             self.time.clone(),
@@ -436,10 +439,10 @@ impl QA_Account {
                 datetime: self.time.clone(),
                 cash: self.money.clone(),
                 accounts: self.accounts.clone(),
-                events: self.events.clone(),
+                //events: self.events.clone(),
                 positions: self.hold.clone(),
-                frozen: self.frozen.clone(),
-                trades: self.trades.clone(),
+                //frozen: self.frozen.clone(),
+                //trades: self.trades.clone(),
             },
         );
         self.trades = HashMap::new();
@@ -497,10 +500,7 @@ impl QA_Account {
             datetime: self.time.clone(),
             cash: self.money.clone(),
             accounts: self.accounts.clone(),
-            events: self.events.clone(),
             positions: self.hold.clone(),
-            frozen: self.frozen.clone(),
-            trades: self.trades.clone(),
         }
     }
 

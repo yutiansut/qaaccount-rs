@@ -129,7 +129,7 @@ pub fn backtest() -> QA_Account {
             }
         }
 
-        if (long_pos == 0.0 && short_pos == 0.0 && hour_i32 < 21 && hour_i32 >= 9) {
+        if long_pos == 0.0 && short_pos == 0.0 && hour_i32 < 21 && hour_i32 >= 9 {
             if crossOver && cond1 {
                 println!("BUY OPEN");
                 acc.buy_open(
@@ -154,12 +154,12 @@ pub fn backtest() -> QA_Account {
                 LAE = 0.0;
             }
         }
-        if (long_pos > 0.0 && short_pos == 0.0) {
+        if long_pos > 0.0 && short_pos == 0.0 {
             //println!("当前多单持仓");
 
             let mut stopLine: f64 = acc.get_open_price_long(code) * (100.0 - lossP) / 100.0;
-            if (HAE >= (acc.get_open_price_long(code) * (1.0 + TrailingStart1 / 1000.0))
-                && bar_id - count1 >= 1)
+            if HAE >= (acc.get_open_price_long(code) * (1.0 + TrailingStart1 / 1000.0))
+                && bar_id - count1 >= 1
             {
                 //println!("CHANGE STOPLINE");
                 stopLine = (HAE * (1.0 - TrailingStop1 / 1000.0));
@@ -194,7 +194,7 @@ pub fn backtest() -> QA_Account {
             {
                 stopLine = (LAE * (1.0 + TrailingStop1 / 1000.0));
             }
-            if (crossOver && cond1) {
+            if crossOver && cond1 {
                 println!("BUY CLOSE");
                 acc.buy_close(
                     code,
