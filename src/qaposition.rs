@@ -238,6 +238,15 @@ impl QA_Postions {
         self.volume_short_frozen_today = 0.0;
     }
 
+    pub async fn settle_async(&mut self) {
+        self.volume_long_his += (self.volume_long_today + self.volume_long_frozen_today);
+        self.volume_long_today = 0.0;
+        self.volume_long_frozen_today = 0.0;
+        self.volume_short_his += (self.volume_short_today + self.volume_short_frozen_today);
+        self.volume_short_today = 0.0;
+        self.volume_short_frozen_today = 0.0;
+    }
+
     pub fn on_price_change(&mut self, price: f64, datetime: String) {
         // 当行情变化时候 要更新计算持仓
         self.lastest_price = price;
