@@ -44,7 +44,7 @@ impl<T> FloatIterExt for T
 }
 
 fn compare_max(a: f64, b: f64) -> f64 {
-    if (a >= b) {
+    if a >= b {
         a
     } else {
         b
@@ -52,7 +52,7 @@ fn compare_max(a: f64, b: f64) -> f64 {
 }
 
 fn compare_min(a: f64, b: f64) -> f64 {
-    if (a >= b) {
+    if a >= b {
         b
     } else {
         a

@@ -34,17 +34,17 @@ impl<T> FloatIterExt for T
     where
         T: Iterator<Item=f64>,
 {
-    fn float_max(&mut self) -> f64 {
-        self.fold(f64::NAN, f64::max)
-    }
-
     fn float_min(&mut self) -> f64 {
         self.fold(f64::NAN, f64::min)
+    }
+
+    fn float_max(&mut self) -> f64 {
+        self.fold(f64::NAN, f64::max)
     }
 }
 
 fn compare_max(a: f64, b: f64) -> f64 {
-    if (a >= b) {
+    if a >= b {
         a
     } else {
         b
@@ -52,7 +52,7 @@ fn compare_max(a: f64, b: f64) -> f64 {
 }
 
 fn compare_min(a: f64, b: f64) -> f64 {
-    if (a >= b) {
+    if a >= b {
         b
     } else {
         a
@@ -103,10 +103,13 @@ pub fn backtest() -> QA_Account {
         let ind_llv = llv_i.next(bar.low);
         let ind_hhv = hhv_i.next(bar.high);
         let ind_ma = ma.next(bar.open);
+
         let crossOver = bar.high > hhv_i.cached[K1 - 2] && lastbar.high < hhv_i.cached[K1 - 2];
         println!("CrossOVER: {:#?}", crossOver);
+
         let crossUnder = bar.low < llv_i.cached[K2 - 2] && lastbar.low > llv_i.cached[K2 - 2];
         println!("CrossUnder: {:#?}", crossUnder);
+
         let cond1 = ma.cached[n1 - 2] > ma.cached[n1 - 3]
             && ma.cached[n1 - 3] > ma.cached[n1 - 4]
             && ma.cached[n1 - 4] > ma.cached[n1 - 5]
@@ -121,8 +124,8 @@ pub fn backtest() -> QA_Account {
 
         let long_pos = acc.get_volume_long(code);
         let short_pos = acc.get_volume_short(code);
-        if (long_pos > 0.0 || short_pos > 0.0) {
-            if (HAE == 0.0) {
+        if long_pos > 0.0 || short_pos > 0.0 {
+            if HAE == 0.0 {
                 HAE = lastbar.high;
                 LAE = lastbar.low;
             } else {
@@ -131,7 +134,7 @@ pub fn backtest() -> QA_Account {
             }
         }
 
-        if (long_pos == 0.0 && short_pos == 0.0 && hour_i32 < 21 && hour_i32 >= 9) {
+        if long_pos == 0.0 && short_pos == 0.0 && hour_i32 < 21 && hour_i32 >= 9 {
             if crossOver && cond1 {
                 acc.buy_open(
                     bar.code.as_ref(),
@@ -148,19 +151,19 @@ pub fn backtest() -> QA_Account {
                 );
             }
         }
-        if (long_pos > 0.0 && short_pos == 0.0) {
+        if long_pos > 0.0 && short_pos == 0.0 {
             //println!("当前多单持仓");
 
             let mut stopLine: f64 = acc.get_open_price_long(code) * (100.0 - lossP) / 100.0;
             println!("RAW STOPLINE {:#?}", stopLine);
             println!("openprice {:#?}", acc.get_open_price_long(code));
             println!("HAE {:#?}", HAE);
-            if (HAE >= (acc.get_open_price_long(code) * (1.0 + TrailingStart1 / 1000.0))) {
+            if HAE >= (acc.get_open_price_long(code) * (1.0 + TrailingStart1 / 1000.0)) {
                 //println!("CHANGE STOPLINE");
                 stopLine = (HAE * (1.0 - TrailingStop1 / 1000.0));
             }
             println!("NEW STOPLINE {:#?}", stopLine);
-            if (crossUnder && cond2) {
+            if crossUnder && cond2 {
                 //println!("CORSSUNDER_SELLCLOSE");
                 acc.sell_close(
                     code,
@@ -168,7 +171,7 @@ pub fn backtest() -> QA_Account {
                     bar.datetime.as_ref(),
                     compare_min(bar.open, llv_i.cached[K2 - 2]),
                 );
-            } else if (bar.low < stopLine) {
+            } else if bar.low < stopLine {
                 //println!("LOW UNDER_SELLCLOSE");
                 acc.sell_close(
                     code,
@@ -178,17 +181,17 @@ pub fn backtest() -> QA_Account {
                 );
             }
         }
-        if (short_pos > 0.0 && long_pos == 0.0) {
+        if short_pos > 0.0 && long_pos == 0.0 {
             //println!("当前空单持仓 {:#?}", acc.get_position_short(code));
             let mut stopLine: f64 = acc.get_open_price_short(code) * (100.0 + lossP) / 100.0;
             println!("RAW STOPLINE {:#?}", stopLine);
             println!("openprice {:#?}", acc.get_open_price_short(code));
             println!("LAE {:#?}", LAE);
-            if (LAE >= (acc.get_open_price_short(code) * (1.0 - TrailingStart1 / 1000.0) as f64)) {
+            if LAE >= (acc.get_open_price_short(code) * (1.0 - TrailingStart1 / 1000.0) as f64) {
                 stopLine = (LAE * (1.0 + TrailingStop1 / 1000.0));
             }
             println!("NEW STOPLINE {:#?}", stopLine);
-            if (crossOver && cond1) {
+            if crossOver && cond1 {
                 acc.buy_close(
                     code,
                     10.0,
@@ -196,7 +199,7 @@ pub fn backtest() -> QA_Account {
                     compare_max(bar.open, hhv_i.cached[K1 - 2]),
                 );
             }
-            if (bar.high >= stopLine) {
+            if bar.high >= stopLine {
                 println!("BUYCLOSE FORCE {:#?} {:#?}", stopLine, bar.high);
                 println!("CurrentBar {:#?}", bar);
                 acc.buy_close(
