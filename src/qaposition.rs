@@ -487,6 +487,8 @@ mod tests {
         );
         pos.message();
 
+
+        println!("{:#?}", pos.preset);
         assert_eq!(pos.market_type, "stock_cn")
     }
 

@@ -814,10 +814,17 @@ impl QA_Account {
             }
         }
         let qapos = self.get_position(code.as_ref()).unwrap();
+
+        let commission = qapos.clone().preset.calc_commission(price.clone(), amount.clone());
+
         qapos.on_price_change(price.clone(), datetime.clone());
         let (margin, close_profit) = qapos.update_pos(price, amount, towards);
         let (direction, offset) = self.get_direction_or_offset(towards);
-        self.money -= (margin - close_profit);
+        // add calc tax/coeff
+//        qapos.preset.commission_coeff_pervol
+
+
+        self.money -= (margin - close_profit + commission);
         self.accounts.close_profit += close_profit;
         self.cash.push(self.money);
 
@@ -835,7 +842,7 @@ impl QA_Account {
             order_id,
             trade_id: trade_id.clone(),
             exchange_id: "".to_string(),
-            commission: 0.0,
+            commission,
             direction,
             offset,
             instrument_id: code,
@@ -875,13 +882,14 @@ impl QA_Account {
         }
 
         let qapos = self.get_position(code.as_ref()).unwrap();
+        let commission = qapos.clone().preset.calc_commission(price.clone(), amount.clone());
         qapos.on_price_change(price.clone(), datetime.clone());
 
         let (margin, close_profit) = qapos.update_pos(price, amount, towards);
 
         //println!("MARGIN RELEASE {:#?}", margin.clone());
         //println!("CLOSE PROFIT RELEASE {:#?}", close_profit.clone());
-        self.money -= (margin - close_profit);
+        self.money -= (margin - close_profit + commission);
         self.accounts.close_profit += close_profit;
         self.cash.push(self.money);
 
@@ -894,7 +902,7 @@ impl QA_Account {
             trade_id: trade_id.clone(),
             realorder_id,
             account_cookie: self.account_cookie.clone(),
-            commission: 0.0,
+            commission,
             tax: 0.0,
             message: "".to_string(),
             frozen: 0.0,
@@ -1106,7 +1114,9 @@ mod tests {
         acc.init_h(code);
         acc.buy(code, 10.0, "2020-01-20 22:10:00", 3500.0);
         assert_eq!(acc.get_volume_long(code), 10.0);
-        acc.sell(code, 10.0, "2020-01-20 22:10:00", 3600.0);
+
+        acc.settle();
+        acc.sell(code, 10.0, "2020-01-22 22:10:00", 3600.0);
         println!("{:#?}", acc.dailytrades);
     }
 
