@@ -516,11 +516,12 @@ impl QA_Account {
         account_info {
             datetime: self.time.clone(),
             balance: self.get_balance(),
+            account_cookie: self.account_cookie.clone(),
         }
     }
 
     pub fn get_latest_info(&mut self) -> String {
-        let info = self.get_account_info()
+        let info = self.get_account_info();
 
         serde_json::to_string(&info).unwrap()
     }
