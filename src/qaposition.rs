@@ -225,6 +225,10 @@ impl QA_Postions {
         pos
     }
 
+    pub fn get_price_tick(&mut self) -> f64 {
+        self.preset.price_tick
+    }
+
     pub fn margin(&mut self) -> f64 {
         self.margin_long + self.margin_short
     }
@@ -567,6 +571,21 @@ mod tests {
 
         assert_eq!(10000.0, pos.volume_long());
         assert_eq!(10000.0, pos.volume_long_his);
+    }
+
+    #[test]
+    fn test_pricetick() {
+        // create a new account
+        // 一个期货合约
+        let mut pos = QA_Postions::new(
+            "rb2005".to_string(),
+            "test".to_string(),
+            "test_username".to_string(),
+            "test_accountcookie".to_string(),
+            "test_portfolio".to_string(),
+        );
+        pos.message();
+        assert_eq!(pos.get_price_tick(), 1.0)
     }
 
     #[test]
