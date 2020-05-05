@@ -5,6 +5,8 @@ use serde::{Deserialize, Serialize};
 
 use crate::market_preset::MarketPreset;
 
+/// performace is a simple way for analaysis single pair of every trades
+
 #[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct QATradePair {
     pub open_datetime: i64,

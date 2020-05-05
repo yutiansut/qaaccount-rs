@@ -339,6 +339,7 @@ impl QA_Postions {
     }
 
     pub fn update_pos(&mut self, price: f64, amount: f64, towards: i32) -> (f64, f64) {
+        // when update_pos // calc commission fee
         let temp_cost = self.preset.calc_marketvalue(price, amount);
         let mut margin_value = temp_cost * self.preset.buy_frozen_coeff;
         self.lastest_price = price;

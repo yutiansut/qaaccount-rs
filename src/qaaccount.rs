@@ -74,6 +74,8 @@ pub struct account {
     pub available: f64,
     // 可用资金
     pub risk_ratio: f64, // 风险度
+
+
 }
 
 #[warn(non_camel_case_types)]
@@ -105,6 +107,8 @@ pub struct QA_Account {
     pub dailyorders: BTreeMap<String, Order>,
     environment: String,
     event_id: i32,
+    commission_ratio: f64, // 手续费率
+    tax_ratio: f64, // tax for qaaccount
 }
 
 impl QA_Account {
@@ -161,6 +165,8 @@ impl QA_Account {
             dailytrades: Default::default(),
             dailyassets: HashMap::new(),
             event_id: 0,
+            commission_ratio: 0.00025,
+            tax_ratio: 0.001 // only in stock model
         };
 
         if auto_reload {
@@ -279,6 +285,8 @@ impl QA_Account {
             dailytrades: message.trades.clone(),
             dailyassets: HashMap::new(),
             event_id: 0,
+            commission_ratio: 0.00025,
+            tax_ratio: 0.001 // only in stock model
         };
         acc
     }
@@ -504,12 +512,15 @@ impl QA_Account {
         }
     }
 
-    pub fn get_latest_info(&mut self) -> String {
-        let info = account_info {
+    pub fn get_account_info(&mut self) -> account_info {
+        account_info {
             datetime: self.time.clone(),
             balance: self.get_balance(),
-            account_cookie: self.account_cookie.clone(),
-        };
+        }
+    }
+
+    pub fn get_latest_info(&mut self) -> String {
+        let info = self.get_account_info()
 
         serde_json::to_string(&info).unwrap()
     }
