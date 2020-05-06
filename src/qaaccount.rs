@@ -827,6 +827,7 @@ impl QA_Account {
         self.money -= (margin - close_profit + commission + tax);
         self.accounts.close_profit += close_profit;
         self.cash.push(self.money);
+        self.accounts.commission += commission + tax;
 
         println!("{:#?}", datetime);
 
@@ -893,7 +894,7 @@ impl QA_Account {
         self.money -= (margin - close_profit + commission + tax);
         self.accounts.close_profit += close_profit;
         self.cash.push(self.money);
-
+        self.accounts.commission += commission + tax;
         let transaction = transaction::QATransaction {
             code,
             amount,
