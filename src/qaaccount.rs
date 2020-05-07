@@ -29,6 +29,31 @@ pub struct QAAccountSlice {
 }
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
+pub struct QAMOMSlice {
+    pub datetime: String,
+    pub user_id: String,
+    // 用户号 兼容diff协议, ==> 实盘则为具体账户号
+    pub pre_balance: f64,
+    // 上一个交易日的结算权益
+    pub close_profit: f64,
+    // 平仓盈亏
+    pub commission: f64,
+    pub position_profit: f64,
+    // 持仓盈亏
+    pub float_profit: f64,
+    // 浮动盈亏
+    pub balance: f64,
+    // 当前权益
+    pub margin: f64,
+    // 保证金
+    // 冻结附加费用
+    pub available: f64,
+    // 可用资金
+    pub risk_ratio: f64, // 风险度
+}
+
+
+#[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct account_info {
     pub datetime: String,
     pub balance: f64,
@@ -312,6 +337,22 @@ impl QA_Account {
     }
     pub fn get_riskratio(&mut self) -> f64 {
         0.0
+    }
+
+    pub fn get_mom_slice(&mut self) -> QAMOMSlice {
+        QAMOMSlice {
+            datetime: self.time.clone(),
+            user_id: self.account_cookie.clone(),
+            pre_balance: self.accounts.pre_balance,
+            close_profit: self.accounts.close_profit,
+            commission: self.accounts.commission,
+            position_profit: self.get_positionprofit(),
+            float_profit: self.get_floatprofit(),
+            balance: self.get_balance(),
+            margin: self.get_margin(),
+            available: self.money,
+            risk_ratio: self.get_riskratio(),
+        }
     }
 
     /// 创建QIFI的账户切片， 注意他是一个结构体
