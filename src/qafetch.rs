@@ -1,10 +1,9 @@
 use std::error::Error;
 use std::io;
 use std::process;
+use serde::{Deserialize, Serialize};
 
-use serde::Deserialize;
-
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct BAR {
     pub code: String,
     pub datetime: String,
