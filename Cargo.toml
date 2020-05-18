@@ -43,3 +43,7 @@ tokio-util = { version = "0.3.0", features = ["full"] }
 name = "indicators"
 path = "benches/indicators.rs"
 harness = false
+
+[lib]
+name = "quantaxisrs"
+crate-type = ["cdylib"]
