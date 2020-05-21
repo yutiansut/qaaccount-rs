@@ -44,6 +44,3 @@ name = "indicators"
 path = "benches/indicators.rs"
 harness = false
 
-[lib]
-name = "quantaxisrs"
-crate-type = ["cdylib"]
