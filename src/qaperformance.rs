@@ -40,21 +40,63 @@ pub struct Temp {
 }
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
-pub struct QAPerformance {
+pub struct QAPerformance_Single {
     pub market_set: MarketPreset,
     pub pair: Vec<QATradePair>,
     pub temp: HashMap<String, Vec<Temp>>,
 }
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
+pub struct QAPerformance {
+    pub market: HashMap<String, QAPerformance_Single>
+}
+
+#[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct QARiskMessage {}
 
+
 impl QAPerformance {
+    pub fn new() -> Self {
+        QAPerformance {
+            market: HashMap::new()
+        }
+    }
+
+    pub fn insert_trade(&mut self, trade: Trade) {
+        let code = trade.instrument_id.clone();
+        if self.market.contains_key(&code) {
+            self.market.get_mut(&code).unwrap().insert_trade(trade.clone());
+        } else {
+            let mut u = QAPerformance_Single::new();
+            u.insert_trade(trade.clone());
+            self.market.insert(code.clone(), u);
+        }
+    }
+    pub fn get_totalprofit(&mut self) -> f64 {
+        let mut tp: f64 = 0.0;
+        for (_, ps) in self.market.iter_mut() {
+            tp += ps.get_totalprofit();
+        }
+        tp
+    }
+
+    pub fn pair(&mut self) -> Vec<QATradePair> {
+        let mut px = vec![];
+        for (_, ps) in self.market.iter_mut() {
+            for item in &ps.pair {
+                px.push(item.to_owned())
+            }
+        }
+        px
+    }
+}
+
+impl QAPerformance_Single {
     pub fn new() -> Self {
         let mut temp = HashMap::new();
         temp.insert("BUY".to_string(), vec![]);
         temp.insert("SELL".to_string(), vec![]);
-        QAPerformance {
+        QAPerformance_Single {
             market_set: MarketPreset::new(),
             pair: vec![],
             temp,
@@ -241,7 +283,7 @@ mod tests {
     #[test]
     fn test_to_qifi() {
         let code = "rb2005";
-        let mut p = QAPerformance::new();
+        let mut p = QAPerformance_Single::new();
         let mut acc = QA_Account::new("RustT01B2_RBL8", "test", "admin", 10000000.0, false, "real");
         acc.init_h(code);
         acc.sell_open(code, 10.0, "2020-01-20 09:30:22", 3500.0);
@@ -269,7 +311,7 @@ mod tests {
     #[test]
     fn test_backtest() {
         let code = "rb2005";
-        let mut p = QAPerformance::new();
+        let mut p = QAPerformance_Single::new();
         let mut acc = QA_Account::new(
             "RustT01B2_RBL8",
             "test",
@@ -331,11 +373,11 @@ mod tests {
             //     .unwrap()
             //     .timestamp_nanos()
             //     - 28800000000000,
-            println!("{:#?}", Utc.timestamp_nanos(ux.trade_date_time.clone()+ 28800000000000).to_string()[0..19].to_string());
+            println!("{:#?}", Utc.timestamp_nanos(ux.trade_date_time.clone() + 28800000000000).to_string()[0..19].to_string());
             p.insert_trade(i.to_owned());
         }
-        println!("{:#?}", p.pair);
-        println!("{:#?}", p.get_maxprofit());
-        println!("{:#?}", p.get_averageprofit());
+        println!("{:#?}", p.pair());
+        // println!("{:#?}", p.get_maxprofit());
+        // println!("{:#?}", p.get_averageprofit());
     }
 }
