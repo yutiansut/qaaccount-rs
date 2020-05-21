@@ -1,13 +1,13 @@
 use std::collections::HashMap;
 
-use qifi_rs::account::Trade;
-use serde::{Deserialize, Serialize};
 use chrono::{DateTime, FixedOffset, NaiveDate, NaiveDateTime, NaiveTime, TimeZone, Utc};
 use chrono::format::ParseError;
+use qifi_rs::account::Trade;
+use serde::{Deserialize, Serialize};
+
 use crate::market_preset::MarketPreset;
 
 /// performace is a simple way for analaysis single pair of every trades
-
 #[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct QATradePair {
     pub open_datetime: i64,
@@ -306,10 +306,12 @@ mod tests {
         let code = "Z$002352";
         let mut p = QAPerformance::new();
         acc.sell_open(code, 1000.0, "2020-04-03 09:30:22", 46.33);
+        acc.sell_open("RB2005", 10.0, "2020-04-03 09:30:22", 3346.33);
         acc.buy_open(code, 1000.0, "2020-04-03 09:52:00", 46.86);
 
         acc.buy_close(code, 1000.0, "2020-04-03 10:22:00", 47.34);
         acc.sell_close(code, 1000.0, "2020-04-03 10:22:00", 47.34);
+        acc.buy_close("RB2005", 10.0, "2020-04-03 10:30:22", 3246.33);
         acc.buy_open(code, 1000.0, "2020-04-03 13:54:00", 47.1);
         acc.buy_open(code, 1000.0, "2020-04-03 13:55:00", 47.11);
 
