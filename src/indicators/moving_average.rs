@@ -60,6 +60,10 @@ impl MovingAverage {
             }
         }
     }
+
+    pub fn is_real(&self)->bool{
+        self.count-1 >= self.n
+    }
 }
 
 impl Next<f64> for MovingAverage {
@@ -201,6 +205,21 @@ mod tests {
         assert_eq!(ma.next(6.0), 5.75);
         assert_eq!(ma.next(6.0), 6.0);
         assert_eq!(ma.next(2.0), 5.0);
+    }
+
+    #[test]
+    fn test_real() {
+        let mut ma = MovingAverage::new(4).unwrap();
+        ma.next(1.0);
+        assert_eq!(ma.is_real(), false);
+        ma.next(2.0);
+        assert_eq!(ma.is_real(), false);
+        ma.next(3.0);
+        assert_eq!(ma.is_real(), false);
+        ma.next(4.0);
+        assert_eq!(ma.is_real(), true);
+
+
     }
 
     #[test]
