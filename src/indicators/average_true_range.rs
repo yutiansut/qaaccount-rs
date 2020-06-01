@@ -1,7 +1,7 @@
 use std::fmt;
 
 use crate::errors::*;
-use crate::indicators::{ExponentialMovingAverage, TrueRange};
+use crate::indicators::{MovingAverage, TrueRange};
 use crate::{Close, High, Low, Next, Reset, Update};
 use std::f64::INFINITY;
 
@@ -57,7 +57,7 @@ use std::f64::INFINITY;
 #[derive(Debug, Clone)]
 pub struct AverageTrueRange {
     true_range: TrueRange,
-    ema: ExponentialMovingAverage,
+    ma: MovingAverage,
     length: usize,
     pub cached: Vec<f64>
 }
@@ -66,7 +66,7 @@ impl AverageTrueRange {
     pub fn new(length: u32) -> Result<Self> {
         let indicator = Self {
             true_range: TrueRange::new(),
-            ema: ExponentialMovingAverage::new(length)?,
+            ma: MovingAverage::new(length)?,
             length: length as usize,
             cached: vec![-INFINITY; length as usize]
         };
@@ -78,7 +78,7 @@ impl Next<f64> for AverageTrueRange {
     type Output = f64;
 
     fn next(&mut self, input: f64) -> Self::Output {
-        let res = self.ema.next(self.true_range.next(input));
+        let res = self.ma.next(self.true_range.next(input));
         self.cached.push(res);
         self.cached.remove(0);
         res
@@ -88,7 +88,7 @@ impl Update<f64> for AverageTrueRange {
     type Output = f64;
 
     fn update(&mut self, input: f64) -> Self::Output {
-        let res = self.ema.update(self.true_range.update(input));
+        let res = self.ma.update(self.true_range.update(input));
         let x = self.cached.last_mut().unwrap();
         *x = res;
         res
@@ -99,7 +99,7 @@ impl<'a, T: High + Low + Close> Next<&'a T> for AverageTrueRange {
     type Output = f64;
 
     fn next(&mut self, input: &'a T) -> Self::Output {
-        let res = self.ema.next(self.true_range.next(input));
+        let res = self.ma.next(self.true_range.next(input));
         self.cached.push(res);
         self.cached.remove(0);
         res
@@ -110,7 +110,7 @@ impl<'a, T: High + Low + Close> Update<&'a T> for AverageTrueRange {
     type Output = f64;
 
     fn update(&mut self, input: &'a T) -> Self::Output {
-        let res  = self.ema.update(self.true_range.update(input));
+        let res  = self.ma.update(self.true_range.update(input));
         let x = self.cached.last_mut().unwrap();
         *x = res;
         res
@@ -120,7 +120,7 @@ impl<'a, T: High + Low + Close> Update<&'a T> for AverageTrueRange {
 impl Reset for AverageTrueRange {
     fn reset(&mut self) {
         self.true_range.reset();
-        self.ema.reset();
+        self.ma.reset();
     }
 }
 
@@ -132,7 +132,7 @@ impl Default for AverageTrueRange {
 
 impl fmt::Display for AverageTrueRange {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "ATR({})", self.ema.length())
+        write!(f, "ATR({})", self.ma.n)
     }
 }
 
@@ -179,9 +179,9 @@ mod tests {
         let bar2 = Bar::new().high(11).low(9).close(9.5);
         let bar3 = Bar::new().high(9).low(5).close(8);
 
-        assert_eq!(atr.next(&bar1), 2.5);
-        assert_eq!(atr.next(&bar2), 2.25);
-        assert_eq!(atr.next(&bar3), 3.375);
+        assert_eq!(atr.next(&bar1), 0f64);
+        assert_eq!(atr.next(&bar2), 0f64);
+        assert_eq!(atr.next(&bar3), 3f64);
     }
 
     #[test]
@@ -196,7 +196,7 @@ mod tests {
 
         atr.reset();
         let bar3 = Bar::new().high(60).low(15).close(51);
-        assert_eq!(atr.next(&bar3), 45.0);
+        assert_eq!(atr.next(&bar3), 0.0);
     }
 
     #[test]

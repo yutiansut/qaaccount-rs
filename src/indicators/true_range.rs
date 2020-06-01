@@ -50,7 +50,8 @@ use crate::{Close, High, Low, Next, Reset, Update};
 #[derive(Debug, Clone)]
 pub struct TrueRange {
     prev_close: Option<f64>,
-    prev_closeque: Vec<f64>
+    prev_closeque: Vec<f64>,
+
 
 }
 

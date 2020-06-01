@@ -35,7 +35,7 @@ use crate::errors::*;
 ///
 #[derive(Debug, Clone)]
 pub struct MovingAverage {
-    n: u32,
+    pub(crate) n: u32,
     index: usize,
     count: u32,
     sum: f64,
