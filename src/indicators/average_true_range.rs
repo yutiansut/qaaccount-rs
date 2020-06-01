@@ -2,7 +2,8 @@ use std::fmt;
 
 use crate::errors::*;
 use crate::indicators::{ExponentialMovingAverage, TrueRange};
-use crate::{Close, High, Low, Next, Reset};
+use crate::{Close, High, Low, Next, Reset, Update};
+use std::f64::INFINITY;
 
 /// Average true range (ATR).
 ///
@@ -57,6 +58,8 @@ use crate::{Close, High, Low, Next, Reset};
 pub struct AverageTrueRange {
     true_range: TrueRange,
     ema: ExponentialMovingAverage,
+    length: usize,
+    pub cached: Vec<f64>
 }
 
 impl AverageTrueRange {
@@ -64,6 +67,8 @@ impl AverageTrueRange {
         let indicator = Self {
             true_range: TrueRange::new(),
             ema: ExponentialMovingAverage::new(length)?,
+            length: length as usize,
+            cached: vec![-INFINITY; length as usize]
         };
         Ok(indicator)
     }
@@ -73,7 +78,20 @@ impl Next<f64> for AverageTrueRange {
     type Output = f64;
 
     fn next(&mut self, input: f64) -> Self::Output {
-        self.ema.next(self.true_range.next(input))
+        let res = self.ema.next(self.true_range.next(input));
+        self.cached.push(res);
+        self.cached.remove(0);
+        res
+    }
+}
+impl Update<f64> for AverageTrueRange {
+    type Output = f64;
+
+    fn update(&mut self, input: f64) -> Self::Output {
+        let res = self.ema.update(self.true_range.update(input));
+        let x = self.cached.last_mut().unwrap();
+        *x = res;
+        res
     }
 }
 
@@ -81,7 +99,21 @@ impl<'a, T: High + Low + Close> Next<&'a T> for AverageTrueRange {
     type Output = f64;
 
     fn next(&mut self, input: &'a T) -> Self::Output {
-        self.ema.next(self.true_range.next(input))
+        let res = self.ema.next(self.true_range.next(input));
+        self.cached.push(res);
+        self.cached.remove(0);
+        res
+    }
+}
+
+impl<'a, T: High + Low + Close> Update<&'a T> for AverageTrueRange {
+    type Output = f64;
+
+    fn update(&mut self, input: &'a T) -> Self::Output {
+        let res  = self.ema.update(self.true_range.update(input));
+        let x = self.cached.last_mut().unwrap();
+        *x = res;
+        res
     }
 }
 

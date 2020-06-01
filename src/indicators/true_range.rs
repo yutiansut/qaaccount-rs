@@ -1,7 +1,7 @@
 use std::fmt;
 
 use crate::helpers::max3;
-use crate::{Close, High, Low, Next, Reset};
+use crate::{Close, High, Low, Next, Reset, Update};
 
 /// The range of a day's trading is simply _high_ - _low_.
 /// The true range extends it to yesterday's closing price if it was outside of today's range.
@@ -50,11 +50,13 @@ use crate::{Close, High, Low, Next, Reset};
 #[derive(Debug, Clone)]
 pub struct TrueRange {
     prev_close: Option<f64>,
+    prev_closeque: Vec<f64>
+
 }
 
 impl TrueRange {
     pub fn new() -> Self {
-        Self { prev_close: None }
+        Self { prev_close: None, prev_closeque:vec![] }
     }
 }
 
@@ -79,6 +81,20 @@ impl Next<f64> for TrueRange {
             None => 0.0,
         };
         self.prev_close = Some(input);
+        self.prev_closeque.push(input);
+        distance
+    }
+}
+impl Update<f64> for TrueRange {
+    type Output = f64;
+
+    fn update(&mut self, input: f64) -> Self::Output {
+
+        let distance = match self.prev_closeque[self.prev_closeque.len() -2]{
+            prev => (input - prev).abs(),
+            _ => 0.0
+        };
+        //self.prev_close = Some(input);
         distance
     }
 }
@@ -97,6 +113,23 @@ impl<'a, T: High + Low + Close> Next<&'a T> for TrueRange {
             None => bar.high() - bar.low(),
         };
         self.prev_close = Some(bar.close());
+        max_dist
+    }
+}
+impl<'a, T: High + Low + Close> Update<&'a T> for TrueRange {
+    type Output = f64;
+
+    fn update(&mut self, bar: &'a T) -> Self::Output {
+        let max_dist = match self.prev_closeque[self.prev_closeque.len() -2] {
+            prev_close => {
+                let dist1 = bar.high() - bar.low();
+                let dist2 = (bar.high() - prev_close).abs();
+                let dist3 = (bar.low() - prev_close).abs();
+                max3(dist1, dist2, dist3)
+            }
+            _ => bar.high() - bar.low(),
+        };
+        //self.prev_close = Some(bar.close());
         max_dist
     }
 }
@@ -143,6 +176,16 @@ mod tests {
         assert_eq!(round(tr.next(2.5)), 0.0);
         assert_eq!(round(tr.next(3.6)), 1.1);
         assert_eq!(round(tr.next(3.3)), 0.3);
+    }
+
+
+
+    #[test]
+    fn test_update_f64() {
+        let mut tr = TrueRange::new();
+        assert_eq!(round(tr.next(2.5)), 0.0);
+        assert_eq!(round(tr.next(3.6)), 1.1);
+        assert_eq!(round(tr.update(3.3)), 0.8);
     }
 
     #[test]

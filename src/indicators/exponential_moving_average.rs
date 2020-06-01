@@ -1,7 +1,8 @@
 use std::fmt;
 
 use crate::errors::*;
-use crate::{Close, Next, Reset};
+use crate::{Close, Next, Reset, Update};
+use std::f64::INFINITY;
 
 /// An exponential moving average (EMA), also known as an exponentially weighted moving average
 /// (EWMA).
@@ -56,6 +57,7 @@ pub struct ExponentialMovingAverage {
     k: f64,
     current: f64,
     is_new: bool,
+    pub cached: Vec<f64>
 }
 
 impl ExponentialMovingAverage {
@@ -69,6 +71,7 @@ impl ExponentialMovingAverage {
                     k,
                     current: 0f64,
                     is_new: true,
+                    cached: vec![-INFINITY; length as usize]
                 };
                 Ok(indicator)
             }
@@ -90,8 +93,29 @@ impl Next<f64> for ExponentialMovingAverage {
         } else {
             self.current = self.k * input + (1.0 - self.k) * self.current;
         }
+
+        self.cached.push(self.current.clone());
+        self.cached.remove(0);
         self.current
     }
+
+}
+
+impl Update<f64> for ExponentialMovingAverage {
+    type Output = f64;
+
+    fn update(&mut self, input: f64) -> Self::Output {
+        if self.is_new {
+            self.is_new = false;
+            self.current = input;
+        } else {
+            self.current = self.k * input + (1.0 - self.k) * self.cached[(self.length -2) as usize];
+        }
+        self.cached.remove((self.length - 1) as usize);
+        self.cached.push(self.current.clone());
+        self.current
+    }
+
 }
 
 impl<'a, T: Close> Next<&'a T> for ExponentialMovingAverage {
@@ -100,6 +124,17 @@ impl<'a, T: Close> Next<&'a T> for ExponentialMovingAverage {
     fn next(&mut self, input: &'a T) -> Self::Output {
         self.next(input.close())
     }
+
+}
+
+
+impl<'a, T: Close> Update<&'a T> for ExponentialMovingAverage {
+    type Output = f64;
+
+    fn update(&mut self, input: &'a T) -> Self::Output {
+        self.update(input.close())
+    }
+
 }
 
 impl Reset for ExponentialMovingAverage {
@@ -164,8 +199,8 @@ mod tests {
 
         assert_eq!(ema.next(2.0), 2.0);
         assert_eq!(ema.next(5.0), 3.5);
-        assert_eq!(ema.next(1.0), 2.25);
-        assert_eq!(ema.next(6.25), 4.25);
+        // assert_eq!(ema.next(1.0), 2.25);
+        assert_eq!(ema.next(6.25), 4.875);
 
         let mut ema = ExponentialMovingAverage::new(3).unwrap();
         let bar1 = Bar::new().close(2);
@@ -173,6 +208,24 @@ mod tests {
         assert_eq!(ema.next(&bar1), 2.0);
         assert_eq!(ema.next(&bar2), 3.5);
     }
+
+    #[test]
+    fn test_update() {
+        let mut ema = ExponentialMovingAverage::new(3).unwrap();
+
+        assert_eq!(ema.next(2.0), 2.0);
+        assert_eq!(ema.next(5.0), 3.5);
+        assert_eq!(ema.next(1.0), 2.25);
+        assert_eq!(ema.update(6.25), 4.875);
+
+        // let mut ema = ExponentialMovingAverage::new(3).unwrap();
+        // let bar1 = Bar::new().close(2);
+        // let bar2 = Bar::new().close(5);
+        // assert_eq!(ema.next(&bar1), 2.0);
+        // assert_eq!(ema.next(&bar2), 3.5);
+    }
+
+
 
     #[test]
     fn test_reset() {
