@@ -49,14 +49,14 @@ use crate::{Close, High, Low, Next, Reset, Update};
 /// ```
 #[derive(Debug, Clone)]
 pub struct TrueRange {
-    prev_close: Option<f64>,
+
     prev_closeque: Vec<f64>
 
 }
 
 impl TrueRange {
     pub fn new() -> Self {
-        Self { prev_close: None, prev_closeque:vec![] }
+        Self {  prev_closeque:vec![] }
     }
 }
 
@@ -76,13 +76,20 @@ impl Next<f64> for TrueRange {
     type Output = f64;
 
     fn next(&mut self, input: f64) -> Self::Output {
-        let distance = match self.prev_close {
-            Some(prev) => (input - prev).abs(),
-            None => 0.0,
-        };
-        self.prev_close = Some(input);
-        self.prev_closeque.push(input);
-        distance
+        if self.prev_closeque.len()<1{
+            self.prev_closeque.push(input);
+            0.0
+        }else {
+            let distance = match self.prev_closeque[self.prev_closeque.len() - 1] {
+                prev => (input - prev).abs(),
+                _ => 0.0
+            };
+
+            self.prev_closeque.push(input);
+            distance
+        }
+
+
     }
 }
 impl Update<f64> for TrueRange {
@@ -90,12 +97,22 @@ impl Update<f64> for TrueRange {
 
     fn update(&mut self, input: f64) -> Self::Output {
 
-        let distance = match self.prev_closeque[self.prev_closeque.len() -2]{
-            prev => (input - prev).abs(),
-            _ => 0.0
-        };
-        //self.prev_close = Some(input);
-        distance
+        if self.prev_closeque.len()<2{
+            let u = self.prev_closeque.last_mut().unwrap();
+            *u = input;
+            0.0
+        }else{
+            let distance = match self.prev_closeque[self.prev_closeque.len() -2]{
+                prev => (input - prev).abs(),
+                _ => 0.0
+            };
+
+            let u = self.prev_closeque.last_mut().unwrap();
+            *u = input;
+            //self.prev_close = Some(input);
+            distance
+        }
+
     }
 }
 
@@ -103,40 +120,53 @@ impl<'a, T: High + Low + Close> Next<&'a T> for TrueRange {
     type Output = f64;
 
     fn next(&mut self, bar: &'a T) -> Self::Output {
-        let max_dist = match self.prev_close {
-            Some(prev_close) => {
-                let dist1 = bar.high() - bar.low();
-                let dist2 = (bar.high() - prev_close).abs();
-                let dist3 = (bar.low() - prev_close).abs();
-                max3(dist1, dist2, dist3)
-            }
-            None => bar.high() - bar.low(),
-        };
-        self.prev_close = Some(bar.close());
-        max_dist
+        if self.prev_closeque.len()<1{
+            self.prev_closeque.push(bar.close());
+            bar.high()- bar.low()
+        }else{
+            let max_dist = match self.prev_closeque[self.prev_closeque.len() - 1] {
+                prev_close => {
+                    let dist1 = bar.high() - bar.low();
+                    let dist2 = (bar.high() - prev_close).abs();
+                    let dist3 = (bar.low() - prev_close).abs();
+                    max3(dist1, dist2, dist3)
+                }
+                _ => bar.high() - bar.low(),
+            };
+            self.prev_closeque.push(bar.close());
+            max_dist
+        }
     }
 }
 impl<'a, T: High + Low + Close> Update<&'a T> for TrueRange {
     type Output = f64;
 
     fn update(&mut self, bar: &'a T) -> Self::Output {
-        let max_dist = match self.prev_closeque[self.prev_closeque.len() -2] {
-            prev_close => {
-                let dist1 = bar.high() - bar.low();
-                let dist2 = (bar.high() - prev_close).abs();
-                let dist3 = (bar.low() - prev_close).abs();
-                max3(dist1, dist2, dist3)
-            }
-            _ => bar.high() - bar.low(),
-        };
-        //self.prev_close = Some(bar.close());
-        max_dist
+        if self.prev_closeque.len()<2{
+            let u = self.prev_closeque.last_mut().unwrap();
+            *u = bar.close();
+            bar.high() - bar.low()
+        }else{
+            let max_dist = match self.prev_closeque[self.prev_closeque.len() -2] {
+                prev_close => {
+                    let dist1 = bar.high() - bar.low();
+                    let dist2 = (bar.high() - prev_close).abs();
+                    let dist3 = (bar.low() - prev_close).abs();
+                    max3(dist1, dist2, dist3)
+                }
+                _ => bar.high() - bar.low(),
+            };
+            let u = self.prev_closeque.last_mut().unwrap();
+            *u = bar.close();
+            max_dist
+        }
+
     }
 }
 
 impl Reset for TrueRange {
     fn reset(&mut self) {
-        self.prev_close = None;
+        self.prev_closeque = vec![];
     }
 }
 
@@ -184,8 +214,21 @@ mod tests {
     fn test_update_f64() {
         let mut tr = TrueRange::new();
         assert_eq!(round(tr.next(2.5)), 0.0);
-        assert_eq!(round(tr.next(3.6)), 1.1);
-        assert_eq!(round(tr.update(3.3)), 0.8);
+
+        assert_eq!(round(tr.update(3.3)), 0.0);
+
+
+        let mut tr = TrueRange::new();
+        assert_eq!(round(tr.next(2.5)), 0.0);
+        println!("{:#?}", tr);
+        assert_eq!(round(tr.update(3.3)), 0.0);
+        println!("{:#?}", tr);
+        // println!("{:#?}",tr.next(2.5));
+        assert_eq!(round(tr.next(2.5)), 0.8);
+        println!("{:#?}", tr);
+        assert_eq!(round(tr.update(3.6)), 0.3);
+        println!("{:#?}", tr);
+
     }
 
     #[test]
