@@ -24,35 +24,6 @@ use std::f64::INFINITY;
 ///
 /// * _length_ - smoothing period of EMA (integer greater than 0)
 ///
-/// # Example
-///
-/// ```
-/// extern crate quantaxis_rs;
-/// #[macro_use] extern crate assert_approx_eq;
-///
-/// use quantaxis_rs::{Next, DataItem};
-/// use quantaxis_rs::indicators::AverageTrueRange;
-///
-/// fn main() {
-///     let data = vec![
-///         // open, high, low, close, atr
-///         (9.7   , 10.0, 9.0, 9.5  , 1.0),    // tr = high - low = 10.0 - 9.0 = 1.0
-///         (9.9   , 10.4, 9.8, 10.2 , 0.95),   // tr = high - prev_close = 10.4 - 9.5 = 0.9
-///         (10.1  , 10.7, 9.4, 9.7  , 1.125),  // tr = high - low = 10.7 - 9.4 = 1.3
-///         (9.1   , 9.2 , 8.1, 8.4  , 1.3625), // tr = prev_close - low = 9.7 - 8.1 = 1.6
-///     ];
-///     let mut indicator = AverageTrueRange::new(3).unwrap();
-///
-///     for (open, high, low, close, atr) in data {
-///         let di = DataItem::builder()
-///             .high(high)
-///             .low(low)
-///             .close(close)
-///             .open(open)
-///             .volume(1000.0)
-///             .build().unwrap();
-///         assert_approx_eq!(indicator.next(&di), atr);
-///     }
 /// }
 #[derive(Debug, Clone)]
 pub struct AverageTrueRange {
