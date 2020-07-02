@@ -879,7 +879,7 @@ impl QA_Account {
             - 28800000000000;
         let trade = Trade {
             seqno: event_id,
-            user_id: self.user_cookie.clone(),
+            user_id: self.account_cookie.clone(),
             price,
             order_id,
             trade_id: trade_id.clone(),
