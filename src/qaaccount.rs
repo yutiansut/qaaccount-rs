@@ -3,7 +3,7 @@ use std::collections::{BTreeMap, HashMap};
 use std::error::Error;
 use std::io;
 
-use chrono::{DateTime, FixedOffset, NaiveDate, NaiveDateTime, NaiveTime, TimeZone, Utc};
+use chrono::{DateTime, FixedOffset, Local, NaiveDate, NaiveDateTime, NaiveTime, TimeZone, Utc};
 use chrono::format::ParseError;
 use csv;
 use qifi_rs::{Account, Order, Position, QIFI, Trade};
@@ -154,7 +154,7 @@ impl QA_Account {
             allow_margin: false,
             market_preset: MarketPreset::new(),
             auto_reload,
-            time: "".to_string(),
+            time: Local::now().format("%Y-%m-%d %H:%M:%S").to_string();
             events: HashMap::new(),
             accounts: account {
                 user_id: account_cookie.to_string(),
