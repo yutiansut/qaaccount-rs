@@ -16,6 +16,7 @@ use crate::market_preset::{CodePreset, MarketPreset};
 use crate::qaorder::QAOrder;
 use crate::qaposition;
 use crate::qaposition::{QA_Frozen, QA_Postions};
+use crate::trade_date::QATradeDate;
 use crate::transaction;
 use crate::transaction::QATransaction;
 
@@ -607,7 +608,8 @@ impl QA_Account {
     }
 
     pub fn get_tradingday(&mut self) -> String {
-        (&self.time[0..10]).to_string()
+        let mut u = QATradeDate::new();
+        u.get_trade_day(self.time.clone())
     }
 
     fn order_check(
