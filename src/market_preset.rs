@@ -100,7 +100,7 @@ impl MarketPreset {
             CodePreset {
                 name: "黄金".to_string(),
                 unit_table: 1000,
-                price_tick: 0.05,
+                price_tick: 0.02,
                 buy_frozen_coeff: 0.05,
                 sell_frozen_coeff: 0.05,
                 exchange: "SHFE".to_string(),
