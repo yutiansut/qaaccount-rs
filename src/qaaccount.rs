@@ -154,7 +154,7 @@ impl QA_Account {
             allow_margin: false,
             market_preset: MarketPreset::new(),
             auto_reload,
-            time: Local::now().format("%Y-%m-%d %H:%M:%S").to_string();
+            time: Local::now().format("%Y-%m-%d %H:%M:%S").to_string(),
             events: HashMap::new(),
             accounts: account {
                 user_id: account_cookie.to_string(),
