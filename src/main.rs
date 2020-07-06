@@ -22,6 +22,7 @@ pub mod qaindicator;
 pub mod qaorder;
 pub mod qaposition;
 pub mod transaction;
+pub mod trade_date;
 
 pub struct QABacktest {}
 

@@ -3,14 +3,14 @@ use std::collections::{BTreeMap, HashMap};
 use std::error::Error;
 use std::io;
 
-use chrono::{DateTime, FixedOffset, Local, NaiveDate, NaiveDateTime, NaiveTime, TimeZone, Utc};
 use chrono::format::ParseError;
+use chrono::{DateTime, FixedOffset, Local, NaiveDate, NaiveDateTime, NaiveTime, TimeZone, Utc};
 use csv;
-use qifi_rs::{Account, Order, Position, QIFI, Trade};
+use qifi_rs::{Account, Order, Position, Trade, QIFI};
 use serde::{Deserialize, Serialize};
 use serde_json::to_string;
-use uuid::Uuid;
 use uuid::v1::{Context, Timestamp};
+use uuid::Uuid;
 
 use crate::market_preset::{CodePreset, MarketPreset};
 use crate::qaorder::QAOrder;
@@ -19,14 +19,12 @@ use crate::qaposition::{QA_Frozen, QA_Postions};
 use crate::trade_date::QATradeDate;
 use crate::transaction;
 use crate::transaction::QATransaction;
-
 #[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct QAAccountSlice {
     pub datetime: String,
     pub cash: f64,
     pub accounts: account,
     pub positions: HashMap<String, QA_Postions>,
-
 }
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
@@ -52,7 +50,6 @@ pub struct QAMOMSlice {
     // 可用资金
     pub risk_ratio: f64, // 风险度
 }
-
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct account_info {
@@ -100,8 +97,6 @@ pub struct account {
     pub available: f64,
     // 可用资金
     pub risk_ratio: f64, // 风险度
-
-
 }
 
 #[warn(non_camel_case_types)]
@@ -134,7 +129,7 @@ pub struct QA_Account {
     environment: String,
     event_id: i32,
     commission_ratio: f64, // 手续费率
-    tax_ratio: f64, // tax for qaaccount
+    tax_ratio: f64,        // tax for qaaccount
 }
 
 impl QA_Account {
@@ -192,7 +187,7 @@ impl QA_Account {
             dailyassets: HashMap::new(),
             event_id: 0,
             commission_ratio: 0.00025,
-            tax_ratio: 0.001 // only in stock model
+            tax_ratio: 0.001, // only in stock model
         };
 
         if auto_reload {
@@ -312,7 +307,7 @@ impl QA_Account {
             dailyassets: HashMap::new(),
             event_id: 0,
             commission_ratio: 0.00025,
-            tax_ratio: 0.001 // only in stock model
+            tax_ratio: 0.001, // only in stock model
         };
         acc
     }
@@ -481,7 +476,6 @@ impl QA_Account {
         self.settle();
     }
 
-
     pub fn settle(&mut self) {
         self.dailyassets.insert(
             self.time.clone(),
@@ -621,7 +615,8 @@ impl QA_Account {
         order_id: String,
     ) -> bool {
         let mut res = false;
-        if self.hold.contains_key(code) {} else {
+        if self.hold.contains_key(code) {
+        } else {
             self.init_h(code);
         }
         let qapos = self.get_position(code).unwrap();
@@ -705,13 +700,15 @@ impl QA_Account {
         res
     }
 
-    pub async fn send_order_async(&mut self,
-                                  code: &str,
-                                  amount: f64,
-                                  time: &str,
-                                  towards: i32,
-                                  price: f64,
-                                  order_id: &str) -> Option<QAOrder> {
+    pub async fn send_order_async(
+        &mut self,
+        code: &str,
+        amount: f64,
+        time: &str,
+        towards: i32,
+        price: f64,
+        order_id: &str,
+    ) -> Option<QAOrder> {
         let order = self.send_order(code, amount, time, towards, price, order_id);
         let result = if order.is_ok() {
             Some(order.unwrap())
@@ -858,14 +855,19 @@ impl QA_Account {
         }
         let qapos = self.get_position(code.as_ref()).unwrap();
 
-        let commission = qapos.clone().preset.calc_commission(price.clone(), amount.clone());
-        let tax = qapos.clone().preset.calc_tax(price.clone(), amount.clone(), towards.clone());
+        let commission = qapos
+            .clone()
+            .preset
+            .calc_commission(price.clone(), amount.clone());
+        let tax = qapos
+            .clone()
+            .preset
+            .calc_tax(price.clone(), amount.clone(), towards.clone());
         qapos.on_price_change(price.clone(), datetime.clone());
         let (margin, close_profit) = qapos.update_pos(price, amount, towards);
         let (direction, offset) = self.get_direction_or_offset(towards);
         // add calc tax/coeff
-//        qapos.preset.commission_coeff_pervol
-
+        //        qapos.preset.commission_coeff_pervol
 
         self.money -= (margin - close_profit + commission + tax);
         self.accounts.close_profit += close_profit;
@@ -914,11 +916,11 @@ impl QA_Account {
             self.money += frozen.money;
             self.frozen.remove(&order_id);
 
-            // self.frozen.insert(order_id.clone(), QA_Frozen {
-            //     amount: 0.0,
-            //     coeff: 0.0,
-            //     money: 0.0,
-            // });
+        // self.frozen.insert(order_id.clone(), QA_Frozen {
+        //     amount: 0.0,
+        //     coeff: 0.0,
+        //     money: 0.0,
+        // });
         } else {
             if towards == -1 | 1 | 2 | -2 {
                 println!("ERROR NO THAT ORDER {}", order_id)
@@ -926,8 +928,14 @@ impl QA_Account {
         }
 
         let qapos = self.get_position(code.as_ref()).unwrap();
-        let commission = qapos.clone().preset.calc_commission(price.clone(), amount.clone());
-        let tax = qapos.clone().preset.calc_tax(price.clone(), amount.clone(), towards.clone());
+        let commission = qapos
+            .clone()
+            .preset
+            .calc_commission(price.clone(), amount.clone());
+        let tax = qapos
+            .clone()
+            .preset
+            .calc_tax(price.clone(), amount.clone(), towards.clone());
         qapos.on_price_change(price.clone(), datetime.clone());
 
         let (margin, close_profit) = qapos.update_pos(price, amount, towards);
