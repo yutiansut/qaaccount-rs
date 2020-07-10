@@ -95,10 +95,10 @@ impl QAOrder {
             direction: self.direction.clone(),
             offset: self.offset.clone(),
             volume: self.volume as i64,
-            price_type: "LIMIT".to_string(),
+            price_type: self.price_type.clone(),
             limit_price: self.price,
-            volume_condition: "ANY".to_string(),
-            time_condition: "GFD".to_string()
+            volume_condition: self.volume_condition.clone(),
+            time_condition: self.time_condition.clone()
         }
     }
 }
