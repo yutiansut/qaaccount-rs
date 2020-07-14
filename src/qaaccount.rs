@@ -692,6 +692,7 @@ impl QA_Account {
 
                     res = true
                 } else {
+                    println!("当前可用money {:#?}, 需要冻结 {:#?}", self.money, frozen);
                     println!("余额不足");
                 }
             }
