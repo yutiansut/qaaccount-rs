@@ -740,7 +740,7 @@ impl QA_Account {
                 code.clone().to_string(),
                 towards,
                 "".to_string(),
-                "".to_string(),
+                time.to_string(),
                 amount,
                 price,
                 order_id.clone(),
@@ -875,7 +875,7 @@ impl QA_Account {
         self.cash.push(self.money);
         self.accounts.commission += commission + tax;
 
-        println!("{:#?}", datetime);
+        println!("{:?} {:?} {:?} {:?}", datetime,code,direction,offset);
 
         let td = Utc
             .datetime_from_str(datetime.as_ref(), "%Y-%m-%d %H:%M:%S")
