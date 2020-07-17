@@ -117,7 +117,7 @@ impl QAPerformance_Single {
                     trade_id: trade.trade_id.clone(),
                 });
             }
-            "CLOSE" => {
+            "CLOSE" | "CLOSETODAY" => {
                 let (raw_direction, is_buy) = match trade.direction.as_str() {
                     "BUY" => ("SELL", false),
                     "SELL" => ("BUY", true),
@@ -358,6 +358,45 @@ mod tests {
         acc.buy_open(code, 1000.0, "2020-04-03 13:55:00", 47.11);
 
         acc.sell_close(code, 2000.0, "2020-04-03 14:52:00", 47.17);
+
+        // acc.buy_open(code, 2000.0, "2020-04-03 13:54:00", 47.1);
+        // acc.sell_close(code, 1000.0, "2020-04-03 13:55:00", 47.11);
+        //
+        // acc.sell_close(code, 1000.0, "2020-04-03 14:52:00", 47.17);
+
+        for (_, i) in acc.dailytrades.iter_mut() {
+            println!("{:#?}", i);
+            let ux: Trade = i.to_owned();
+
+            // insert_date_time: Utc
+            //     .datetime_from_str(time, "%Y-%m-%d %H:%M:%S")
+            //     .unwrap()
+            //     .timestamp_nanos()
+            //     - 28800000000000,
+            println!("{:#?}", Utc.timestamp_nanos(ux.trade_date_time.clone() + 28800000000000).to_string()[0..19].to_string());
+            p.insert_trade(i.to_owned());
+        }
+        println!("{:#?}", p.pair());
+        // println!("{:#?}", p.get_maxprofit());
+        // println!("{:#?}", p.get_averageprofit());
+    }
+
+    #[test]
+    fn test_pairtoday() {
+        let mut acc = QA_Account::new("test", "test", "admin", 1000000.0, false, "real");
+        let code = "Z$002352";
+        let mut p = QAPerformance::new();
+        acc.sell_open(code, 1000.0, "2020-04-03 09:30:22", 46.33);
+        acc.sell_open("RB2005", 10.0, "2020-04-03 09:30:22", 3346.33);
+        acc.buy_open(code, 1000.0, "2020-04-03 09:52:00", 46.86);
+
+        acc.buy_closetoday(code, 1000.0, "2020-04-03 10:22:00", 47.34);
+        acc.sell_closetoday(code, 1000.0, "2020-04-03 10:22:00", 47.34);
+        acc.buy_closetoday("RB2005", 10.0, "2020-04-03 10:30:22", 3246.33);
+        acc.buy_open(code, 1000.0, "2020-04-03 13:54:00", 47.1);
+        acc.buy_open(code, 1000.0, "2020-04-03 13:55:00", 47.11);
+
+        acc.sell_closetoday(code, 2000.0, "2020-04-03 14:52:00", 47.17);
 
         // acc.buy_open(code, 2000.0, "2020-04-03 13:54:00", 47.1);
         // acc.sell_close(code, 1000.0, "2020-04-03 13:55:00", 47.11);
