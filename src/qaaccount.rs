@@ -600,7 +600,12 @@ impl QA_Account {
     pub fn sell_close(&mut self, code: &str, amount: f64, time: &str, price: f64) {
         self.send_order(code, amount, time, -3, price, "SELL_CLOSE");
     }
-
+    pub fn buy_closetoday(&mut self, code: &str, amount: f64, time: &str, price: f64) {
+        self.send_order(code, amount, time, 4, price, "BUY_CLOSETODAY");
+    }
+    pub fn sell_closetoday(&mut self, code: &str, amount: f64, time: &str, price: f64) {
+        self.send_order(code, amount, time, -4, price, "SELL_CLOSETODAY");
+    }
     pub fn get_tradingday(&mut self) -> String {
         let mut u = QATradeDate::new();
         u.get_trade_day(self.time.clone())
