@@ -820,8 +820,14 @@ impl QA_Account {
         // 当行情变化时候 要更新计算持仓
         let pos = self.get_position(code.as_ref()).unwrap();
         pos.on_price_change(price, datetime.clone());
+        self.change_datetime(datetime);
+    }
+
+    pub fn change_datetime(&mut self, datetime:String){
+        // 用于切换时间
         self.time = datetime;
     }
+
     /// 获取成交单方向信息的API， 支持股票与期货
     pub fn get_direction_or_offset(&mut self, towards: i32) -> (String, String) {
         let rt = match towards {
