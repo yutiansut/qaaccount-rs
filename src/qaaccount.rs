@@ -886,7 +886,7 @@ impl QA_Account {
         self.cash.push(self.money);
         self.accounts.commission += commission + tax;
 
-        println!("{:?} {:?} {:?} {:?}", datetime,code,direction,offset);
+        // println!("{:?} {:?} {:?} {:?}", datetime,code,direction,offset);
 
         let td = Utc
             .datetime_from_str(datetime.as_ref(), "%Y-%m-%d %H:%M:%S")
