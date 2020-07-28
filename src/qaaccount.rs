@@ -195,6 +195,9 @@ impl QA_Account {
         }
         acc
     }
+    pub fn set_portfoliocookie(&mut self, portfolio: String) {
+        self.portfolio_cookie = portfolio;
+    }
 
     pub fn new_from_qifi(message: QIFI) -> Self {
         let mut pos = message.positions;
