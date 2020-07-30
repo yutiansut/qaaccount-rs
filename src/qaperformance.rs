@@ -133,9 +133,12 @@ impl QAPerformance_Single {
                 if trade.volume > f.amount {
                     // close> raw ==> 注销继续loop
                     let hold_gap = (trade.trade_date_time.clone() - f.datetime.clone()) as f64/1000000000.0;
-                    let pnl_money = codeset.unit_table as f64
+                    let mut pnl_money = codeset.unit_table as f64
                         * (trade.price.clone() - f.price.clone())
                         * f.amount.clone();
+                    if !is_buy{
+                        pnl_money = pnl_money * -1.0;
+                    }
                     let pnl_ratio =
                         pnl_money / (f.price.clone() * f.amount.clone() * codeset.calc_coeff());
                     self.pair.push(QATradePair {
@@ -161,9 +164,12 @@ impl QAPerformance_Single {
                     self.insert_trade(new_t)
                 } else if trade.volume < f.amount {
                     let hold_gap: f64 = (trade.trade_date_time.clone() - f.datetime.clone()) as f64/1000000000.0;
-                    let pnl_money = codeset.unit_table as f64
+                    let mut pnl_money = codeset.unit_table as f64
                         * (trade.price.clone() - f.price.clone())
                         * trade.volume.clone();
+                    if !is_buy{
+                        pnl_money = pnl_money * -1.0;
+                    }
                     let pnl_ratio =
                         pnl_money / (f.price.clone() * trade.volume.clone() * codeset.calc_coeff());
                     self.pair.push(QATradePair {
@@ -186,9 +192,12 @@ impl QAPerformance_Single {
 
                     //u.insert(0, f.clone());
                 } else {
-                    let pnl_money = codeset.unit_table as f64
+                    let mut pnl_money = codeset.unit_table as f64
                         * (trade.price.clone() - f.price.clone())
                         * f.amount.clone();
+                    if !is_buy{
+                        pnl_money = pnl_money * -1.0;
+                    }
                     let pnl_ratio =
                         pnl_money / (f.price.clone() * f.amount.clone() * codeset.calc_coeff());
                     let hold_gap:f64 = (trade.trade_date_time.clone() - f.datetime.clone()) as f64/1000000000.0;
