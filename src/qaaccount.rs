@@ -502,7 +502,8 @@ impl QA_Account {
             pos.settle();
         }
         // init the next day cash
-        let balance_settle = self.accounts.pre_balance + self.accounts.close_profit;
+        let balance_settle =
+            self.accounts.pre_balance + self.accounts.close_profit - self.accounts.commission;
         self.accounts = account {
             user_id: self.account_cookie.to_string(),
             currency: "CNY".to_string(),
@@ -826,7 +827,7 @@ impl QA_Account {
         self.change_datetime(datetime);
     }
 
-    pub fn change_datetime(&mut self, datetime:String){
+    pub fn change_datetime(&mut self, datetime: String) {
         // 用于切换时间
         self.time = datetime;
     }
@@ -865,7 +866,7 @@ impl QA_Account {
             self.frozen.remove(&order_id);
         } else {
             if towards == -1 | 1 | 2 | -2 {
-                println!("ERROR NO THAT ORDER {}", order_id)
+                println!("NOT IN DAY ORDER {}", order_id)
             }
         }
         let qapos = self.get_position(code.as_ref()).unwrap();
