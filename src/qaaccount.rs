@@ -737,6 +737,13 @@ impl QA_Account {
         order_id: &str,
     ) -> Result<QAOrder, ()> {
         self.event_id += 1;
+        let datetimer = if time.len() ==10{
+            format!("{} 00:00:00", time.to_string())
+        }else{
+            time.to_string()
+        };
+        let datetime = datetimer.as_str();
+
         let context = Context::new(self.event_id as u16);
         let ts = Timestamp::from_unix(&context, 1497624119, 1234);
         let uuid = Uuid::new_v1(ts, &[1, 2, 3, 4, 5, 6]).expect("failed to generate UUID");
@@ -749,7 +756,7 @@ impl QA_Account {
                 code.clone().to_string(),
                 towards,
                 "".to_string(),
-                time.to_string(),
+                datetime.to_string(),
                 amount,
                 price,
                 order_id.clone(),
@@ -760,7 +767,7 @@ impl QA_Account {
                         code.parse().unwrap(),
                         amount,
                         price,
-                        time.parse().unwrap(),
+                        datetime.parse().unwrap(),
                         order_id.clone(),
                         order_id.clone(),
                         order_id.clone(),
@@ -768,6 +775,8 @@ impl QA_Account {
                     );
                 }
                 "real" => {
+
+
                     let (direction, offset) = self.get_direction_or_offset(towards);
                     self.dailyorders.insert(
                         order_id.clone(),
@@ -785,7 +794,7 @@ impl QA_Account {
                             time_condition: "AND".to_string(),
                             volume_condition: "GFD".to_string(),
                             insert_date_time: Utc
-                                .datetime_from_str(time, "%Y-%m-%d %H:%M:%S")
+                                .datetime_from_str(datetime, "%Y-%m-%d %H:%M:%S")
                                 .unwrap()
                                 .timestamp_nanos()
                                 - 28800000000000,
@@ -800,14 +809,14 @@ impl QA_Account {
                         code.parse().unwrap(),
                         amount,
                         price,
-                        time.parse().unwrap(),
+                        datetime.parse().unwrap(),
                         order_id.clone(),
                         order_id.clone(),
                         order_id.clone(),
                         towards,
                         self.event_id.clone(),
                     )
-                    // self.events.insert(self.time.clone(), "order insert".to_string());
+                    // self.events.insert(self.datetime.clone(), "order insert".to_string());
                 }
                 _ => {
                     self.events
@@ -819,6 +828,7 @@ impl QA_Account {
             Err(())
         }
     }
+
 
     pub fn on_price_change(&mut self, code: String, price: f64, datetime: String) {
         // 当行情变化时候 要更新计算持仓
@@ -1075,7 +1085,25 @@ mod tests {
         assert_eq!(acc.get_volume_long(code), 1000.0);
         acc.history_table();
     }
+    #[test]
+    fn test_realaccountmodel_for_stock() {
+        println!("test buy open");
+        let code = "000001";
+        let mut acc = QA_Account::new(
+            "RustT01B2_RBL8",
+            "test",
+            "admin",
+            1000000.0,
+            false,
+            "real",
+        );
 
+        acc.buy_open(code, 1000.0, "2020-01-20", 35.0);
+        println!("MONEY LEFT{:#?}", acc.money);
+        assert_eq!(acc.get_volume_long(code), 1000.0);
+        println!("QIFI {:#?}", acc.get_qifi_slice());
+        //acc.history_table();
+    }
     #[test]
     fn test_sell_open() {
         println!("test sell open");
