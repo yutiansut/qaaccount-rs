@@ -1015,18 +1015,28 @@ impl QATradeDate {
         self.to_string(res)
     }
     pub fn get_trade_day(&mut self, datetime: String) -> String {
-        let hour = datetime[11..13].parse::<i32>().unwrap();
-        let date = datetime[0..10].to_string();
-        if hour < 16 {
-            if self.if_trade_date(&date) {
-                date
+
+        if datetime.len() == 10{
+            if self.if_trade_date(&datetime) {
+                datetime
             } else {
-                self.get_next_day(&date)
+                self.get_next_day(&datetime)
             }
-        } else {
-            let today = self.get_real_date(&datetime[0..10]);
-            self.get_next_day(&today)
+        }else{
+            let hour = datetime[11..13].parse::<i32>().unwrap();
+            let date = datetime[0..10].to_string();
+            if hour < 16 {
+                if self.if_trade_date(&date) {
+                    date
+                } else {
+                    self.get_next_day(&date)
+                }
+            } else {
+                let today = self.get_real_date(&datetime[0..10]);
+                self.get_next_day(&today)
+            }
         }
+
     }
 }
 
