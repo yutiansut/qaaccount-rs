@@ -1119,6 +1119,9 @@ mod tests {
         let x = u.get_trade_day("2020-07-03 22:00".to_string());
         println!("{:#?}", x);
         assert_eq!(&x, "2020-07-06");
+        let x = u.get_trade_day("2020-07-03 16:22:00".to_string());
+        println!("{:#?}", x);
+        assert_eq!(&x, "2020-07-06");
         let x = u.get_trade_day("2020-07-05 22:00".to_string());
         println!("{:#?}", x);
         assert_eq!(&x, "2020-07-06");
