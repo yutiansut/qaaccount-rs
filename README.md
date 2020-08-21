@@ -19,3 +19,30 @@
 power by yutiansut/somewheve
 
 2020
+
+
+### update MARKET_PRESET
+```python
+
+import QUANTAXIS as QA
+
+
+mp = QA.QAARP.MARKET_PRESET()
+for k,i in mp.table.items():
+    print(f"""market_preset.insert(
+            "{k}".to_string(),
+            CodePreset {{
+                name: "{i['name']}".to_string(),
+                unit_table: {int(i['unit_table'])},
+                price_tick: {float(i['price_tick'])},
+                buy_frozen_coeff: {i['buy_frozen_coeff']},
+                sell_frozen_coeff:{i['sell_frozen_coeff']},
+                exchange: "{i['exchange']}".to_string(),
+                commission_coeff_peramount: {float(i['commission_coeff_peramount'])},
+                commission_coeff_pervol:{float(i['commission_coeff_pervol'])},
+                commission_coeff_today_peramount: {float(i['commission_coeff_today_peramount'])},
+                commission_coeff_today_pervol: {float(i['commission_coeff_today_pervol'])},
+            }},
+        );""")
+
+```
