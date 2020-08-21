@@ -66,7 +66,7 @@ impl MarketPreset {
     pub fn new() -> Self {
         let mut market_preset: HashMap<String, CodePreset> = HashMap::new();
         market_preset.insert(
-            "白银".to_string(),
+            "AG".to_string(),
             CodePreset {
                 name: "白银".to_string(),
                 unit_table: 15,
@@ -81,7 +81,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "铝".to_string(),
+            "AL".to_string(),
             CodePreset {
                 name: "铝".to_string(),
                 unit_table: 5,
@@ -96,7 +96,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "黄金".to_string(),
+            "AU".to_string(),
             CodePreset {
                 name: "黄金".to_string(),
                 unit_table: 1000,
@@ -111,7 +111,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "石油沥青".to_string(),
+            "BU".to_string(),
             CodePreset {
                 name: "石油沥青".to_string(),
                 unit_table: 10,
@@ -126,7 +126,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "铜".to_string(),
+            "CU".to_string(),
             CodePreset {
                 name: "铜".to_string(),
                 unit_table: 5,
@@ -141,7 +141,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "燃料油".to_string(),
+            "FU".to_string(),
             CodePreset {
                 name: "燃料油".to_string(),
                 unit_table: 10,
@@ -156,7 +156,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "热轧卷板".to_string(),
+            "HC".to_string(),
             CodePreset {
                 name: "热轧卷板".to_string(),
                 unit_table: 10,
@@ -171,7 +171,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "镍".to_string(),
+            "NI".to_string(),
             CodePreset {
                 name: "镍".to_string(),
                 unit_table: 1,
@@ -186,7 +186,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "铅".to_string(),
+            "PB".to_string(),
             CodePreset {
                 name: "铅".to_string(),
                 unit_table: 5,
@@ -201,7 +201,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "螺纹钢".to_string(),
+            "RB".to_string(),
             CodePreset {
                 name: "螺纹钢".to_string(),
                 unit_table: 10,
@@ -216,7 +216,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "天然橡胶".to_string(),
+            "RU".to_string(),
             CodePreset {
                 name: "天然橡胶".to_string(),
                 unit_table: 10,
@@ -231,7 +231,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "锡".to_string(),
+            "SN".to_string(),
             CodePreset {
                 name: "锡".to_string(),
                 unit_table: 1,
@@ -246,7 +246,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "漂针浆".to_string(),
+            "SP".to_string(),
             CodePreset {
                 name: "漂针浆".to_string(),
                 unit_table: 10,
@@ -261,7 +261,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "线材".to_string(),
+            "WR".to_string(),
             CodePreset {
                 name: "线材".to_string(),
                 unit_table: 10,
@@ -276,7 +276,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "锌".to_string(),
+            "ZN".to_string(),
             CodePreset {
                 name: "锌".to_string(),
                 unit_table: 5,
@@ -291,7 +291,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "豆一".to_string(),
+            "A".to_string(),
             CodePreset {
                 name: "豆一".to_string(),
                 unit_table: 10,
@@ -306,7 +306,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "豆二".to_string(),
+            "B".to_string(),
             CodePreset {
                 name: "豆二".to_string(),
                 unit_table: 10,
@@ -321,7 +321,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "细木工板".to_string(),
+            "BB".to_string(),
             CodePreset {
                 name: "细木工板".to_string(),
                 unit_table: 500,
@@ -336,7 +336,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "黄玉米".to_string(),
+            "C".to_string(),
             CodePreset {
                 name: "黄玉米".to_string(),
                 unit_table: 10,
@@ -351,7 +351,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "玉米淀粉".to_string(),
+            "CS".to_string(),
             CodePreset {
                 name: "玉米淀粉".to_string(),
                 unit_table: 10,
@@ -366,7 +366,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "乙二醇".to_string(),
+            "EG".to_string(),
             CodePreset {
                 name: "乙二醇".to_string(),
                 unit_table: 10,
@@ -381,7 +381,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "中密度纤维板".to_string(),
+            "FB".to_string(),
             CodePreset {
                 name: "中密度纤维板".to_string(),
                 unit_table: 500,
@@ -396,7 +396,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "铁矿石".to_string(),
+            "I".to_string(),
             CodePreset {
                 name: "铁矿石".to_string(),
                 unit_table: 100,
@@ -411,7 +411,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "冶金焦炭".to_string(),
+            "J".to_string(),
             CodePreset {
                 name: "冶金焦炭".to_string(),
                 unit_table: 100,
@@ -426,7 +426,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "鲜鸡蛋".to_string(),
+            "JD".to_string(),
             CodePreset {
                 name: "鲜鸡蛋".to_string(),
                 unit_table: 10,
@@ -441,7 +441,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "焦煤".to_string(),
+            "JM".to_string(),
             CodePreset {
                 name: "焦煤".to_string(),
                 unit_table: 60,
@@ -456,7 +456,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "线型低密度聚乙烯".to_string(),
+            "L".to_string(),
             CodePreset {
                 name: "线型低密度聚乙烯".to_string(),
                 unit_table: 5,
@@ -471,7 +471,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "豆粕".to_string(),
+            "M".to_string(),
             CodePreset {
                 name: "豆粕".to_string(),
                 unit_table: 10,
@@ -486,7 +486,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "棕榈油".to_string(),
+            "P".to_string(),
             CodePreset {
                 name: "棕榈油".to_string(),
                 unit_table: 10,
@@ -501,7 +501,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "聚丙烯".to_string(),
+            "PP".to_string(),
             CodePreset {
                 name: "聚丙烯".to_string(),
                 unit_table: 5,
@@ -516,7 +516,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "聚氯乙烯".to_string(),
+            "V".to_string(),
             CodePreset {
                 name: "聚氯乙烯".to_string(),
                 unit_table: 5,
@@ -531,7 +531,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "豆油".to_string(),
+            "Y".to_string(),
             CodePreset {
                 name: "豆油".to_string(),
                 unit_table: 10,
@@ -546,7 +546,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "鲜苹果".to_string(),
+            "AP".to_string(),
             CodePreset {
                 name: "鲜苹果".to_string(),
                 unit_table: 10,
@@ -561,7 +561,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "一号棉花".to_string(),
+            "CF".to_string(),
             CodePreset {
                 name: "一号棉花".to_string(),
                 unit_table: 5,
@@ -576,7 +576,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "棉纱".to_string(),
+            "CY".to_string(),
             CodePreset {
                 name: "棉纱".to_string(),
                 unit_table: 5,
@@ -591,7 +591,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "玻璃".to_string(),
+            "FG".to_string(),
             CodePreset {
                 name: "玻璃".to_string(),
                 unit_table: 20,
@@ -606,7 +606,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "粳稻".to_string(),
+            "JR".to_string(),
             CodePreset {
                 name: "粳稻".to_string(),
                 unit_table: 20,
@@ -621,7 +621,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "晚籼稻".to_string(),
+            "LR".to_string(),
             CodePreset {
                 name: "晚籼稻".to_string(),
                 unit_table: 20,
@@ -636,7 +636,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "甲醇MA".to_string(),
+            "MA".to_string(),
             CodePreset {
                 name: "甲醇MA".to_string(),
                 unit_table: 10,
@@ -651,7 +651,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "菜籽油".to_string(),
+            "OI".to_string(),
             CodePreset {
                 name: "菜籽油".to_string(),
                 unit_table: 10,
@@ -666,7 +666,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "普通小麦".to_string(),
+            "PM".to_string(),
             CodePreset {
                 name: "普通小麦".to_string(),
                 unit_table: 50,
@@ -681,7 +681,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "早籼".to_string(),
+            "RI".to_string(),
             CodePreset {
                 name: "早籼".to_string(),
                 unit_table: 20,
@@ -696,7 +696,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "菜籽粕".to_string(),
+            "RM".to_string(),
             CodePreset {
                 name: "菜籽粕".to_string(),
                 unit_table: 10,
@@ -711,7 +711,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "油菜籽".to_string(),
+            "RS".to_string(),
             CodePreset {
                 name: "油菜籽".to_string(),
                 unit_table: 10,
@@ -726,7 +726,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "硅铁".to_string(),
+            "SF".to_string(),
             CodePreset {
                 name: "硅铁".to_string(),
                 unit_table: 5,
@@ -741,7 +741,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "锰硅".to_string(),
+            "SM".to_string(),
             CodePreset {
                 name: "锰硅".to_string(),
                 unit_table: 5,
@@ -756,7 +756,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "白砂糖".to_string(),
+            "SR".to_string(),
             CodePreset {
                 name: "白砂糖".to_string(),
                 unit_table: 10,
@@ -771,7 +771,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "精对苯二甲酸".to_string(),
+            "TA".to_string(),
             CodePreset {
                 name: "精对苯二甲酸".to_string(),
                 unit_table: 5,
@@ -786,7 +786,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "优质强筋小麦".to_string(),
+            "WH".to_string(),
             CodePreset {
                 name: "优质强筋小麦".to_string(),
                 unit_table: 20,
@@ -801,7 +801,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "动力煤ZC".to_string(),
+            "ZC".to_string(),
             CodePreset {
                 name: "动力煤ZC".to_string(),
                 unit_table: 100,
@@ -816,7 +816,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "原油".to_string(),
+            "SC".to_string(),
             CodePreset {
                 name: "原油".to_string(),
                 unit_table: 1000,
@@ -831,7 +831,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "苯乙烯".to_string(),
+            "EB".to_string(),
             CodePreset {
                 name: "苯乙烯".to_string(),
                 unit_table: 5,
@@ -846,7 +846,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "粳米".to_string(),
+            "RR".to_string(),
             CodePreset {
                 name: "粳米".to_string(),
                 unit_table: 10,
@@ -861,7 +861,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "20号胶".to_string(),
+            "NR".to_string(),
             CodePreset {
                 name: "20号胶".to_string(),
                 unit_table: 10,
@@ -876,7 +876,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "不锈钢".to_string(),
+            "SS".to_string(),
             CodePreset {
                 name: "不锈钢".to_string(),
                 unit_table: 5,
@@ -891,7 +891,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "纯碱".to_string(),
+            "SA".to_string(),
             CodePreset {
                 name: "纯碱".to_string(),
                 unit_table: 20,
@@ -906,7 +906,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "液化石油气".to_string(),
+            "PG".to_string(),
             CodePreset {
                 name: "液化石油气".to_string(),
                 unit_table: 20,
@@ -921,7 +921,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "低硫燃油".to_string(),
+            "LU".to_string(),
             CodePreset {
                 name: "低硫燃油".to_string(),
                 unit_table: 10,
@@ -936,7 +936,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "红枣".to_string(),
+            "CJ".to_string(),
             CodePreset {
                 name: "红枣".to_string(),
                 unit_table: 5,
@@ -951,7 +951,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "尿素".to_string(),
+            "UR".to_string(),
             CodePreset {
                 name: "尿素".to_string(),
                 unit_table: 20,
@@ -966,7 +966,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "中证500指数".to_string(),
+            "IC".to_string(),
             CodePreset {
                 name: "中证500指数".to_string(),
                 unit_table: 200,
@@ -981,7 +981,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "沪深300指数".to_string(),
+            "IF".to_string(),
             CodePreset {
                 name: "沪深300指数".to_string(),
                 unit_table: 300,
@@ -996,7 +996,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "上证50指数".to_string(),
+            "IH".to_string(),
             CodePreset {
                 name: "上证50指数".to_string(),
                 unit_table: 300,
@@ -1011,7 +1011,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "10年期国债".to_string(),
+            "T".to_string(),
             CodePreset {
                 name: "10年期国债".to_string(),
                 unit_table: 1000000,
@@ -1026,7 +1026,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "5年期国债".to_string(),
+            "TF".to_string(),
             CodePreset {
                 name: "5年期国债".to_string(),
                 unit_table: 10000,
@@ -1041,7 +1041,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "2年期国债".to_string(),
+            "TS".to_string(),
             CodePreset {
                 name: "2年期国债".to_string(),
                 unit_table: 20000,
@@ -1056,7 +1056,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "火币Pro".to_string(),
+            "HU".to_string(),
             CodePreset {
                 name: "火币Pro".to_string(),
                 unit_table: 1,
@@ -1071,7 +1071,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "OKEx".to_string(),
+            "OK".to_string(),
             CodePreset {
                 name: "OKEx".to_string(),
                 unit_table: 1,
@@ -1086,7 +1086,7 @@ impl MarketPreset {
             },
         );
         market_preset.insert(
-            "Bianace".to_string(),
+            "BI".to_string(),
             CodePreset {
                 name: "Bianace".to_string(),
                 unit_table: 1,
@@ -1100,6 +1100,7 @@ impl MarketPreset {
                 commission_coeff_today_pervol: 0.0,
             },
         );
+
         MarketPreset {
             preset: market_preset,
         }
