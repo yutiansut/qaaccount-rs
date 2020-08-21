@@ -1128,7 +1128,7 @@ impl MarketPreset {
             if self.preset.contains_key(&codename[0..lens - 2]) {
                 preset = self
                     .preset
-                    .get_mut(&codename[0..lens - 2])
+                    .get(&codename[0..lens - 2])
                     .unwrap()
                     .to_owned();
             }
@@ -1138,7 +1138,7 @@ impl MarketPreset {
                 let codename = rcode.unwrap().as_str().to_uppercase();
 
                 if self.preset.contains_key(&codename) {
-                    preset = self.preset.get_mut(&codename).unwrap().to_owned();
+                    preset = self.preset.get(&codename).unwrap().to_owned();
                 }
             }
         }
