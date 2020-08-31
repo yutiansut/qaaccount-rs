@@ -19,6 +19,7 @@ use crate::qaposition::{QA_Frozen, QA_Postions};
 use crate::trade_date::QATradeDate;
 use crate::transaction;
 use crate::transaction::QATransaction;
+
 #[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct QAAccountSlice {
     pub datetime: String,
@@ -128,7 +129,8 @@ pub struct QA_Account {
     pub dailyorders: BTreeMap<String, Order>,
     environment: String,
     event_id: i32,
-    commission_ratio: f64, // 手续费率
+    commission_ratio: f64,
+    // 手续费率
     tax_ratio: f64,        // tax for qaaccount
 }
 
@@ -586,28 +588,28 @@ impl QA_Account {
     /// order about
     /// buy| sell| buy_open| sell_open| buy_close| sell_close|
     /// send_order
-    pub fn buy(&mut self, code: &str, amount: f64, time: &str, price: f64)-> Result<QAOrder, ()> {
+    pub fn buy(&mut self, code: &str, amount: f64, time: &str, price: f64) -> Result<QAOrder, ()> {
         self.send_order(code, amount, time, 1, price, "BUY")
     }
-    pub fn sell(&mut self, code: &str, amount: f64, time: &str, price: f64)-> Result<QAOrder, ()> {
+    pub fn sell(&mut self, code: &str, amount: f64, time: &str, price: f64) -> Result<QAOrder, ()> {
         self.send_order(code, amount, time, -1, price, "SELL")
     }
-    pub fn buy_open(&mut self, code: &str, amount: f64, time: &str, price: f64)-> Result<QAOrder, ()> {
+    pub fn buy_open(&mut self, code: &str, amount: f64, time: &str, price: f64) -> Result<QAOrder, ()> {
         self.send_order(code, amount, time, 2, price, "BUY_OPEN")
     }
-    pub fn sell_open(&mut self, code: &str, amount: f64, time: &str, price: f64) -> Result<QAOrder, ()>{
+    pub fn sell_open(&mut self, code: &str, amount: f64, time: &str, price: f64) -> Result<QAOrder, ()> {
         self.send_order(code, amount, time, -2, price, "SELL_OPEN")
     }
-    pub fn buy_close(&mut self, code: &str, amount: f64, time: &str, price: f64)-> Result<QAOrder, ()> {
+    pub fn buy_close(&mut self, code: &str, amount: f64, time: &str, price: f64) -> Result<QAOrder, ()> {
         self.send_order(code, amount, time, 3, price, "BUY_CLOSE")
     }
-    pub fn sell_close(&mut self, code: &str, amount: f64, time: &str, price: f64)-> Result<QAOrder, ()> {
+    pub fn sell_close(&mut self, code: &str, amount: f64, time: &str, price: f64) -> Result<QAOrder, ()> {
         self.send_order(code, amount, time, -3, price, "SELL_CLOSE")
     }
-    pub fn buy_closetoday(&mut self, code: &str, amount: f64, time: &str, price: f64) -> Result<QAOrder, ()>{
+    pub fn buy_closetoday(&mut self, code: &str, amount: f64, time: &str, price: f64) -> Result<QAOrder, ()> {
         self.send_order(code, amount, time, 4, price, "BUY_CLOSETODAY")
     }
-    pub fn sell_closetoday(&mut self, code: &str, amount: f64, time: &str, price: f64) -> Result<QAOrder, ()>{
+    pub fn sell_closetoday(&mut self, code: &str, amount: f64, time: &str, price: f64) -> Result<QAOrder, ()> {
         self.send_order(code, amount, time, -4, price, "SELL_CLOSETODAY")
     }
     pub fn get_tradingday(&mut self) -> String {
@@ -624,8 +626,7 @@ impl QA_Account {
         order_id: String,
     ) -> bool {
         let mut res = false;
-        if self.hold.contains_key(code) {
-        } else {
+        if self.hold.contains_key(code) {} else {
             self.init_h(code);
         }
         let qapos = self.get_position(code).unwrap();
@@ -737,9 +738,9 @@ impl QA_Account {
         order_id: &str,
     ) -> Result<QAOrder, ()> {
         self.event_id += 1;
-        let datetimer = if time.len() ==10{
+        let datetimer = if time.len() == 10 {
             format!("{} 00:00:00", time.to_string())
-        }else{
+        } else {
             time.to_string()
         };
         let datetime = datetimer.as_str();
@@ -775,8 +776,6 @@ impl QA_Account {
                     );
                 }
                 "real" => {
-
-
                     let (direction, offset) = self.get_direction_or_offset(towards);
                     self.dailyorders.insert(
                         order_id.clone(),
@@ -840,6 +839,10 @@ impl QA_Account {
     pub fn change_datetime(&mut self, datetime: String) {
         // 用于切换时间
         self.time = datetime;
+    }
+
+    pub fn set_init_cash(&mut self, cash: f64) {
+        self.init_cash = cash;
     }
 
     /// 获取成交单方向信息的API， 支持股票与期货
@@ -942,11 +945,11 @@ impl QA_Account {
             self.money += frozen.money;
             self.frozen.remove(&order_id);
 
-        // self.frozen.insert(order_id.clone(), QA_Frozen {
-        //     amount: 0.0,
-        //     coeff: 0.0,
-        //     money: 0.0,
-        // });
+            // self.frozen.insert(order_id.clone(), QA_Frozen {
+            //     amount: 0.0,
+            //     coeff: 0.0,
+            //     money: 0.0,
+            // });
         } else {
             if towards == -1 | 1 | 2 | -2 {
                 println!("ERROR NO THAT ORDER {}", order_id)
@@ -1085,6 +1088,7 @@ mod tests {
         assert_eq!(acc.get_volume_long(code), 1000.0);
         acc.history_table();
     }
+
     #[test]
     fn test_realaccountmodel_for_stock() {
         println!("test buy open");
@@ -1104,6 +1108,7 @@ mod tests {
         println!("QIFI {:#?}", acc.get_qifi_slice());
         //acc.history_table();
     }
+
     #[test]
     fn test_sell_open() {
         println!("test sell open");
