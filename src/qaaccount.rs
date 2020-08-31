@@ -586,29 +586,29 @@ impl QA_Account {
     /// order about
     /// buy| sell| buy_open| sell_open| buy_close| sell_close|
     /// send_order
-    pub fn buy(&mut self, code: &str, amount: f64, time: &str, price: f64) {
-        self.send_order(code, amount, time, 1, price, "BUY");
+    pub fn buy(&mut self, code: &str, amount: f64, time: &str, price: f64)-> Result<QAOrder, ()> {
+        self.send_order(code, amount, time, 1, price, "BUY")
     }
-    pub fn sell(&mut self, code: &str, amount: f64, time: &str, price: f64) {
-        self.send_order(code, amount, time, -1, price, "SELL");
+    pub fn sell(&mut self, code: &str, amount: f64, time: &str, price: f64)-> Result<QAOrder, ()> {
+        self.send_order(code, amount, time, -1, price, "SELL")
     }
-    pub fn buy_open(&mut self, code: &str, amount: f64, time: &str, price: f64) {
-        self.send_order(code, amount, time, 2, price, "BUY_OPEN");
+    pub fn buy_open(&mut self, code: &str, amount: f64, time: &str, price: f64)-> Result<QAOrder, ()> {
+        self.send_order(code, amount, time, 2, price, "BUY_OPEN")
     }
-    pub fn sell_open(&mut self, code: &str, amount: f64, time: &str, price: f64) {
-        self.send_order(code, amount, time, -2, price, "SELL_OPEN");
+    pub fn sell_open(&mut self, code: &str, amount: f64, time: &str, price: f64) -> Result<QAOrder, ()>{
+        self.send_order(code, amount, time, -2, price, "SELL_OPEN")
     }
-    pub fn buy_close(&mut self, code: &str, amount: f64, time: &str, price: f64) {
-        self.send_order(code, amount, time, 3, price, "BUY_CLOSE");
+    pub fn buy_close(&mut self, code: &str, amount: f64, time: &str, price: f64)-> Result<QAOrder, ()> {
+        self.send_order(code, amount, time, 3, price, "BUY_CLOSE")
     }
-    pub fn sell_close(&mut self, code: &str, amount: f64, time: &str, price: f64) {
-        self.send_order(code, amount, time, -3, price, "SELL_CLOSE");
+    pub fn sell_close(&mut self, code: &str, amount: f64, time: &str, price: f64)-> Result<QAOrder, ()> {
+        self.send_order(code, amount, time, -3, price, "SELL_CLOSE")
     }
-    pub fn buy_closetoday(&mut self, code: &str, amount: f64, time: &str, price: f64) {
-        self.send_order(code, amount, time, 4, price, "BUY_CLOSETODAY");
+    pub fn buy_closetoday(&mut self, code: &str, amount: f64, time: &str, price: f64) -> Result<QAOrder, ()>{
+        self.send_order(code, amount, time, 4, price, "BUY_CLOSETODAY")
     }
-    pub fn sell_closetoday(&mut self, code: &str, amount: f64, time: &str, price: f64) {
-        self.send_order(code, amount, time, -4, price, "SELL_CLOSETODAY");
+    pub fn sell_closetoday(&mut self, code: &str, amount: f64, time: &str, price: f64) -> Result<QAOrder, ()>{
+        self.send_order(code, amount, time, -4, price, "SELL_CLOSETODAY")
     }
     pub fn get_tradingday(&mut self) -> String {
         let mut u = QATradeDate::new();
