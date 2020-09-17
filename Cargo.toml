@@ -23,6 +23,7 @@ num-traits = "0.2.6"
 rayon = "1.1" # 多线程
 ndarray = "0.13.0" # ndarray
 ndarray-csv = "0.4"
+log = "0.4"
 error-chain = "0.12.1"
 regex = "1"
 uuid = { version = "0.8", features = ["serde", "v1", "v4"] }

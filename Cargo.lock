@@ -1104,6 +1104,7 @@ dependencies = [
  "csv",
  "error-chain",
  "float-cmp",
+ "log",
  "ndarray",
  "ndarray-csv",
  "num 0.2.1",

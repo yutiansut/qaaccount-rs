@@ -11,7 +11,7 @@ use serde::{Deserialize, Serialize};
 use serde_json::to_string;
 use uuid::v1::{Context, Timestamp};
 use uuid::Uuid;
-
+use log::{info,error,warn};
 use crate::market_preset::{CodePreset, MarketPreset};
 use crate::qaorder::QAOrder;
 use crate::qaposition;
@@ -471,7 +471,7 @@ impl QA_Account {
     /// balance
     pub fn get_balance(&mut self) -> f64 {
         let fp = self.get_floatprofit();
-        //println!("{} {} {} {} {}", self.accounts.static_balance, self.accounts.deposit, self.accounts.withdraw, fp, self.accounts.close_profit);
+        //info!("{} {} {} {} {}", self.accounts.static_balance, self.accounts.deposit, self.accounts.withdraw, fp, self.accounts.close_profit);
         self.accounts.static_balance + self.accounts.deposit - self.accounts.withdraw
             + fp
             + self.accounts.close_profit
@@ -572,7 +572,7 @@ impl QA_Account {
 
     pub fn history_table(&self) {
         for item in self.history.iter() {
-            println!("{:?}", transaction::QATransaction::to_json(item));
+            info!("{:?}", transaction::QATransaction::to_json(item));
         }
     }
 
@@ -638,7 +638,7 @@ impl QA_Account {
                     qapos.volume_short_today -= amount;
                     res = true;
                 } else {
-                    println!("仓位不足");
+                    warn!("仓位不足");
                 }
             }
             4 => {
@@ -647,7 +647,7 @@ impl QA_Account {
                     qapos.volume_short_today -= amount;
                     res = true;
                 } else {
-                    println!("今日仓位不足");
+                    warn!("今日仓位不足");
                 }
             }
 
@@ -657,7 +657,7 @@ impl QA_Account {
                     qapos.volume_long_today -= amount;
                     res = true;
                 } else {
-                    println!("SELL CLOSE 仓位不足");
+                    warn!("SELL CLOSE 仓位不足");
                 }
             }
 
@@ -667,7 +667,7 @@ impl QA_Account {
                     qapos.volume_long_today -= amount;
                     res = true;
                 } else {
-                    println!("SELL CLOSE 仓位不足");
+                    warn!("SELL CLOSE 仓位不足");
                 }
             }
 
@@ -677,7 +677,7 @@ impl QA_Account {
                     qapos.volume_long_today -= amount;
                     res = true;
                 } else {
-                    println!("SELL CLOSETODAY 仓位不足");
+                    warn!("SELL CLOSETODAY 仓位不足");
                 }
             }
 
@@ -702,8 +702,7 @@ impl QA_Account {
 
                     res = true
                 } else {
-                    println!("当前可用money {:#?}, 需要冻结 {:#?}", self.money, frozen);
-                    println!("余额不足");
+                    warn!("余额不足,当前可用money {:#?}, 需要冻结 {:#?}", self.money, frozen);
                 }
             }
             _ => {}
@@ -879,7 +878,7 @@ impl QA_Account {
             self.frozen.remove(&order_id);
         } else {
             if towards == -1 | 1 | 2 | -2 {
-                println!("NOT IN DAY ORDER {}", order_id)
+                error!("NOT IN DAY ORDER {}", order_id)
             }
         }
         let qapos = self.get_position(code.as_ref()).unwrap();
@@ -952,7 +951,7 @@ impl QA_Account {
             // });
         } else {
             if towards == -1 | 1 | 2 | -2 {
-                println!("ERROR NO THAT ORDER {}", order_id)
+                error!("ERROR NO THAT ORDER {}", order_id)
             }
         }
 
