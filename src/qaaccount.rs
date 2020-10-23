@@ -364,33 +364,19 @@ impl QA_Account {
         }
 
         QIFI {
-            databaseip: "".to_string(),
             account_cookie: self.account_cookie.clone(),
-            password: "".to_string(),
             portfolio: self.portfolio_cookie.clone(),
             broker_name: "QASIM".to_string(),
-            capital_password: "".to_string(),
-            bank_password: "".to_string(),
-            bankid: "".to_string(),
-            investor_name: "".to_string(),
             money: self.money.clone(),
-            pub_host: "".to_string(),
-            settlement: Default::default(),
-            taskid: "".to_string(),
-            trade_host: "".to_string(),
             updatetime: self.time.clone(),
-            wsuri: "".to_string(),
             bankname: "QASIM".to_string(),
             trading_day: self.get_tradingday(),
             status: 200,
             accounts: self.get_accountmessage(),
-            banks: Default::default(),
-            event: Default::default(),
             orders: self.dailyorders.clone(),
             positions: pos,
             trades: self.dailytrades.clone(),
-            transfers: Default::default(),
-            ping_gap: 0,
+            ..QIFI::default()
         }
     }
 
