@@ -14,8 +14,7 @@ categories = ["science", "algorithms"]
 homepage = "https://github.com/yutiansut"
 repository = "https://github.com/yutiansut/quantaxis-rs"
 documentation = "https://docs.rs/quantaxis-rs/"
-categories = ["science", "algorithms"]
-
+license = "MIT OR Apache-2.0"
 
 [dependencies]
 serde_json = "1.0.61"
