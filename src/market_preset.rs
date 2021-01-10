@@ -1100,7 +1100,51 @@ impl MarketPreset {
                 commission_coeff_today_pervol: 0.0,
             },
         );
-
+        market_preset.insert(
+            "BC".to_string(),
+            CodePreset {
+                name: "国际铜".to_string(),
+                unit_table: 5,
+                price_tick: 10,
+                buy_frozen_coeff: 0.05,
+                sell_frozen_coeff:0.05,
+                exchange: "INE".to_string(),
+                commission_coeff_peramount: 0.0001, 
+                commission_coeff_pervol:0.0,
+                commission_coeff_today_peramount: 0.0001,
+                commission_coeff_today_pervol: 0.0,
+            },
+        );
+        market_preset.insert(
+            "PF".to_string(),
+            CodePreset {
+                name: "涤纶短纤".to_string(),
+                unit_table: 5,
+                price_tick: 2,
+                buy_frozen_coeff: 0.05,
+                sell_frozen_coeff:0.05,
+                exchange: "CZCE".to_string(),
+                commission_coeff_peramount: 0.0, 
+                commission_coeff_pervol: 3.0,
+                commission_coeff_today_peramount: 0.0,
+                commission_coeff_today_pervol: 3.0,
+            },
+        );
+        market_preset.insert(
+            "LH".to_string(),
+            CodePreset {
+                name: "生猪".to_string(),
+                unit_table: 16,
+                price_tick: 5,
+                buy_frozen_coeff: 0.05,
+                sell_frozen_coeff:0.05,
+                exchange: "DCE".to_string(),
+                commission_coeff_peramount: 0.0, 
+                commission_coeff_pervol: 3.0,
+                commission_coeff_today_peramount: 0.0,
+                commission_coeff_today_pervol: 3.0,
+            },
+        );
         MarketPreset {
             preset: market_preset,
         }
