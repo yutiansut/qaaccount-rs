@@ -1105,7 +1105,7 @@ impl MarketPreset {
             CodePreset {
                 name: "国际铜".to_string(),
                 unit_table: 5,
-                price_tick: 10,
+                price_tick: 10.0,
                 buy_frozen_coeff: 0.05,
                 sell_frozen_coeff:0.05,
                 exchange: "INE".to_string(),
@@ -1120,7 +1120,7 @@ impl MarketPreset {
             CodePreset {
                 name: "涤纶短纤".to_string(),
                 unit_table: 5,
-                price_tick: 2,
+                price_tick: 2.0,
                 buy_frozen_coeff: 0.05,
                 sell_frozen_coeff:0.05,
                 exchange: "CZCE".to_string(),
@@ -1135,7 +1135,7 @@ impl MarketPreset {
             CodePreset {
                 name: "生猪".to_string(),
                 unit_table: 16,
-                price_tick: 5,
+                price_tick: 5.0,
                 buy_frozen_coeff: 0.05,
                 sell_frozen_coeff:0.05,
                 exchange: "DCE".to_string(),
