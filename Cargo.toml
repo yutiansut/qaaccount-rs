@@ -1,6 +1,6 @@
 [package]
 name = "quantaxis-rs"
-version = "0.3.2"
+version = "0.3.3"
 description = 'quantaxis in rust'
 authors = ["yutiansut <yutiansut@qq.com>"]
 edition = "2018"
@@ -32,7 +32,6 @@ error-chain = "0.12.1"
 regex = "1"
 uuid = { version = "0.8", features = ["serde", "v1", "v4"] }
 float-cmp = "0.4.0"
-assert_approx_eq = "1.0.0"
 bencher = "0.1.5"
 rand = "0.6.5"
 qifi-rs ="0.3.0"
