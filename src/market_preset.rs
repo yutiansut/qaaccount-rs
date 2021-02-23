@@ -1014,7 +1014,7 @@ impl MarketPreset {
             "T".to_string(),
             CodePreset {
                 name: "10年期国债".to_string(),
-                unit_table: 1000000,
+                unit_table: 10000,
                 price_tick: 0.005,
                 buy_frozen_coeff: 0.02,
                 sell_frozen_coeff:0.02,
