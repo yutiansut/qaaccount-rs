@@ -3,50 +3,7 @@ use std::fmt;
 use crate::helpers::max3;
 use crate::{Close, High, Low, Next, Reset, Update};
 
-/// The range of a day's trading is simply _high_ - _low_.
-/// The true range extends it to yesterday's closing price if it was outside of today's range.
-///
-/// The true range is the largest of one the following:
-///
-/// * Most recent period's high minus the most recent period's low
-/// * Absolute value of the most recent period's high minus the previous close
-/// * Absolute value of the most recent period's low minus the previous close
-///
-/// # Formula
-///
-/// TR = max[(high - low), abs(high - close<sub>prev</sub>), abs(low - close<sub>prev</sub>)]
-///
-/// # Example
-///
-/// ```
-/// extern crate quantaxis_rs;
-/// #[macro_use] extern crate assert_approx_eq;
-///
-/// use quantaxis_rs::{Next, DataItem};
-/// use quantaxis_rs::indicators::TrueRange;
-///
-/// fn main() {
-///     let data = vec![
-///         // open, high, low, close, tr
-///         (9.7   , 10.0, 9.0, 9.5  , 1.0),  // tr = high - low = 10.0 - 9.0 = 1.0
-///         (9.9   , 10.4, 9.8, 10.2 , 0.9),  // tr = high - prev_close = 10.4 - 9.5 = 0.9
-///         (10.1  , 10.7, 9.4, 9.7  , 1.3),  // tr = high - low = 10.7 - 9.4 = 1.3
-///         (9.1   , 9.2 , 8.1, 8.4  , 1.6),  // tr = prev_close - low = 9.7 - 8.1 = 1.6
-///     ];
-///     let mut indicator = TrueRange::new();
-///
-///     for (open, high, low, close, tr) in data {
-///         let di = DataItem::builder()
-///             .high(high)
-///             .low(low)
-///             .close(close)
-///             .open(open)
-///             .volume(1000.0)
-///             .build().unwrap();
-///         assert_approx_eq!(indicator.next(&di), tr);
-///     }
-/// }
-/// ```
+
 #[derive(Debug, Clone)]
 pub struct TrueRange {
 
