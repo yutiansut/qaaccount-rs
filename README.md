@@ -1,5 +1,6 @@
 # QUANTAXIS-RS 这是你没有见过的QUANTAXIS的全新版本
 
+本项目已经迁移至 QUANTAXIS 主项目中  :  github.com/quantaxis/quantaxis
 
 ![Rust](https://github.com/yutiansut/quantaxis-rs/workflows/Rust/badge.svg)
 
